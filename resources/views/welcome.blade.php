@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="/images/gli-logo.png" alt="GLI Group Inc.">
+                    <img src="{{ assets('/images/gli-logo.png')" alt="GLI Group Inc.">
                 </div>
 
                 <div class="title m-b-md">
