@@ -1,0 +1,12 @@
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+# Allow Installatron requests
+RewriteCond %{REQUEST_FILENAME} deleteme\.\w+\.php
+RewriteRule (.*) - [L] 
+
+RewriteRule ^ index.php [L]
+RewriteCond %{HTTP_HOST} ^gligroupinc\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.gligroupinc\.com$
+RewriteRule ^/?$ "http\:\/\/www\.gligroupinc\.com\/blog\/" [R=301,L]
+
