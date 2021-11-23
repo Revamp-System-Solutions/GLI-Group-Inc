@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="{{ url('/images/gli-logo.png')}}" alt="GLI Group Inc." style="width:20%">
+                    <img src="{{ url('public/images/gli-logo.png')}}" 
+alt="GLI Group Inc." style="width:20%">
                 </div>
 
                 <div class="title m-b-md">
