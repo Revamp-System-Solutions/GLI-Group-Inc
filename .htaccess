@@ -1,11 +1,13 @@
-Options +SymLinksIfOwnerMatch
+<IfModule mod_rewrite.c>
+# That was ONLY to protect you from 500 errors
+# if your server did not have mod_rewrite enabled
+
 RewriteEngine On
+# RewriteBase /
+# NOT needed unless you're using mod_alias to redirect
 
-# Allow Installatron requests
-RewriteCond %{REQUEST_FILENAME} deleteme\.\w+\.php
-RewriteRule (.*) - [L] 
+RewriteCond %{REQUEST_URI} !/public
+RewriteRule ^(.*)$ public/$1 [L]
+# Direct all requests to /public folder
 
-RewriteRule ^ index.php [L]
-RewriteCond %{HTTP_HOST} ^builders\.gligroupinc\.com$
-RewriteRule ^/?$ "https\:\/\/builders\.gligroupinc\.com\/\#builders" [R=301,L]
-
+</IfModule>

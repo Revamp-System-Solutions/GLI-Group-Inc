@@ -1,6 +1,0 @@
-
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^gligroupinc\.com$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.gligroupinc\.com$
-RewriteRule ^/?$ "http\:\/\/gligroupinc\.com\/blog\/" [R=301,L]
-
