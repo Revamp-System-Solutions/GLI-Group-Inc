@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +26,11 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('post', [PostsController::class, 'index'])->name('post');
+Route::get('admin', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
 
-Route::resource('admin', DashboardController::class);
+
+Route::resource('post', PostsController::class);
+Route::get('post', [PostsController::class, 'adminPost'])->name('adminPost');
 
 Route::resource('home', HomeController::class);
 

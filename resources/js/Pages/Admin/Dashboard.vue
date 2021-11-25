@@ -2,7 +2,7 @@
     <app-header></app-header>
     <div  class=" mx-auto ">
                     <errors-and-messages :errors="errors"></errors-and-messages>
-
+        DASHBOARD HERE
     </div>
 
 </template>
@@ -15,7 +15,7 @@ import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";
 
 export default {
-    name: "Dashboard",
+    name: "Admin",
     components: {
         ErrorsAndMessages,
         AppHeader

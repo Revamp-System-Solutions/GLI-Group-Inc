@@ -12,7 +12,7 @@ import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";
 export default {
-    name: "Posts",
+    name: "Home",
     components: {
         ErrorsAndMessages,
         AppHeader

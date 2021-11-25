@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Update Post</h2>
+                <h2 class="text-left">Create Post</h2>
 
                 <errors-and-messages :errors="errors"></errors-and-messages>
 
@@ -20,25 +20,24 @@
 
                 <div class="form-group">
                     <label for="image">Image</label>
-                    <img :src="image_url" width="100" height="90" v-if="image_url" />
                     <input type="file" id="image" name="image" class="form-control" @change="selectFile">
                 </div>
 
-                <input type="submit" class="btn btn-primary btn-block" value="Update" />
+                <input type="submit" class="btn btn-primary btn-block" value="Save" />
             </form>
         </div>
     </div>
 </template>
 
 <script>
-import AppHeader from "../../Partials/AppHeader";
+import AppHeader from "./../../../Partials/AppHeader";
+import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {inject, reactive} from "vue";
 import {Inertia} from "@inertiajs/inertia";
-import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "Edit",
+    name: "Create",
     components: {
         ErrorsAndMessages,
         AppHeader
@@ -51,14 +50,8 @@ export default {
             title: null,
             content: null,
             image: null,
-            _token: usePage().props.value.csrf_token,
-            _method: "PUT"
+            _token: usePage().props.value.csrf_token
         });
-
-        // retrieve post prop
-        const {title, content, image_url, id } = usePage().props.value.post;
-        form.title = title;
-        form.content = content;
 
         const route = inject('$route');
 
@@ -67,13 +60,13 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('post.update', {'id': id}), form, {
+            Inertia.post(route('post.store'), form, {
                 forceFormData: true
             });
         }
 
         return {
-            form, submit, selectFile, image_url
+            form, submit, selectFile
         }
     }
 }

@@ -3,7 +3,7 @@
     <div  class=" mx-auto ">
             <div class="grid lg:grid-cols-4 lg:gap-3 px-4" >
                
-                   
+                   admin
 
                     <errors-and-messages :errors="errors"></errors-and-messages>
 
@@ -52,8 +52,8 @@
 </template>
 
 <script>
-import AppHeader from "../../Partials/AppHeader";
-import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
+import AppHeader from "./../../../Partials/AppHeader";
+import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";
