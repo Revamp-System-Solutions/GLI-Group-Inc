@@ -7,18 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class PostsController extends Controller
+class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth")->except(["index"]);
+        $this->middleware("auth");
     }
 
     public function index()
     {
-        return Inertia::render('BlogPost', [
-            "posts" => Post::orderBy('id', 'DESC')->paginate(10)
-        ]);
+        return Inertia::render('Admin/Index');
     }
 
 }

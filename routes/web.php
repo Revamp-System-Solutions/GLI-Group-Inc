@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,10 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::resource('post', PostsController::class);
+Route::get('post', [PostsController::class, 'index'])->name('post');
 
-Route::redirect('/', 'post');
+Route::resource('admin', DashboardController::class);
+
+Route::resource('home', HomeController::class);
+
+Route::redirect('/', 'home');
