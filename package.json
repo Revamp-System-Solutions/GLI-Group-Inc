@@ -15,7 +15,8 @@
         "browser-sync": "^2.27.7",
         "browser-sync-webpack-plugin": "^2.3.0",
         "copy-webpack-plugin": "^9.0.1",
-        "laravel-mix": "^6.0.6",
+        "css-loader": "^6.5.1",
+        "laravel-mix": "^6.0.39",
         "lodash": "^4.17.19",
         "postcss": "^8.3.11",
         "tailwindcss": "^2.2.19"
@@ -24,9 +25,11 @@
         "@inertiajs/inertia": "^0.9.0",
         "@inertiajs/inertia-vue3": "^0.4.0",
         "@inertiajs/progress": "^0.2.5",
+        "@popperjs/core": "2.9.1",
         "@vue/compiler-sfc": "^3.0.11",
         "vue": "^3.0.11",
         "vue-loader": "^16.2.0",
+        "vue3-click-away": "^1.2.1",
         "ziggy-js": "^1.4.2"
     }
 }

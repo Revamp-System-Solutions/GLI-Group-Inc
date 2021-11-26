@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-    <div  class=" mx-auto ">
+    <div  class=" mx-auto h-full">
             <div class="grid lg:grid-cols-4 lg:gap-3 px-4" >
                
                    
@@ -17,8 +17,7 @@
                                             {{ post.content }}
                                         </p>
                                     </article>
-                                    <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
-                                    <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="deletePost(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
+                 
                                 </div>
                         
                         <!-- Pagination links-->
@@ -48,11 +47,12 @@
             </nav>
             
     </div>
-
+    <app-footer></app-footer>
 </template>
 
 <script>
 import AppHeader from "../Partials/AppHeader";
+import AppFooter from "../Partials/AppFooter";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
@@ -62,7 +62,8 @@ export default {
     name: "Home",
     components: {
         ErrorsAndMessages,
-        AppHeader
+        AppHeader,
+        AppFooter
     },
     props: {
         errors: Object

@@ -23,6 +23,9 @@ Route::redirect('/', 'home');
 
 // Route::resource('home', GuestController::class);
 Route::get('home', [GuestController::class, 'index'])->name('guest.index');
+Route::get('home#designstudio', [GuestController::class, 'index'])->name('guest.studio');
+Route::get('home#modularcabinets', [GuestController::class, 'index'])->name('guest.modcabinet');
+Route::get('home#builders', [GuestController::class, 'index'])->name('guest.builders');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
 Route::get('contact', [GuestController::class, 'showContactPage'])->name('guest.contact');
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');

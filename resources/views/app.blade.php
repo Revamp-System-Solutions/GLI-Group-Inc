@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Justice League Archive</title>
+    <title>GLI Group Inc.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta charset="UTF-8" />
 
@@ -20,7 +20,7 @@
     <script src="{{ asset('/js/app.js') }}" defer></script>
 </head>
 <body class="">
-    <div >
+    <div class="flex flex-col h-screen justify-between">
         @inertia
     </div>
 </body>

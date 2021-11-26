@@ -1,36 +1,65 @@
 <template>
-    
-
-        <nav class="flex items-center justify-between flex-wrap py-6 px-6 w-full z-10 pin-t bg-white shadow-lg ">
-		<div class="flex items-center flex-no-shrink text-black mr-6">
-			<a class="text-black no-underline hover:no-underline" href="#">
-				<img src="/images/gli-logo.png" style="display:inline" class="mx-6m lg:w-32 md:w-32 sm:w-32 w-16 ">
+    <nav class="flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white  shadow-lg ">
+		<div class="flex items-center flex-no-shrink text-black lg:ml-6">
+			<a class="lg:flex lg:items-center text-black no-underline hover:no-underline" href="#">
+				<img src="/images/gli-logo-no-text.png" class="mx-auto lg:w-24 w-12 lg:inline block">
+				<span class="mx-6 w-full text-center lg:text-4xl text-base uppercase">
+					<span class="font-semibold">GLI</span><span class="text-green-600 font-light">Group Inc.</span>
+				</span>
 			</a>
 		</div>
 
 		<div class="block lg:hidden">
-			<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-grey border-grey-dark hover:text-white hover:border-white">
-				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+			<button @click.prevent="menuOpen=!menuOpen" class="flex items-center px-4 py-2 border rounded text-grey border-grey-dark ">
+				<i class="fas " :class="{'fa-bars': !menuOpen, 'fa-times': menuOpen}"></i> 
+						
 			</button>
 		</div>
 
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
 				<li class="mx-6 ">
-					 <inertia-link :href="$route('guest.index') " class="nav-link">Home</inertia-link>
+					 <inertia-link :href="$route('guest.index') " class="nav-link hover:text-green-600">Home</inertia-link>
 				</li>
-				
+				<li class="mx-6 " >
+					 <div class="relative inline-flex align-middle w-full" v-click-away="onClickAway">
+						<a class="nav-link hover:text-green-600" type="button" @click.prevent="toggleDropdown()"  id="btnDropdownRef" ref="btnDropdownRef" >
+						 	Services
+						</a>
+						<div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" ref="popoverDropdownRef">
+							<a v-if="!switchInertia" href="#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Design Studio
+							</a>
+							
+							<a v-if="!switchInertia" href="#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Modular Cabinets
+							</a>
+							<a v-if="!switchInertia" href="#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Builders
+							</a>
+							<inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Design Studio
+							</inertia-link>
+							<inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Modular Cabinets
+							</inertia-link>
+							<inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Builders
+							</inertia-link>
+						</div>
+					</div> 
+				</li>
                 <li class="mx-6">
-					 <inertia-link :href="$route('guest.blog')" class="nav-link">Blog</inertia-link>
+					 <inertia-link :href="$route('guest.blog')" class="nav-link hover:text-green-600">Blog</inertia-link>
 				</li>
 				<li class="mx-6">
-					 <inertia-link :href="$route('guest.portfolio')" class="nav-link">Portfolio</inertia-link>
+					 <inertia-link :href="$route('guest.portfolio')" class="nav-link hover:text-green-600">Portfolio</inertia-link>
 				</li>
 				<li class="mx-6">
-					 <inertia-link :href="$route('guest.about')" class="nav-link">About</inertia-link>
+					 <inertia-link :href="$route('guest.about')" class="nav-link hover:text-green-600">About</inertia-link>
 				</li>
 				<li class="mx-6">
-					 <inertia-link :href="$route('guest.contact')" class="nav-link">Contact</inertia-link>
+					 <inertia-link :href="$route('guest.contact')" class="nav-link hover:text-green-600">Contact</inertia-link>
 				</li>
                 <li class="mx-6" v-if="user">
                     <span  class="nav-link" v-if="user">
@@ -48,20 +77,46 @@
 <script>
 import {computed} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
-
+import { createPopper } from "@popperjs/core";
+import { directive } from "vue3-click-away";
 export default {
     name: "AppHeader",
+	directives: {
+    	ClickAway: directive
+  	},
+	 data: () => ({
+    	dropdownPopoverShow: false,
+		switchInertia: false,
+		menuOpen: false,
+  	}),
     setup() {
         const user = computed(() => usePage().props.value.auth.user);
-
-        return {
-            user
-        }
+		
+		return {
+				user
+			}
     },
     mounted() {
-        document.getElementById('nav-toggle').onclick = function(){
-			document.getElementById("nav-content").classList.toggle("hidden");
-        }
-    }
+		if(window.location.pathname !== "/home"){
+			this.switchInertia = true
+		}
+		
+    },
+	 methods: {
+    toggleDropdown: function(){
+      if(this.dropdownPopoverShow){
+        this.dropdownPopoverShow = false;
+      } else {
+        this.dropdownPopoverShow = true;
+        createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
+          placement: "bottom-start"
+        });
+      }
+    },
+	onClickAway: function(){
+		this.dropdownPopoverShow = false;
+	}
+
+  }
 }
 </script>
