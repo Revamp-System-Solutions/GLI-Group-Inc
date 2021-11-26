@@ -11,6 +11,15 @@ use Inertia\Inertia;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth")->except(["index"]);
+    }
+
+    public function index()
+    {
+       
+    }
     public function showRegisterForm()
     {
         return Inertia::render('Auth/Register');

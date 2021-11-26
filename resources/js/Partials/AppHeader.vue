@@ -1,10 +1,10 @@
 <template>
     
 
-        <nav class="flex items-center justify-between flex-wrap p-6 w-full z-10 pin-t bg-gray-700">
-		<div class="flex items-center flex-no-shrink text-white mr-6">
-			<a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-				<span class="text-2xl pl-2"><img src="/images/jl-logo.png" style="display:inline" class="mx-auto w-5 "> Justice League</span>
+        <nav class="flex items-center justify-between flex-wrap py-6 px-6 w-full z-10 pin-t bg-white shadow-lg ">
+		<div class="flex items-center flex-no-shrink text-black mr-6">
+			<a class="text-black no-underline hover:no-underline" href="#">
+				<img src="/images/gli-logo.png" style="display:inline" class="mx-6m lg:w-32 md:w-32 sm:w-32 w-16 ">
 			</a>
 		</div>
 
@@ -16,22 +16,23 @@
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
-				<li class="mr-3">
-					 <inertia-link :href="$route('home.index')" class="nav-link">Home</inertia-link>
+				<li class="mx-6 ">
+					 <inertia-link :href="$route('guest.index') " class="nav-link">Home</inertia-link>
 				</li>
-                <li class="mr-3">
-					 <inertia-link :href="$route('adminPost')" class="nav-link">Post</inertia-link>
+				
+                <li class="mx-6">
+					 <inertia-link :href="$route('guest.blog')" class="nav-link">Blog</inertia-link>
 				</li>
-				<li class="mr-3">
-					 <inertia-link :href="$route('post.create')" class="nav-link">Create Post</inertia-link>
+				<li class="mx-6">
+					 <inertia-link :href="$route('guest.portfolio')" class="nav-link">Portfolio</inertia-link>
 				</li>
-				 <li class="mr-3" v-if="!user">
-                        <inertia-link :href="$route('showLoginForm')" class="nav-link">Login</inertia-link>
-                </li>
-                <li class="mr-3" v-if="!user">
-                    <inertia-link :href="$route('showRegisterForm')" class="nav-link">Register</inertia-link>
-                </li>
-                <li class="mr-3" v-if="user">
+				<li class="mx-6">
+					 <inertia-link :href="$route('guest.about')" class="nav-link">About</inertia-link>
+				</li>
+				<li class="mx-6">
+					 <inertia-link :href="$route('guest.contact')" class="nav-link">Contact</inertia-link>
+				</li>
+                <li class="mx-6" v-if="user">
                     <span  class="nav-link" v-if="user">
                        {{user.name}}
                   

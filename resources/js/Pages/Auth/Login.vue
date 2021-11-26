@@ -1,5 +1,5 @@
 <template>
-       <inertia-link :href="$route('post.index')" class="nav-link"><i class="fas fa-arrow-left"></i> Home</inertia-link>
+       <inertia-link :href="$route('guest.index')" class="nav-link"><i class="fas fa-arrow-left"></i> Home</inertia-link>
         <div class=" m-auto w-screen md:w-4/12 overflow-y-hidden">
             <div >
                 <form method="post" @submit.prevent="submit" class="border-2 border-white  bg-gray-700 p-6 m-2 rounded-sm">

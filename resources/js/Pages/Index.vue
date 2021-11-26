@@ -1,7 +1,7 @@
 <template>
     <app-header></app-header>
     <div  class=" mx-auto ">
-        Boss idol regie
+        landing page
     </div>
 </template>
 

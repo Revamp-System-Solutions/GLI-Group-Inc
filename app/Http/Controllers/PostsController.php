@@ -80,8 +80,11 @@ class PostsController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        Post::find($id)->delete();
 
+        $post = Post::find($id);
+        $image_path = public_path('uploads').'/'.$post->image;
+        unlink($image_path);
+        $post->delete();
         $request->session()->flash('success', 'Post deleted successfully!');
 
         return redirect()->route('adminPost');
