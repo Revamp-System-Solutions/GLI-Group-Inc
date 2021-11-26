@@ -9,7 +9,7 @@
 			</a>
 		</div>
 
-		<div class="block lg:hidden">
+		<div class="block lg:hidden" v-click-away="onClickAwayMenu">
 			<button @click.prevent="menuOpen=!menuOpen" class="flex items-center px-4 py-2 border rounded text-grey border-grey-dark ">
 				<i class="fas " :class="{'fa-bars': !menuOpen, 'fa-times': menuOpen}"></i> 
 						
@@ -115,6 +115,9 @@ export default {
     },
 	onClickAway: function(){
 		this.dropdownPopoverShow = false;
+	},
+	onClickAwayMenu: function(){
+		this.menuOpen = false;
 	}
 
   }

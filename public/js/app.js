@@ -22849,6 +22849,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     onClickAway: function onClickAway() {
       this.dropdownPopoverShow = false;
+    },
+    onClickAwayMenu: function onClickAwayMenu() {
+      this.menuOpen = false;
     }
   }
 });
@@ -24034,7 +24037,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _directive_click_away = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("click-away");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return _ctx.menuOpen = !_ctx.menuOpen;
     }, ["prevent"])),
@@ -24046,7 +24049,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }])
   }, null, 2
   /* CLASS */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  )])], 512
+  /* NEED_PATCH */
+  ), [[_directive_click_away, $options.onClickAwayMenu]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block pt-6 lg:pt-0", {
       'hidden': !_ctx.menuOpen,
       'block': _ctx.menuOpen
