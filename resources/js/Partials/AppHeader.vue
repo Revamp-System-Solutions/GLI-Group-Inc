@@ -4,7 +4,7 @@
 			<a class="lg:flex lg:items-center text-black no-underline hover:no-underline" href="#">
 				<img src="/images/gli-logo-no-text.png" class="mx-auto lg:w-24 w-12 lg:inline block">
 				<span class="mx-6 w-full text-center lg:text-4xl text-base uppercase">
-					<span class="font-semibold">GLI</span><span class="text-green-600 font-light">Group Inc.</span>
+					<span class="font-semibold">GLI </span><span class="text-green-600 font-light">Group Inc.</span>
 				</span>
 			</a>
 		</div>

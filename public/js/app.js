@@ -23951,7 +23951,7 @@ var _hoisted_1 = {
   "class": "flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white shadow-lg"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center flex-no-shrink text-black lg:ml-6\"><a class=\"lg:flex lg:items-center text-black no-underline hover:no-underline\" href=\"#\"><img src=\"/images/gli-logo-no-text.png\" class=\"mx-auto lg:w-24 w-12 lg:inline block\"><span class=\"mx-6 w-full text-center lg:text-4xl text-base uppercase\"><span class=\"font-semibold\">GLI</span><span class=\"text-green-600 font-light\">Group Inc.</span></span></a></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center flex-no-shrink text-black lg:ml-6\"><a class=\"lg:flex lg:items-center text-black no-underline hover:no-underline\" href=\"#\"><img src=\"/images/gli-logo-no-text.png\" class=\"mx-auto lg:w-24 w-12 lg:inline block\"><span class=\"mx-6 w-full text-center lg:text-4xl text-base uppercase\"><span class=\"font-semibold\">GLI </span><span class=\"text-green-600 font-light\">Group Inc.</span></span></a></div>", 1);
 
 var _hoisted_3 = {
   "class": "block lg:hidden"
