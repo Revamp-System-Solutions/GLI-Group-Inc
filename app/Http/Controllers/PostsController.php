@@ -23,7 +23,7 @@ class PostsController extends Controller
     public function adminPost()
     {
         return Inertia::render('Admin/Posts/ShowPost', [
-            "posts" => Post::orderBy('id', 'DESC')->paginate(10)
+            "posts" => Post::orderBy('id', 'DESC')->paginate(15)
         ]);
     }
     public function create()

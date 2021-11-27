@@ -1,24 +1,27 @@
 <template>
-    <app-header></app-header>
-    <div  class=" mx-auto ">
-                    <errors-and-messages :errors="errors"></errors-and-messages>
-        DASHBOARD HERE
+    <div class="flex flex-row">
+        <app-sidebar></app-sidebar>
+        <div id="content-area" class="w-10/12 bg-gray-50">
+            <errors-and-messages :errors="errors"></errors-and-messages>
+            DASHBOARD HERE
+        </div>
     </div>
-
 </template>
 
 <script>
-import AppHeader from "../../Partials/AppHeader";
+import AppSidebar from "../../Partials/AppSidebar";
 import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
-import {usePage} from "@inertiajs/inertia-vue3";
-import {Inertia} from "@inertiajs/inertia";
-import {computed, inject} from "vue";
+// import {usePage} from "@inertiajs/inertia-vue3";
+// import {Inertia} from "@inertiajs/inertia";
+// import {computed, inject} from "vue";
+
+
 
 export default {
     name: "Admin",
     components: {
         ErrorsAndMessages,
-        AppHeader
+        AppSidebar
     },
     props: {
         errors: Object

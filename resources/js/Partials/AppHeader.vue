@@ -16,7 +16,7 @@
 			</button>
 		</div>
 
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content" >
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content" >
 			<ul class="brand-text font-semibold list-reset lg:flex justify-end flex-1 items-center uppercase">
 				<li class="mx-6 ">
 					 <inertia-link :href="$route('guest.index') " class="nav-link hover:text-green-600">Home</inertia-link>
@@ -61,13 +61,7 @@
 				<li class="mx-6">
 					 <inertia-link :href="$route('guest.contact')" class="nav-link hover:text-green-600">Contact</inertia-link>
 				</li>
-                <li class="mx-6" v-if="user">
-                    <span  class="nav-link" v-if="user">
-                       {{user.name}}
-                  
-                    <inertia-link :href="$route('logout')" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button"><i class="fas fa-sign-out-alt"></i></inertia-link>  
-                    </span>
-                </li>
+           
 			</ul>
 		</div>
 	</nav>
@@ -75,8 +69,6 @@
 </template>
 
 <script>
-import {computed} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
 import { createPopper } from "@popperjs/core";
 import { directive } from "vue3-click-away";
 export default {
@@ -89,13 +81,7 @@ export default {
 		switchInertia: false,
 		menuOpen: false,
   	}),
-    setup() {
-        const user = computed(() => usePage().props.value.auth.user);
-		
-		return {
-				user
-			}
-    },
+
     mounted() {
 		if(window.location.pathname !== "/home"){
 			this.switchInertia = true

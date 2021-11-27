@@ -2,13 +2,13 @@
     <ul class="alert alert-danger" v-if="errors && Object.keys(errors).length > 0">
         <li v-for="error in errors" :key="error">{{error}}</li>
     </ul>
-    <!-- <div class="alert alert-success" v-if="$page.props.flash.success">
-        {{$page.props.flash}}
-         {{$page.props.flash.success}}
-    </div> -->
-    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert"  v-if="$page.props.flash.success">
+
+    <div v-click-away="onClickAway" class="w-1/3 bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 absolute right-0" role="alert"  v-show="success">
         <p class="font-bold">{{$page.props.flash.success}}</p>
         <!-- <p class="text-sm">Some additional text to explain said message.</p> -->
+        <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" @click="$page.props.flash.success=''">
+            <i class="fa fa-times"></i>
+        </span>
     </div>
 </template>
 
@@ -16,6 +16,18 @@
 export default {
     name: "ErrorsAndMessages",
     props: ["errors"],
+    data: () => ({
+    	successState: false,
+  	}),
+    computed:{
+        success() {
+             return this.$page.props.flash.success;
+        },
+    },
+    methods:{
+      
+    },
+
     
 }
 </script>
