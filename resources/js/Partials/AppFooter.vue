@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer bg-white relative pt-1 " ondragstart="return false;" >
+    <footer class="footer bg-white relative pt-1 " ondragstart="return false;">
     <div class="container mx-auto px-6">
 
         <div class="flex mt-8 bg-gray">
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="container mx-auto px-6">
-        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+        <div class="mt-8 border-t-2 border-gray-100 flex flex-col items-center">
             <div class="w-full text-center py-6 relative">
                 <p class="text-sm text-gray-400 font-bold mb-2 uppercase">
                     © {{ new Date().getFullYear() }} | GLI Group Inc. 

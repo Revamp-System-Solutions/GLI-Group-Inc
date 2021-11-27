@@ -9,14 +9,14 @@
 			</a>
 		</div>
 
-		<div class="block lg:hidden" v-click-away="onClickAwayMenu">
+		<div class="block lg:hidden" >
 			<button @click.prevent="menuOpen=!menuOpen" class="flex items-center px-4 py-2 border rounded text-grey border-grey-dark ">
 				<i class="fas " :class="{'fa-bars': !menuOpen, 'fa-times': menuOpen}"></i> 
 						
 			</button>
 		</div>
 
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content">
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content" >
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
 				<li class="mx-6 ">
 					 <inertia-link :href="$route('guest.index') " class="nav-link hover:text-green-600">Home</inertia-link>
@@ -116,9 +116,7 @@ export default {
 	onClickAway: function(){
 		this.dropdownPopoverShow = false;
 	},
-	onClickAwayMenu: function(){
-		this.menuOpen = false;
-	}
+
 
   }
 }
