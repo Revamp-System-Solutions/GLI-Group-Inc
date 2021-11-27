@@ -2,9 +2,9 @@
     <nav class="flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white  shadow-lg ">
 		<div class="flex items-center flex-no-shrink text-black lg:ml-6">
 			<a class="lg:flex lg:items-center text-black no-underline hover:no-underline" href="#">
-				<img src="/images/gli-logo-no-text.png" class="mx-auto lg:w-24 w-12 lg:inline block">
+				<img src="/images/brand-logo-no-text.png" class="mx-auto lg:w-24 w-12 lg:inline block">
 				<span class="mx-6 w-full text-center lg:text-4xl text-base uppercase">
-					<span class="font-semibold">GLI </span><span class="text-green-600 font-light">Group Inc.</span>
+					<span class="font-semibold brand-logo-bold">GLI </span><span class="text-green-600 font-light brand-logo-light">Group Inc.</span>
 				</span>
 			</a>
 		</div>
@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content" >
-			<ul class="list-reset lg:flex justify-end flex-1 items-center">
+			<ul class="brand-text font-semibold list-reset lg:flex justify-end flex-1 items-center uppercase">
 				<li class="mx-6 ">
 					 <inertia-link :href="$route('guest.index') " class="nav-link hover:text-green-600">Home</inertia-link>
 				</li>

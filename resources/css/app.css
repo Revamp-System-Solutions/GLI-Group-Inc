@@ -2,6 +2,32 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+    font-family: CenturyGothic;
+    src: url('/fonts/CenturyGothicRegular.ttf');
+
+}
+
+@font-face {
+    font-family: CenturyGothic;
+    src: url('/fonts/CenturyGothicBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: FranklinGothic;
+    src: url('/fonts/FranklinGothic.ttf');
+}
+
+.brand-logo-bold,.brand-logo-light{
+    font-family: CenturyGothic !important;
+}
+
+.brand-text-header,.brand-text-footer{
+    font-family: FranklinGothic;
+}
+
+
 .text-green-600{
 	color: #229C23 !important
 }

@@ -23900,7 +23900,7 @@ var _hoisted_1 = {
   ondragstart: "return false;"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container mx-auto px-6\"><div class=\"flex mt-8 bg-gray\"><div class=\"mt-8 mt-0 w-full lg:px-8 flex flex-col justify-center\"><div class=\"flex flex-col\"><span class=\"text-center mb-3\"><img src=\"/images/gli-logo.png\" class=\"mx-auto lg:w-36 w-24\"></span><div class=\"flex flex-row text-xs lg:text-base mx-auto\"><span class=\"mx-2\"><a href=\"#designstudio\" class=\"text-black hover:text-green-600\">Design Studio</a></span><span class=\"mx-2\"><a href=\"#builders\" class=\"text-black hover:text-green-600\">Builders</a></span><span class=\"mx-2\"><a href=\"#modularcabinets\" class=\"text-black hover:text-green-600\">Modolar Cabinets</a></span></div></div></div></div></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container mx-auto px-6\"><div class=\"flex mt-8 bg-gray\"><div class=\"mt-8 mt-0 w-full lg:px-8 flex flex-col justify-center\"><div class=\"flex flex-col\"><span class=\"text-center mb-3\"><img src=\"/images/brand-logo.png\" class=\"mx-auto lg:w-36 w-24\"></span><div class=\"flex flex-row text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold\"><span class=\"mx-2\"><a href=\"#designstudio\" class=\"text-black hover:text-green-600\">Design Studio</a></span><span class=\"mx-2\"><a href=\"#builders\" class=\"text-black hover:text-green-600\">Builders</a></span><span class=\"mx-2\"><a href=\"#modularcabinets\" class=\"text-black hover:text-green-600\">Modular Cabinets</a></span></div></div></div></div></div>", 1);
 
 var _hoisted_3 = {
   "class": "container mx-auto px-6"
@@ -23912,7 +23912,7 @@ var _hoisted_5 = {
   "class": "w-full text-center py-6 relative"
 };
 var _hoisted_6 = {
-  "class": "text-sm text-gray-400 font-bold mb-2 uppercase"
+  "class": "text-sm text-gray-400 font-semibold mb-2 uppercase brand-logo-bold"
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -23948,13 +23948,13 @@ var _hoisted_1 = {
   "class": "flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white shadow-lg"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center flex-no-shrink text-black lg:ml-6\"><a class=\"lg:flex lg:items-center text-black no-underline hover:no-underline\" href=\"#\"><img src=\"/images/gli-logo-no-text.png\" class=\"mx-auto lg:w-24 w-12 lg:inline block\"><span class=\"mx-6 w-full text-center lg:text-4xl text-base uppercase\"><span class=\"font-semibold\">GLI </span><span class=\"text-green-600 font-light\">Group Inc.</span></span></a></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center flex-no-shrink text-black lg:ml-6\"><a class=\"lg:flex lg:items-center text-black no-underline hover:no-underline\" href=\"#\"><img src=\"/images/brand-logo-no-text.png\" class=\"mx-auto lg:w-24 w-12 lg:inline block\"><span class=\"mx-6 w-full text-center lg:text-4xl text-base uppercase\"><span class=\"font-semibold brand-logo-bold\">GLI </span><span class=\"text-green-600 font-light brand-logo-light\">Group Inc.</span></span></a></div>", 1);
 
 var _hoisted_3 = {
   "class": "block lg:hidden"
 };
 var _hoisted_4 = {
-  "class": "list-reset lg:flex justify-end flex-1 items-center"
+  "class": "brand-text font-semibold list-reset lg:flex justify-end flex-1 items-center uppercase"
 };
 var _hoisted_5 = {
   "class": "mx-6"
