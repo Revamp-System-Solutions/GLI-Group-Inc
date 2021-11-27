@@ -23966,7 +23966,10 @@ var _hoisted_7 = {
   "class": "mx-6"
 };
 var _hoisted_8 = {
-  "class": "relative inline-flex align-middle w-full"
+  "class": "relative inline-flex align-middle w-full",
+  style: {
+    "cursor": "pointer"
+  }
 };
 var _hoisted_9 = {
   key: 0,

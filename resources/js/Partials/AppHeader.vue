@@ -22,7 +22,7 @@
 					 <inertia-link :href="$route('guest.index') " class="nav-link hover:text-green-600">Home</inertia-link>
 				</li>
 				<li class="mx-6 " >
-					 <div class="relative inline-flex align-middle w-full" v-click-away="onClickAway">
+					 <div class="relative inline-flex align-middle w-full" v-click-away="onClickAway" style="cursor:pointer">
 						<a class="nav-link hover:text-green-600" type="button" @click.prevent="toggleDropdown()"  id="btnDropdownRef" ref="btnDropdownRef" >
 						 	Services
 						</a>
