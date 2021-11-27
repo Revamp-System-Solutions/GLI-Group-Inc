@@ -30,6 +30,7 @@ Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.abou
 Route::get('contact', [GuestController::class, 'showContactPage'])->name('guest.contact');
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
+Route::get('blog/view/{post}', [PostsController::class, 'index'])->name('guest.blog.view');
 
 Route::redirect('gli-admin', 'gli-admin/dashboard');
 
@@ -56,7 +57,7 @@ Route::get('gli-admin/posts/edit/{post}', [PostsController::class, 'edit'])->nam
 
 Route::put('gli-admin/posts/edit/{post}', [PostsController::class, 'update'])->name('post.update');
 
-Route::delete('gli-admin/posts/{post}', [PostsController::class, 'destroy'])->name('post.destroy');
+Route::delete('gli-admin/posts/delete/{post}', [PostsController::class, 'destroy'])->name('post.destroy');
 
 
 
