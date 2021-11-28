@@ -6,7 +6,7 @@
             <div class="mt-0 w-full lg:px-8 flex flex-col justify-center">
                 <div class="flex flex-col">
                     <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-36 w-24 "></span>
-                    <div class="flex flex-row text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold">
+                    <div class="flex lg:flex-row flex-col text-center text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold">
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#designstudio" class="text-black hover:text-green-600">Design Studio</a>
                             <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-black hover:text-green-600 ">

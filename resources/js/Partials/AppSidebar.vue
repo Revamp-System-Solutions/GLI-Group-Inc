@@ -1,22 +1,22 @@
 <template>
 
-			<ul class="flex flex-col w-2/12 h-screen">
+			<ul class="flex flex-col w-2/12 h-screen bg-gray-700">
                 <li class="my-px flex justify-center">
 					<img src="/images/brand-logo-small.png" class="mx-auto lg:w-32 w-12 lg:inline block">
 				</li>
 				<li class="my-px">
-					<a href="#"
-					   class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600">
+					<inertia-link :href="$route('viewDashboard')"  
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 					
 							<i class="fas fa-tachometer-alt "></i>
 						
 						<span class="ml-3">Dashboard</span>
 					
-					</a>
+					</inertia-link>
 				</li>
                 <li class="my-px">
 					<a href="#"
-					   class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600">
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 						
 							<i class="fas fa-file-alt"></i>
 						
@@ -26,7 +26,7 @@
 				</li>
                 <li class="my-px"  >
 					<a @click.prevent="blogDropdown"
-					   class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600 cursor-pointer">
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
 							<i class="fas fa-blog"></i>
 						
@@ -35,7 +35,8 @@
 					</a>
                     <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.blogDropdownOpen">
                                 <li class="my-px">
-									<inertia-link :href="$route('adminPost')"  class="w-full flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600 logout-link" style="display: inline" type="button">
+									<inertia-link :href="$route('adminPost')"  
+										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
 											<i class="fas fa-sticky-note"></i>
 										
@@ -44,7 +45,7 @@
                                 </li>
                                 <li class="my-px">
                                     <a href="#"
-                                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600">
+                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
 											<i class="fas fa-bookmark"></i>
 										
@@ -54,7 +55,7 @@
                                 </li>
                                 <li class="my-px">
                                     <a href="#"
-                                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600">
+                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
 											<i class="fas fa-tags"></i>
 										
@@ -66,7 +67,7 @@
 				</li>
 				<li class="my-px">
 					<a href="#"
-					   class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-green-600">
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 						
 							<i class="fas fa-users"></i>
 						
@@ -76,7 +77,7 @@
 				</li>
 				<li class="my-px"  v-if="user">
                     <inertia-link :href="$route('logout')" as="button" method="post" 
-						class="w-full flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100 logout-link hover:text-red-400" style="display: inline" type="button">
+						class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400" style="display: inline" type="button">
                         
 							  <i class="fas fa-sign-out-alt"></i>
 	
@@ -84,7 +85,7 @@
                     </inertia-link>  
 				</li>
                 <li class="mt-auto mb-12"  v-if="user">
-                     <img src="/images/revamp-system-solutions.png" oncontextmenu="return false;" class="mx-auto w-2/3  ">
+                     <img src="/images/revamp-system-solutions-alt.png" oncontextmenu="return false;" class="mx-auto w-2/3  ">
 				</li>
 			</ul>
 
