@@ -2,7 +2,7 @@
 
 			<ul class="flex flex-col w-2/12 h-screen bg-gray-700">
                 <li class="my-px flex justify-center">
-					<img src="/images/brand-logo-small.png" class="mx-auto lg:w-32 w-12 lg:inline block">
+					<img src="/rvmp-content/rvmp-static/brand-logo-small.png" class="mx-auto lg:w-32 w-12 lg:inline block">
 				</li>
 				<li class="my-px">
 					<inertia-link :href="$route('viewDashboard')"  
@@ -56,24 +56,69 @@
                         </ul>
 				</li>
 				  <li class="my-px">
-					<inertia-link :href="$route('admin.media')"
-					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+					<a @click.prevent="mediaDropdown"
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
 						<i class="fas fa-photo-video"></i>
 						
 						<span class="ml-3">Media</span>
 
-					</inertia-link>
+					</a>
+					 <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.mediaDropdownOpen">
+                                <li class="my-px">
+									<inertia-link :href="$route('admin.media')"  
+										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+										
+											<i class="fas fa-book-open"></i>
+										
+										<span class="ml-3">Library</span>
+									</inertia-link> 
+                                </li>
+                                <li class="my-px">
+                                    <inertia-link :href="$route('media.create')"
+                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+										
+											<i class="fas fa-upload"></i>
+										
+                                        <span class="ml-3">Add New</span>
+
+                                   </inertia-link> 
+                                </li>
+                        </ul>
 				</li>
+			
 				<li class="my-px">
-					<a href="#"
-					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+					<a  @click.prevent="settingsDropdown"
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
-							<i class="fas fa-users"></i>
+							<i class="fas fa-cogs"></i>
 						
-						<span class="ml-3">User Management</span>
+						<span class="ml-3">Settings</span>
 		
 					</a>
+					<ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.settingsDropdownOpen">
+                                <li class="my-px">
+                                    <a href="#"
+                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+										
+											<i class="fas fa-bookmark"></i>
+										
+                                        <span class="ml-3">Site Settings</span>
+
+                                    </a>
+                                </li>
+								<li class="my-px">
+									<a href="#"
+									class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+										
+											<i class="fas fa-users"></i>
+										
+										<span class="ml-3">User Management</span>
+						
+									</a>
+								</li>	
+                                
+                        </ul>
 				</li>
 				<li class="my-px"  v-if="user">
                     <inertia-link :href="$route('logout')" as="button" method="post" 
@@ -85,7 +130,7 @@
                     </inertia-link>  
 				</li>
                 <li class="mt-auto mb-12"  v-if="user">
-                     <img src="/images/revamp-system-solutions-alt.png" oncontextmenu="return false;" class="mx-auto w-2/3  ">
+                     <img src="/rvmp-content/rvmp-static/revamp-system-solutions-alt.png" oncontextmenu="return false;" class="mx-auto w-2/3  ">
 				</li>
 			</ul>
 
@@ -94,19 +139,25 @@
 <script>
 import {computed} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
-import { directive } from "vue3-click-away";
+
 export default {
     name: "AppSidebar",
-	directives: {
-    	ClickAway: directive
-  	},
+
 	methods: {
         blogDropdown: function(){
           this.blogDropdownOpen = !this.blogDropdownOpen
         },
+		mediaDropdown: function(){
+          this.mediaDropdownOpen = !this.mediaDropdownOpen
+        },
+		settingsDropdown: function(){
+          this.settingsDropdownOpen = !this.settingsDropdownOpen
+        },
     },
     data: () => ({
     	blogDropdownOpen: false,
+		mediaDropdownOpen: false,
+		settingsDropdownOpen: false,
   	}),
     setup() {
         const user = computed(() => usePage().props.value.auth.user);

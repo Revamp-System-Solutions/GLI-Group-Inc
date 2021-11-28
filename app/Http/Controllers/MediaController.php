@@ -14,10 +14,12 @@ class MediaController extends Controller
         $this->middleware("auth");
     }
 
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Admin/Media/ShowMedia', [
-            "medias" => Media::orderBy('id', 'ASC')->paginate(30)
+            "medias" => Media::when($request->fn, function($query, $filename){
+                $query->where('media_name', 'LIKE', '%'.$filename.'%');
+            })->orderBy('id', 'ASC')->paginate(8)
         ]);
     }
     public function create()
@@ -30,7 +32,7 @@ class MediaController extends Controller
 
         $media = new Media();
 
-        $media->media_name = $request->input('medianame');
+        $media->media_name = $request->input('media_name');
 
         if($request->file('image')) {
             $media->image = $this->upload($request);
@@ -49,7 +51,7 @@ class MediaController extends Controller
     private function getValidate(Request $request, $id = null): void
     {
         $data = [
-            'medianame' => 'required',
+            'media_name' => 'required',
         ];
 
         $this->validate($request, $data);
@@ -61,7 +63,7 @@ class MediaController extends Controller
 
         $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
 
-        $image->move(public_path('uploads'), $imageName);
+        $image->move(public_path('rvmp-content/rvmp-uploads'), $imageName);
 
         return $imageName;
     }

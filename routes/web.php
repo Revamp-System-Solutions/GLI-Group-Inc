@@ -62,9 +62,9 @@ Route::delete('gli-admin/posts/delete/{post}', [PostsController::class, 'destroy
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
 
-Route::get('gli-admin/media/create', [MediaController::class, 'create'])->name('media.create');
+Route::get('gli-admin/media/upload', [MediaController::class, 'create'])->name('media.create');
 
-Route::post('gli-admin/media/create', [MediaController::class, 'store'])->name('media.store');
+Route::post('gli-admin/media/upload', [MediaController::class, 'store'])->name('media.store');
 
 
 

@@ -4,39 +4,27 @@
         <app-sidebar></app-sidebar>
         <div id="content-area" class="w-10/12 bg-gray-50">
         <app-header-small></app-header-small>
+        <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             <div class="flex flex-col justify-center px-4" >
-                <inertia-link :href="$route('media.create')">Create Post</inertia-link>
-                    <template v-if="medias.data.length > 0">
-                          <table class="table-fixed w-full border-collapse border border-green-800">
-                                <thead>
-                                    <tr>
-                                    <th class="w-1/4 border border-green-600">Title</th>
-                                    <th class="w-1/4 border border-green-600">Content</th>
-                                    <th class="w-1/4 border border-green-600">Last Update</th>
-                                    <th class="w-1/4 border border-green-600">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                     <tr v-for="post in medias.data" :key="post.id" class="text-center ">
-                                        <td class="border border-green-600">{{post.title}}</td>
-                                        <td class="border border-green-600">{{ post.content }}</td>
-                                        <td class="border border-green-600">{{ post.created_at.split("T")[0] }}</td>
-                                        <td class="border border-green-600">
-                                            <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
-                                            <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                          </table>
-                        
+                <div class="w-full bg-gray-400 flex  border rounded justify-end">
+                  <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Media: </label>
+                  <input type="text" id="mediasearch" v-model="fn" @keyup="search" class="m-3 px-2 py-1 txt-sm rounded">
+                </div>
+                 <template v-if="medias.data.length > 0">
+                          
+                  <div class="py-8 px-4 w-full">
+                      <div class="flex flex-wrap -mx-4 -mb-8">
+                        <div v-for="media in medias.data" :key="media.id" class="md:w-1/4 px-4 mb-8">
+                          {{media.media_name }}
+                          <img v-if="media.image_url" class="rounded shadow-md" :src="media.image_url" :alt="media.media_name">
+                          <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link>
+                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
+                        </div>
+                      </div>
+                  </div>
+                         
                         <!-- Pagination links-->
-                        
-                    </template>
-                    <div class="text-center" v-else>
-                        No medias found! <inertia-link :href="$route('post.create')">Create Post</inertia-link>
-                    </div>
-                   
-                    <nav aria-label="Page navigation" v-if="medias.total > medias.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
+                      <nav aria-label="Page navigation" v-if="medias.total > medias.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
                         <ul class="pagination  flex flex-row justify-between">
                             <!-- Previous link -->
                             <li :class="'page-item' + (medias.links[0].url == null ? ' disabled' : '')">
@@ -53,7 +41,13 @@
                                 <inertia-link :href="medias.links[medias.links.length - 1].url == null ? '#' : medias.links[medias.links.length - 1].url" class="page-link" v-html="medias.links[medias.links.length - 1].label"></inertia-link>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>   
+                    </template>
+                    <div class="text-center" v-else>
+                        No medias found! <inertia-link :href="$route('media.create')">Create Post</inertia-link>
+                    </div>
+                   
+                   
                    
             </div>
             
@@ -105,6 +99,7 @@ import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";
+import _ from 'lodash';
 
 export default {
     name: "Media",
@@ -118,13 +113,17 @@ export default {
     },
     data: () => ({
     	modalOpen: false,
-        target: ''
+      target: '',
+      fn: ''
   	}),
     methods: {
         openModal(id){
             this.target=id
             this.modalOpen = true
-        }
+        },
+        search: _.throttle(function(){
+              Inertia.get(route('admin.media'), {fn: this.fn}, { preserveState: true })
+        }, 200)
     },
     setup() {
         const route = inject('$route');

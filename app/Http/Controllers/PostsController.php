@@ -117,7 +117,7 @@ class PostsController extends Controller
 
         $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
 
-        $image->move(public_path('uploads'), $imageName);
+        $image->move(public_path('rvmp-content/rvmp-uploads'), $imageName);
 
         return $imageName;
     }

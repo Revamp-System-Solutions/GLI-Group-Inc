@@ -9,8 +9,8 @@
                 <errors-and-messages :errors="errors"></errors-and-messages>
 
                 <div class="form-group">
-                    <label for="medianame">Media Name</label>
-                    <input type="text" class="form-control"  name="medianame" id="medianame" v-model="form.title" />
+                    <label for="media_name">Media Name</label>
+                    <input type="text" class="form-control"  name="media_name" id="media_name" v-model="form.media_name" />
                 </div>
 
                 <div class="form-group">

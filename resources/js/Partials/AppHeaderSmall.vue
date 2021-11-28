@@ -23,12 +23,10 @@
 <script>
 import {computed} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
-import { directive } from "vue3-click-away";
+
 export default {
     name: "AppHeaderSmall",
-	directives: {
-    	ClickAway: directive
-  	},
+
 	 setup() {
         const user = computed(() => usePage().props.value.auth.user);
 

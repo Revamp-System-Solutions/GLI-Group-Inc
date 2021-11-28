@@ -25,7 +25,7 @@
                         
                     </template>
                     <div class="text-center" v-else>
-                        No posts found! <inertia-link :href="$route('post.create')">Create Post</inertia-link>
+                        No posts Yet!
                     </div>
             </div>
             <nav aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">

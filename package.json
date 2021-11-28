@@ -17,7 +17,7 @@
         "copy-webpack-plugin": "^9.0.1",
         "css-loader": "^6.5.1",
         "laravel-mix": "^6.0.39",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "postcss": "^8.3.11",
         "tailwindcss": "^2.2.19"
     },
