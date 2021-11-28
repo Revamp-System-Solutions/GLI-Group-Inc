@@ -6,21 +6,21 @@
             <div class="mt-0 w-full lg:px-8 flex flex-col justify-center">
                 <div class="flex flex-col">
                     <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-36 w-24 "></span>
-                    <div class="flex flex-row text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold">
+                    <div class="flex lg:flex-row flex-col text-center text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold">
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#designstudio" class="text-black hover:text-green-600">Design Studio</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+                            <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-black hover:text-green-600 ">
 								Design Studio
 							</inertia-link></span>
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#builders" class="text-black hover:text-green-600">Builders</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+                            <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-black hover:text-green-600 ">
 								Builders
 							</inertia-link>
                             </span>
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#modularcabinets" class="text-black hover:text-green-600">Modular Cabinets</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+                            <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-black hover:text-green-600 ">
 								Modular Cabinets
 							</inertia-link>
                             </span>
