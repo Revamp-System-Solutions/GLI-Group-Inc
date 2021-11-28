@@ -9,9 +9,9 @@
                             <div class="h-full">
                                     <div class="mb-8 border-l-4 border-gray-500 relative">
                                 <h2 class="ml-5 brand-text-header text-3xl font-semibold">MEET THE CEO OF</h2>
-                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin">GROUP INC.</span></h2>    
+                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2>    
                             </div>               
-                                <p class="text-left text-xl brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
+                                <p class="text-left  md:text-xs text-sm brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
                             </div>
                             
                         </div>               

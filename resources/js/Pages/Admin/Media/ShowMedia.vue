@@ -1,9 +1,11 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
+<app-header-small></app-header-small>
    <div class="flex flex-row">
-        <app-sidebar></app-sidebar>
-        <div id="content-area" class="w-10/12 bg-gray-50">
-        <app-header-small></app-header-small>
+
+      <app-sidebar></app-sidebar>
+      <div id="content-area" class="w-full h-auto bg-gray-50">
+       <div class="h-screen"> 
         <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
@@ -14,9 +16,9 @@
                           
                   <div class="py-8 px-4 w-full">
                       <div class="flex flex-wrap -mx-4 -mb-8">
-                        <div v-for="media in medias.data" :key="media.id" class="md:w-1/4 px-4 mb-8">
+                        <div v-for="media in medias.data" :key="media.id" class="lg:w-1/4 m-w-1/4  h-16 max-h-16 px-4 mb-8">
                           {{media.media_name }}
-                          <img v-if="media.image_url" class="rounded shadow-md" :src="media.image_url" :alt="media.media_name">
+                          <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                           <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link>
                           <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
                         </div>
@@ -51,6 +53,8 @@
                    
             </div>
             
+        </div>
+         
         </div>
     </div>
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">
@@ -149,19 +153,4 @@ export default {
 }
 </script>
 
-<style scoped>
-    .action-btn {
-        margin-left: 12px;
-        font-size: 13px;
-    }
 
-    .article {
-        margin-top: 20px;
-        
-    }
-    .d-flex{
-        display: flex !important;
-        justify-content: flex-start;
-    }
-
-</style>

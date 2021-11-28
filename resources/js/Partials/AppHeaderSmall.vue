@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex items-center justify-between flex-wrap py-2 w-full z-10 pin-t bg-gray-700 ">
+    <nav class="sticky top-0 flex items-center justify-between flex-wrap py-2 w-full z-10 pin-t bg-gray-700 ">
 	
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  pt-0"   id="nav-content" >

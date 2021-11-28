@@ -20,7 +20,7 @@
     <script src="{{ asset('/js/app.js') }}" defer></script>
 </head>
 <body class="">
-    <div class="flex flex-col h-screen min-h-screen">
+    <div class="flex flex-col h-auto">
         @inertia
     </div>
 </body>
