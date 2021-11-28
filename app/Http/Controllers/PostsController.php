@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth")->except(["index"]);
+        $this->middleware("auth")->except(["index", "show"]);
     }
 
     public function index()
@@ -20,12 +20,19 @@ class PostsController extends Controller
             "posts" => Post::orderBy('id', 'DESC')->paginate(10)
         ]);
     }
+    public function show($id)
+    {
+        return Inertia::render('PostView', [
+            'post' => Post::findOrFail($id)
+        ]);
+    }
     public function adminPost()
     {
         return Inertia::render('Admin/Posts/ShowPost', [
             "posts" => Post::orderBy('id', 'DESC')->paginate(15)
         ]);
     }
+    
     public function create()
     {
         return Inertia::render('Admin/Posts/CreatePost');
@@ -50,7 +57,7 @@ class PostsController extends Controller
 
         return redirect()->route('adminPost');
     }
-
+  
     public function edit($id)
     {
         return Inertia::render('Admin/Posts/EditPost', [

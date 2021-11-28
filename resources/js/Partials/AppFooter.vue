@@ -7,9 +7,23 @@
                 <div class="flex flex-col">
                     <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-36 w-24 "></span>
                     <div class="flex flex-row text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-bold">
-                        <span class="mx-2"><a href="#designstudio" class="text-black hover:text-green-600">Design Studio</a></span>
-                        <span class="mx-2"><a href="#builders" class="text-black hover:text-green-600">Builders</a></span>
-                        <span class="mx-2"><a href="#modularcabinets" class="text-black hover:text-green-600">Modular Cabinets</a></span>
+                        <span class="mx-2">
+                            <a v-if="!switchInertia" href="#designstudio" class="text-black hover:text-green-600">Design Studio</a>
+                            <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Design Studio
+							</inertia-link></span>
+                        <span class="mx-2">
+                            <a v-if="!switchInertia" href="#builders" class="text-black hover:text-green-600">Builders</a>
+                            <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Builders
+							</inertia-link>
+                            </span>
+                        <span class="mx-2">
+                            <a v-if="!switchInertia" href="#modularcabinets" class="text-black hover:text-green-600">Modular Cabinets</a>
+                            <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Modular Cabinets
+							</inertia-link>
+                            </span>
                     </div>
                 </div>
                 
@@ -35,6 +49,9 @@ import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "AppFooter",
+    data: () => ({
+		switchInertia: false,
+  	}),
     setup() {
         const user = computed(() => usePage().props.value.auth.user);
 
@@ -43,7 +60,9 @@ export default {
         }
     },
     mounted() {
-     
+     if(window.location.pathname !== "/home"){
+			this.switchInertia = true
+		}
     }
 }
 </script>
