@@ -55,6 +55,16 @@
                                 </li>
                         </ul>
 				</li>
+				  <li class="my-px">
+					<inertia-link :href="$route('admin.media')"
+					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+						
+						<i class="fas fa-photo-video"></i>
+						
+						<span class="ml-3">Media</span>
+
+					</inertia-link>
+				</li>
 				<li class="my-px">
 					<a href="#"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">

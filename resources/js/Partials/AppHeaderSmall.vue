@@ -3,11 +3,13 @@
 	
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  pt-0"   id="nav-content" >
-			<ul class="brand-text font-semibold list-reset text-white lg:flex justify-end flex-1 items-center uppercase">
+			<ul class="brand-text font-semibold text-xl list-reset text-white lg:flex justify-end flex-1 items-center uppercase">
 				
 					 <li class="mr-3" v-if="user">
+
                         <span  class="nav-link" v-if="user">
-                        {{user.name}}
+							<i class="fas fa-user mr-3"></i>	
+							{{user.name}}
                         </span>
                      </li>
 			

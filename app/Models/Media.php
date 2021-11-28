@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+    protected $appends = ['image_url'];
+
+    function getImageUrlAttribute()
+    {
+        return $this->image ? url('/uploads/' . $this->image) : "";
+    }
 }
