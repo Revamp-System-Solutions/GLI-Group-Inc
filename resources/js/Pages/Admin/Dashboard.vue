@@ -4,7 +4,6 @@
         <app-sidebar></app-sidebar>
         <div id="content-area" class="w-10/12 bg-gray-50">
         <app-header-small></app-header-small>
-            
             DASHBOARD HERE
         </div>
     </div>
