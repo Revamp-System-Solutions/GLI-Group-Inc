@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-    <div class="mx-auto h-full">
+    <div class="mx-auto h-full lg:px-36 px-2">
             <errors-and-messages :errors="errors"></errors-and-messages>
                 <h2 class="text-left">{{form.title}}</h2>
                 <p>

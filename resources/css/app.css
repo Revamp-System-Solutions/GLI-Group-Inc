@@ -29,7 +29,7 @@
     font-family: CenturyGothic !important;
 }
 
-.brand-text-header,.brand-text-footer{
+.brand-text-header,.brand-text-footer, .brand-text-content{
     font-family: FranklinGothic;
 }
 
@@ -62,4 +62,10 @@
 
 body{
     background: #FFFFFF ;   
+}
+.bg-green-o-70 {
+    background-color: rgb(41 159 42 / 70%);
+}
+.bg-white-o-70 {
+    background-color: rgb(255 255 255 / 70%);
 }
