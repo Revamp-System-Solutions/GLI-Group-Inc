@@ -16,7 +16,13 @@
 
 @font-face {
     font-family: FranklinGothic;
+    src: url('/fonts/FranklinGothicBookRegular.otf');
+}
+
+@font-face {
+    font-family: FranklinGothic;
     src: url('/fonts/FranklinGothic.ttf');
+    font-weight: bold;
 }
 
 .brand-logo-bold,.brand-logo-light{
@@ -27,6 +33,25 @@
     font-family: FranklinGothic;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #229C23; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1cbf1c; 
+  }
 
 .text-green-600{
 	color: #229C23 !important

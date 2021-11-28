@@ -1,8 +1,9 @@
 <template>
+<errors-and-messages :errors="errors"></errors-and-messages>
    <div class="flex flex-row">
         <app-sidebar></app-sidebar>
         <div id="content-area" class="w-10/12 bg-gray-50">
-            <errors-and-messages :errors="errors"></errors-and-messages>
+        <app-header-small></app-header-small>
             <div class="flex flex-col justify-center px-4" >
                 <inertia-link :href="$route('post.create')">Create Post</inertia-link>
                     <template v-if="posts.data.length > 0">
@@ -98,6 +99,7 @@
 </template>
 
 <script>
+import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
 import AppSidebar from "./../../../Partials/AppSidebar";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
@@ -108,7 +110,8 @@ export default {
     name: "Posts",
     components: {
         ErrorsAndMessages,
-        AppSidebar
+        AppSidebar,
+        AppHeaderSmall
     },
     props: {
         errors: Object
