@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-    <div  class=" mx-auto h-full">
+    <div  class=" mx-auto h-full lg:px-36 px-2">
             <div class="grid lg:grid-cols-4 lg:gap-3 px-4" >
                
                    
