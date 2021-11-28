@@ -66,6 +66,9 @@
 body{
     background: #FFFFFF ;   
 }
+.bg-green-o-70 {
+    background-color: rgb(41 159 42 / 70%);
+}
 .bg-white-o-70 {
     background-color: rgb(255 255 255 / 70%);
 }
