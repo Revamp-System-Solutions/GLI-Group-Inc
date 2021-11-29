@@ -1,62 +1,71 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
+<app-header-small></app-header-small>
    <div class="flex flex-row">
         <app-sidebar></app-sidebar>
-        <div id="content-area" class="w-10/12 bg-gray-50">
-        <app-header-small></app-header-small>
-            <div class="flex flex-col justify-center px-4" >
-                <inertia-link :href="$route('post.create')">Create Post</inertia-link>
-                    <template v-if="posts.data.length > 0">
-                          <table class="table-fixed w-full border-collapse border border-green-800">
-                                <thead>
-                                    <tr>
-                                    <th class="w-1/4 border border-green-600">Title</th>
-                                    <th class="w-1/4 border border-green-600">Content</th>
-                                    <th class="w-1/4 border border-green-600">Last Update</th>
-                                    <th class="w-1/4 border border-green-600">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                     <tr v-for="post in posts.data" :key="post.id" class="text-center ">
-                                        <td class="border border-green-600">{{post.title}}</td>
-                                        <td class="border border-green-600">{{ post.content }}</td>
-                                        <td class="border border-green-600">{{ post.created_at.split("T")[0] }}</td>
-                                        <td class="border border-green-600">
-                                            <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
-                                            <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                          </table>
-                        
-                        <!-- Pagination links-->
-                        
-                    </template>
-                    <div class="text-center" v-else>
-                        No posts found! <inertia-link :href="$route('post.create')">Create Post</inertia-link>
-                    </div>
-                   
-                    <nav aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
-                        <ul class="pagination  flex flex-row justify-between">
-                            <!-- Previous link -->
-                            <li :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
-                                <inertia-link :href="posts.links[0].url == null ? '#' : posts.links[0].url" class="page-link" v-html="posts.links[0].label"></inertia-link>
-                            </li>
-                            
-                            <!-- Numbers -->
-                            <li v-for="item in numberLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
-                                <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
-                            </li>
-
-                            <!-- Next link -->
-                            <li :class="'page-item' + (posts.links[posts.links.length - 1].url == null ? ' disabled' : '')">
-                                <inertia-link :href="posts.links[posts.links.length - 1].url == null ? '#' : posts.links[posts.links.length - 1].url" class="page-link" v-html="posts.links[posts.links.length - 1].label"></inertia-link>
-                            </li>
-                        </ul>
-                    </nav>
-                   
-            </div>
+        <div id="content-area" class="w-full h-auto bg-gray-50">
+          <div class="h-screen"> 
+          <span class="text-xl inline-block p-3 font-semibold"> Blog Posts<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             
+              <div class="flex flex-col justify-center px-4" >
+                <div class="w-full bg-gray-400 flex  border rounded justify-end">
+                  <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Posts: </label>
+                  <input type="text" id="postsearch"  class="m-3 px-2 py-1 txt-sm rounded">
+                </div>
+
+                            <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
+                                  <thead>
+                                      <tr>
+                                      <th class="w-1/4 border border-gray-600">Title</th>
+                                      <th class="w-1/4 border border-gray-600">Content</th>
+                                      <th class="w-1/4 border border-gray-600">Last Update</th>
+                                      <th class="w-1/4 border border-gray-600">Actions</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody v-if="posts.data.length > 0">
+                                      <tr v-for="post in posts.data" :key="post.id" class="text-center ">
+                                          <td class="border border-gray-600">{{post.title}}</td>
+                                          <td class="border border-gray-600">{{ post.content }}</td>
+                                          <td class="border border-gray-600">{{ post.created_at.split("T")[0] }}</td>
+                                          <td class="border border-gray-600">
+                                              <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
+                                              <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                                  <tbody v-else>
+                                      <tr class="text-center " >
+                                          <td colspan="4" class="text-center py-2 w-full border border-gray-600">
+                                            No posts found! 
+                                            <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                            </table>
+
+                      
+                    
+                      <nav aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
+                          <ul class="pagination  flex flex-row justify-between">
+                              <!-- Previous link -->
+                              <li :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
+                                  <inertia-link :href="posts.links[0].url == null ? '#' : posts.links[0].url" class="page-link" v-html="posts.links[0].label"></inertia-link>
+                              </li>
+                              
+                              <!-- Numbers -->
+                              <li v-for="item in numberLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
+                                  <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
+                              </li>
+
+                              <!-- Next link -->
+                              <li :class="'page-item' + (posts.links[posts.links.length - 1].url == null ? ' disabled' : '')">
+                                  <inertia-link :href="posts.links[posts.links.length - 1].url == null ? '#' : posts.links[posts.links.length - 1].url" class="page-link" v-html="posts.links[posts.links.length - 1].label"></inertia-link>
+                              </li>
+                          </ul>
+                      </nav>
+                    
+              </div>
+          </div> 
         </div>
     </div>
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">

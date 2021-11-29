@@ -6,7 +6,7 @@
       <app-sidebar></app-sidebar>
       <div id="content-area" class="w-full h-auto bg-gray-50">
        <div class="h-screen"> 
-        <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
+        <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
                   <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Media: </label>
