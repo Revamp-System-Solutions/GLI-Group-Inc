@@ -1,9 +1,6 @@
 <template>
-<div id="sidebar" class=" h-auto bg-gray-700 transition duration-500 ease-in-out" :class="{'w-14': !menuOpen, 'w-2/12': menuOpen}">
-				<div class="my-px flex justify-center transition duration-500 ease-in-out" >
-					<img src="/rvmp-content/rvmp-static/brand-logo-small.png" v-if="menuOpen" class="transition duration-500 ease-in-out mx-auto lg:w-32 w-12 lg:indivne block">
-					<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" v-if="!menuOpen" class="transition duration-500 ease-in-out mx-auto w-8 lg:indivne block">
-				</div>
+<div id="sidebar" class="sticky left-0 z-20 h-auto bg-gray-700 transition duration-500 ease-in-out" :class="{'w-14': !menuOpen, 'w-2/12': menuOpen}">
+				
 		<div class="transition duration-500 ease-in-out mt-1 py-3 w-full flex " :class="{'justify-center': !menuOpen, 'justify-end pr-2 ': menuOpen}">
 			<button @click.prevent="menuOpen=!menuOpen" class="transition duration-500 ease-in-out flex items-center px-4 py-2 border rounded text-white border-grey-dark ">
 				<i class="fas " :class="{'fa-angle-right': !menuOpen, 'fa-angle-left': menuOpen}"></i> 
@@ -33,7 +30,7 @@
 					</a>
 				</li>
                 <li class="my-px"  >
-					<a @click.prevent="blogDropdown; menuOpen=true"
+					<a @click.prevent="blogDropdown"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
 							<i class="fas fa-blog"></i>
@@ -41,7 +38,7 @@
 						<span class="ml-3"  v-if="menuOpen">Blog</span>
                         
 					</a>
-                    <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.blogDropdownOpen && menuOpen">
+                    <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="blogDropdownOpen && menuOpen">
                                 <li class="my-px">
 									<inertia-link :href="$route('adminPost')"  
 										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600" :class="{'bg-green-600': path==='/gli-admin/posts'}">
@@ -83,7 +80,7 @@
                         </ul>
 				</li>
 				  <li class="my-px">
-					<a @click.prevent="mediaDropdown; menuOpen=true"
+					<a @click.prevent="mediaDropdown"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
 						<i class="fas fa-photo-video"></i>
@@ -91,7 +88,7 @@
 						<span class="ml-3"  v-if="menuOpen">Media</span>
 
 					</a>
-					 <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.mediaDropdownOpen && menuOpen">
+					 <ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="mediaDropdownOpen ">
                                 <li class="my-px">
 									<inertia-link :href="$route('admin.media')"  
 										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
@@ -115,7 +112,7 @@
 				</li>
 			
 				<li class="my-px">
-					<a  @click.prevent="settingsDropdown; menuOpen=true"
+					<a  @click.prevent="settingsDropdown"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
 							<i class="fas fa-cogs"></i>
@@ -123,7 +120,7 @@
 						<span class="ml-3"  v-if="menuOpen">Settings</span>
 		
 					</a>
-					<ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="this.settingsDropdownOpen && menuOpen">
+					<ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="settingsDropdownOpen ">
                                 <li class="my-px">
                                     <a href="#"
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
@@ -147,7 +144,7 @@
                                 
                         </ul>
 				</li>
-				<li class="my-px mb-8"  v-if="user && menuOpen">
+				<li class="my-px mb-8"  v-if="user">
                     <inertia-link :href="$route('logout')" as="button" method="post" 
 						class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400" style="display: inline" type="button">
                         
@@ -156,15 +153,7 @@
 						<span class="ml-3"  v-if="menuOpen">Logout</span>
                     </inertia-link>  
 				</li>
-				<li class="my-px mb-8"  v-if="user && menuOpen">
-                    <inertia-link :href="$route('logout')" as="button" method="post" 
-						class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400" style="display: inline" type="button">
-                        
-							  <i class="fas fa-sign-out-alt"></i>
-	
-						<span class="ml-3"  v-if="menuOpen">Logout</span>
-                    </inertia-link>  
-				</li>
+				
                 
 			</ul>
 			<div class="my-16 sticky bottom-0 justify-self-end"  v-if="user">
@@ -183,6 +172,10 @@ export default {
 	methods: {
         blogDropdown: function(){
           this.blogDropdownOpen = !this.blogDropdownOpen
+		  if(!this.menuOpen){
+		  	this.menuOpen = true
+			this.blogDropdownOpen = true
+			}
         },
 		mediaDropdown: function(){
           this.mediaDropdownOpen = !this.mediaDropdownOpen
@@ -196,7 +189,7 @@ export default {
     	blogDropdownOpen: false,
 		mediaDropdownOpen: false,
 		settingsDropdownOpen: false,
-		menuOpen: false,
+		menuOpen: true,
 		path: ''
   	}),
     setup() {

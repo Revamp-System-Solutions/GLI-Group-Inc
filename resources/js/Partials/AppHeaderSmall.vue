@@ -1,8 +1,11 @@
 <template>
     <nav class="sticky top-0 flex items-center justify-between flex-wrap py-2 w-full z-10 pin-t bg-gray-700 ">
-	
+		<div class="w-2/12 flex justify-center transition duration-500 ease-in-out" >
+					
+					<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="transition duration-500 ease-in-out mx-auto w-8  block">
+		</div>
 
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  pt-0"   id="nav-content" >
+		<div class="w-10/12 flex-grow lg:flex lg:items-center lg:w-auto  pt-0"   id="nav-content" >
 			<ul class="brand-text font-semibold text-xl list-reset text-white lg:flex justify-end flex-1 items-center uppercase">
 				
 					 <li class="mr-3" v-if="user">
