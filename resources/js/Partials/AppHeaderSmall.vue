@@ -2,7 +2,7 @@
     <nav class="sticky top-0 flex items-center justify-between flex-wrap py-2 w-full z-10 pin-t bg-gray-700 ">
 		<div class="w-2/12 flex justify-center transition duration-500 ease-in-out" >
 					
-					<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="transition duration-500 ease-in-out mx-auto w-8  block">
+					<img src="/rvmp-content/rvmp-static/brand-logo-no-text-alt.png" class="transition duration-500 ease-in-out mx-auto w-8  block">
 		</div>
 
 		<div class="w-10/12 flex-grow lg:flex lg:items-center lg:w-auto  pt-0"   id="nav-content" >

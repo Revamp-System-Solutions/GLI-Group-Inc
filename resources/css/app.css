@@ -69,3 +69,7 @@ body{
 .bg-white-o-70 {
     background-color: rgb(255 255 255 / 70%);
 }
+
+.ck-editor__editable_inline {
+    min-height: 350px;
+}

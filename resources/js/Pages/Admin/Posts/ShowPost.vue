@@ -8,25 +8,27 @@
           <span class="text-xl inline-block p-3 font-semibold"> Blog Posts<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             
               <div class="flex flex-col justify-center px-4" >
-                <div class="w-full bg-gray-400 flex  border rounded justify-end">
-                  <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Posts: </label>
-                  <input type="text" id="postsearch"  class="m-3 px-2 py-1 txt-sm rounded">
-                </div>
+                      <div class="w-full bg-gray-400 flex  border rounded justify-end">
+                        <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Posts: </label>
+                        <input type="text" id="postsearch"  class="m-3 px-2 py-1 txt-sm rounded">
+                      </div>
 
                             <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
                                   <thead>
                                       <tr>
-                                      <th class="w-1/4 border border-gray-600">Title</th>
-                                      <th class="w-1/4 border border-gray-600">Content</th>
-                                      <th class="w-1/4 border border-gray-600">Last Update</th>
-                                      <th class="w-1/4 border border-gray-600">Actions</th>
+                                      <th class="w-1/5 border border-gray-600">Title</th>
+                                      <th class="w-1/5 border border-gray-600">Content</th>
+                                      <th class="w-1/5 border border-gray-600">Author</th>
+                                      <th class="w-1/5 border border-gray-600">Last Update</th>
+                                      <th class="w-1/5 border border-gray-600">Actions</th>
                                       </tr>
                                   </thead>
                                   <tbody v-if="posts.data.length > 0">
                                       <tr v-for="post in posts.data" :key="post.id" class="text-center ">
                                           <td class="border border-gray-600">{{post.title}}</td>
-                                          <td class="border border-gray-600">{{ post.content }}</td>
-                                          <td class="border border-gray-600">{{ post.created_at.split("T")[0] }}</td>
+                                          <td class="border border-gray-600">{{ post.short_text }}</td>
+                                          <td class="border border-gray-600">{{ post.author }}</td>
+                                          <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>
                                           <td class="border border-gray-600">
                                               <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
                                               <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>

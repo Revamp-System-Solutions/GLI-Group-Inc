@@ -138,7 +138,6 @@ export default {
         }
 
         const medias = computed(() => usePage().props.value.medias);
-
         const numberLinks = medias.value.links.filter((v, i) => i > 0 && i < medias.value.links.length - 1);
 
         const user = computed(() => usePage().props.value.auth.user);

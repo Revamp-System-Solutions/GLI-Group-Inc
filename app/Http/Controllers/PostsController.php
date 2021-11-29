@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostCategories;
+use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
 
 class PostsController extends Controller
 {
@@ -17,13 +20,15 @@ class PostsController extends Controller
     public function index()
     {
         return Inertia::render('BlogPost', [
-            "posts" => Post::orderBy('id', 'DESC')->paginate(10)
+            "posts" => Post::orderBy('id', 'DESC')->paginate(10),
         ]);
     }
-    public function show($id)
+    public function show($slug)
     {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        
         return Inertia::render('PostView', [
-            'post' => Post::findOrFail($id)
+            'post' => $post
         ]);
     }
     public function adminPost()
@@ -35,7 +40,9 @@ class PostsController extends Controller
     
     public function create()
     {
-        return Inertia::render('Admin/Posts/CreatePost');
+        $medias = Media::all()->pluck('image_url', 'media_name');
+        $categories = PostCategories::all()->pluck('name', 'id');
+        return Inertia::render('Admin/Posts/CreatePost', ['categories' => $categories, "medias" => $medias]);
     }
 
     public function store(Request $request)
@@ -46,9 +53,23 @@ class PostsController extends Controller
 
         $post->title = $request->input('title');
         $post->content = $request->input('content');
+        $post->short_text = $request->input('short_text');
+        $post->author = $request->input('author');
+        $post->category_id = $request->input('category');
+        $post->slug = $request->input('slug');
 
         if($request->file('image')) {
             $post->image = $this->upload($request);
+             
+            $media = new Media();
+            $file = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($file,PATHINFO_FILENAME);
+            $media->media_name = $fileName;
+            
+            $media->image = $post->image;
+ 
+    
+            $media->save();
         }
 
         $post->save();
@@ -73,9 +94,14 @@ class PostsController extends Controller
 
         $post->title = $request->input('title');
         $post->content = $request->input('content');
+        $post->short_text = $request->input('short_text');
+        $post->edited_by = $request->input('author');
+        $post->category_id = $request->input('category');
+        $post->slug = $request->input('slug');
 
         if($request->file('image')) {
             $post->image = $this->upload($request);
+           
         }
 
         $post->save();
@@ -105,7 +131,11 @@ class PostsController extends Controller
     {
         $data = [
             'title' => 'required',
-            'content' => 'required'
+            'slug' => 'required',
+            'short_text' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+            'author' => 'required'
         ];
 
         $this->validate($request, $data);

@@ -3,9 +3,9 @@
     <div class="mx-auto h-full lg:px-36 px-2">
             <errors-and-messages :errors="errors"></errors-and-messages>
                 <h2 class="text-left">{{form.title}}</h2>
-                <p>
-                    {{form.content}}
-                </p>
+                <div id='post-content-container'>
+                   
+                </div >
                     <img :src="image_url" width="150"  v-if="image_url" />
     </div>
     <app-footer></app-footer>
@@ -42,7 +42,7 @@ export default {
         const {title, content, image_url, id } = usePage().props.value.post;
         form.title = title;
         form.content = content;
-
+       
         const route = inject('$route');
 
         function selectFile($event) {
@@ -58,6 +58,9 @@ export default {
         return {
             form, submit, selectFile, image_url
         }
+    },
+    mounted(){
+         $($.parseHTML(this.form.content)).appendTo('#post-content-container')
     }
 }
 </script>

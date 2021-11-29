@@ -10,13 +10,13 @@
                     <template v-if="posts.data.length > 0">
                         
                                 <div class="article" v-for="post in posts.data" :key="post.id">
-                                 <inertia-link :href="$route('guest.blog.view', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> view Post</inertia-link>
+                                 <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> view Post</inertia-link>
                                     <h4>{{post.title}}</h4>
                                     <img v-if="post.image_url" width="300" height="250" :src="post.image_url" class="border-4 border-white h-48 w-96">
                                     <article>
-                                        <p>
-                                            {{ post.content }}
-                                        </p>
+                                      
+                                            {{ post.short_text }}
+                                    
                                     </article>
 
                                 </div>
@@ -72,10 +72,7 @@ export default {
     setup() {
         const route = inject('$route');
 
-        const deletePost = (id) => {
-            if (!confirm('Are you sure?')) return;
-            Inertia.delete(route('post.destroy', {id}));
-        }
+     
 
         const posts = computed(() => usePage().props.value.posts);
 
@@ -85,7 +82,6 @@ export default {
 
         return {
             posts,
-            deletePost,
             numberLinks,
             user
         }

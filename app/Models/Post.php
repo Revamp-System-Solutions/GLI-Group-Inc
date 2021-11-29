@@ -13,6 +13,10 @@ class Post extends Model
 
     function getImageUrlAttribute()
     {
-        return $this->image ? url('/rvmp-content/rvmp-uploads/' . $this->image) : "";
+        return $this->image ? '/rvmp-content/rvmp-uploads/' . $this->image : "";
+    }
+    public function postCategories()
+    {
+        return $this->belongsTo(PostCategories::class, 'category_id');
     }
 }
