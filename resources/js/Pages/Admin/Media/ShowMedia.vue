@@ -5,7 +5,7 @@
 
       <app-sidebar></app-sidebar>
       <div id="content-area" class="w-full h-auto bg-gray-50">
-       <div class="h-screen"> 
+       <div class="h-auto"> 
         <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
@@ -14,9 +14,9 @@
                 </div>
                  <template v-if="medias.data.length > 0">
                           
-                  <div class="py-8 px-4 w-full">
+                  <div class="py-8 px-4 w-full h-auto">
                       <div class="flex flex-wrap -mx-4 -mb-8">
-                        <div v-for="media in medias.data" :key="media.id" class="lg:w-1/4 m-w-1/4  h-16 max-h-16 px-4 mb-8">
+                        <div v-for="media in medias.data" :key="media.id" class="lg:w-1/4 m-w-1/4 px-4 mb-8">
                           {{media.media_name }}
                           <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                           <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link>

@@ -26,7 +26,7 @@ class PostsController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        
+        // dd($post);
         return Inertia::render('PostView', [
             'post' => $post
         ]);
@@ -79,10 +79,11 @@ class PostsController extends Controller
         return redirect()->route('adminPost');
     }
   
-    public function edit($id)
+    public function edit($slug)
     {
+        // $post = Post::where('slug', $slug)->firstOrFail();
         return Inertia::render('Admin/Posts/EditPost', [
-            'post' => Post::findOrFail($id)
+            'post' => Post::where('slug', $slug)->firstOrFail()
         ]);
     }
 

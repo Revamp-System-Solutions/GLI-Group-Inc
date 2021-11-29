@@ -19,6 +19,11 @@ InertiaProgress.init();
     });
 
     app.config.globalProperties.$route = window.route;
+    app.config.globalProperties.$inertia = window.inertia;
+    console.log(app.config)
+    app.config.devtools = false
+    app.config.debug = false
+    app.config.silent = true
     app.provide('$route', window.route);
     app.use(VueClickAway)
     app.use(CKEditor)

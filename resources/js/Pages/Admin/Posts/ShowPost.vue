@@ -30,7 +30,7 @@
                                           <td class="border border-gray-600">{{ post.author }}</td>
                                           <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>
                                           <td class="border border-gray-600">
-                                              <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
+                                              <inertia-link :href="$route('post.edit', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
                                               <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
                                           </td>
                                       </tr>

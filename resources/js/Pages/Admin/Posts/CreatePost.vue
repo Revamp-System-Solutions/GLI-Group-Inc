@@ -16,11 +16,11 @@
                         <div id="postHeaders" class=" capitalize">
                             <div class="form-group py-3 flex flex-row" >
                                 <label for="title" class="text-lg w-1/12 mr-2">Title:</label>
-                                <input type="text"  name="title" id="title" class="w-11/12 px-4 py-3 rounded" v-model="form.title" />
+                                <input type="text"  name="title" id="title" class="w-11/12 px-4 py-3 rounded"  @blur="makeSlug" v-model="form.title" />
                             </div>
                             <div class="form-group py-3 flex flex-row">
                                 <label for="slug" class="text-lg w-1/12 mr-2">Slug:</label>
-                                <input type="text" id="slug" name="slug" class="w-11/12 px-4 py-3 rounded" v-model="form.slug">
+                                <input type="text" id="slug" name="slug" class="w-11/12 px-4 py-3 rounded"  v-model="form.slug">
                             </div>
                             <div class="form-group py-3 text-gray-600 flex flex-row">
                                 <label for="author" class="text-sm w-1/12">author:</label>
@@ -57,18 +57,20 @@
                                 <input type="file" id="image" name="image" class="border border-gray-500 px-4 py-3 rounded" @change="selectFile">
                                 <span class="mx-4">Or</span>
                                 <span class="text-blue-700 cursor-pointer" >
-                                     <button @click.prevent="openLibrary" class="transition duration-500 ease-in-out bg-blue-600 hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110 ">
-                                    Choose from Media Library
-                                    </button>
+                                     <a href="#library" @click="openLibrary" class="px-4 py-3  transition duration-500 ease-in-out bg-transparent transform hover:-translate-y-1 hover:scale-110 ">
+                                    Choose from Media Library 
+                                    </a>
                                     </span>
-                                <div class="py-8 px-4 w-full absolute" v-if="chooseLibrary">
-                                        <div class="flex flex-wrap -mx-4 -mb-8">
-                                            <div v-for="(media, index) in medias" :key="index" :index="index" class="lg:w-1/4 m-w-1/4  h-16 max-h-16 px-4 mb-8">
+                                <div id="library" class="py-8 px-4 w-full h-auto bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
+                                        <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible" >
+                                            <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white">
                                             
                                                 <img v-if="media" class="rounded shadow-md object-contain h-48 w-full" :src="media" :alt="index">
                                                 {{index }}
                                             </div>
+                                  
                                          </div>
+                                         
                                     </div>
                             </div>
                         </div>
@@ -100,6 +102,7 @@ export default {
         errors: Object
     },
     setup() {
+        
         const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
             title: null,
@@ -109,6 +112,7 @@ export default {
             content: null,
             image: null,
             category:null,
+            from_library: null,
             _token: usePage().props.value.csrf_token
         });
         
@@ -125,7 +129,7 @@ export default {
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        console.log(medias)
+
         return {
             form, categories,submit, selectFile,user,medias
         }
@@ -134,13 +138,27 @@ export default {
         this.form.author = this.user.name
     }, 
     methods: {
-        openLibrary(){
-           alert('tehee');
-           this.chooseLibrary != this.chooseLibrary
+        openLibrary: function(){
+
+           this.chooseLibrary = !this.chooseLibrary
         },
+        makeSlug: function(){
+            if(this.form.title.includes(" ")==true){
+                    var tmpslug = (this.form.title.split(" ")).join("-")
+                   
+            }else{
+                var tmpslug = this.form.title
+            }
+            this.form.slug = tmpslug.toLowerCase()
+
+        },
+        setFrLib(val){
+        alert(val)
+        this.form.from_library = val
+        }
     },
     data: () => ({
-            chooseLibrary:true,
+            chooseLibrary : false,
             editor: ClassicEditor,
             
             editorConfig: {

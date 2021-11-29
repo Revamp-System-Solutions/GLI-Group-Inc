@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $appends = ['image_url'];
-
+    protected $hidden = ['id'];
     function getImageUrlAttribute()
     {
         return $this->image ? '/rvmp-content/rvmp-uploads/' . $this->image : "";

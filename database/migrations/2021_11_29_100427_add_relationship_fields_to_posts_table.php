@@ -10,11 +10,16 @@ class AddRelationshipFieldsToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedInteger('category_id')->nullable();
+            $table->unsignedBigInteger('category_id');
 
-            $table->foreign('category_id', 'category_fk_455958')->references('id')->on('post_categories');
+            $table->foreign('category_id', 'category_fk_455958')->references('id')->on('post_categories')->onDelete('cascade');
         });
     }
-
+    public function down()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn(['category_id']);
+        });
+    }
 
 }
