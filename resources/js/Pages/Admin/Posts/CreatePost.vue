@@ -1,58 +1,121 @@
 <template>
-    <app-header></app-header>
+  <errors-and-messages :errors="errors"></errors-and-messages>
+<app-header-small></app-header-small>
+   <div class="flex flex-row">
+        <app-sidebar></app-sidebar>
+        <div id="content-area" class="w-full h-auto bg-gray-50">
+          <div class="h-auto"> 
+          <span class="text-xl inline-block p-3 font-semibold">Create Blog Posts</span>
+            
+              <div class="flex flex-col justify-center px-4 py-2" >
 
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Create Post</h2>
+                    <form method="post" @submit.prevent="submit" class="px-24">
+                    
 
-                <errors-and-messages :errors="errors"></errors-and-messages>
 
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" v-model="form.title" />
-                </div>
+                        <div id="postHeaders" class=" capitalize">
+                            <div class="form-group py-3 flex flex-row" >
+                                <label for="title" class="text-lg w-1/12 mr-2">Title:</label>
+                                <input type="text"  name="title" id="title" class="w-11/12 px-4 py-3 rounded"  @blur="makeSlug" v-model="form.title" />
+                            </div>
+                            <div class="form-group py-3 flex flex-row">
+                                <label for="slug" class="text-lg w-1/12 mr-2">Slug:</label>
+                                <input type="text" id="slug" name="slug" class="w-11/12 px-4 py-3 rounded"  v-model="form.slug">
+                            </div>
+                            <div class="form-group py-3 text-gray-600 flex flex-row">
+                                <label for="author" class="text-sm w-1/12">author:</label>
+                                <input type="text" id="author" name="author" class="w-11/12 text-sm bg-transparent border-0" v-model="form.author">   
+                            </div>   
+                            <div class="form-group py-3 flex flex-row">
+                                <label for="categories" class="text-lg w-1/12 mr-2">Category:</label>
+                                <div class="w-11/12">
+                                    <select name="categories" id="categories" class="w-full py-3 rounded "  v-model="form.category">
+                                        <template  v-for="(category, index) in categories" :key="category.id" :index="index">
+                                        <option :value="index">{{category}}</option>
+                                        </template>
+                                    </select>   
+                                </div>
+                            </div> 
+                        </div>
+                        
 
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
-                </div>
+                        <div class="form-group py-3 flex flex-row">
+                            <label for="short_text" class="text-lg w-1/12 mr-2">Short Text:</label>
+                            <textarea id="short_text" name="short_text" class="w-11/12 px-4 py-3 rounded" v-model="form.short_text"></textarea>
+                            
+                        </div>
+                        <div class="form-group py-3 flex flex-row">
+                            <label for="content"  class="text-lg w-1/12 mr-2">Content:</label>
+                            <div class="w-11/12 ">
+                                 <ckeditor :editor="editor" v-model="form.content"  :config="editorConfig"  tag-name="textarea" ></ckeditor>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" id="image" name="image" class="form-control" @change="selectFile">
-                </div>
+                        <div class="form-group py-3 flex flex-row">
+                            <label for="image" class="text-lg w-1/12 mr-2">Select Image:</label>
+                            <div class="w-11/12 relative">
+                                <input type="file" id="image" name="image" class="border border-gray-500 px-4 py-3 rounded" @change="selectFile">
+                                <span class="mx-4">Or</span>
+                                <span class="text-blue-700 cursor-pointer" >
+                                     <a href="#library" @click="openLibrary" class="px-4 py-3  transition duration-500 ease-in-out bg-transparent transform hover:-translate-y-1 hover:scale-110 ">
+                                    Choose from Media Library 
+                                    </a>
+                                    </span>
+                                <div id="library" class="py-8 px-4 w-full h-auto bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
+                                        <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible" >
+                                            <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white">
+                                            
+                                                <img v-if="media" class="rounded shadow-md object-contain h-48 w-full" :src="media" :alt="index">
+                                                {{index }}
+                                            </div>
+                                  
+                                         </div>
+                                         
+                                    </div>
+                            </div>
+                        </div>
+                         <div class="form-group py-3 flex w-full justify-end">
+                        <input type="submit" class=" px-4 py-3 rounded w-36 text-white text-lg bg-green-600 hover:bg-green-200 hover:text-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" value="Save" />
+                         </div>
+                    </form>
 
-                <input type="submit" class="btn btn-primary btn-block" value="Save" />
-            </form>
+              </div>
+          </div> 
         </div>
     </div>
+
+ 
 </template>
 
 <script>
-import AppHeader from "./../../../Partials/AppHeader";
+import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
+import AppSidebar from "./../../../Partials/AppSidebar";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive} from "vue";
+import {inject, reactive, computed} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
     name: "Create",
-    components: {
-        ErrorsAndMessages,
-        AppHeader
-    },
-    props: {
+       props: {
         errors: Object
     },
     setup() {
+        
+        const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
             title: null,
+            slug: null,
+            short_text:null,
+            author: null,
             content: null,
             image: null,
+            category:null,
+            from_library: null,
             _token: usePage().props.value.csrf_token
         });
-
+        
         const route = inject('$route');
 
         function selectFile($event) {
@@ -64,11 +127,58 @@ export default {
                 forceFormData: true
             });
         }
+        const categories = computed(() => usePage().props.value.categories);
+        const medias = computed(() => usePage().props.value.medias);
 
         return {
-            form, submit, selectFile
+            form, categories,submit, selectFile,user,medias
         }
-    }
+    },
+    mounted(){
+        this.form.author = this.user.name
+    }, 
+    methods: {
+        openLibrary: function(){
+
+           this.chooseLibrary = !this.chooseLibrary
+        },
+        makeSlug: function(){
+            if(this.form.title.includes(" ")==true){
+                    var tmpslug = (this.form.title.split(" ")).join("-")
+                   
+            }else{
+                var tmpslug = this.form.title
+            }
+            this.form.slug = tmpslug.toLowerCase()
+
+        },
+        setFrLib(val){
+        alert(val)
+        this.form.from_library = val
+        }
+    },
+    data: () => ({
+            chooseLibrary : false,
+            editor: ClassicEditor,
+            
+            editorConfig: {
+           
+                toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
+                language: 'en',
+                height: '30%',
+                table: {
+                    contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells',  ],
+        
+                }
+            }
+
+    }),
+    components: {
+        ErrorsAndMessages,
+        AppHeaderSmall,
+        AppSidebar
+    },
+    
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-    <div  class=" mx-auto h-full">
+    <div  class=" mx-auto h-full lg:px-36 px-2">
             <div class="grid lg:grid-cols-4 lg:gap-3 px-4" >
                
                    
@@ -10,13 +10,13 @@
                     <template v-if="posts.data.length > 0">
                         
                                 <div class="article" v-for="post in posts.data" :key="post.id">
-                                 <inertia-link :href="$route('guest.blog.view', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> view Post</inertia-link>
+                                 <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="btn btn-primary pull-right action-btn"  ><i class="fas fa-edit"></i> view Post</inertia-link>
                                     <h4>{{post.title}}</h4>
                                     <img v-if="post.image_url" width="300" height="250" :src="post.image_url" class="border-4 border-white h-48 w-96">
                                     <article>
-                                        <p>
-                                            {{ post.content }}
-                                        </p>
+                                      
+                                            {{ post.short_text }}
+                                    
                                     </article>
 
                                 </div>
@@ -25,7 +25,7 @@
                         
                     </template>
                     <div class="text-center" v-else>
-                        No posts found! <inertia-link :href="$route('post.create')">Create Post</inertia-link>
+                        No posts Yet!
                     </div>
             </div>
             <nav aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">
@@ -72,22 +72,15 @@ export default {
     setup() {
         const route = inject('$route');
 
-        const deletePost = (id) => {
-            if (!confirm('Are you sure?')) return;
-            Inertia.delete(route('post.destroy', {id}));
-        }
+     
 
         const posts = computed(() => usePage().props.value.posts);
 
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
 
-        const user = computed(() => usePage().props.value.auth.user);
-
         return {
             posts,
-            deletePost,
             numberLinks,
-            user
         }
     }
 }

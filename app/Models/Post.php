@@ -10,9 +10,13 @@ class Post extends Model
     use HasFactory;
 
     protected $appends = ['image_url'];
-
+    protected $hidden = ['id'];
     function getImageUrlAttribute()
     {
-        return $this->image ? url('/uploads/' . $this->image) : "";
+        return $this->image ? '/rvmp-content/rvmp-uploads/' . $this->image : "";
+    }
+    public function postCategories()
+    {
+        return $this->belongsTo(PostCategories::class, 'category_id');
     }
 }

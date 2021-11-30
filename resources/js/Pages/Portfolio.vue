@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-    <div  class=" mx-auto h-full">
+    <div  class=" mx-auto h-full lg:px-36 px-2">
         portfolio
     </div>
     <app-footer></app-footer>

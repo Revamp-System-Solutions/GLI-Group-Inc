@@ -3,8 +3,10 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostCategoriesController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
@@ -59,6 +61,16 @@ Route::put('gli-admin/posts/edit/{post}', [PostsController::class, 'update'])->n
 
 Route::delete('gli-admin/posts/delete/{post}', [PostsController::class, 'destroy'])->name('post.destroy');
 
+
+Route::get('gli-admin/posts/categories', [PostCategoriesController::class, 'index'])->name('admin.category');
+
+
+
+Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
+
+Route::get('gli-admin/media/upload', [MediaController::class, 'create'])->name('media.create');
+
+Route::post('gli-admin/media/upload', [MediaController::class, 'store'])->name('media.store');
 
 
 
