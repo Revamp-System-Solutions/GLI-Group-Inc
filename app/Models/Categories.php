@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostCategories extends Model
+class Categories extends Model
 {
     use HasFactory;
 
-    public function post()
+    public function subcategories()
     {
-        return $this->hasMany(Post::class, 'category_id', 'id');
+        return $this->hasMany(Subcategories::class, 'category_id', 'id');
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostCategories;
+use App\Models\Categories;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class PostCategoriesController extends Controller
+class CategoriesController extends Controller
 {
     public function __construct()
     {
@@ -16,7 +16,7 @@ class PostCategoriesController extends Controller
     public function index()
     {
         return Inertia::render('Admin/Posts/Category/ShowPostCategory', [
-            "categories" => PostCategories::orderBy('id', 'ASC')->paginate(10)
+            "categories" => Categories::orderBy('id', 'ASC')->paginate(10)
         ]);
     }
 }

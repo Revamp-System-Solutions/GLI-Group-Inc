@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RvmpStaticSeeder::class,
             UsersTableSeeder::class,
+            CategoriesSeeder::class,
+            SubcategoriesSeeder::class,
         ]);
     }
 }

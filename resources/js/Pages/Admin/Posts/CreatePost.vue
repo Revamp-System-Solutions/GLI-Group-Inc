@@ -24,14 +24,14 @@
                             </div>
                             <div class="form-group py-3 text-gray-600 flex flex-row">
                                 <label for="author" class="text-sm w-1/12">author:</label>
-                                <input type="text" id="author" name="author" class="w-11/12 text-sm bg-transparent border-0" v-model="form.author">   
+                                <input type="text" disabled id="author" name="author" class="w-11/12 text-sm bg-transparent border-0" v-model="form.author">   
                             </div>   
                             <div class="form-group py-3 flex flex-row">
                                 <label for="categories" class="text-lg w-1/12 mr-2">Category:</label>
                                 <div class="w-11/12">
                                     <select name="categories" id="categories" class="w-full py-3 rounded "  v-model="form.category">
                                         <template  v-for="(category, index) in categories" :key="category.id" :index="index">
-                                        <option :value="index">{{category}}</option>
+                                        <option v-if="index>1" :value="index">{{category}}</option>
                                         </template>
                                     </select>   
                                 </div>
@@ -54,23 +54,26 @@
                         <div class="form-group py-3 flex flex-row">
                             <label for="image" class="text-lg w-1/12 mr-2">Select Image:</label>
                             <div class="w-11/12 relative">
-                                <input type="file" id="image" name="image" class="border border-gray-500 px-4 py-3 rounded" @change="selectFile">
-                                <span class="mx-4">Or</span>
+                                <input type="file" id="image"   name="image" class="border border-gray-500 px-4 py-3 rounded" @change="selectFile">
+                                <span class="mx-4" v-if="!chooseLibrary" >Or</span>
                                 <span class="text-blue-700 cursor-pointer" >
-                                     <a href="#library" @click="openLibrary" class="px-4 py-3  transition duration-500 ease-in-out bg-transparent transform hover:-translate-y-1 hover:scale-110 ">
-                                    Choose from Media Library 
+                                     <a :href="chooseLibrary ? '#library': '#'" @click="openLibrary" class="px-5 py-3  transition duration-500 ease-in-out bg-transparent transform hover:-translate-y-1 hover:scale-110 ">
+                                   {{ !chooseLibrary ? 'Choose from Media Library':'Close Media Library' }}
                                     </a>
                                     </span>
-                                <div id="library" class="py-8 px-4 w-full h-auto bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
-                                        <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible" >
-                                            <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white">
-                                            
-                                                <img v-if="media" class="rounded shadow-md object-contain h-48 w-full" :src="media" :alt="index">
+                                <div id="library" class="py-8 px-4 w-full h-auto  bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
+                                    <span v-if="form.from_library!=null" class="txt-lg font-semibold block"> {{form.from_library}} is selected</span>
+                                        <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible " v-if="media.length >0">
+                                            <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
+                                              <i class="fas fa-check-circle absolute  top-0 right-0 inline-flex   m-2" :class="(index==form.from_library) ? 'text-green-700' : 'text-gray-400  opacity-75'"></i>
+                                                <img v-if="media" class="rounded shadow-md  mt-1 object-contain h-48 w-full" :src="media" :alt="index">
                                                 {{index }}
                                             </div>
                                   
                                          </div>
-                                         
+                                         <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible " v-else>
+                                                Media Library is empty!
+                                         </div>
                                     </div>
                             </div>
                         </div>
@@ -120,6 +123,7 @@ export default {
 
         function selectFile($event) {
             form.image = $event.target.files[0];
+            form.from_library = null
         }
 
         function submit() {
@@ -141,6 +145,8 @@ export default {
         openLibrary: function(){
 
            this.chooseLibrary = !this.chooseLibrary
+           $("#image").val('')
+           this.form.from_library =null
         },
         makeSlug: function(){
             if(this.form.title.includes(" ")==true){
@@ -153,8 +159,11 @@ export default {
 
         },
         setFrLib(val){
-        alert(val)
-        this.form.from_library = val
+            if(this.form.from_library == val)
+                val = null
+             this.form.from_library = val
+            
+             $("#image").val('')
         }
     },
     data: () => ({
