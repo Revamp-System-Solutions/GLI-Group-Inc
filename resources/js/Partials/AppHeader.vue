@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white  shadow-lg ">
+    <nav class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white  shadow-lg ">
 		<div class="flex items-center flex-no-shrink text-black lg:ml-6">
 			<a class="lg:flex lg:items-center text-black no-underline hover:no-underline" href="#">
 				<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="mx-auto lg:w-24 w-12 lg:inline block">

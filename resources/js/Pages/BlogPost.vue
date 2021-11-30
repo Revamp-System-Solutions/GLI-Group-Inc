@@ -10,7 +10,7 @@
                     <template v-if="posts.data.length > 0">
                         
                                 <div class="article" v-for="post in posts.data" :key="post.id">
-                                 <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> view Post</inertia-link>
+                                 <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="btn btn-primary pull-right action-btn"  ><i class="fas fa-edit"></i> view Post</inertia-link>
                                     <h4>{{post.title}}</h4>
                                     <img v-if="post.image_url" width="300" height="250" :src="post.image_url" class="border-4 border-white h-48 w-96">
                                     <article>
@@ -78,12 +78,9 @@ export default {
 
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
 
-        const user = computed(() => usePage().props.value.auth.user);
-
         return {
             posts,
             numberLinks,
-            user
         }
     }
 }

@@ -23150,13 +23150,9 @@ __webpack_require__.r(__webpack_exports__);
     var numberLinks = posts.value.links.filter(function (v, i) {
       return i > 0 && i < posts.value.links.length - 1;
     });
-    var user = (0,vue__WEBPACK_IMPORTED_MODULE_5__.computed)(function () {
-      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.value.auth.user;
-    });
     return {
       posts: posts,
-      numberLinks: numberLinks,
-      user: user
+      numberLinks: numberLinks
     };
   }
 });
@@ -25906,8 +25902,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "article",
       key: post.id
-    }, [$setup.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-      key: 0,
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
       href: _ctx.$route('guest.blog.view', {
         id: post.slug
       }),
@@ -25921,10 +25916,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1
+    , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1
     /* TEXT */
     ), post.image_url ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
-      key: 1,
+      key: 0,
       width: "300",
       height: "250",
       src: post.image_url,
@@ -26295,7 +26290,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white shadow-lg"
+  "class": "sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white shadow-lg"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center flex-no-shrink text-black lg:ml-6\"><a class=\"lg:flex lg:items-center text-black no-underline hover:no-underline\" href=\"#\"><img src=\"/rvmp-content/rvmp-static/brand-logo-no-text.png\" class=\"mx-auto lg:w-24 w-12 lg:inline block\"><span class=\"mx-6 w-full text-center lg:text-4xl text-base uppercase\"><span class=\"font-semibold brand-logo-bold\">GLI </span><span class=\"text-green-600 font-light brand-logo-light\">Group Inc.</span></span></a></div>", 1);
@@ -27028,8 +27023,6 @@ var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   }
 });
 app.config.globalProperties.$route = window.route;
-app.config.globalProperties.$inertia = window.inertia;
-console.log(app.config);
 app.config.devtools = false;
 app.config.debug = false;
 app.config.silent = true;
