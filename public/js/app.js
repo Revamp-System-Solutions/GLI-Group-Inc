@@ -23346,8 +23346,21 @@ __webpack_require__.r(__webpack_exports__);
     AppHeader: _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     AppFooter: _Partials_AppFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  data: function data() {
+    return {
+      portfolioCats: ['designstudio', 'builders', 'modularcabinets']
+    };
+  },
   props: {
     errors: Object
+  },
+  methods: {
+    expandHovered: function expandHovered(id) {
+      console.log(id);
+    },
+    shrinkHovered: function shrinkHovered(id) {
+      console.log(id);
+    }
   }
 });
 
@@ -26614,19 +26627,99 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "mx-auto h-auto"
+};
+var _hoisted_2 = {
+  "class": "flex lg:flex-row-reverse flex-col-reverse h-auto"
+};
+var _hoisted_3 = {
+  "class": "w-full h-auto flex"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mx-auto h-full lg:px-36 px-2"
-}, " portfolio ", -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-bold uppercase h-full bg-gray-600 bg-opacity-70 p-36"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-bold text-3xl font-semibold"
+}, "GLI"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-light text-3xl text-green-600 font-light"
+}, "Design Studio")], -1
 /* HOISTED */
 );
 
+var _hoisted_5 = [_hoisted_4];
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-bold uppercase h-full bg-gray-600 bg-opacity-70 p-36"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-bold text-3xl font-semibold"
+}, "GLI"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-light text-3xl text-green-600 font-light"
+}, "Builders")], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = [_hoisted_6];
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-bold uppercase h-full bg-gray-600 bg-opacity-70 p-36"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-bold text-3xl font-semibold"
+}, "GLI"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-logo-light text-3xl text-green-600 font-light"
+}, "Modular Cabinets")], -1
+/* HOISTED */
+);
+
+var _hoisted_9 = [_hoisted_8];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
 
   var _component_app_footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "w-1/3 overflow-clip text-center flex-grow h-auto",
+    style: {
+      "background-image": "url('/images/pages/builders.jpg')"
+    },
+    id: "designstudio",
+    onMouseover: _cache[0] || (_cache[0] = function ($event) {
+      return $options.expandHovered('designstudio');
+    }),
+    onMouseleave: _cache[1] || (_cache[1] = function ($event) {
+      return $options.shrinkHovered('designstudio');
+    })
+  }, _hoisted_5, 32
+  /* HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "w-1/3 overflow-clip flex-grow text-center h-auto",
+    style: {
+      "background-image": "url('/images/pages/builders.jpg')"
+    },
+    id: "builders",
+    onMouseover: _cache[2] || (_cache[2] = function ($event) {
+      return $options.expandHovered('builders');
+    }),
+    onMouseleave: _cache[3] || (_cache[3] = function ($event) {
+      return $options.shrinkHovered('builders');
+    })
+  }, _hoisted_7, 32
+  /* HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "w-1/3 overflow-clip flex-grow text-center h-auto",
+    style: {
+      "background-image": "url('/images/pages/builders.jpg')"
+    },
+    id: "modularcabinets",
+    onMouseover: _cache[4] || (_cache[4] = function ($event) {
+      return $options.expandHovered('modularcabinets');
+    }),
+    onMouseleave: _cache[5] || (_cache[5] = function ($event) {
+      return $options.shrinkHovered('modularcabinets');
+    })
+  }, _hoisted_9, 32
+  /* HYDRATE_EVENTS */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
