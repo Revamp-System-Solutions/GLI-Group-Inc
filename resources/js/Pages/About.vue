@@ -1,115 +1,102 @@
 <template>
     <app-header></app-header>
 
-    <div  class=" mx-auto h-auto lg:mx-56 "  >
-               <div class="h-auto bg-white z-0">
-                <div class="flex lg:flex-row  flex-col-reverse">
-                    <div class="lg:w-1/2 w-full relative h-auto" >
-                        <div class="lg:absolute lg:py-16 lg:pl-16 lg:pr-20 lg:ml-16 p-8 h-3/4 -right-16 top-20 bottom-20 bg-white-o-70">     
-                            <div class="h-full">
-                                    <div class="mb-8 border-l-4 border-gray-500 relative">
-                                <h2 class="ml-5 brand-text-header text-3xl font-semibold">MEET THE CEO OF</h2>
-                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2>  
-                            </div>               
-                                <p class="text-left  md:text-xs text-sm brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                            </div>
-                            
+    <div  class=" mx-auto h-auto 2xl:px-80 xl:px-56 lg:px-28 "  >
+                <div class="flex lg:flex-row  flex-col-reverse h-auto z-0 relative">
+                    <div class="w-full  h-3/4 lg:py-36 lg:pl-0 p-6  static" >
+                        <div class=" lg:py-36 lg:my-12 static">
+                            <div class="bg-white bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 md:pr-28 lg:py-16 lg:my-20  md:w-7/12  w-full ">  
+                                <div class="mb-8 border-l-4 border-gray-500 ">
+                                    <h2 class="ml-5 brand-text-header text-3xl font-semibold">MEET THE CEO OF</h2>
+                                    <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2>  
+                                </div>               
+                                <p class="text-justify 2xl:text-lg  text-sm brand-text-content lg:pr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
+                            </div>            
                         </div>               
                     </div>
-                    <div class="lg:w-1/2 w-full h-3/4">
-                    <img src="/images/pages/ceo.jpg" class="object-scale-down " alt="">
+                    <div class="w-full lg:h-auto h-96 static bg-cover bg-top-right bg-local " style="background-image: url('/images/pages/ceo.jpg')" >
+                                &nbsp;
                     </div>
                 </div>
-        </div>
     </div>
     <div class="h-auto w-full bg-transparent" >
-            <div class="flex lg:flex-row flex-col  bg-contain bg-center bg-local " style="background-image: url('/images/pages/house.jpg')" >
-                <div class="w-full relative py-10 h-auto bg-green-o-70" >
-                    <div class="py-4 h-full text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent">
-                        <h2 class="ml-5 brand-text-content text-3xl font-light">We Build as One here in</h2>
-                        <h2 class="ml-5 brand-logo-bold text-4xl font-bold">GLI <span class="brand-logo-light font-thin">GROUP INC.</span></h2>    
+            <div class="flex lg:flex-row flex-col  bg-cover bg-no-repeat bg-top bg-local " style="background-image: url('/images/pages/house.jpg')" >
+                <div class="w-full relative py-10 h-auto bg-green-700 bg-opacity-70" >
+                    <div class="py-4 h-72 text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent">
+                        <h2 class="ml-5 brand-text-content text-3xl font-light ">We Build as One here in</h2>
+                        <h2 class="ml-5 brand-logo-bold text-4xl font-bold py-2">GLI <span class="brand-logo-light font-thin">GROUP INC.</span></h2>    
                     </div> 
                 </div>
             </div>
     </div>
         
-        <div  class=" mx-auto h-auto lg:px-36 px-2"  >
-               <div class="h-auto bg-white z-0">
-                <div class="flex lg:flex-row flex-col ">
-                    <div class="lg:w-1/2 w-full h-3/4 py-16">
-                         <img src="/images/pages/mission.jpg" class="object-scale-down " alt="">
-                    </div>
-                    <div class="lg:w-1/2 w-full  h-auto" >
-                        <div class=" py-16 pl-16 pr-20 ml-16 h-3/4 -right-16 top-20 bottom-20 bg-white-o-70">     
-                            <div class="h-full">
-                                    <div class="mb-8 border-l-4 border-gray-500 relative">
-                                <h2 class="ml-5 brand-text-header text-3xl font-semibold">OUR COMPANY'S</h2>
-                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">MISSION <span class="brand-logo-light font-thin"></span></h2>    
-                            </div>               
-                                <p class="text-left text-xl brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                            </div>
-                            
+
+    <div  class=" mx-auto h-auto 2xl:px-80 xl:px-56 lg:px-28 "  >
+        <div class="flex lg:flex-row-reverse  flex-col-reverse h-auto">
+            <div class="w-full  h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6" >            
+                    <div class="w-full ">  
+                        <div class="mb-8 font-bold uppercase">
+                            <h2 class="brand-text-header text-3xl">OUR COMPANY'S</h2>
+                            <h2 class="brand-text-bold text-3xl text-green-600">MISSION</h2>  
                         </div>               
-                    </div>
-                    
-                </div>
+                        <p class="text-justify 2xl:text-lg  text-sm brand-text-content ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
+                    </div>                       
+            </div>
+            <div class="w-full lg:h-auto lg:py-10 py-5 lg:pr-10" >
+                <div class="w-full lg:h-full h-96 bg-cover bg-top bg-local " style="background-image: url('/images/pages/mission.jpg')">
+                        &nbsp;
+                </div>    
+            </div>
         </div>
     </div>
-            <div  class=" mx-auto h-auto lg:px-36 px-2"  >
-               <div class="h-auto bg-white z-0">
-                <div class="flex lg:flex-row flex-col ">
-                    
-                    <div class="lg:w-1/2 w-full  h-auto" >
-                        <div class=" py-16 pl-16 pr-20 ml-16 h-3/4 -right-16 top-20 bottom-20 bg-white-o-70">     
-                            <div class="h-full">
-                                    <div class="mb-8 border-l-4 border-gray-500 relative">
-                                <h2 class="ml-5 brand-text-header text-3xl font-semibold">OUR COMPANY'S</h2>
-                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">VISION <span class="brand-logo-light font-thin"></span></h2>    
-                            </div>               
-                                <p class="text-left text-xl brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                            </div>
-                            
+    <div  class=" mx-auto h-auto 2xl:px-80 xl:px-56 lg:px-28 "  >
+        <div class="flex lg:flex-row  flex-col-reverse h-auto">
+            <div class="w-full  h-2/3 lg:py-20 lg:pr-10 lg:pl-0 p-6" >            
+                    <div class="w-full ">  
+                        <div class="mb-8 font-bold uppercase">
+                            <h2 class="brand-text-header text-3xl">OUR COMPANY'S</h2>
+                            <h2 class="brand-text-bold text-3xl text-green-600">Vision</h2>  
                         </div>               
-                    </div>
-                    <div class="lg:w-1/2 w-full h-3/4 py-16">
-                         <img src="/images/pages/vision.jpg" class="object-scale-down " alt="">
-                    </div>
-                    
-                </div>
+                        <p class="text-justify 2xl:text-lg  text-sm brand-text-content ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
+                    </div>                       
+            </div>
+            <div class="w-full lg:h-auto lg:py-10 py-5 lg:pl-10" >
+                <div class="w-full lg:h-full h-96 bg-cover bg-top bg-local " style="background-image: url('/images/pages/vision.jpg')">
+                        &nbsp;
+                </div>    
+            </div>
         </div>
     </div>
-     <div  class=" mx-auto h-auto lg:px-36 px-2"  >
-               <div class="h-auto bg-white ">
-                <div class="flex lg:flex-row flex-col ">
-                    <div class="lg:w-1/2 w-full h-3/4 py-16">
-                         <img src="/images/pages/value.jpg" class="object-scale-down " alt="">
-                    </div>
-                    <div class="lg:w-1/2 w-full  h-auto" >
-                        <div class=" py-16 pl-16 pr-20 ml-16 h-3/4 -right-16 top-20 bottom-20 bg-white-o-70">     
-                            <div class="h-full">
-                                    <div class="mb-8 border-l-4 border-gray-500 relative">
-                                <h2 class="ml-5 brand-text-header text-3xl font-semibold">OUR COMPANY'S</h2>
-                                <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">VALUE <span class="brand-logo-light font-thin"></span></h2>    
-                            </div>               
-                                <p class="text-left text-xl brand-text-content relative">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                            </div>
-                            
+
+   <div  class=" mx-auto h-auto 2xl:px-80 xl:px-56 lg:px-28" >
+        <div class="flex lg:flex-row-reverse  flex-col-reverse h-auto">
+            <div class="w-full  h-2/3 lg:py-20 lg:pl-10 lg:pl-0 p-6" >            
+                    <div class="w-full ">  
+                        <div class="mb-8 font-bold uppercase">
+                            <h2 class="brand-text-header text-3xl">OUR COMPANY'S</h2>
+                            <h2 class="brand-text-bold text-3xl text-green-600">Values</h2>  
                         </div>               
-                    </div>
-                    
-                </div>
+                        <p class="text-justify 2xl:text-lg  text-sm brand-text-content ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
+                    </div>                       
+            </div>
+            <div class="w-full lg:h-auto lg:py-10 py-5  lg:pr-10" >
+                <div class="w-full lg:h-full h-96 bg-cover bg-top bg-local " style="background-image: url('/images/pages/value.jpg')">
+                        &nbsp;
+                </div>    
+            </div>
         </div>
     </div>
-    <div class=" " style="border:1px solid red;" >
-            <div class="flex lg:flex-row flex-col  bg-cover bg-center bg-local " style="background-image: url('/images/pages/grou.jpeg')" >
-                <div class="w-full relative py-10 h-10 " >
-                    <div class="py-4 h-full text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent">
-                        <!-- <h2 class="ml-5 brand-text-content text-3xl font-light"></h2> -->
-                        <!-- <h2 class="ml-5 brand-logo-bold text-4xl font-bold"> <span class="brand-logo-light font-thin"></span></h2>     -->
+
+
+    <div class="h-auto w-full bg-transparent" >
+            <div class="flex lg:flex-row flex-col  bg-cover bg-center bg-local " style="background-image: url('/images/pages/groups.jpeg')" >
+                <div class="w-full relative py-10 h-auto " >
+                    <div class="py-4 h-56 text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent">
                     </div> 
                 </div>
             </div>
     </div>
+    
     <app-footer></app-footer>
 </template>
 
