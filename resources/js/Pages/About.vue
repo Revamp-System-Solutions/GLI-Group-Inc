@@ -5,7 +5,7 @@
                 <div class="flex lg:flex-row  flex-col-reverse h-auto z-0 relative">
                     <div class="w-full  h-3/4 lg:py-36 lg:pl-0 p-6  static" >
                         <div class=" lg:py-36 lg:my-12 static">
-                            <div class="bg-white bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 md:pr-28 lg:py-16 lg:my-20  md:w-7/12  w-full ">  
+                            <div class="bg-white bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full ">  
                                 <div class="mb-8 border-l-4 border-gray-500 ">
                                     <h2 class="ml-5 brand-text-header text-3xl font-semibold">MEET THE CEO OF</h2>
                                     <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2>  
@@ -70,7 +70,7 @@
 
    <div  class=" mx-auto h-auto 2xl:px-80 xl:px-56 lg:px-28" >
         <div class="flex lg:flex-row-reverse  flex-col-reverse h-auto">
-            <div class="w-full  h-2/3 lg:py-20 lg:pl-10 lg:pl-0 p-6" >            
+            <div class="w-full  h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6" >            
                     <div class="w-full ">  
                         <div class="mb-8 font-bold uppercase">
                             <h2 class="brand-text-header text-3xl">OUR COMPANY'S</h2>
