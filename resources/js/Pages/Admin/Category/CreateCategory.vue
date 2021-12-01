@@ -5,7 +5,7 @@
         <app-sidebar></app-sidebar>
         <div id="content-area" class="w-full h-auto bg-gray-50">
           <div class="h-auto"> 
-          <span class="text-xl inline-block p-3 font-semibold">Create Blog Posts</span>
+          <span class="text-xl inline-block p-3 font-semibold">Create Category</span>
             
               <div class="flex flex-col justify-center px-4 py-2" >
 
@@ -16,7 +16,7 @@
                         <div id="postHeaders" class=" capitalize">
                             <div class="form-group py-3 flex flex-row" >
                                 <label for="title" class="text-lg w-1/12 mr-2">Title:</label>
-                                <input type="text"  name="title" id="title" class="w-11/12 px-4 py-3 rounded"  @blur="makeSlug" v-model="form.title" />
+                                <input type="text"  name="title" id="title" class="w-11/12 px-4 py-3 rounded"   v-model="form.title" />
                             </div>
                             <div class="form-group py-3 flex flex-row">
                                 <label for="slug" class="text-lg w-1/12 mr-2">Slug:</label>
@@ -94,36 +94,33 @@
 import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
 import AppSidebar from "./../../../Partials/AppSidebar";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive, computed} from "vue";
+import {inject, reactive} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
-    name: "Create",
-       props: {
+    name: "CreateCategory",
+    components: {
+        ErrorsAndMessages,
+        AppHeaderSmall,
+        AppSidebar
+    },
+    props: {
         errors: Object
     },
     setup() {
-        
-        const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
-            title: null,
-            slug: null,
-            short_text:null,
-            author: null,
-            content: null,
-            image: null,
-            category:null,
-            from_library: null,
+            name: null,
+            description: null,
+            has_subcategory: false,
+            subcategory:[],
             _token: usePage().props.value.csrf_token
         });
-        
+
         const route = inject('$route');
 
         function selectFile($event) {
             form.image = $event.target.files[0];
-            form.from_library = null
         }
 
         function submit() {
@@ -131,66 +128,11 @@ export default {
                 forceFormData: true
             });
         }
-        const categories = computed(() => usePage().props.value.categories);
-        const medias = computed(() => usePage().props.value.medias);
-        const exclusionList = usePage().props.value.makepostexclusionList;
 
         return {
-            form, categories,submit, selectFile,user,medias,exclusionList
+            form, submit, selectFile
         }
-    },
-    mounted(){
-        this.form.author = this.user.name
-        
-    }, 
-    methods: {
-        openLibrary: function(){
-
-           this.chooseLibrary = !this.chooseLibrary
-           $("#image").val('')
-           this.form.from_library =null
-        },
-        makeSlug: function(){
-            if(this.form.title.includes(" ")==true){
-                    var tmpslug = (this.form.title.split(" ")).join("-")
-                   
-            }else{
-                var tmpslug = this.form.title
-            }
-            this.form.slug = tmpslug.toLowerCase()
-
-        },
-        setFrLib(val){
-            if(this.form.from_library == val)
-                val = null
-             this.form.from_library = val
-            
-             $("#image").val('')
-        }
-    },
-    data: () => ({
-            
-            chooseLibrary : false,
-            editor: ClassicEditor,
-            
-            editorConfig: {
-           
-                toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
-                language: 'en',
-                height: '30%',
-                table: {
-                    contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells',  ],
-        
-                }
-            }
-
-    }),
-    components: {
-        ErrorsAndMessages,
-        AppHeaderSmall,
-        AppSidebar
-    },
-    
+    }
 }
 </script>
 

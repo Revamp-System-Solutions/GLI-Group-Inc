@@ -63,6 +63,8 @@ Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy
 
 
 Route::get('gli-admin/categories', [CategoriesController::class, 'index'])->name('admin.category');
+Route::get('gli-admin/categories/create', [CategoriesController::class, 'create'])->name('category.create');
+Route::post('gli-admin/categories/create', [CategoriesController::class, 'store'])->name('category.store');
 
 
 

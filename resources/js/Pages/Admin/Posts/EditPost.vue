@@ -31,7 +31,7 @@
                                 <div class="w-11/12">
                                     <select name="categories" id="categories" class="w-full py-3 rounded "  v-model="form.category">
                                         <template  v-for="(category, index) in categories" :key="category.id" :index="index">
-                                        <option v-if="index>1" :value="index">{{category}}</option>
+                                        <option v-if="!(exclusionList.includes(category))" :value="index">{{category}}</option>
                                         </template>
                                     </select>   
                                 </div>
@@ -168,8 +168,10 @@ export default {
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
         const user = computed(() => usePage().props.value.auth.user);
+        const exclusionList = usePage().props.value.makepostexclusionList;
+
         return {
-            form, submit, selectFile, image_url,categories,user,medias
+            form, submit, selectFile, image_url,categories,user,medias,exclusionList
         }
     },
     mounted(){

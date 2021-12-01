@@ -15,8 +15,12 @@ class CategoriesController extends Controller
     }
     public function index()
     {
-        return Inertia::render('Admin/Posts/Category/ShowPostCategory', [
+        return Inertia::render('Admin/Category/ShowCategory', [
             "categories" => Categories::orderBy('id', 'ASC')->paginate(10)
         ]);
+    }
+    public function create()
+    {
+        return Inertia::render('Admin/Category/CreateCategory');
     }
 }

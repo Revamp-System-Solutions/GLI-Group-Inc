@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import AppHeader from "./../../../../Partials/AppHeader";
-import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
+import AppHeader from "./../../../Partials/AppHeader";
+import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {inject, reactive} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "EditPostCategory",
+    name: "EditCategory",
     components: {
         ErrorsAndMessages,
         AppHeader
