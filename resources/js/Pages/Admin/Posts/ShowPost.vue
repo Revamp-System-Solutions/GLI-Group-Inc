@@ -31,7 +31,7 @@
                                           <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>
                                           <td class="border border-gray-600">
                                               <inertia-link :href="$route('post.edit', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
-                                              <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
+                                              <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.slug)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
                                           </td>
                                       </tr>
                                   </tbody>
@@ -70,7 +70,7 @@
           </div> 
         </div>
     </div>
-<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">
+<div class="fixed z-30 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>

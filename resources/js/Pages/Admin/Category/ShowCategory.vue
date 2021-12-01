@@ -5,31 +5,31 @@
         <app-sidebar></app-sidebar>
         <div id="content-area" class="w-full h-auto bg-gray-50">
           <div class="h-screen"> 
-          <span class="text-xl inline-block p-3 font-semibold"> Blog Posts Categories<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
+          <span class="text-xl inline-block p-3 font-semibold">Categories<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('category.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
             
               <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
                   <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Categories: </label>
                   <input type="text" id="postsearch"  class="m-3 px-2 py-1 txt-sm rounded">
                 </div>
-asd
+
                             <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
                                   <thead>
                                       <tr>
+                                      <th class="w-1/4 border border-gray-600">ID</th>
                                       <th class="w-1/4 border border-gray-600">Name</th>
-                                      <th class="w-1/4 border border-gray-600">Content</th>
-                                      <th class="w-1/4 border border-gray-600">Last Update</th>
+                                      <th class="w-1/4 border border-gray-600">Description</th>
                                       <th class="w-1/4 border border-gray-600">Actions</th>
                                       </tr>
                                   </thead>
                             <tbody v-if="categories.data.length > 0">
-                                      <tr v-for="post in categories.data" :key="post.id" class="text-center ">
-                                          <td class="border border-gray-600">{{post.title}}</td>
-                                          <td class="border border-gray-600">{{ post.content }}</td>
-                                          <td class="border border-gray-600"></td>
+                                      <tr v-for="category in categories.data" :key="category.id" class="text-center ">
+                                          <td class="border border-gray-600">{{category.id}}</td>
+                                          <td class="border border-gray-600">{{ category.name }}</td>
+                                          <td class="border border-gray-600">{{ category.description }}</td>
                                           <td class="border border-gray-600">
-                                              <inertia-link :href="$route('post.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
-                                              <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
+                                              <inertia-link :href="$route('post.edit', {id: category.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
+                                              <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(category.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
                                           </td>
                                       </tr>
                                   </tbody>
@@ -108,15 +108,15 @@ asd
 </template>
 
 <script>
-import AppHeaderSmall from './../../../../Partials/AppHeaderSmall';
-import AppSidebar from "./../../../../Partials/AppSidebar";
-import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
+import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
+import AppSidebar from "./../../../Partials/AppSidebar";
+import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";
 
 export default {
-    name: "ShowPostsCategory",
+    name: "ShowCategory",
     components: {
         ErrorsAndMessages,
         AppSidebar,
@@ -144,7 +144,7 @@ export default {
         }
 
         const categories = computed(() => usePage().props.value.categories);
-        console.log(categories.value)
+       
         const numberLinks = categories.value.links.filter((v, i) => i > 0 && i < categories.value.links.length - 1);
 
         const user = computed(() => usePage().props.value.auth.user);

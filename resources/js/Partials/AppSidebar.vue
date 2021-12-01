@@ -57,16 +57,7 @@
 										<span class="ml-3">Add New</span>
 									</inertia-link> 
                                 </li>
-                                <li class="my-px">
-                                    <inertia-link :href="$route('admin.category')"  
-                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
-										
-											<i class="fas fa-bookmark"></i>
-										
-                                        <span class="ml-3">Category</span>
-
-                                    </inertia-link>
-                                </li>
+                                
 								
                         </ul>
 				</li>
@@ -112,11 +103,21 @@
 		
 					</a>
 					<ul class="flex flex-col w-full pl-8 transition ease-out duration-700" v-if="settingsDropdownOpen ">
-                                <li class="my-px">
-                                    <a href="#"
+                               <li class="my-px">
+                                    <inertia-link :href="$route('admin.category')"  
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
 											<i class="fas fa-bookmark"></i>
+										
+                                        <span class="ml-3">Category</span>
+
+                                    </inertia-link>
+                                </li>
+							    <li class="my-px">
+                                    <a href="#"
+                                    class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
+										
+											<i class="fas fa-sliders-h"></i>
 										
                                         <span class="ml-3">Site Settings</span>
 

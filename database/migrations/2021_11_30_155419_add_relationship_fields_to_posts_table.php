@@ -6,20 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 class AddRelationshipFieldsToPostsTable extends Migration
 {
-
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id');
-
-            $table->foreign('category_id', 'category_fk_455958')->references('id')->on('post_categories')->onDelete('cascade');
+            $table->unsignedBigInteger('subcategory_id');
+            $table->foreign('subcategory_id', 'subcategory_fk_455758')->references('id')->on('subcategories');
+            $table->unsignedBigInteger('image_id');
+            $table->foreign('image_id', 'media_fk_455958')->references('id')->on('media');
         });
     }
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn(['category_id']);
+            $table->dropColumn(['subcategory_id']);
+            $table->dropColumn(['image_id']);
         });
     }
-
 }

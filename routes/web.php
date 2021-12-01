@@ -3,7 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\PostCategoriesController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
@@ -57,12 +57,14 @@ Route::post('gli-admin/posts/create', [PostsController::class, 'store'])->name('
 
 Route::get('gli-admin/posts/edit/{post}', [PostsController::class, 'edit'])->name('post.edit');
 
-Route::put('gli-admin/posts/edit/{post}', [PostsController::class, 'update'])->name('post.update');
+Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
 
-Route::delete('gli-admin/posts/delete/{post}', [PostsController::class, 'destroy'])->name('post.destroy');
+Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
 
 
-Route::get('gli-admin/posts/categories', [PostCategoriesController::class, 'index'])->name('admin.category');
+Route::get('gli-admin/categories', [CategoriesController::class, 'index'])->name('admin.category');
+Route::get('gli-admin/categories/create', [CategoriesController::class, 'create'])->name('category.create');
+Route::post('gli-admin/categories/create', [CategoriesController::class, 'store'])->name('category.store');
 
 
 
