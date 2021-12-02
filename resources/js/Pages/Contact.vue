@@ -3,7 +3,6 @@
 
 <div class="mx-auto h-auto">
     <div class="flex lg:flex-row-reverse flex-col-reverse h-auto">
-
         <div class="lg:w-1/3 w-full h-auto flex flex-col">
             <div class="w-full 2xl:px-24 xl:px-12 lg:px-8 lg:py-0 p-6 bg-gray-600 text-white h-1/2">
                 <div class="w-full grid grid-cols-1 gap-5 place-content-center h-full">
