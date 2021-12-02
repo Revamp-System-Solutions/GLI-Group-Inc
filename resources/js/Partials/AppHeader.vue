@@ -1,5 +1,5 @@
 <template>
-    <nav class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-10 pin-t bg-white  shadow-lg ">
+    <nav class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t bg-white  shadow-lg ">
 		<div class="flex items-center flex-no-shrink text-black lg:ml-6">
 			<a class="lg:flex lg:items-center text-black no-underline hover:no-underline" href="#">
 				<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="mx-auto w-12 lg:inline block">
@@ -11,8 +11,8 @@
 
 		<div class="block lg:hidden" >
 			<button @click.prevent="menuOpen=!menuOpen" class="flex items-center px-4 py-2 border rounded text-grey border-grey-dark ">
-				<i class="fas " :class="{'fa-bars': !menuOpen, 'fa-times': menuOpen}"></i> 
-						
+				<i class="fas " :class="{'fa-bars': !menuOpen, 'fa-times': menuOpen}"></i>
+
 			</button>
 		</div>
 
@@ -36,7 +36,7 @@
 							<a v-if="!switchInertia" href="#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Modular Cabinets
 							</a>
-							
+
 							<inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Design Studio
 							</inertia-link>
@@ -46,9 +46,9 @@
 							<inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Modular Cabinets
 							</inertia-link>
-							
+
 						</div>
-					</div> 
+					</div>
 				</li>
                 <li class="mx-6">
 					 <inertia-link :href="$route('guest.blog')" class="nav-link hover:text-green-600">Blog</inertia-link>
@@ -62,11 +62,11 @@
 				<li class="mx-6">
 					 <inertia-link :href="$route('guest.contact')" class="nav-link hover:text-green-600">Contact</inertia-link>
 				</li>
-           
+
 			</ul>
 		</div>
 	</nav>
-  
+
 </template>
 
 <script>
@@ -87,7 +87,7 @@ export default {
 		if(window.location.pathname !== "/home"){
 			this.switchInertia = true
 		}
-		
+
     },
 	 methods: {
     toggleDropdown: function(){
