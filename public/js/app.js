@@ -26557,66 +26557,64 @@ var _hoisted_2 = {
   "class": "flex lg:flex-row-reverse flex-col-reverse h-auto"
 };
 var _hoisted_3 = {
-  "class": "w-full h-auto flex flex-col flex items-center"
+  "class": "w-full h-auto flex flex-col"
 };
 var _hoisted_4 = {
-  "class": "w-full border border-red-500 p-24 bg-gray-500 text-white"
+  "class": "w-full px-24 bg-gray-600 text-white h-1/2"
 };
 var _hoisted_5 = {
-  "class": "w-full mb-8 border-l-4 border-green-600 inline-flex flex-col text-right"
+  "class": "w-full grid grid-cols-1 gap-5 place-content-center h-full"
+};
+var _hoisted_6 = {
+  "class": "w-full flex flex-col"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text-header font-bold text-7xl ml-5"
-}, "Come and Visit us", -1
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
+  className: "my-2 p-4 self-end text-xl border-l-8 bg-transparent border-green-600 quote"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-text-header font-bold text-6xl"
+}, "Come and Visit us")], -1
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("were residing at the coziest place in Negros Oriental");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("we're residing at the coziest place in Negros Oriental");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"w-full mb-8 inline-flex flex-row\"><div class=\"w-5/12 text-right text-6xl\"><i class=\"fas fa-map-marker-alt text-green-600\"></i></div><div class=\"w-7/12 italic text-xl brand-text-content text-right\"> Bacong, Valencia Road, 6200 Negros Oriental <span class=\"block\">Dumaguete City</span></div></div>", 1);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "my-2 grid grid-cols-2 gap-0 place-content-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "place-self-end"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-map-marker-alt text-5xl my-5 text-green-600"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-xl italic brand-text-content text-right"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("6215 Negros Oriental ")])], -1
+/* HOISTED */
+);
 
-var _hoisted_9 = {
-  "class": "w-full border border-red-500 p-24 bg-white-500 text-gray-500"
-};
 var _hoisted_10 = {
-  "class": "mb-8 border-l-4 border-green-500"
+  "class": "w-full px-24 bg-white h-1/2"
+};
+var _hoisted_11 = {
+  "class": "w-full grid grid-cols-1 gap-5 place-content-center h-full"
+};
+var _hoisted_12 = {
+  "class": "w-full flex flex-col"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text-header font-bold text-5xl ml-5"
-}, "Call Us Here", -1
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
+  className: "my-2 p-4 self-end text-xl border-l-8 bg-transparent border-green-600 quote"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "brand-text-header font-bold text-6xl"
+}, "Call Us Here")], -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("having trouble or don't have time? Call Us Any time!");
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("having trouble or don't have time? Call Us Any time!");
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-phone-alt text-green-500"
-}, null, -1
-/* HOISTED */
-);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"my-2 self-end grid grid-cols-2 gap-0 place-content-center\"><span class=\"place-self-end\"><i class=\"fas fa-phone-alt text-4xl text-green-600\"></i></span><span class=\"my-3 mx-2 text-xl italic brand-text-content place-self-end\"> 0905-000-0000 </span><span class=\"place-self-end\"><i class=\"fas fa-envelope text-4xl text-green-600\"></i></span><span class=\"my-3 mx-2 text-xl italic brand-text-content place-self-end\"> client.gli@gmail.com </span></div>", 1);
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "italic text-xl brand-text-content"
-}, "0905-000-0000", -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-envelope text-green-500"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "italic text-xl brand-text-content"
-}, "client.gli@gmail.com", -1
-/* HOISTED */
-);
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-auto"
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-full lg:h-screen"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-full lg:h-full h-96 bg-cover bg-top bg-local",
   style: {
@@ -26633,25 +26631,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_app_footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_h8, {
-    "class": "italic text-xl brand-text-content ml-5"
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_h8, {
+    "class": "my-2 self-end italic text-xl brand-text-content"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_7];
+      return [_hoisted_8];
     }),
     _: 1
     /* STABLE */
 
-  })]), _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_h8, {
-    "class": "italic text-xl brand-text-content ml-5"
+  }), _hoisted_9])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_h8, {
+    "class": "my-2 self-end italic text-xl brand-text-content"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_12];
+      return [_hoisted_14];
     }),
     _: 1
     /* STABLE */
 
-  })]), _hoisted_13, _hoisted_14, _hoisted_15, _hoisted_16])]), _hoisted_17])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer)], 64
+  }), _hoisted_15])])])]), _hoisted_16])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
