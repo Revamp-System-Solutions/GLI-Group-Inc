@@ -26689,7 +26689,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "transition-width transition-slowest ease cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
+    "class": "transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
     style: {
       "background-image": "url('/images/pages/design.jpg')"
     },
@@ -26700,7 +26700,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_3, 32
   /* HYDRATE_EVENTS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "transition-width transition-slowest ease cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
+    "class": "transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
     style: {
       "background-image": "url('/images/pages/builders.jpg')"
     },
@@ -26711,7 +26711,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_5, 32
   /* HYDRATE_EVENTS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "transition-width transition-slowest ease cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
+    "class": "transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3",
     style: {
       "background-image": "url('/images/pages/modularcabs.jpg')"
     },
