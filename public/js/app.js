@@ -23367,13 +23367,13 @@ __webpack_require__.r(__webpack_exports__);
         if (id !== pc) {
           $("#" + pc).removeClass('w-10/12');
           $("#" + pc).removeClass('w-1/3').addClass("w-1/12 ");
-          $("#" + $("#" + pc).children('div').attr('id')).removeClass('bg-green-600 ').addClass('bg-green-900');
+          $("#" + $("#" + pc).children('div').attr('id')).removeClass('rvmp-brand-bg-main ').addClass('rvmp-brand-bg-darker');
           $("#" + $("#" + pc).children('div').attr('id')).children('h2').removeClass('rotate-0 translate-y-48 lg:text-3xl').addClass('-rotate-90 translate-y-60 lg:text-xs whitespace-nowrap');
         } else {
           this.hovered = pc;
           this.portfolioCats[pc] = true;
           $("#" + pc).removeClass('w-1/3').addClass('w-10/12');
-          $("#" + $("#" + pc).children('div').attr('id')).removeClass('bg-green-900').addClass('bg-green-600 ');
+          $("#" + $("#" + pc).children('div').attr('id')).removeClass('rvmp-brand-bg-darker').addClass('rvmp-brand-bg-main ');
           $("#" + $("#" + pc).children('div').attr('id')).children('h2').removeClass('-rotate-90 translate-y-60 lg:text-xs whitespace-nowrap').addClass('rotate-0 translate-y-48 lg:text-3xl');
         }
       }
@@ -23726,7 +23726,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "lg:py-36 lg:my-12 static"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "bg-white bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 lg:w-7/12 w-full"
+  "class": "rvmp-bg-main bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 lg:w-7/12 w-full"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
   className: "self-start border-l-8 my-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
@@ -23734,7 +23734,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "MEET THE CEO OF"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "ml-5 brand-logo-bold text-3xl font-semibold"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("GLI "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "brand-logo-light font-thin text-green-600"
+  "class": "brand-logo-light font-thin rvmp-brand-color-highlight"
 }, "GROUP INC.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-justify 2xl:text-lg text-sm brand-text-content lg:pr-3"
 }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23746,7 +23746,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto w-full bg-transparent\"><div class=\"flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"w-full relative py-10 h-auto bg-green-700 bg-opacity-70\"><div class=\"py-4 h-72 text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent\"><h2 class=\"brand-text-content lg:text-3xl text-xl font-light\">We Build as One here in</h2><h2 class=\"brand-logo-bold lg:text-4xl text-2xl font-bold py-2\">GLI <span class=\"brand-logo-light font-thin\">GROUP INC.</span></h2></div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row-reverse flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl text-green-600\">MISSION</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pr-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/mission.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pr-10 lg:pl-0 p-6\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl text-green-600\">Vision</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pl-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/vision.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row-reverse flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl text-green-600\">Values</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pr-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/value.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto w-full bg-transparent\"><div class=\"flex lg:flex-row flex-col bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/groups.jpeg&#39;);\"><div class=\"w-full relative py-10 h-auto\"><div class=\"py-4 h-56 text-center mt-auto w-full flex flex-col justify-center text-white bg-transparent\"></div></div></div></div>", 5);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto w-full bg-transparent\"><div class=\"flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"w-full relative py-10 h-auto rvmp-brand-bg-main bg-opacity-70\"><div class=\"py-4 h-72 text-center mt-auto w-full flex flex-col justify-center rvmp-text-alt bg-transparent\"><h2 class=\"brand-text-content lg:text-3xl text-xl font-light\">We Build as One here in</h2><h2 class=\"brand-logo-bold lg:text-4xl text-2xl font-bold py-2\">GLI <span class=\"brand-logo-light font-thin\">GROUP INC.</span></h2></div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row-reverse flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6 rvmp-bg-main\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl rvmp-brand-color-highlight\">MISSION</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pr-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/mission.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pr-10 lg:pl-0 p-6 rvmp-bg-main\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl rvmp-brand-color-highlight\">Vision</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pl-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/vision.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex lg:flex-row-reverse flex-col-reverse h-auto\"><div class=\"w-full h-2/3 lg:py-20 lg:pl-10 lg:pr-0 p-6 rvmp-bg-main\"><div class=\"w-full\"><div class=\"mb-8 font-bold uppercase\"><h2 class=\"brand-text-header text-3xl\">OUR COMPANY&#39;S</h2><h2 class=\"brand-text-bold text-3xl rvmp-brand-color-highlight\">Values</h2></div><p class=\"text-justify 2xl:text-lg text-sm brand-text-content\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p></div></div><div class=\"w-full lg:h-auto lg:py-10 py-5 lg:pr-10\"><div class=\"w-full lg:h-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/value.jpg&#39;);\">   </div></div></div></div><div class=\"h-auto w-full bg-transparent\"><div class=\"flex lg:flex-row flex-col bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/groups.jpeg&#39;);\"><div class=\"w-full relative py-10 h-auto\"><div class=\"py-4 h-56 text-center mt-auto w-full flex flex-col justify-center rvmp-text-alt bg-transparent\"></div></div></div></div>", 5);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
@@ -26631,7 +26631,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "we're residing at the coziest place in Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-map-marker-alt rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
+  "class": "fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Unit 3, Uypitching Building"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Km. 8, Jose Romero Road"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("6215 Valencia, Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Philippines ")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -26649,11 +26649,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "having trouble or don't have time? Call Us Any time!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-phone-alt rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
+  "class": "fas fa-phone-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
 }, " 0905-000-0000 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-envelope rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
+  "class": "fas fa-envelope rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
 }, " client.gli@gmail.com ")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -26725,7 +26725,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 bg-green-600 bg-opacity-70",
+  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70",
   id: "pcChild-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48"
@@ -26736,7 +26736,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = [_hoisted_2];
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 bg-green-600 bg-opacity-70",
+  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70",
   id: "pcChild-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48"
@@ -26747,7 +26747,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_5 = [_hoisted_4];
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 bg-green-600 bg-opacity-70",
+  "class": "static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70",
   id: "pcChild-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48"
@@ -27032,10 +27032,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   id: "appheader",
-  "class": "sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t transition-height duration-500 ease-in-out bg-white shadow-lg"
+  "class": "sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t transition-height duration-500 ease-in-out rvmp-bg-main shadow-lg"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"logo-container\" class=\"flex items-center flex-no-shrink transition duration-500 ease-in-out text-black lg:ml-6\"><a id=\"logo-link\" class=\"lg:flex lg:items-center text-black no-underline hover:no-underline transition duration-500 ease-in-out\" href=\"#\"><img src=\"/rvmp-content/rvmp-static/brand-logo-no-text.png\" class=\"mx-auto w-12 lg:inline block transition duration-500 ease-in-out\"><span class=\"mx-3 w-full text-center lg:text-2xl text-base uppercase\"><span class=\"font-semibold brand-logo-bold\">GLI </span><span class=\"text-green-600 font-light brand-logo-light\">Group Inc.</span></span></a></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"logo-container\" class=\"flex items-center flex-no-shrink transition duration-500 ease-in-out text-black lg:ml-6\"><a id=\"logo-link\" class=\"lg:flex lg:items-center text-black no-underline hover:no-underline transition duration-500 ease-in-out\" href=\"#\"><img src=\"/rvmp-content/rvmp-static/brand-logo-no-text.png\" class=\"mx-auto w-12 lg:inline block transition duration-500 ease-in-out\"><span class=\"mx-3 w-full text-center lg:text-2xl text-base uppercase\"><span class=\"font-semibold brand-logo-bold\">GLI </span><span class=\"rvmp-brand-color-main font-light brand-logo-light\">Group Inc.</span></span></a></div>", 1);
 
 var _hoisted_3 = {
   "class": "block lg:hidden"
@@ -27129,7 +27129,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "nav-content"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.index'),
-    "class": "nav-link hover:text-green-600"
+    "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_6];
@@ -27140,7 +27140,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8
   /* PROPS */
   , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    "class": "nav-link hover:text-green-600",
+    "class": "nav-link hover:rvmp-brand-color-main",
     type: "button",
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.toggleDropdown();
@@ -27153,7 +27153,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
       'hidden': !_ctx.dropdownPopoverShow,
       'block': _ctx.dropdownPopoverShow
-    }, "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1"]),
+    }, "rvmp-bg-main text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1"]),
     style: {
       "min-width": "12rem"
     },
@@ -27203,7 +27203,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[_directive_click_away, $options.onClickAway]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.blog'),
-    "class": "nav-link hover:text-green-600"
+    "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_16];
@@ -27215,7 +27215,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.portfolio'),
-    "class": "nav-link hover:text-green-600"
+    "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_18];
@@ -27227,7 +27227,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.about'),
-    "class": "nav-link hover:text-green-600"
+    "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_20];
@@ -27239,7 +27239,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.contact'),
-    "class": "nav-link hover:text-green-600"
+    "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_22];

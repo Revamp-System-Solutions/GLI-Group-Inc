@@ -12,7 +12,7 @@
                         </blockquote> 
                         <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">we're residing at the coziest place in Negros Oriental</span>
                         <div class="self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center">
-                            <span class="fas fa-map-marker-alt rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
+                            <span class="fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
                             <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                               Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines
                             </span>
@@ -28,11 +28,11 @@
                         </blockquote> 
                         <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">having trouble or don't have time? Call Us Any time!</span>
                         <div class="self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center">
-                            <span class="fas fa-phone-alt rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
+                            <span class="fas fa-phone-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
                             <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                                0905-000-0000
                             </span>
-                            <span class="fas fa-envelope rvmp-brand-color-1 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
+                            <span class="fas fa-envelope rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
                             <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                                client.gli@gmail.com
                             </span>
