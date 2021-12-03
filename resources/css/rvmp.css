@@ -54,19 +54,23 @@
             --tw-text-opacity: 1;
             color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
         }
-        .rvmp-brand-border-1{
+        .rvmp-banner-text-color{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-main{
             --tw-border-opacity: 1;
             border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
         }
-        .rvmp-brand-border-2{
+        .rvmp-brand-border-accent{
             --tw-border-opacity: 1;
             border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
         }
-        .rvmp-brand-border-3{
+        .rvmp-brand-border-highlight{
             --tw-border-opacity: 1;
             border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
         }
-        .rvmp-brand-border-4{
+        .rvmp-brand-border-darker{
             --tw-border-opacity: 1;
             border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
         }
@@ -74,11 +78,11 @@
             --tw-bg-opacity: 1;
             background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
         }
-        .rvmp-brand-bg-2{
+        .rvmp-brand-bg-accent{
             --tw-bg-opacity: 1;
             background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
         }
-        .rvmp-brand-bg-3{
+        .rvmp-brand-bg-highlight{
             --tw-bg-opacity: 1;
             background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
         }

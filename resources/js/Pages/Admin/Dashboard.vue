@@ -16,11 +16,6 @@
 import AppHeaderSmall from '../../Partials/AppHeaderSmall';
 import AppSidebar from "../../Partials/AppSidebar";
 import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
-// import {usePage} from "@inertiajs/inertia-vue3";
-// import {Inertia} from "@inertiajs/inertia";
-// import {computed, inject} from "vue";
-
-
 
 export default {
     name: "Admin",

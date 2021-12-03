@@ -160,20 +160,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    .action-btn {
-        margin-left: 12px;
-        font-size: 13px;
-    }
-
-    .article {
-        margin-top: 20px;
-        
-    }
-    .d-flex{
-        display: flex !important;
-        justify-content: flex-start;
-    }
-
-</style>

@@ -114,14 +114,14 @@
                                     </inertia-link>
                                 </li>
 							    <li class="my-px">
-                                    <a href="#"
+                                    <inertia-link :href="$route('admin.settings')" 
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
 											<i class="fas fa-sliders-h"></i>
 										
                                         <span class="ml-3">Site Settings</span>
 
-                                    </a>
+                                    </inertia-link>
                                 </li>
 								<li class="my-px">
 									<a href="#"

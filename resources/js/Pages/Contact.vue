@@ -7,7 +7,7 @@
             <div class="w-full 2xl:px-24 xl:px-12 lg:px-8 lg:py-0 p-6 lg:rvmp-bg-alt rvmp-bg-main lg:rvmp-text-alt rvmp-text-main h-1/2">
                 <div class="w-full grid grid-cols-1 gap-5 place-content-center h-full">
                     <div class="w-full flex flex-col">
-                        <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-1 quote">
+                        <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-main quote">
                             <h2 class="brand-text-header font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Come and Visit us</h2>
                         </blockquote> 
                         <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">we're residing at the coziest place in Negros Oriental</span>
@@ -23,7 +23,7 @@
             <div class="w-full 2xl:px-24 xl:px-12 lg:px-8 lg:py-0 p-6 lg:rvmp-bg-main rvmp-bg-alt lg:rvmp-text-main rvmp-text-alt h-1/2">
                 <div class="w-full grid grid-cols-1 gap-5 place-content-center h-full">
                     <div class="w-full flex flex-col">
-                        <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-1 quote">
+                        <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-main quote">
                             <h2 class="brand-text-header font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Call Us Here</h2>
                         </blockquote> 
                         <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">having trouble or don't have time? Call Us Any time!</span>
