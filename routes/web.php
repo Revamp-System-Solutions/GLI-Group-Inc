@@ -29,7 +29,7 @@ Route::get('home#designstudio', [GuestController::class, 'index'])->name('guest.
 Route::get('home#modularcabinets', [GuestController::class, 'index'])->name('guest.modcabinet');
 Route::get('home#builders', [GuestController::class, 'index'])->name('guest.builders');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
-Route::get('contact', [GuestController::class, 'showContactPage'])->name('guest.contact');
+Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
 Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');

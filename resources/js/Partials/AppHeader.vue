@@ -60,7 +60,7 @@
 					 <inertia-link :href="$route('guest.about')" class="nav-link hover:text-green-600">About</inertia-link>
 				</li>
 				<li class="mx-6">
-					 <inertia-link :href="$route('guest.contact')" class="nav-link hover:text-green-600">Contact</inertia-link>
+					 <inertia-link :href="$route('guest.contact')" class="nav-link hover:text-green-600">Contact Us</inertia-link>
 				</li>
 
 			</ul>

@@ -1,0 +1,78 @@
+@layer utilities {
+    @variants responsive {
+        .ck-editor__editable_inline {
+            min-height: 350px;
+        }        
+        .brand-logo-bold{
+            font-family: BrandFont;
+        }
+        .brand-logo-light{
+            font-family: BrandFont;
+        }
+        .brand-text-header{
+            font-family: RVMP;
+        }
+        .brand-text-content{
+            font-family: RVMP;
+        }
+        .brand-text-footer{
+            font-family: RVMP;
+        }        
+        .rvmp-bg-main{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+        }
+        .rvmp-bg-alt{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+        }
+        .rvmp-default-text{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+        }
+        .rvmp-text-main{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+        }
+        .rvmp-text-alt{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-1{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-2{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-3{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-1{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-2{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-3{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+        }
+        .rvmp-brand-bg-1{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+        }
+        .rvmp-brand-bg-2{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+        }
+        .rvmp-brand-bg-3{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+        }
+    }
+}

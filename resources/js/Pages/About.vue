@@ -6,10 +6,10 @@
             <div class="w-full h-3/4 lg:py-36 lg:pl-0 p-6 static" >
                 <div class=" lg:py-36 lg:my-12 static">
                     <div class="bg-white bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full ">  
-                        <div class="mb-8 border-l-4 border-gray-500 ">
+                       <blockquote className="self-start border-l-8 my-2">
                             <h2 class="ml-5 brand-text-header lg:text-3xl text-xl font-semibold">MEET THE CEO OF</h2>
-                            <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2>  
-                        </div>               
+                            <h2 class="ml-5 brand-logo-bold text-3xl font-semibold">GLI <span class="brand-logo-light font-thin text-green-600">GROUP INC.</span></h2> 
+                        </blockquote>
                         <p class="text-justify 2xl:text-lg text-sm brand-text-content lg:pr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
                     </div>            
                 </div>               

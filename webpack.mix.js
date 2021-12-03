@@ -15,5 +15,11 @@ mix
     .vue()
     .postCss('resources/css/app.css', 'public/css', [
         require("tailwindcss"),
+    ])
+    .postCss('resources/css/font-family.css', 'public/css', [
+        require("tailwindcss"),
+    ])
+    .postCss('resources/css/rvmp.css', 'public/css', [
+        require("tailwindcss"),
     ]);
 
