@@ -1,5 +1,6 @@
 <template>
-<div id="sidebar" class="sticky left-0 z-20 h-auto bg-gray-700 transition duration-500 ease-in-out" :class="{'w-14': !menuOpen, 'w-2/12': menuOpen}">
+<div></div>
+<!-- <div id="sidebar" class="sticky left-0 z-20 h-auto bg-gray-700 transition duration-500 ease-in-out" :class="{'w-14': !menuOpen, 'w-2/12': menuOpen}">
 				
 		<div class="transition duration-500 ease-in-out mt-1 py-3 w-full flex " :class="{'justify-center': !menuOpen, 'justify-end pr-2 ': menuOpen}">
 			<button @click.prevent="menuOpen=!menuOpen" class="transition duration-500 ease-in-out flex items-center px-4 py-2 border rounded text-white border-grey-dark ">
@@ -13,7 +14,7 @@
 					<inertia-link :href="$route('viewDashboard')"  
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600" :class="{'bg-green-600': path==='/gli-admin/dashboard'}">
 					
-							<i class="fas fa-tachometer-alt "></i>
+						<i class="fas fa-tachometer-alt "></i>
 						
 						<span class="ml-3" v-if="menuOpen">Dashboard</span>
 					
@@ -23,7 +24,7 @@
 					<a href="#"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 						
-							<i class="fas fa-file-alt"></i>
+						<i class="fas fa-file-alt"></i>
 						
 						<span class="ml-3"  v-if="menuOpen">Pages</span>
 
@@ -33,7 +34,7 @@
 					<a @click.prevent="blogDropdown"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
-							<i class="fas fa-blog"></i>
+						<i class="fas fa-blog"></i>
 						
 						<span class="ml-3"  v-if="menuOpen">Blog</span>
                         
@@ -43,7 +44,7 @@
 									<inertia-link :href="$route('adminPost')"  
 										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600" :class="{'bg-green-600': path==='/gli-admin/posts'}">
 										
-											<i class="fas fa-sticky-note"></i>
+										<i class="fas fa-sticky-note"></i>
 										
 										<span class="ml-3">Posts</span>
 									</inertia-link> 
@@ -75,7 +76,7 @@
 									<inertia-link :href="$route('admin.media')"  
 										class="w-full flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
-											<i class="fas fa-book-open"></i>
+										<i class="fas fa-book-open"></i>
 										
 										<span class="ml-3">Library</span>
 									</inertia-link> 
@@ -84,7 +85,7 @@
                                     <inertia-link :href="$route('media.create')"
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
-											<i class="fas fa-upload"></i>
+										<i class="fas fa-upload"></i>
 										
                                         <span class="ml-3">Add New</span>
 
@@ -97,7 +98,7 @@
 					<a  @click.prevent="settingsDropdown"
 					   class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600 cursor-pointer">
 						
-							<i class="fas fa-cogs"></i>
+						<i class="fas fa-cogs"></i>
 						
 						<span class="ml-3"  v-if="menuOpen">Settings</span>
 		
@@ -107,7 +108,7 @@
                                     <inertia-link :href="$route('admin.category')"  
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
-											<i class="fas fa-bookmark"></i>
+										<i class="fas fa-bookmark"></i>
 										
                                         <span class="ml-3">Category</span>
 
@@ -117,7 +118,7 @@
                                     <inertia-link :href="$route('admin.settings')" 
                                     class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
-											<i class="fas fa-sliders-h"></i>
+										<i class="fas fa-sliders-h"></i>
 										
                                         <span class="ml-3">Site Settings</span>
 
@@ -127,7 +128,7 @@
 									<a href="#"
 									class="flex flex-row items-center h-12 px-4  text-white  hover:bg-green-600">
 										
-											<i class="fas fa-users"></i>
+										<i class="fas fa-users"></i>
 										
 										<span class="ml-3">User Management</span>
 						
@@ -136,9 +137,9 @@
                                 
                         </ul>
 				</li>
-				<li class="my-px mb-8"  v-if="user">
+				<li class="my-px"  v-if="user">
                     <inertia-link :href="$route('logout')" as="button" method="post" 
-						class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400" style="display: inline" type="button">
+						class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400 text-left"  type="button">
                         
 							  <i class="fas fa-sign-out-alt"></i>
 	
@@ -148,10 +149,10 @@
 				
                 
 			</ul>
-			<div class="my-16 sticky bottom-0 justify-self-end"  v-if="user">
-                     <img src="/rvmp-content/rvmp-static/revamp-system-solutions-alt.png" oncontextmenu="return false;" ondragstart="return false;" class="mx-auto w-2/3  ">
-				</div>
-</div>
+
+            <img src="/rvmp-content/rvmp-static/revamp-system-solutions-alt.png" oncontextmenu="return false;" ondragstart="return false;" class="mx-auto w-2/3my-16 static bottom-0 justify-self-end"  v-if="user">
+
+</div> -->
 </template>
 
 <script>
@@ -161,54 +162,54 @@ import {usePage} from "@inertiajs/inertia-vue3";
 export default {
     name: "AppSidebar",
 
-	methods: {
-        blogDropdown: function(){
-          this.blogDropdownOpen = !this.blogDropdownOpen
-		  if(!this.menuOpen){
-		  	this.menuOpen = true
-			this.blogDropdownOpen = true
-			}
-        },
-		mediaDropdown: function(){
-          this.mediaDropdownOpen = !this.mediaDropdownOpen
-        },
-		settingsDropdown: function(){
-          this.settingsDropdownOpen = !this.settingsDropdownOpen
-        },
+// 	methods: {
+//         blogDropdown: function(){
+//           this.blogDropdownOpen = !this.blogDropdownOpen
+// 		  if(!this.menuOpen){
+// 		  	this.menuOpen = true
+// 			this.blogDropdownOpen = true
+// 			}
+//         },
+// 		mediaDropdown: function(){
+//           this.mediaDropdownOpen = !this.mediaDropdownOpen
+//         },
+// 		settingsDropdown: function(){
+//           this.settingsDropdownOpen = !this.settingsDropdownOpen
+//         },
 
-    },
-    data: () => ({
-    	blogDropdownOpen: false,
-		mediaDropdownOpen: false,
-		settingsDropdownOpen: false,
-		menuOpen: true,
-		path: ''
-  	}),
-    setup() {
-        const user = computed(() => usePage().props.value.auth.user);
+//     },
+//     data: () => ({
+//     	blogDropdownOpen: false,
+// 		mediaDropdownOpen: false,
+// 		settingsDropdownOpen: false,
+// 		menuOpen: true,
+// 		path: ''
+//   	}),
+//     setup() {
+//         const user = computed(() => usePage().props.value.auth.user);
 
-        return {
-            user
-        }
-    },
-	mounted(){
-		this.path = window.location.pathname;
+//         return {
+//             user
+//         }
+//     },
+// 	mounted(){
+// 		this.path = window.location.pathname;
 
-		switch(this.path){
-			case '/gli-admin/posts':
-			case '/gli-admin/posts/create':
-			case '/gli-admin/posts/edit':
-				this.blogDropdownOpen = true;
-				break;
-			case '/gli-admin/media':
-				this.mediaDropdownOpen = true;
-				break;
-			default:
-				this.blogDropdownOpen = false;
-				this.mediaDropdownOpen = false;
+// 		switch(this.path){
+// 			case '/gli-admin/posts':
+// 			case '/gli-admin/posts/create':
+// 			case '/gli-admin/posts/edit':
+// 				this.blogDropdownOpen = true;
+// 				break;
+// 			case '/gli-admin/media':
+// 				this.mediaDropdownOpen = true;
+// 				break;
+// 			default:
+// 				this.blogDropdownOpen = false;
+// 				this.mediaDropdownOpen = false;
 
-		}
-	},
+// 		}
+// 	},
    
 }
 </script>

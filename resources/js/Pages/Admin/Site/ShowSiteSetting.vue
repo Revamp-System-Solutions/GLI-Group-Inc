@@ -19,7 +19,10 @@
                             <tbody>
                                       <tr v-for="system_color in system_colors" :key="system_color.alias" class="">
                                           <td class="border border-gray-600">{{system_color.alias}}</td>
-                                          <td class="border border-gray-600" :style="make(system_color.value)"> {{ system_color.value }}</td>
+                                          <td class="border border-gray-600"> {{ system_color.value }}
+                                                
+                                              <input type="color" :value="rgba2hex('rgba('+system_color.value+')')"> 
+                                          </td>
                                           <td class="border border-gray-600">{{ system_color.description }}</td>
                                           
                                       </tr>
@@ -44,7 +47,8 @@ export default {
     components: {
         ErrorsAndMessages,
         AppSidebar,
-        AppHeaderSmall
+        AppHeaderSmall,
+        
     },
     props: {
         errors: Object
@@ -53,8 +57,16 @@ export default {
     
   	}),
     methods: {
-        make(code){ 
-            return "background-color: rgba("+code+");";
+       rgba2hex(rgba) {
+        rgba = rgba.match(
+            /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
+        );
+        return rgba && rgba.length === 4
+            ? "#" +
+                ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
+                ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
+                ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
+            : "";
         }
     },
     setup() {
