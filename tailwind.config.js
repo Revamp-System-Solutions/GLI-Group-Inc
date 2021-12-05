@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 module.exports = {
   purge: [
     './resources/**/*.blade.php',
@@ -27,6 +28,30 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    plugin(function({ addVariant, e }) {
+      addVariant('first-child', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`first-child${separator}${className}`)}:first-child`
+        })
+      })
+    }),
+    plugin(function({ addVariant, e }) {
+      addVariant('nth-child', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`nth-child${separator}${className}`)}:nth-child`
+        })
+      })
+    }),
+    plugin(function({ addVariant }) {
+      addVariant('important', ({ container }) => {
+        container.walkRules(rule => {
+          rule.selector = `.\\!${rule.selector.slice(1)}`
+          rule.walkDecls(decl => {
+            decl.important = true
+          })
+        })
+      })
+    })
   ],
-  important: true,
+  important: false,
 }
