@@ -21,11 +21,12 @@ export default {
   	}),
     computed:{
         success() {
+              setTimeout(function () { this.closeAlert() }.bind(this), 10000)
              return this.$page.props.flash.success;
         },
     },
     mounted(){
-      setTimeout(function () { this.closeAlert() }.bind(this), 10000)
+    
     },
     methods:{
         closeAlert(){

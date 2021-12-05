@@ -74,6 +74,7 @@ Route::post('gli-admin/site/categories/create', [CategoriesController::class, 's
 
 
 Route::get('gli-admin/site/settings', [BrandColorController::class, 'index'])->name('admin.settings');
+Route::post('gli-admin/site/settings/{sys_color}', [BrandColorController::class, 'update'])->name('settings.color.change');
 
 
 

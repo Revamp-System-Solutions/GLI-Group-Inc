@@ -22,4 +22,13 @@ class BrandColorController extends Controller
             "static_images" => RvmpStatic::all(),
         ]);
     }
+
+    public function update(Request $request, $sys_color)
+    {
+        $system_color = BrandColor::where('alias', $sys_color)->firstOrFail();
+        $system_color->value = $request->color;
+        $system_color->save();
+        $request->session()->flash('success', $system_color->value);
+        return redirect()->route('admin.settings');
+    }
 }

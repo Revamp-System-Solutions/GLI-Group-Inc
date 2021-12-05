@@ -4,7 +4,7 @@
  
 
  
-   <div id="site-settings" class="flex flex-row">
+   <!-- <div id="site-settings" class="flex flex-row">
    
         <div id="content-area" class="w-full h-auto bg-gray-50">
             <div class="h-full 2xl:px-80 xl:px-56 lg:px-28"> 
@@ -23,7 +23,12 @@
                                           <td class="border border-gray-600">{{system_color.alias}}</td>
                                           <td class="border border-gray-600">                                                
                                               <input type="color" :value="rgba2hex('rgba('+system_color.value+')')"> 
-                                              <button type="button" @click="openModal" class="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Open dialog </button>
+                                              <button type="button" 
+                                              @click="
+                                                openModal();
+                                                color = rgba2hex('rgba('+system_color.value+')');
+                                                stageColor = system_color;
+                                              " class="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Open dialog </button>
                                           </td>
                                           <td class="border border-gray-600">{{ system_color.description }}</td>
                                           
@@ -32,10 +37,63 @@
                          
                             </table>
             </div>
+
         </div>
     </div>
- 
-  <TransitionRoot appear :show="isOpen" as="template">
+  -->
+  <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
+      <div class="py-2 align-middle inline-block min-w-full ">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+               
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr v-for="system_color in system_colors" :key="system_color">
+                   <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-base text-gray-900">{{ system_color.alias }}</div>
+                  <div class="text-sm text-gray-500">{{ system_color.description }}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 rounded-full h-14 w-14" >
+                        <!-- {{rgba2hex('rgba('+color.value+')')}}:style="rgba2hex('rgba('+color.value+')')" -->
+                      <!-- <img class="h-10 w-10 rounded-full" :src="color.image" alt="" /> -->
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        {{ system_color.value }}
+                      </div>
+                      <div class="text-sm text-gray-500 capitalize">
+                       <span @click="
+                                                openModal();
+                                                color = rgba2hex('rgba('+system_color.value+')');
+                                                stageColor = system_color;
+                                                oldColor.alias = system_color.alias;
+                                                oldColor.value = system_color.value;
+                                              "> <i class="fas fa-edit"></i>change color</span>
+            
+                      </div>
+                    </div>
+                  </div>
+                </td>
+               
+           
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <TransitionRoot appear :show="isOpen" as="template" v-if="stageColor != null">
     <Dialog as="div" @close="closeModal">
       <div class="fixed inset-0 z-10 overflow-y-auto">
         <div class="min-h-screen px-4 text-center">
@@ -71,7 +129,7 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                Payment successful
+                {{stageColor.alias}}
               </DialogTitle>
               <div class="mt-2 ">
                 <div class="cover grid grid-cols-2 gap-x-4">
@@ -83,7 +141,7 @@
                     :sucker-canvas="suckerCanvas"
                     :sucker-area="suckerArea"
                     @changeColor="changeColor"
-                    @openSucker="openSucker"/>
+                    @openSucker="false"/>
                 </div>
               </div>
 
@@ -91,9 +149,9 @@
                 <button
                   type="button"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="closeModal"
+                  @click="setFormColor"
                 >
-                  Got it, thanks!
+                  Save Changes
                 </button>
               </div>
             </div>
@@ -136,6 +194,11 @@ export default {
         errors: Object
     },
     data: () => ({
+        oldColor:{
+            alias: null,
+            value: null
+        },
+        stageColor: null,
         color: '#59c7f9',
         suckerCanvas: null,
         suckerArea: [],
@@ -156,17 +219,32 @@ export default {
          changeColor(color) {
         const { r, g, b, a } = color.rgba
         this.color = `rgba(${r}, ${g}, ${b}, ${a})`
-        console.log(`${r}, ${g}, ${b}, ${a}`)
+ 
+        this.stageColor.value=`${r}, ${g}, ${b}, ${a}`
+        console.log(this.stageColor.alias)
         },
+        setFormColor (){
+            this.form.alias = this.stageColor.alias
+            this.form.color = this.stageColor.value
+            // console.log(this.form)
+            this.submit()
+        }
     },
     setup() {
         const form = reactive({
+            alias: null,
             color: null,
             _token: usePage().props.value.csrf_token
         });
         const isOpen = ref(false)
 
         const route = inject('$route');
+
+        function submit() {
+            Inertia.post(route('settings.color.change', {'sys_color': form.alias}), form, {
+                forceFormData: true
+            });
+        }
 
         const system_colors = computed(() => usePage().props.value.system_colors);
  
@@ -175,10 +253,12 @@ export default {
         return {
             form,
             system_colors,
+            submit,
             user,
             isOpen,
             closeModal() {
                 isOpen.value = false
+                
             },
             openModal() {
                 isOpen.value = true
