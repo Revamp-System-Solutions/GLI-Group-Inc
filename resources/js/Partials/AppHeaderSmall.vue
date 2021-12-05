@@ -98,7 +98,7 @@
 					<span><i :class="link.icon" class="text-xs my-4"></i> {{link.name}}</span>
 					<span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ', 'ml-2 h-5 w-5 ']" aria-hidden="true"></span>
 					</DisclosureButton>
-					<DisclosurePanel class="px-6 pt-4 pb-2 grid grid-cols-2 gap-4 bg-gray-100 text-sm rounded-lg">
+					<DisclosurePanel class="px-6 pt-4 pb-2 grid grid-cols-2 gap-4 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
 						<template v-for="submenu in menuSubLinks" :key="submenu.name" >
 							<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.name" class="group -m-3 p-3 flex text-black  items-start  hover:rvmp-brand-bg-main">
 								<span :class="submenu.icon"></span>

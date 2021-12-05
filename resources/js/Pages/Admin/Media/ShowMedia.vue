@@ -3,7 +3,7 @@
 <app-header-small></app-header-small>
    <div class="flex flex-row">
 
-      <app-sidebar></app-sidebar>
+       
       <div id="content-area" class="w-full h-auto bg-gray-50">
        <div class="h-auto"> 
         <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
@@ -98,7 +98,7 @@
 
 <script>
 import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
-import AppSidebar from "./../../../Partials/AppSidebar";
+
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
@@ -109,7 +109,7 @@ export default {
     name: "Media",
     components: {
         ErrorsAndMessages,
-        AppSidebar,
+         
         AppHeaderSmall
     },
     props: {

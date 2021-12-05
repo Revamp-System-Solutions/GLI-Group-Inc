@@ -2,7 +2,7 @@
   <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
    <div class="flex flex-row">
-        <app-sidebar></app-sidebar>
+         
         <div id="content-area" class="w-full h-auto bg-gray-50">
           <div class="h-auto"> 
           <span class="text-xl inline-block p-3 font-semibold">Create Category</span>
@@ -92,7 +92,6 @@
 
 <script>
 import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
-import AppSidebar from "./../../../Partials/AppSidebar";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {inject, reactive} from "vue";
 import {Inertia} from "@inertiajs/inertia";
@@ -103,7 +102,6 @@ export default {
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
-        AppSidebar
     },
     props: {
         errors: Object
