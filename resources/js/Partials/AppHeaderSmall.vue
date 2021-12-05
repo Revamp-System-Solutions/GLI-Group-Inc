@@ -1,4 +1,5 @@
 <template>
+<div class="w-full sticky top-0">
 <Popover class="relative bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -130,7 +131,7 @@
       </PopoverPanel>
     </transition>
   </Popover>
-  
+</div> 
 </template>
 
 <script>
@@ -242,7 +243,7 @@ export default {
 			},
 			{
 				name: 'Settings',
-				href: 'media.create',
+				href: 'admin.settings',
 				icon: 'fas  fa-sliders-h',
 				order: 'order-first',
 				parentLink: 'Site'

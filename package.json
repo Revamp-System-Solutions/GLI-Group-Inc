@@ -32,6 +32,7 @@
         "@tailwindcss/forms": "^0.3.4",
         "@vue/compiler-sfc": "^3.0.11",
         "vue": "^3.0.11",
+        "vue-color-kit": "^1.0.5",
         "vue-loader": "^16.2.0",
         "vue3-click-away": "^1.2.1",
         "ziggy-js": "^1.4.2"

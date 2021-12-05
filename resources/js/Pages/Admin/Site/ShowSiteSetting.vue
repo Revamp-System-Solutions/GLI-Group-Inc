@@ -1,12 +1,14 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
-   <div class="flex flex-row">
-         
-        <div id="content-area" class="w-full h-auto bg-gray-50">
-            <div class="h-screen"> 
-                STATICS, BRAND COLORSs
+ 
 
+ 
+   <div id="site-settings" class="flex flex-row">
+   
+        <div id="content-area" class="w-full h-auto bg-gray-50">
+            <div class="h-full 2xl:px-80 xl:px-56 lg:px-28"> 
+                STATICS, BRAND COLORSs
                 <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
                                   <thead>
                                       <tr>
@@ -19,9 +21,9 @@
                             <tbody>
                                       <tr v-for="system_color in system_colors" :key="system_color.alias" class="">
                                           <td class="border border-gray-600">{{system_color.alias}}</td>
-                                          <td class="border border-gray-600"> {{ system_color.value }}
-                                                
+                                          <td class="border border-gray-600">                                                
                                               <input type="color" :value="rgba2hex('rgba('+system_color.value+')')"> 
+                                              <button type="button" @click="openModal" class="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Open dialog </button>
                                           </td>
                                           <td class="border border-gray-600">{{ system_color.description }}</td>
                                           
@@ -32,6 +34,74 @@
             </div>
         </div>
     </div>
+ 
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal">
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="min-h-screen px-4 text-center">
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+          >
+            <DialogOverlay class="fixed inset-0" />
+          </TransitionChild>
+
+          <span class="inline-block h-screen align-middle" aria-hidden="true">
+            &#8203;
+          </span>
+
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <div
+              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+            >
+              <DialogTitle
+                as="h3"
+                class="text-lg font-medium leading-6 text-gray-900"
+              >
+                Payment successful
+              </DialogTitle>
+              <div class="mt-2 ">
+                <div class="cover grid grid-cols-2 gap-x-4">
+                    <ColorPicker
+                    class="!w-56"
+                    theme="dark"
+                    :color="color"
+                    :sucker-hide="true"
+                    :sucker-canvas="suckerCanvas"
+                    :sucker-area="suckerArea"
+                    @changeColor="changeColor"
+                    @openSucker="openSucker"/>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <button
+                  type="button"
+                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  @click="closeModal"
+                >
+                  Got it, thanks!
+                </button>
+              </div>
+            </div>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
 </template>
 
 <script>
@@ -39,20 +109,37 @@ import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject} from "vue";
+import {computed, inject, reactive, ref} from "vue";
+import { ColorPicker } from 'vue-color-kit'
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+} from '@headlessui/vue'
 
 export default {
     name: "SiteSetting",
     components: {
         ErrorsAndMessages,     
         AppHeaderSmall,
-        
+        TransitionRoot,
+        TransitionChild,
+        Dialog,
+        DialogOverlay,
+        DialogTitle,
+        ColorPicker,
+
     },
     props: {
         errors: Object
     },
     data: () => ({
-    
+        color: '#59c7f9',
+        suckerCanvas: null,
+        suckerArea: [],
+        isOpenSucker: false,
   	}),
     methods: {
        rgba2hex(rgba) {
@@ -65,18 +152,37 @@ export default {
                 ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
                 ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
             : "";
-        }
+        },
+         changeColor(color) {
+        const { r, g, b, a } = color.rgba
+        this.color = `rgba(${r}, ${g}, ${b}, ${a})`
+        console.log(`${r}, ${g}, ${b}, ${a}`)
+        },
     },
     setup() {
+        const form = reactive({
+            color: null,
+            _token: usePage().props.value.csrf_token
+        });
+        const isOpen = ref(false)
+
         const route = inject('$route');
 
         const system_colors = computed(() => usePage().props.value.system_colors);
-    console.log(system_colors)
+ 
         const user = computed(() => usePage().props.value.auth.user);
 
         return {
+            form,
             system_colors,
-            user
+            user,
+            isOpen,
+            closeModal() {
+                isOpen.value = false
+            },
+            openModal() {
+                isOpen.value = true
+            },
         }
     }
 }

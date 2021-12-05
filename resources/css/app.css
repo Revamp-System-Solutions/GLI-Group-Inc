@@ -5,7 +5,7 @@
 @import '/css/client.css';
 @import '/css/font-family.css';
 @import '/css/rvmp.css';
-
+@import '/css/vue-color-kit.css';
 ::-webkit-scrollbar {
     width: 5px;
 }
