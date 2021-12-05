@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta charset="UTF-8" />
     <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+    <link href="{{ asset('/css/client.css') }}" rel="stylesheet"/>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ asset('/js/jquery-3.3.1.slim.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/0150beeb77.js" crossorigin="anonymous"></script>
