@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\BrandColorController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
@@ -29,7 +31,7 @@ Route::get('home#designstudio', [GuestController::class, 'index'])->name('guest.
 Route::get('home#modularcabinets', [GuestController::class, 'index'])->name('guest.modcabinet');
 Route::get('home#builders', [GuestController::class, 'index'])->name('guest.builders');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
-Route::get('contact', [GuestController::class, 'showContactPage'])->name('guest.contact');
+Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
 Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');
@@ -61,18 +63,17 @@ Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->
 
 Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
 
-
-Route::get('gli-admin/categories', [CategoriesController::class, 'index'])->name('admin.category');
-Route::get('gli-admin/categories/create', [CategoriesController::class, 'create'])->name('category.create');
-Route::post('gli-admin/categories/create', [CategoriesController::class, 'store'])->name('category.store');
-
-
-
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
-
 Route::get('gli-admin/media/upload', [MediaController::class, 'create'])->name('media.create');
-
 Route::post('gli-admin/media/upload', [MediaController::class, 'store'])->name('media.store');
+
+
+Route::get('gli-admin/site/categories', [CategoriesController::class, 'index'])->name('admin.category');
+Route::get('gli-admin/site/categories/create', [CategoriesController::class, 'create'])->name('category.create');
+Route::post('gli-admin/site/categories/create', [CategoriesController::class, 'store'])->name('category.store');
+
+
+Route::get('gli-admin/site/settings', [BrandColorController::class, 'index'])->name('admin.settings');
 
 
 

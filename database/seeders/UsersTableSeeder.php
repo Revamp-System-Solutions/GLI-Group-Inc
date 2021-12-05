@@ -10,32 +10,19 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'id'             => 1,
-                'name'           => 'Admin',
-                'email'          => 'admin@gligroupinc.com',
+                'name'           => 'Revamp',
+                'email'          => 'dev@rvmp.com',
                 'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'remember_token' => null,
             ],
             [
                 'id'             => 2,
-                'name'           => 'OIC',
-                'email'          => 'oic@gligroupinc.com',
+                'name'           => 'Zorich Guia',
+                'email'          => 'zorich@gligroupinc.com',
                 'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'remember_token' => null,
             ],
-            [
-                'id'             => 3,
-                'name'           => 'TL',
-                'email'          => 'tl@gligroupinc.com',
-                'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 4,
-                'name'           => 'Dev',
-                'email'          => 'dev@gligroupinc.com',
-                'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'remember_token' => null,
-            ],
+            
         ];
 
         $saved_users = User::all();

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: RVMP;
+    src:  url('/fonts/RevampSystemFont.ttf');
+}
+
+@font-face {
+    font-family: RVMP;
+    src: url('/fonts/RevampSystemFontBold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: BrandFont;
+    src: url('/fonts/BrandFont.ttf');
+}
+
+@font-face {
+    font-family: BrandFont;
+    src:  url('/fonts/BrandFontBold.ttf');
+    font-weight: 600;
+}
