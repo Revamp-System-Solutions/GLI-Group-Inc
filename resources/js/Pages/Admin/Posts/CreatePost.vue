@@ -100,8 +100,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
     name: "Create",
-       props: {
+    props: {
         errors: Object
+    },
+    components: {
+        ErrorsAndMessages,
+        AppHeaderSmall,
     },
     setup() {
         
@@ -184,11 +188,7 @@ export default {
             }
 
     }),
-    components: {
-        ErrorsAndMessages,
-        AppHeaderSmall,
-        AppSidebar
-    },
+ 
     
 }
 </script>

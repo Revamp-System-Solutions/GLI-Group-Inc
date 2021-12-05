@@ -24392,6 +24392,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     errors: Object
   },
+  components: {
+    ErrorsAndMessages: _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AppHeaderSmall: _Partials_AppHeaderSmall__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   setup: function setup() {
     var user = (0,vue__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.value.auth.user;
@@ -24474,11 +24478,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     };
-  },
-  components: {
-    ErrorsAndMessages: _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_1__["default"],
-    AppHeaderSmall: _Partials_AppHeaderSmall__WEBPACK_IMPORTED_MODULE_0__["default"],
-    AppSidebar: AppSidebar
   }
 });
 
