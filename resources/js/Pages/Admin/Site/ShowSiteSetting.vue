@@ -64,22 +64,22 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
-                    <div class="flex-shrink-0 rounded-full h-14 w-14" >
-                        <!-- {{rgba2hex('rgba('+color.value+')')}}:style="rgba2hex('rgba('+color.value+')')" -->
-                      <!-- <img class="h-10 w-10 rounded-full" :src="color.image" alt="" /> -->
+                    <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
+
                     </div>
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
-                        {{ system_color.value }}
+                        <span class="block">{{ system_color.value }}</span>
+                        <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
                       </div>
                       <div class="text-sm text-gray-500 capitalize">
                        <span @click="
-                                                openModal();
-                                                color = rgba2hex('rgba('+system_color.value+')');
-                                                stageColor = system_color;
-                                                oldColor.alias = system_color.alias;
-                                                oldColor.value = system_color.value;
-                                              "> <i class="fas fa-edit"></i>change color</span>
+                            openModal();
+                            color = 'rgba('+system_color.value+')';
+                            stageColor = system_color;
+                            oldColor.alias = system_color.alias;
+                            oldColor.value = system_color.value;
+                          "> <i class="fas fa-edit"></i>change color</span>
             
                       </div>
                     </div>
@@ -93,9 +93,9 @@
         </div>
       </div>
     </div>
-  <TransitionRoot appear :show="isOpen" as="template" v-if="stageColor != null">
-    <Dialog as="div" @close="closeModal">
-      <div class="fixed inset-0 z-10 overflow-y-auto">
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModalm">
+      <div class="fixed inset-0 z-10 overflow-y-auto bg-gray-700 bg-opacity-30 ">
         <div class="min-h-screen px-4 text-center">
           <TransitionChild
             as="template"
@@ -123,18 +123,18 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
             >
               <DialogTitle
                 as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
+                class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700"
               >
                 {{stageColor.alias}}
               </DialogTitle>
-              <div class="mt-2 ">
-                <div class="cover grid grid-cols-2 gap-x-4">
+              <div class="mt-2 px-6 ">
+                  <div class="cover grid grid-cols-2 gap-4">
                     <ColorPicker
-                    class="!w-56"
+                    class="!w-56 col-span-1"
                     theme="dark"
                     :color="color"
                     :sucker-hide="true"
@@ -142,16 +142,31 @@
                     :sucker-area="suckerArea"
                     @changeColor="changeColor"
                     @openSucker="false"/>
-                </div>
+                     <div class="col-span-1  grid grid-cols-2 gap-2">
+                       <span>
+                         <span class="block text-center">New Color</span>
+                          <div class="mx-auto rounded-full h-11 w-11 border border-black" :style="rgba2hex(color, 'style')"></div>
+                          <span class="block"> {{stageColor.value}}</span>
+                          <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
+                       </span>
+                       <span>
+                         <span class="block text-center">Current Color</span>
+                          <div class="mx-auto rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+oldColor.value+')', 'style')"></div>
+                          <span class="block"> {{oldColor.value}}</span>
+                          <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
+                       </span>
+                  </div>
+                  </div>
+                 
+
               </div>
 
-              <div class="mt-4">
+              <div class="mt-4 p-6">
                 <button
                   type="button"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="setFormColor"
-                >
-                  Save Changes
+                  @click="setFormColor">
+                  Save Changes 
                 </button>
               </div>
             </div>
@@ -199,18 +214,20 @@ export default {
             value: null
         },
         stageColor: null,
+        success:false,
         color: '#59c7f9',
         suckerCanvas: null,
         suckerArea: [],
         isOpenSucker: false,
   	}),
     methods: {
-       rgba2hex(rgba) {
+       rgba2hex(rgba, ch) {
         rgba = rgba.match(
             /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
         );
+        var prefix = ch=='style' ? 'background: ': '';
         return rgba && rgba.length === 4
-            ? "#" +
+            ? prefix+"#"+
                 ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
                 ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
                 ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
@@ -220,15 +237,20 @@ export default {
         const { r, g, b, a } = color.rgba
         this.color = `rgba(${r}, ${g}, ${b}, ${a})`
  
-        this.stageColor.value=`${r}, ${g}, ${b}, ${a}`
-        console.log(this.stageColor.alias)
+        this.stageColor.value=`${r}, ${g}, ${b}`
+
         },
         setFormColor (){
+                   this.closeModalm()
             this.form.alias = this.stageColor.alias
             this.form.color = this.stageColor.value
-            // console.log(this.form)
+   
             this.submit()
-        }
+            
+        },
+          closeModalm() {
+                this.isOpen = false
+            }
     },
     setup() {
         const form = reactive({
@@ -237,7 +259,6 @@ export default {
             _token: usePage().props.value.csrf_token
         });
         const isOpen = ref(false)
-
         const route = inject('$route');
 
         function submit() {
@@ -249,7 +270,7 @@ export default {
         const system_colors = computed(() => usePage().props.value.system_colors);
  
         const user = computed(() => usePage().props.value.auth.user);
-
+ 
         return {
             form,
             system_colors,
@@ -258,12 +279,15 @@ export default {
             isOpen,
             closeModal() {
                 isOpen.value = false
+                busy.value = false
                 
             },
             openModal() {
                 isOpen.value = true
-            },
+            }
+            
         }
-    }
+    },
+  
 }
 </script>

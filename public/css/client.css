@@ -1,13 +1,1 @@
-:root {
-    --rvmp-text-color: 0, 0, 0;
-    --rvmp-text-color-alt: 255, 255, 255, 1;
-    --rvmp-bg-main: 255, 255, 255;
-    --rvmp-bg-alt: 112, 112, 112;
-    --rvmp-text-main: 112, 112, 112;
-    --rvmp-text-alt: 255, 255, 255;
-    --rvmp-brand-color-one: 34, 156, 35;
-    --rvmp-brand-color-two: 0, 0, 0;
-    --rvmp-brand-color-three: 34, 156, 35;
-    --rvmp-brand-color-four: 28, 127, 28;
-    --rvmp-brand-color-five: 255, 255, 255;
-}
+:root{ --rvmp-brand-color-one: 35, 156, 35;--rvmp-brand-color-two: 0, 0, 0;--rvmp-brand-color-three: 34, 156, 35;--rvmp-brand-color-four: 28, 127, 28;--rvmp-text-color: 0, 0, 0;--rvmp-bg-main: 255, 255, 255;--rvmp-text-main: 112, 112, 112;--rvmp-bg-alt: 112, 112, 112;--rvmp-text-alt: 255, 255, 255;--rvmp-brand-color-five: 255, 255, 255;}
