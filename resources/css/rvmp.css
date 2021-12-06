@@ -1,21 +1,12 @@
 @layer utilities {
-    @variants responsive, hover, group-hover, focus, focus-within, active, first-child, nth-child, disabled, important {
+    @variants responsive, hover, group-hover, focus, focus-within, focus-visible, active, first-child, nth-child, disabled, important {
         .ck-editor__editable_inline {
             min-height: 350px;
         }        
-        .brand-logo-bold{
+        .brand-logo-text{
             font-family: BrandFont;
         }
-        .brand-logo-light{
-            font-family: BrandFont;
-        }
-        .brand-text-header{
-            font-family: RVMP;
-        }
-        .brand-text-content{
-            font-family: RVMP;
-        }
-        .brand-text-footer{
+        .brand-text{
             font-family: RVMP;
         }
         .rvmp-default-text{

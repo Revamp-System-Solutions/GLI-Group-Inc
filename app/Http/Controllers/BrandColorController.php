@@ -19,7 +19,7 @@ class BrandColorController extends Controller
     {
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "system_colors" => BrandColor::all(),
-            "static_images" => RvmpStatic::all(),
+            "static_images" => RvmpStatic::where('static_value', 'not like' ,'%revamp_logo%')->get(),
         ]);
     }
 

@@ -3,17 +3,17 @@
         <div class="transition duration-500 ease-in-out w-full h-auto flex overflow-hidden relative" >            
                 <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/design.jpg')" id="designstudio" @mouseover="expandHovered('designstudio')">  
                     <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-1"> 
-                        <h2 class="transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Design Studio</h2>      
+                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Design Studio</h2>      
                     </div>               
                 </div>
                 <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/builders.jpg')" id="builders" @mouseover="expandHovered('builders')" >  
                     <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-2">
-                        <h2 class="transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Builders</h2>  
+                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Builders</h2>  
                     </div>               
                 </div> 
                 <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/modularcabs.jpg')" id="modularcabinets" @mouseover="expandHovered('modularcabinets')">  
                     <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-3">
-                        <h2 class="transition duration-500 ease-in-out brand-logo-light lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Modular Cabinets</h2>  
+                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Modular Cabinets</h2>  
                     </div>               
                 </div>                        
         </div>

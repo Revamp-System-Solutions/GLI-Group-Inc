@@ -5,7 +5,7 @@
          
         <div id="content-area" class="w-full h-auto bg-gray-50">
           <div class="h-auto"> 
-          <span class="text-xl inline-block p-3 font-semibold">Edit Posts: {{form.title}}</span>
+          <span class="text-xl inline-block p-3 font-semibold">Edit Posts</span>
             
               <div class="flex flex-col justify-center px-4 py-2" >
 
@@ -31,7 +31,7 @@
                                 <div class="w-11/12">
                                     <select name="categories" id="categories" class="w-full py-3 rounded "  v-model="form.category">
                                         <template  v-for="(category, index) in categories" :key="category.id" :index="index">
-                                        <option v-if="!(exclusionList.includes(category))" :value="index">{{category}}</option>
+                                        <option :value="index">{{category}}</option>
                                         </template>
                                     </select>   
                                 </div>
@@ -123,7 +123,7 @@ export default {
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
-        AppSidebar
+
     },
     props: {
         errors: Object

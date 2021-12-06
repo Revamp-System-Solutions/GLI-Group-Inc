@@ -1,5 +1,5 @@
 <template>
-<div class="w-full sticky top-0">
+<div class="w-full sticky top-0 z-30">
 <Popover class="relative bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -76,8 +76,8 @@
               </div>
               <div class="-mr-2">
                 <PopoverButton class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-red-600">
-                  <span class="sr-only">Close menu</span>
-                    <span class="fas fa-times"></span>
+					<span class="sr-only">Close menu</span>
+					<span class="fas fa-times"></span>
                 </PopoverButton>
               </div>
             </div>
@@ -101,7 +101,7 @@
 					</DisclosureButton>
 					<DisclosurePanel class="px-6 pt-4 pb-2 grid grid-cols-2 gap-4 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
 						<template v-for="submenu in menuSubLinks" :key="submenu.name" >
-							<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.name" class="group -m-3 p-3 flex text-black  items-start  hover:rvmp-brand-bg-main">
+							<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.name" class="group -m-3 p-3 flex text-white  items-start  hover:rvmp-brand-bg-main">
 								<span :class="submenu.icon"></span>
 								<div class="ml-4">
 									<p class="text-base font-medium ">
@@ -111,7 +111,6 @@
 							</inertia-link>
 						</template>
 					</DisclosurePanel>
-
 				</Disclosure>
 				 </template>
            

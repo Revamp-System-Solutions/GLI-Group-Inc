@@ -27,7 +27,8 @@ module.exports = {
     extend: {
       width: ['hover', 'focus', 'important'],
       right: ['hover', 'focus', 'important'],
-      inset: ['hover', 'focus', 'important']
+      inset: ['hover', 'focus', 'important'],
+      border: ['focus', 'focus-visible']
     },
   },
   plugins: [

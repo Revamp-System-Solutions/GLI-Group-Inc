@@ -8,12 +8,12 @@
                 <div class="w-full grid grid-cols-1 gap-5 place-content-center h-full">
                     <div class="w-full flex flex-col">
                         <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-main quote">
-                            <h2 class="brand-text-header font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Come and Visit us</h2>
+                            <h2 class="brand-text font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Come and Visit us</h2>
                         </blockquote> 
-                        <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">we're residing at the coziest place in Negros Oriental</span>
+                        <span class="self-end brand-text my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">we're residing at the coziest place in Negros Oriental</span>
                         <div class="self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center">
                             <span class="fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
-                            <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
+                            <span class="brand-text italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                               Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines
                             </span>
                         </div>
@@ -24,16 +24,16 @@
                 <div class="w-full grid grid-cols-1 gap-5 place-content-center h-full">
                     <div class="w-full flex flex-col">
                         <blockquote className="self-end my-2 border-l-8 rvmp-brand-border-main quote">
-                            <h2 class="brand-text-header font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Call Us Here</h2>
+                            <h2 class="brand-text font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Call Us Here</h2>
                         </blockquote> 
-                        <span class="self-end brand-text-content my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">having trouble or don't have time? Call Us Any time!</span>
+                        <span class="self-end brand-text my-2 italic 2xl:text-lg  text-xs whitespace-nowrap">having trouble or don't have time? Call Us Any time!</span>
                         <div class="self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center">
                             <span class="fas fa-phone-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
-                            <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
+                            <span class="brand-text italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                                0905-000-0000
                             </span>
                             <span class="fas fa-envelope rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"></span>
-                            <span class="brand-text-content italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
+                            <span class="brand-text italic text-right 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal">
                                client.gli@gmail.com
                             </span>
                         </div>
@@ -55,7 +55,7 @@
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
                <div class="col-span-6 ">
-                 <h2 class="brand-text-header font-bold mb-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Get in touch</h2>
+                 <h2 class="brand-text font-bold mb-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap">Get in touch</h2>
                  <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec blandit erat. Proin sed arcu id ligula bibendum pretium. Morbi quis euismod mauris. Phasellus interdum leo metus, vel tristique dui aliquet vel. Integer vitae mauris quam. Vivamus tincidunt dignissim ligula, at pulvinar erat luctus vel. Vestibulum finibus vulputate eros, quis faucibus tortor dapibus vel. Phasellus vestibulum massa vel lorem rutrum, sed ultrices sem gravida. Nullam quis mi magna. Fusce tincidunt massa est, in dictum felis pellentesque mollis. Suspendisse fermentum, velit sed ultricies vulputate, massa ante tempor orci, sed pharetra justo sapien interdum lorem.</p>
               </div>
               <div class="col-span-6 sm:col-span-3">

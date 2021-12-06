@@ -4,7 +4,7 @@
 			<a id="logo-link" class="lg:flex lg:items-center text-black no-underline hover:no-underline transition duration-500 ease-in-out" href="#">
 				<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="mx-auto w-12 lg:inline block transition duration-500 ease-in-out">
 				<span class="mx-3 w-full text-center lg:text-2xl text-base uppercase">
-					<span class="font-semibold brand-logo-bold">GLI </span><span class="rvmp-brand-color-main font-light brand-logo-light">Group Inc.</span>
+					<span class="font-semibold brand-logo-text">GLI </span><span class="rvmp-brand-color-main font-light brand-logo-text">Group Inc.</span>
 				</span>
 			</a>
 		</div>

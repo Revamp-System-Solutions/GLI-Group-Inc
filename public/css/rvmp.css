@@ -2,23 +2,11 @@
   min-height: 350px;
 }
 
-.brand-logo-bold{
+.brand-logo-text{
   font-family: BrandFont;
 }
 
-.brand-logo-light{
-  font-family: BrandFont;
-}
-
-.brand-text-header{
-  font-family: RVMP;
-}
-
-.brand-text-content{
-  font-family: RVMP;
-}
-
-.brand-text-footer{
+.brand-text{
   font-family: RVMP;
 }
 
@@ -121,23 +109,11 @@
   min-height: 350px;
 }
 
-.hover\:brand-logo-bold:hover{
+.hover\:brand-logo-text:hover{
   font-family: BrandFont;
 }
 
-.hover\:brand-logo-light:hover{
-  font-family: BrandFont;
-}
-
-.hover\:brand-text-header:hover{
-  font-family: RVMP;
-}
-
-.hover\:brand-text-content:hover{
-  font-family: RVMP;
-}
-
-.hover\:brand-text-footer:hover{
+.hover\:brand-text:hover{
   font-family: RVMP;
 }
 
@@ -240,23 +216,11 @@
   min-height: 350px;
 }
 
-.group:hover .group-hover\:brand-logo-bold{
+.group:hover .group-hover\:brand-logo-text{
   font-family: BrandFont;
 }
 
-.group:hover .group-hover\:brand-logo-light{
-  font-family: BrandFont;
-}
-
-.group:hover .group-hover\:brand-text-header{
-  font-family: RVMP;
-}
-
-.group:hover .group-hover\:brand-text-content{
-  font-family: RVMP;
-}
-
-.group:hover .group-hover\:brand-text-footer{
+.group:hover .group-hover\:brand-text{
   font-family: RVMP;
 }
 
@@ -359,23 +323,11 @@
   min-height: 350px;
 }
 
-.focus\:brand-logo-bold:focus{
+.focus\:brand-logo-text:focus{
   font-family: BrandFont;
 }
 
-.focus\:brand-logo-light:focus{
-  font-family: BrandFont;
-}
-
-.focus\:brand-text-header:focus{
-  font-family: RVMP;
-}
-
-.focus\:brand-text-content:focus{
-  font-family: RVMP;
-}
-
-.focus\:brand-text-footer:focus{
+.focus\:brand-text:focus{
   font-family: RVMP;
 }
 
@@ -478,23 +430,11 @@
   min-height: 350px;
 }
 
-.focus-within\:brand-logo-bold:focus-within{
+.focus-within\:brand-logo-text:focus-within{
   font-family: BrandFont;
 }
 
-.focus-within\:brand-logo-light:focus-within{
-  font-family: BrandFont;
-}
-
-.focus-within\:brand-text-header:focus-within{
-  font-family: RVMP;
-}
-
-.focus-within\:brand-text-content:focus-within{
-  font-family: RVMP;
-}
-
-.focus-within\:brand-text-footer:focus-within{
+.focus-within\:brand-text:focus-within{
   font-family: RVMP;
 }
 
@@ -593,27 +533,122 @@
   border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
 }
 
+.focus-visible\:ck-editor__editable_inline:focus-visible {
+  min-height: 350px;
+}
+
+.focus-visible\:brand-logo-text:focus-visible{
+  font-family: BrandFont;
+}
+
+.focus-visible\:brand-text:focus-visible{
+  font-family: RVMP;
+}
+
+.focus-visible\:rvmp-default-text:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-default-alt-text:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-bg-main:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-bg-alt:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-text-main:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-text-alt:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-color-main:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-color-accent:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-color-highlight:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-color-darker:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-bg-main:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-brand-bg-accent:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-brand-bg-darker:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-banner-text-color:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-border-main:focus-visible{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-border-accent:focus-visible{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-border-highlight:focus-visible{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-brand-border-darker:focus-visible{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+}
+
 .active\:ck-editor__editable_inline:active {
   min-height: 350px;
 }
 
-.active\:brand-logo-bold:active{
+.active\:brand-logo-text:active{
   font-family: BrandFont;
 }
 
-.active\:brand-logo-light:active{
-  font-family: BrandFont;
-}
-
-.active\:brand-text-header:active{
-  font-family: RVMP;
-}
-
-.active\:brand-text-content:active{
-  font-family: RVMP;
-}
-
-.active\:brand-text-footer:active{
+.active\:brand-text:active{
   font-family: RVMP;
 }
 
@@ -716,23 +751,11 @@
   min-height: 350px;
 }
 
-.first-child\:brand-logo-bold:first-child{
+.first-child\:brand-logo-text:first-child{
   font-family: BrandFont;
 }
 
-.first-child\:brand-logo-light:first-child{
-  font-family: BrandFont;
-}
-
-.first-child\:brand-text-header:first-child{
-  font-family: RVMP;
-}
-
-.first-child\:brand-text-content:first-child{
-  font-family: RVMP;
-}
-
-.first-child\:brand-text-footer:first-child{
+.first-child\:brand-text:first-child{
   font-family: RVMP;
 }
 
@@ -835,23 +858,11 @@
   min-height: 350px;
 }
 
-.nth-child\:brand-logo-bold:nth-child{
+.nth-child\:brand-logo-text:nth-child{
   font-family: BrandFont;
 }
 
-.nth-child\:brand-logo-light:nth-child{
-  font-family: BrandFont;
-}
-
-.nth-child\:brand-text-header:nth-child{
-  font-family: RVMP;
-}
-
-.nth-child\:brand-text-content:nth-child{
-  font-family: RVMP;
-}
-
-.nth-child\:brand-text-footer:nth-child{
+.nth-child\:brand-text:nth-child{
   font-family: RVMP;
 }
 
@@ -954,23 +965,11 @@
   min-height: 350px;
 }
 
-.disabled\:brand-logo-bold:disabled{
+.disabled\:brand-logo-text:disabled{
   font-family: BrandFont;
 }
 
-.disabled\:brand-logo-light:disabled{
-  font-family: BrandFont;
-}
-
-.disabled\:brand-text-header:disabled{
-  font-family: RVMP;
-}
-
-.disabled\:brand-text-content:disabled{
-  font-family: RVMP;
-}
-
-.disabled\:brand-text-footer:disabled{
+.disabled\:brand-text:disabled{
   font-family: RVMP;
 }
 
@@ -1073,23 +1072,11 @@
   min-height: 350px !important;
 }
 
-.\!brand-logo-bold{
+.\!brand-logo-text{
   font-family: BrandFont !important;
 }
 
-.\!brand-logo-light{
-  font-family: BrandFont !important;
-}
-
-.\!brand-text-header{
-  font-family: RVMP !important;
-}
-
-.\!brand-text-content{
-  font-family: RVMP !important;
-}
-
-.\!brand-text-footer{
+.\!brand-text{
   font-family: RVMP !important;
 }
 
@@ -1193,23 +1180,11 @@
     min-height: 350px;
   }
 
-  .sm\:brand-logo-bold{
+  .sm\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .sm\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .sm\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .sm\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .sm\:brand-text-footer{
+  .sm\:brand-text{
     font-family: RVMP;
   }
 
@@ -1312,23 +1287,11 @@
     min-height: 350px;
   }
 
-  .sm\:hover\:brand-logo-bold:hover{
+  .sm\:hover\:brand-logo-text:hover{
     font-family: BrandFont;
   }
 
-  .sm\:hover\:brand-logo-light:hover{
-    font-family: BrandFont;
-  }
-
-  .sm\:hover\:brand-text-header:hover{
-    font-family: RVMP;
-  }
-
-  .sm\:hover\:brand-text-content:hover{
-    font-family: RVMP;
-  }
-
-  .sm\:hover\:brand-text-footer:hover{
+  .sm\:hover\:brand-text:hover{
     font-family: RVMP;
   }
 
@@ -1431,23 +1394,11 @@
     min-height: 350px;
   }
 
-  .group:hover .sm\:group-hover\:brand-logo-bold{
+  .group:hover .sm\:group-hover\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .group:hover .sm\:group-hover\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .group:hover .sm\:group-hover\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .group:hover .sm\:group-hover\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .group:hover .sm\:group-hover\:brand-text-footer{
+  .group:hover .sm\:group-hover\:brand-text{
     font-family: RVMP;
   }
 
@@ -1550,23 +1501,11 @@
     min-height: 350px;
   }
 
-  .sm\:focus\:brand-logo-bold:focus{
+  .sm\:focus\:brand-logo-text:focus{
     font-family: BrandFont;
   }
 
-  .sm\:focus\:brand-logo-light:focus{
-    font-family: BrandFont;
-  }
-
-  .sm\:focus\:brand-text-header:focus{
-    font-family: RVMP;
-  }
-
-  .sm\:focus\:brand-text-content:focus{
-    font-family: RVMP;
-  }
-
-  .sm\:focus\:brand-text-footer:focus{
+  .sm\:focus\:brand-text:focus{
     font-family: RVMP;
   }
 
@@ -1669,23 +1608,11 @@
     min-height: 350px;
   }
 
-  .sm\:focus-within\:brand-logo-bold:focus-within{
+  .sm\:focus-within\:brand-logo-text:focus-within{
     font-family: BrandFont;
   }
 
-  .sm\:focus-within\:brand-logo-light:focus-within{
-    font-family: BrandFont;
-  }
-
-  .sm\:focus-within\:brand-text-header:focus-within{
-    font-family: RVMP;
-  }
-
-  .sm\:focus-within\:brand-text-content:focus-within{
-    font-family: RVMP;
-  }
-
-  .sm\:focus-within\:brand-text-footer:focus-within{
+  .sm\:focus-within\:brand-text:focus-within{
     font-family: RVMP;
   }
 
@@ -1784,27 +1711,122 @@
     border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
   }
 
+  .sm\:focus-visible\:ck-editor__editable_inline:focus-visible {
+    min-height: 350px;
+  }
+
+  .sm\:focus-visible\:brand-logo-text:focus-visible{
+    font-family: BrandFont;
+  }
+
+  .sm\:focus-visible\:brand-text:focus-visible{
+    font-family: RVMP;
+  }
+
+  .sm\:focus-visible\:rvmp-default-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-default-alt-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-bg-alt:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-text-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-text-alt:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-color-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-color-accent:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-color-highlight:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-color-darker:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-bg-accent:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-bg-darker:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-banner-text-color:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-border-main:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-border-accent:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-brand-border-darker:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
   .sm\:active\:ck-editor__editable_inline:active {
     min-height: 350px;
   }
 
-  .sm\:active\:brand-logo-bold:active{
+  .sm\:active\:brand-logo-text:active{
     font-family: BrandFont;
   }
 
-  .sm\:active\:brand-logo-light:active{
-    font-family: BrandFont;
-  }
-
-  .sm\:active\:brand-text-header:active{
-    font-family: RVMP;
-  }
-
-  .sm\:active\:brand-text-content:active{
-    font-family: RVMP;
-  }
-
-  .sm\:active\:brand-text-footer:active{
+  .sm\:active\:brand-text:active{
     font-family: RVMP;
   }
 
@@ -1907,23 +1929,11 @@
     min-height: 350px;
   }
 
-  .sm\:first-child\:brand-logo-bold:first-child{
+  .sm\:first-child\:brand-logo-text:first-child{
     font-family: BrandFont;
   }
 
-  .sm\:first-child\:brand-logo-light:first-child{
-    font-family: BrandFont;
-  }
-
-  .sm\:first-child\:brand-text-header:first-child{
-    font-family: RVMP;
-  }
-
-  .sm\:first-child\:brand-text-content:first-child{
-    font-family: RVMP;
-  }
-
-  .sm\:first-child\:brand-text-footer:first-child{
+  .sm\:first-child\:brand-text:first-child{
     font-family: RVMP;
   }
 
@@ -2026,23 +2036,11 @@
     min-height: 350px;
   }
 
-  .sm\:nth-child\:brand-logo-bold:nth-child{
+  .sm\:nth-child\:brand-logo-text:nth-child{
     font-family: BrandFont;
   }
 
-  .sm\:nth-child\:brand-logo-light:nth-child{
-    font-family: BrandFont;
-  }
-
-  .sm\:nth-child\:brand-text-header:nth-child{
-    font-family: RVMP;
-  }
-
-  .sm\:nth-child\:brand-text-content:nth-child{
-    font-family: RVMP;
-  }
-
-  .sm\:nth-child\:brand-text-footer:nth-child{
+  .sm\:nth-child\:brand-text:nth-child{
     font-family: RVMP;
   }
 
@@ -2145,23 +2143,11 @@
     min-height: 350px;
   }
 
-  .sm\:disabled\:brand-logo-bold:disabled{
+  .sm\:disabled\:brand-logo-text:disabled{
     font-family: BrandFont;
   }
 
-  .sm\:disabled\:brand-logo-light:disabled{
-    font-family: BrandFont;
-  }
-
-  .sm\:disabled\:brand-text-header:disabled{
-    font-family: RVMP;
-  }
-
-  .sm\:disabled\:brand-text-content:disabled{
-    font-family: RVMP;
-  }
-
-  .sm\:disabled\:brand-text-footer:disabled{
+  .sm\:disabled\:brand-text:disabled{
     font-family: RVMP;
   }
 
@@ -2264,23 +2250,11 @@
     min-height: 350px !important;
   }
 
-  .sm\:\!brand-logo-bold{
+  .sm\:\!brand-logo-text{
     font-family: BrandFont !important;
   }
 
-  .sm\:\!brand-logo-light{
-    font-family: BrandFont !important;
-  }
-
-  .sm\:\!brand-text-header{
-    font-family: RVMP !important;
-  }
-
-  .sm\:\!brand-text-content{
-    font-family: RVMP !important;
-  }
-
-  .sm\:\!brand-text-footer{
+  .sm\:\!brand-text{
     font-family: RVMP !important;
   }
 
@@ -2385,23 +2359,11 @@
     min-height: 350px;
   }
 
-  .md\:brand-logo-bold{
+  .md\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .md\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .md\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .md\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .md\:brand-text-footer{
+  .md\:brand-text{
     font-family: RVMP;
   }
 
@@ -2504,23 +2466,11 @@
     min-height: 350px;
   }
 
-  .md\:hover\:brand-logo-bold:hover{
+  .md\:hover\:brand-logo-text:hover{
     font-family: BrandFont;
   }
 
-  .md\:hover\:brand-logo-light:hover{
-    font-family: BrandFont;
-  }
-
-  .md\:hover\:brand-text-header:hover{
-    font-family: RVMP;
-  }
-
-  .md\:hover\:brand-text-content:hover{
-    font-family: RVMP;
-  }
-
-  .md\:hover\:brand-text-footer:hover{
+  .md\:hover\:brand-text:hover{
     font-family: RVMP;
   }
 
@@ -2623,23 +2573,11 @@
     min-height: 350px;
   }
 
-  .group:hover .md\:group-hover\:brand-logo-bold{
+  .group:hover .md\:group-hover\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .group:hover .md\:group-hover\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .group:hover .md\:group-hover\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .group:hover .md\:group-hover\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .group:hover .md\:group-hover\:brand-text-footer{
+  .group:hover .md\:group-hover\:brand-text{
     font-family: RVMP;
   }
 
@@ -2742,23 +2680,11 @@
     min-height: 350px;
   }
 
-  .md\:focus\:brand-logo-bold:focus{
+  .md\:focus\:brand-logo-text:focus{
     font-family: BrandFont;
   }
 
-  .md\:focus\:brand-logo-light:focus{
-    font-family: BrandFont;
-  }
-
-  .md\:focus\:brand-text-header:focus{
-    font-family: RVMP;
-  }
-
-  .md\:focus\:brand-text-content:focus{
-    font-family: RVMP;
-  }
-
-  .md\:focus\:brand-text-footer:focus{
+  .md\:focus\:brand-text:focus{
     font-family: RVMP;
   }
 
@@ -2861,23 +2787,11 @@
     min-height: 350px;
   }
 
-  .md\:focus-within\:brand-logo-bold:focus-within{
+  .md\:focus-within\:brand-logo-text:focus-within{
     font-family: BrandFont;
   }
 
-  .md\:focus-within\:brand-logo-light:focus-within{
-    font-family: BrandFont;
-  }
-
-  .md\:focus-within\:brand-text-header:focus-within{
-    font-family: RVMP;
-  }
-
-  .md\:focus-within\:brand-text-content:focus-within{
-    font-family: RVMP;
-  }
-
-  .md\:focus-within\:brand-text-footer:focus-within{
+  .md\:focus-within\:brand-text:focus-within{
     font-family: RVMP;
   }
 
@@ -2976,27 +2890,122 @@
     border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
   }
 
+  .md\:focus-visible\:ck-editor__editable_inline:focus-visible {
+    min-height: 350px;
+  }
+
+  .md\:focus-visible\:brand-logo-text:focus-visible{
+    font-family: BrandFont;
+  }
+
+  .md\:focus-visible\:brand-text:focus-visible{
+    font-family: RVMP;
+  }
+
+  .md\:focus-visible\:rvmp-default-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-default-alt-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-bg-alt:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-text-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-text-alt:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-color-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-color-accent:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-color-highlight:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-color-darker:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-bg-accent:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-bg-darker:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-banner-text-color:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-border-main:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-border-accent:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-brand-border-darker:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
   .md\:active\:ck-editor__editable_inline:active {
     min-height: 350px;
   }
 
-  .md\:active\:brand-logo-bold:active{
+  .md\:active\:brand-logo-text:active{
     font-family: BrandFont;
   }
 
-  .md\:active\:brand-logo-light:active{
-    font-family: BrandFont;
-  }
-
-  .md\:active\:brand-text-header:active{
-    font-family: RVMP;
-  }
-
-  .md\:active\:brand-text-content:active{
-    font-family: RVMP;
-  }
-
-  .md\:active\:brand-text-footer:active{
+  .md\:active\:brand-text:active{
     font-family: RVMP;
   }
 
@@ -3099,23 +3108,11 @@
     min-height: 350px;
   }
 
-  .md\:first-child\:brand-logo-bold:first-child{
+  .md\:first-child\:brand-logo-text:first-child{
     font-family: BrandFont;
   }
 
-  .md\:first-child\:brand-logo-light:first-child{
-    font-family: BrandFont;
-  }
-
-  .md\:first-child\:brand-text-header:first-child{
-    font-family: RVMP;
-  }
-
-  .md\:first-child\:brand-text-content:first-child{
-    font-family: RVMP;
-  }
-
-  .md\:first-child\:brand-text-footer:first-child{
+  .md\:first-child\:brand-text:first-child{
     font-family: RVMP;
   }
 
@@ -3218,23 +3215,11 @@
     min-height: 350px;
   }
 
-  .md\:nth-child\:brand-logo-bold:nth-child{
+  .md\:nth-child\:brand-logo-text:nth-child{
     font-family: BrandFont;
   }
 
-  .md\:nth-child\:brand-logo-light:nth-child{
-    font-family: BrandFont;
-  }
-
-  .md\:nth-child\:brand-text-header:nth-child{
-    font-family: RVMP;
-  }
-
-  .md\:nth-child\:brand-text-content:nth-child{
-    font-family: RVMP;
-  }
-
-  .md\:nth-child\:brand-text-footer:nth-child{
+  .md\:nth-child\:brand-text:nth-child{
     font-family: RVMP;
   }
 
@@ -3337,23 +3322,11 @@
     min-height: 350px;
   }
 
-  .md\:disabled\:brand-logo-bold:disabled{
+  .md\:disabled\:brand-logo-text:disabled{
     font-family: BrandFont;
   }
 
-  .md\:disabled\:brand-logo-light:disabled{
-    font-family: BrandFont;
-  }
-
-  .md\:disabled\:brand-text-header:disabled{
-    font-family: RVMP;
-  }
-
-  .md\:disabled\:brand-text-content:disabled{
-    font-family: RVMP;
-  }
-
-  .md\:disabled\:brand-text-footer:disabled{
+  .md\:disabled\:brand-text:disabled{
     font-family: RVMP;
   }
 
@@ -3456,23 +3429,11 @@
     min-height: 350px !important;
   }
 
-  .md\:\!brand-logo-bold{
+  .md\:\!brand-logo-text{
     font-family: BrandFont !important;
   }
 
-  .md\:\!brand-logo-light{
-    font-family: BrandFont !important;
-  }
-
-  .md\:\!brand-text-header{
-    font-family: RVMP !important;
-  }
-
-  .md\:\!brand-text-content{
-    font-family: RVMP !important;
-  }
-
-  .md\:\!brand-text-footer{
+  .md\:\!brand-text{
     font-family: RVMP !important;
   }
 
@@ -3577,23 +3538,11 @@
     min-height: 350px;
   }
 
-  .lg\:brand-logo-bold{
+  .lg\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .lg\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .lg\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .lg\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .lg\:brand-text-footer{
+  .lg\:brand-text{
     font-family: RVMP;
   }
 
@@ -3696,23 +3645,11 @@
     min-height: 350px;
   }
 
-  .lg\:hover\:brand-logo-bold:hover{
+  .lg\:hover\:brand-logo-text:hover{
     font-family: BrandFont;
   }
 
-  .lg\:hover\:brand-logo-light:hover{
-    font-family: BrandFont;
-  }
-
-  .lg\:hover\:brand-text-header:hover{
-    font-family: RVMP;
-  }
-
-  .lg\:hover\:brand-text-content:hover{
-    font-family: RVMP;
-  }
-
-  .lg\:hover\:brand-text-footer:hover{
+  .lg\:hover\:brand-text:hover{
     font-family: RVMP;
   }
 
@@ -3815,23 +3752,11 @@
     min-height: 350px;
   }
 
-  .group:hover .lg\:group-hover\:brand-logo-bold{
+  .group:hover .lg\:group-hover\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .group:hover .lg\:group-hover\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .group:hover .lg\:group-hover\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .group:hover .lg\:group-hover\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .group:hover .lg\:group-hover\:brand-text-footer{
+  .group:hover .lg\:group-hover\:brand-text{
     font-family: RVMP;
   }
 
@@ -3934,23 +3859,11 @@
     min-height: 350px;
   }
 
-  .lg\:focus\:brand-logo-bold:focus{
+  .lg\:focus\:brand-logo-text:focus{
     font-family: BrandFont;
   }
 
-  .lg\:focus\:brand-logo-light:focus{
-    font-family: BrandFont;
-  }
-
-  .lg\:focus\:brand-text-header:focus{
-    font-family: RVMP;
-  }
-
-  .lg\:focus\:brand-text-content:focus{
-    font-family: RVMP;
-  }
-
-  .lg\:focus\:brand-text-footer:focus{
+  .lg\:focus\:brand-text:focus{
     font-family: RVMP;
   }
 
@@ -4053,23 +3966,11 @@
     min-height: 350px;
   }
 
-  .lg\:focus-within\:brand-logo-bold:focus-within{
+  .lg\:focus-within\:brand-logo-text:focus-within{
     font-family: BrandFont;
   }
 
-  .lg\:focus-within\:brand-logo-light:focus-within{
-    font-family: BrandFont;
-  }
-
-  .lg\:focus-within\:brand-text-header:focus-within{
-    font-family: RVMP;
-  }
-
-  .lg\:focus-within\:brand-text-content:focus-within{
-    font-family: RVMP;
-  }
-
-  .lg\:focus-within\:brand-text-footer:focus-within{
+  .lg\:focus-within\:brand-text:focus-within{
     font-family: RVMP;
   }
 
@@ -4168,27 +4069,122 @@
     border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
   }
 
+  .lg\:focus-visible\:ck-editor__editable_inline:focus-visible {
+    min-height: 350px;
+  }
+
+  .lg\:focus-visible\:brand-logo-text:focus-visible{
+    font-family: BrandFont;
+  }
+
+  .lg\:focus-visible\:brand-text:focus-visible{
+    font-family: RVMP;
+  }
+
+  .lg\:focus-visible\:rvmp-default-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-default-alt-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-bg-alt:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-text-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-text-alt:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-color-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-color-accent:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-color-highlight:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-color-darker:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-bg-accent:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-bg-darker:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-banner-text-color:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-border-main:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-border-accent:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-brand-border-darker:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
   .lg\:active\:ck-editor__editable_inline:active {
     min-height: 350px;
   }
 
-  .lg\:active\:brand-logo-bold:active{
+  .lg\:active\:brand-logo-text:active{
     font-family: BrandFont;
   }
 
-  .lg\:active\:brand-logo-light:active{
-    font-family: BrandFont;
-  }
-
-  .lg\:active\:brand-text-header:active{
-    font-family: RVMP;
-  }
-
-  .lg\:active\:brand-text-content:active{
-    font-family: RVMP;
-  }
-
-  .lg\:active\:brand-text-footer:active{
+  .lg\:active\:brand-text:active{
     font-family: RVMP;
   }
 
@@ -4291,23 +4287,11 @@
     min-height: 350px;
   }
 
-  .lg\:first-child\:brand-logo-bold:first-child{
+  .lg\:first-child\:brand-logo-text:first-child{
     font-family: BrandFont;
   }
 
-  .lg\:first-child\:brand-logo-light:first-child{
-    font-family: BrandFont;
-  }
-
-  .lg\:first-child\:brand-text-header:first-child{
-    font-family: RVMP;
-  }
-
-  .lg\:first-child\:brand-text-content:first-child{
-    font-family: RVMP;
-  }
-
-  .lg\:first-child\:brand-text-footer:first-child{
+  .lg\:first-child\:brand-text:first-child{
     font-family: RVMP;
   }
 
@@ -4410,23 +4394,11 @@
     min-height: 350px;
   }
 
-  .lg\:nth-child\:brand-logo-bold:nth-child{
+  .lg\:nth-child\:brand-logo-text:nth-child{
     font-family: BrandFont;
   }
 
-  .lg\:nth-child\:brand-logo-light:nth-child{
-    font-family: BrandFont;
-  }
-
-  .lg\:nth-child\:brand-text-header:nth-child{
-    font-family: RVMP;
-  }
-
-  .lg\:nth-child\:brand-text-content:nth-child{
-    font-family: RVMP;
-  }
-
-  .lg\:nth-child\:brand-text-footer:nth-child{
+  .lg\:nth-child\:brand-text:nth-child{
     font-family: RVMP;
   }
 
@@ -4529,23 +4501,11 @@
     min-height: 350px;
   }
 
-  .lg\:disabled\:brand-logo-bold:disabled{
+  .lg\:disabled\:brand-logo-text:disabled{
     font-family: BrandFont;
   }
 
-  .lg\:disabled\:brand-logo-light:disabled{
-    font-family: BrandFont;
-  }
-
-  .lg\:disabled\:brand-text-header:disabled{
-    font-family: RVMP;
-  }
-
-  .lg\:disabled\:brand-text-content:disabled{
-    font-family: RVMP;
-  }
-
-  .lg\:disabled\:brand-text-footer:disabled{
+  .lg\:disabled\:brand-text:disabled{
     font-family: RVMP;
   }
 
@@ -4648,23 +4608,11 @@
     min-height: 350px !important;
   }
 
-  .lg\:\!brand-logo-bold{
+  .lg\:\!brand-logo-text{
     font-family: BrandFont !important;
   }
 
-  .lg\:\!brand-logo-light{
-    font-family: BrandFont !important;
-  }
-
-  .lg\:\!brand-text-header{
-    font-family: RVMP !important;
-  }
-
-  .lg\:\!brand-text-content{
-    font-family: RVMP !important;
-  }
-
-  .lg\:\!brand-text-footer{
+  .lg\:\!brand-text{
     font-family: RVMP !important;
   }
 
@@ -4769,23 +4717,11 @@
     min-height: 350px;
   }
 
-  .xl\:brand-logo-bold{
+  .xl\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .xl\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .xl\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .xl\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .xl\:brand-text-footer{
+  .xl\:brand-text{
     font-family: RVMP;
   }
 
@@ -4888,23 +4824,11 @@
     min-height: 350px;
   }
 
-  .xl\:hover\:brand-logo-bold:hover{
+  .xl\:hover\:brand-logo-text:hover{
     font-family: BrandFont;
   }
 
-  .xl\:hover\:brand-logo-light:hover{
-    font-family: BrandFont;
-  }
-
-  .xl\:hover\:brand-text-header:hover{
-    font-family: RVMP;
-  }
-
-  .xl\:hover\:brand-text-content:hover{
-    font-family: RVMP;
-  }
-
-  .xl\:hover\:brand-text-footer:hover{
+  .xl\:hover\:brand-text:hover{
     font-family: RVMP;
   }
 
@@ -5007,23 +4931,11 @@
     min-height: 350px;
   }
 
-  .group:hover .xl\:group-hover\:brand-logo-bold{
+  .group:hover .xl\:group-hover\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .group:hover .xl\:group-hover\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .group:hover .xl\:group-hover\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .group:hover .xl\:group-hover\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .group:hover .xl\:group-hover\:brand-text-footer{
+  .group:hover .xl\:group-hover\:brand-text{
     font-family: RVMP;
   }
 
@@ -5126,23 +5038,11 @@
     min-height: 350px;
   }
 
-  .xl\:focus\:brand-logo-bold:focus{
+  .xl\:focus\:brand-logo-text:focus{
     font-family: BrandFont;
   }
 
-  .xl\:focus\:brand-logo-light:focus{
-    font-family: BrandFont;
-  }
-
-  .xl\:focus\:brand-text-header:focus{
-    font-family: RVMP;
-  }
-
-  .xl\:focus\:brand-text-content:focus{
-    font-family: RVMP;
-  }
-
-  .xl\:focus\:brand-text-footer:focus{
+  .xl\:focus\:brand-text:focus{
     font-family: RVMP;
   }
 
@@ -5245,23 +5145,11 @@
     min-height: 350px;
   }
 
-  .xl\:focus-within\:brand-logo-bold:focus-within{
+  .xl\:focus-within\:brand-logo-text:focus-within{
     font-family: BrandFont;
   }
 
-  .xl\:focus-within\:brand-logo-light:focus-within{
-    font-family: BrandFont;
-  }
-
-  .xl\:focus-within\:brand-text-header:focus-within{
-    font-family: RVMP;
-  }
-
-  .xl\:focus-within\:brand-text-content:focus-within{
-    font-family: RVMP;
-  }
-
-  .xl\:focus-within\:brand-text-footer:focus-within{
+  .xl\:focus-within\:brand-text:focus-within{
     font-family: RVMP;
   }
 
@@ -5360,27 +5248,122 @@
     border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
   }
 
+  .xl\:focus-visible\:ck-editor__editable_inline:focus-visible {
+    min-height: 350px;
+  }
+
+  .xl\:focus-visible\:brand-logo-text:focus-visible{
+    font-family: BrandFont;
+  }
+
+  .xl\:focus-visible\:brand-text:focus-visible{
+    font-family: RVMP;
+  }
+
+  .xl\:focus-visible\:rvmp-default-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-bg-alt:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-text-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-text-alt:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-color-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-color-accent:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-color-highlight:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-color-darker:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-bg-accent:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-bg-darker:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-banner-text-color:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-border-accent:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-brand-border-darker:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
   .xl\:active\:ck-editor__editable_inline:active {
     min-height: 350px;
   }
 
-  .xl\:active\:brand-logo-bold:active{
+  .xl\:active\:brand-logo-text:active{
     font-family: BrandFont;
   }
 
-  .xl\:active\:brand-logo-light:active{
-    font-family: BrandFont;
-  }
-
-  .xl\:active\:brand-text-header:active{
-    font-family: RVMP;
-  }
-
-  .xl\:active\:brand-text-content:active{
-    font-family: RVMP;
-  }
-
-  .xl\:active\:brand-text-footer:active{
+  .xl\:active\:brand-text:active{
     font-family: RVMP;
   }
 
@@ -5483,23 +5466,11 @@
     min-height: 350px;
   }
 
-  .xl\:first-child\:brand-logo-bold:first-child{
+  .xl\:first-child\:brand-logo-text:first-child{
     font-family: BrandFont;
   }
 
-  .xl\:first-child\:brand-logo-light:first-child{
-    font-family: BrandFont;
-  }
-
-  .xl\:first-child\:brand-text-header:first-child{
-    font-family: RVMP;
-  }
-
-  .xl\:first-child\:brand-text-content:first-child{
-    font-family: RVMP;
-  }
-
-  .xl\:first-child\:brand-text-footer:first-child{
+  .xl\:first-child\:brand-text:first-child{
     font-family: RVMP;
   }
 
@@ -5602,23 +5573,11 @@
     min-height: 350px;
   }
 
-  .xl\:nth-child\:brand-logo-bold:nth-child{
+  .xl\:nth-child\:brand-logo-text:nth-child{
     font-family: BrandFont;
   }
 
-  .xl\:nth-child\:brand-logo-light:nth-child{
-    font-family: BrandFont;
-  }
-
-  .xl\:nth-child\:brand-text-header:nth-child{
-    font-family: RVMP;
-  }
-
-  .xl\:nth-child\:brand-text-content:nth-child{
-    font-family: RVMP;
-  }
-
-  .xl\:nth-child\:brand-text-footer:nth-child{
+  .xl\:nth-child\:brand-text:nth-child{
     font-family: RVMP;
   }
 
@@ -5721,23 +5680,11 @@
     min-height: 350px;
   }
 
-  .xl\:disabled\:brand-logo-bold:disabled{
+  .xl\:disabled\:brand-logo-text:disabled{
     font-family: BrandFont;
   }
 
-  .xl\:disabled\:brand-logo-light:disabled{
-    font-family: BrandFont;
-  }
-
-  .xl\:disabled\:brand-text-header:disabled{
-    font-family: RVMP;
-  }
-
-  .xl\:disabled\:brand-text-content:disabled{
-    font-family: RVMP;
-  }
-
-  .xl\:disabled\:brand-text-footer:disabled{
+  .xl\:disabled\:brand-text:disabled{
     font-family: RVMP;
   }
 
@@ -5840,23 +5787,11 @@
     min-height: 350px !important;
   }
 
-  .xl\:\!brand-logo-bold{
+  .xl\:\!brand-logo-text{
     font-family: BrandFont !important;
   }
 
-  .xl\:\!brand-logo-light{
-    font-family: BrandFont !important;
-  }
-
-  .xl\:\!brand-text-header{
-    font-family: RVMP !important;
-  }
-
-  .xl\:\!brand-text-content{
-    font-family: RVMP !important;
-  }
-
-  .xl\:\!brand-text-footer{
+  .xl\:\!brand-text{
     font-family: RVMP !important;
   }
 
@@ -5961,23 +5896,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:brand-logo-bold{
+  .\32xl\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .\32xl\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .\32xl\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .\32xl\:brand-text-footer{
+  .\32xl\:brand-text{
     font-family: RVMP;
   }
 
@@ -6080,23 +6003,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:hover\:brand-logo-bold:hover{
+  .\32xl\:hover\:brand-logo-text:hover{
     font-family: BrandFont;
   }
 
-  .\32xl\:hover\:brand-logo-light:hover{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:hover\:brand-text-header:hover{
-    font-family: RVMP;
-  }
-
-  .\32xl\:hover\:brand-text-content:hover{
-    font-family: RVMP;
-  }
-
-  .\32xl\:hover\:brand-text-footer:hover{
+  .\32xl\:hover\:brand-text:hover{
     font-family: RVMP;
   }
 
@@ -6199,23 +6110,11 @@
     min-height: 350px;
   }
 
-  .group:hover .\32xl\:group-hover\:brand-logo-bold{
+  .group:hover .\32xl\:group-hover\:brand-logo-text{
     font-family: BrandFont;
   }
 
-  .group:hover .\32xl\:group-hover\:brand-logo-light{
-    font-family: BrandFont;
-  }
-
-  .group:hover .\32xl\:group-hover\:brand-text-header{
-    font-family: RVMP;
-  }
-
-  .group:hover .\32xl\:group-hover\:brand-text-content{
-    font-family: RVMP;
-  }
-
-  .group:hover .\32xl\:group-hover\:brand-text-footer{
+  .group:hover .\32xl\:group-hover\:brand-text{
     font-family: RVMP;
   }
 
@@ -6318,23 +6217,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:focus\:brand-logo-bold:focus{
+  .\32xl\:focus\:brand-logo-text:focus{
     font-family: BrandFont;
   }
 
-  .\32xl\:focus\:brand-logo-light:focus{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:focus\:brand-text-header:focus{
-    font-family: RVMP;
-  }
-
-  .\32xl\:focus\:brand-text-content:focus{
-    font-family: RVMP;
-  }
-
-  .\32xl\:focus\:brand-text-footer:focus{
+  .\32xl\:focus\:brand-text:focus{
     font-family: RVMP;
   }
 
@@ -6437,23 +6324,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:focus-within\:brand-logo-bold:focus-within{
+  .\32xl\:focus-within\:brand-logo-text:focus-within{
     font-family: BrandFont;
   }
 
-  .\32xl\:focus-within\:brand-logo-light:focus-within{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:focus-within\:brand-text-header:focus-within{
-    font-family: RVMP;
-  }
-
-  .\32xl\:focus-within\:brand-text-content:focus-within{
-    font-family: RVMP;
-  }
-
-  .\32xl\:focus-within\:brand-text-footer:focus-within{
+  .\32xl\:focus-within\:brand-text:focus-within{
     font-family: RVMP;
   }
 
@@ -6552,27 +6427,122 @@
     border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
   }
 
+  .\32xl\:focus-visible\:ck-editor__editable_inline:focus-visible {
+    min-height: 350px;
+  }
+
+  .\32xl\:focus-visible\:brand-logo-text:focus-visible{
+    font-family: BrandFont;
+  }
+
+  .\32xl\:focus-visible\:brand-text:focus-visible{
+    font-family: RVMP;
+  }
+
+  .\32xl\:focus-visible\:rvmp-default-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-bg-alt:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-text-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-text-alt:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-color-main:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-color-accent:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-color-highlight:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-color-darker:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-bg-main:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-bg-accent:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-bg-highlight:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-bg-darker:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-banner-text-color:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-border-accent:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-brand-border-darker:focus-visible{
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  }
+
   .\32xl\:active\:ck-editor__editable_inline:active {
     min-height: 350px;
   }
 
-  .\32xl\:active\:brand-logo-bold:active{
+  .\32xl\:active\:brand-logo-text:active{
     font-family: BrandFont;
   }
 
-  .\32xl\:active\:brand-logo-light:active{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:active\:brand-text-header:active{
-    font-family: RVMP;
-  }
-
-  .\32xl\:active\:brand-text-content:active{
-    font-family: RVMP;
-  }
-
-  .\32xl\:active\:brand-text-footer:active{
+  .\32xl\:active\:brand-text:active{
     font-family: RVMP;
   }
 
@@ -6675,23 +6645,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:first-child\:brand-logo-bold:first-child{
+  .\32xl\:first-child\:brand-logo-text:first-child{
     font-family: BrandFont;
   }
 
-  .\32xl\:first-child\:brand-logo-light:first-child{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:first-child\:brand-text-header:first-child{
-    font-family: RVMP;
-  }
-
-  .\32xl\:first-child\:brand-text-content:first-child{
-    font-family: RVMP;
-  }
-
-  .\32xl\:first-child\:brand-text-footer:first-child{
+  .\32xl\:first-child\:brand-text:first-child{
     font-family: RVMP;
   }
 
@@ -6794,23 +6752,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:nth-child\:brand-logo-bold:nth-child{
+  .\32xl\:nth-child\:brand-logo-text:nth-child{
     font-family: BrandFont;
   }
 
-  .\32xl\:nth-child\:brand-logo-light:nth-child{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:nth-child\:brand-text-header:nth-child{
-    font-family: RVMP;
-  }
-
-  .\32xl\:nth-child\:brand-text-content:nth-child{
-    font-family: RVMP;
-  }
-
-  .\32xl\:nth-child\:brand-text-footer:nth-child{
+  .\32xl\:nth-child\:brand-text:nth-child{
     font-family: RVMP;
   }
 
@@ -6913,23 +6859,11 @@
     min-height: 350px;
   }
 
-  .\32xl\:disabled\:brand-logo-bold:disabled{
+  .\32xl\:disabled\:brand-logo-text:disabled{
     font-family: BrandFont;
   }
 
-  .\32xl\:disabled\:brand-logo-light:disabled{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:disabled\:brand-text-header:disabled{
-    font-family: RVMP;
-  }
-
-  .\32xl\:disabled\:brand-text-content:disabled{
-    font-family: RVMP;
-  }
-
-  .\32xl\:disabled\:brand-text-footer:disabled{
+  .\32xl\:disabled\:brand-text:disabled{
     font-family: RVMP;
   }
 
@@ -7032,23 +6966,11 @@
     min-height: 350px !important;
   }
 
-  .\32xl\:\!brand-logo-bold{
+  .\32xl\:\!brand-logo-text{
     font-family: BrandFont !important;
   }
 
-  .\32xl\:\!brand-logo-light{
-    font-family: BrandFont !important;
-  }
-
-  .\32xl\:\!brand-text-header{
-    font-family: RVMP !important;
-  }
-
-  .\32xl\:\!brand-text-content{
-    font-family: RVMP !important;
-  }
-
-  .\32xl\:\!brand-text-footer{
+  .\32xl\:\!brand-text{
     font-family: RVMP !important;
   }
 

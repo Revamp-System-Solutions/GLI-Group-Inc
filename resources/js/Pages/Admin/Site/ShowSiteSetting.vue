@@ -1,101 +1,64 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
- 
-
- 
-   <!-- <div id="site-settings" class="flex flex-row">
-   
-        <div id="content-area" class="w-full h-auto bg-gray-50">
-            <div class="h-full 2xl:px-80 xl:px-56 lg:px-28"> 
-                STATICS, BRAND COLORSs
-                <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
-                                  <thead>
-                                      <tr>
-                                      <th class="w-1/4 border border-gray-600">Name</th>
-                                      <th class="w-1/4 border border-gray-600">Color</th>
-                                      <th class="w-1/4 border border-gray-600">Description</th>
-                                      
-                                      </tr>
-                                  </thead>
-                            <tbody>
-                                      <tr v-for="system_color in system_colors" :key="system_color.alias" class="">
-                                          <td class="border border-gray-600">{{system_color.alias}}</td>
-                                          <td class="border border-gray-600">                                                
-                                              <input type="color" :value="rgba2hex('rgba('+system_color.value+')')"> 
-                                              <button type="button" 
-                                              @click="
-                                                openModal();
-                                                color = rgba2hex('rgba('+system_color.value+')');
-                                                stageColor = system_color;
-                                              " class="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">Open dialog </button>
-                                          </td>
-                                          <td class="border border-gray-600">{{ system_color.description }}</td>
-                                          
-                                      </tr>
-                                  </tbody>
-                         
-                            </table>
-            </div>
-
-        </div>
-    </div>
-  -->
   <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
-      <div class="py-2 align-middle inline-block min-w-full ">
-        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Name
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Title
-                </th>
-               
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="system_color in system_colors" :key="system_color">
-                   <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-base text-gray-900">{{ system_color.alias }}</div>
-                  <div class="text-sm text-gray-500">{{ system_color.description }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
+    <h2 class="font-semibold text-3xl my-4">Site Settings</h2>
+        <Disclosure v-slot="{ open }" >
+					<DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+            <span class="text-xl"><i class="fas fa-palette mx-2"></i> Site Colors</span>
+            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+					</DisclosureButton>
+					<DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+                <template v-for="system_color in system_colors" :key="system_color">
+                  <div class="px-6 py-4 lg:bg-transparent bg-gray-300">
+                    <div class="text-base text-gray-900">{{ system_color.alias }}</div>
+                    <div class="text-sm text-gray-500">{{ system_color.description }}</div>
+                  </div>
+                  <div class="lg:px-6 py-4 pl-8">
+                    <div class="flex items-center">
+                      <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
 
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
-                        <span class="block">{{ system_color.value }}</span>
-                        <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
                       </div>
-                      <div class="text-sm text-gray-500 capitalize">
-                       <span @click="
-                            openModal();
-                            color = 'rgba('+system_color.value+')';
-                            stageColor = system_color;
-                            oldColor.alias = system_color.alias;
-                            oldColor.value = system_color.value;
-                          "> <i class="fas fa-edit"></i>change color</span>
-            
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900 capitalize">
+                          <span class="block">{{ system_color.value }}</span>
+                          <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
+                          <span @click="
+                              openModal();
+                              color = 'rgba('+system_color.value+')';
+                              stageColor = system_color;
+                              oldColor.alias = system_color.alias;
+                              oldColor.value = system_color.value;
+                            " class="block text-gray-500"> <i class="fas fa-edit"></i>change color</span>
+              
+                        </div>
                       </div>
                     </div>
                   </div>
-                </td>
-               
-           
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+                </template>
+					</DisclosurePanel>
+        </Disclosure>
+        <Disclosure v-slot="{ open }" >
+          <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+            <span class="text-xl"><i class="fas fa-images mx-2"></i> Site Branding</span>
+            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+          </DisclosureButton>
+          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+
+                <template v-for="static_image in static_images" :key="static_image">
+                  <div class="px-6 py-4 lg:bg-transparent bg-gray-300">
+                    <div class="text-base text-gray-900">{{ static_image.static_value }}</div>
+                  </div>
+                  <div class="lg:px-6 py-4 pl-8">
+                      <img v-if="static_image.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="static_image.image_url" :alt="static_image.static_value">
+                  </div>
+                </template>
+            </DisclosurePanel>
+				</Disclosure>
     </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModalm">
-      <div class="fixed inset-0 z-10 overflow-y-auto bg-gray-700 bg-opacity-30 ">
+      <div class="fixed inset-0 z-50 overflow-y-auto bg-gray-600 bg-opacity-30 ">
         <div class="min-h-screen px-4 text-center">
           <TransitionChild
             as="template"
@@ -155,10 +118,8 @@
                           <span class="block"> {{oldColor.value}}</span>
                           <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
                        </span>
-                  </div>
-                  </div>
-                 
-
+                      </div>
+                </div>
               </div>
 
               <div class="mt-4 p-6">
@@ -190,6 +151,9 @@ import {
   Dialog,
   DialogOverlay,
   DialogTitle,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
 } from '@headlessui/vue'
 
 export default {
@@ -203,6 +167,9 @@ export default {
         DialogOverlay,
         DialogTitle,
         ColorPicker,
+        Disclosure,
+        DisclosureButton,
+        DisclosurePanel,
 
     },
     props: {
@@ -263,19 +230,20 @@ export default {
 
         function submit() {
             Inertia.post(route('settings.color.change', {'sys_color': form.alias}), form, {
-                forceFormData: true
+                forceFormData: true,
             });
         }
 
         const system_colors = computed(() => usePage().props.value.system_colors);
- 
+        const static_images = computed(() => usePage().props.value.static_images);
         const user = computed(() => usePage().props.value.auth.user);
- 
+        console.log(static_images)
         return {
             form,
             system_colors,
             submit,
             user,
+            static_images,
             isOpen,
             closeModal() {
                 isOpen.value = false
