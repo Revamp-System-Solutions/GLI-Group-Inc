@@ -17,6 +17,8 @@ class CreateRvmpStaticsTable extends Migration
             $table->id();
             $table->string("static_value");
             $table->string("image")->required();
+            $table->text("description")->nullable();
+            $table->text("type")->nullable();
             $table->timestamps();
         });
     }

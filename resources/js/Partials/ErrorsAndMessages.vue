@@ -32,8 +32,9 @@
             leave-from="opacity-100"
             leave-to="opacity-0">
       <div class="w-1/3 bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 absolute right-0 top-0 z-50" role="alert"  >
-        <p class="font-bold">{{$page.props.flash.success}}</p>
-        <!-- <p class="text-sm">Some additional text to explain said message.</p> -->
+        <p class="font-bold">{{$page.props.flash.success!==null ? ($page.props.flash.success.split("|>><<|")[0]): '' }}</p>
+        <p class="text-sm">{{$page.props.flash.success!==null ? ($page.props.flash.success.split("|>><<|")[1]): '' }}.</p>
+
         <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" @click="$page.props.flash.success=null">
             <i class="fa fa-times"></i>
         </span>
@@ -72,7 +73,8 @@ export default {
     methods:{
         closeAlert(){
             this.$page.props.flash.success = null
-        }
+        },
+        
     }
     
 }

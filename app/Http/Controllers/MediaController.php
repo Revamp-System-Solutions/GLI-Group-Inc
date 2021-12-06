@@ -40,7 +40,7 @@ class MediaController extends Controller
 
         $media->save();
 
-        $request->session()->flash('success', 'Media created successfully!');
+        $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
 
         return redirect()->route('admin.media');
     }

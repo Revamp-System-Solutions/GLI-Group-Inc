@@ -106,39 +106,7 @@ import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessu
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-$(function() {
-        // Multiple images preview with JavaScript
-        var previewImages = function(input, imgPreviewPlaceholder) {
-            if (input.files) {
-                    if(input.files[0].size > 1048576)
-                        return;
 
-                    var file = input.files[0];
-
-                    var reader = new FileReader();
-                    reader.onload = (function(currFile, x) {
-                        
-                        return function(event){
-                            
-                            $($.parseHTML('\
-                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
-                                '))                            
-                            .appendTo(imgPreviewPlaceholder);
-
-                        };
-
-
-                    })(file, 0);
-
-                    reader.readAsDataURL(input.files[0]);
-                
-            }
-        };
-        $('#image').on('change', function() {
-            $("div.images-preview-div").html("")
-            previewImages(this, 'div.images-preview-div');
-        });
-    });
 export default {
     name: "Create",
     props: {
@@ -246,5 +214,38 @@ export default {
  
     
 }
+$(function() {
+        // Multiple images preview with JavaScript
+        var previewImages = function(input, imgPreviewPlaceholder) {
+            if (input.files) {
+                    if(input.files[0].size > 1048576)
+                        return;
+
+                    var file = input.files[0];
+
+                    var reader = new FileReader();
+                    reader.onload = (function(currFile, x) {
+                        
+                        return function(event){
+                            
+                            $($.parseHTML('\
+                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
+                                '))                            
+                            .appendTo(imgPreviewPlaceholder);
+
+                        };
+
+
+                    })(file, 0);
+
+                    reader.readAsDataURL(input.files[0]);
+                
+            }
+        };
+        $('#image').on('change', function() {
+            $("div.images-preview-div").html("")
+            previewImages(this, 'div.images-preview-div');
+        });
+    });
 </script>
 

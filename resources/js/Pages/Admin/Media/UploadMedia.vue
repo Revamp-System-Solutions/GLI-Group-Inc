@@ -1,12 +1,9 @@
 <template>
-    <app-header></app-header>
-
     <div class="row">
+  
         <div class="col-md-6 offset-md-3">
             <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Upload Media</h2>
-
-                <errors-and-messages :errors="errors"></errors-and-messages>
+                <h2 class="text-left">Upload Media {{stageImage}}</h2>
 
                 <div class="form-group">
                     <label for="media_name">Media Name</label>
@@ -37,9 +34,8 @@ export default {
         ErrorsAndMessages,
         AppHeader
     },
-    props: {
-        errors: Object
-    },
+    inheritAttrs: false,
+    props: ["stageImage"],
     setup() {
         const form = reactive({
             medianame: null,
@@ -62,6 +58,9 @@ export default {
         return {
             form, submit, selectFile
         }
+    },
+    mounted(){
+      
     }
 }
 </script>

@@ -77,7 +77,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        $request->session()->flash('success', 'Post created successfully!');
+        $request->session()->flash('success', 'New post has been added|>><<|Post created successfully!');
 
         return redirect()->route('adminPost');
     }
@@ -126,7 +126,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        $request->session()->flash('success', 'Post updated successfully!');
+        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$requst->title.' has been updated.');
 
         return redirect()->route('adminPost');
     }
@@ -137,7 +137,7 @@ class PostsController extends Controller
         $post =Post::where('slug', $slug)->firstOrFail();
         
         $post->delete();
-        $request->session()->flash('success', 'Post deleted successfully!');
+        $request->session()->flash('success', 'Post deleted!|>><<|Post deletion complete.');
 
         return redirect()->route('adminPost');
     }

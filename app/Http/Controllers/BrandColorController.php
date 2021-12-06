@@ -29,7 +29,6 @@ class BrandColorController extends Controller
         $system_color->value = $request->color;
         $system_color->save();
         $myfile = fopen("css/client.css", "w") or die("Unable to open file!");
-        $request->session()->flash('success', $request->alias.' has been updated!');
         $txt = ':root{ ';
         fwrite($myfile, $txt); 
         foreach (BrandColor::all() as $sys_color) {
@@ -40,7 +39,7 @@ class BrandColorController extends Controller
         fwrite($myfile, $txt);
         fclose($myfile);
      
-        $request->session()->flash('success', $request->alias.' has been updated!');
+        $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
         return redirect()->route('admin.settings');
     }
 }
