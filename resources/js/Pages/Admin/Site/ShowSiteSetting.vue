@@ -235,10 +235,10 @@ export default {
         },
          changeColor(color) {
         const { r, g, b, a } = color.rgba
-        this.color = `rgba(${r}, ${g}, ${b}, ${a})`
+        this.color = `rgba(${r}, ${g}, ${b})`
  
         this.stageColor.value=`${r}, ${g}, ${b}`
-
+        console.log(this.stageColor)
         },
         setFormColor (){
                    this.closeModalm()
