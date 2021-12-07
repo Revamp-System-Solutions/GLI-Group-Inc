@@ -1,5 +1,5 @@
 <template>
-<div class="w-full sticky top-0 z-30">
+<div class="w-full sticky top-0 z-20">
 <Popover class="relative bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">

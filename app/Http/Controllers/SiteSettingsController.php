@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\BrandColor;
-use App\Models\RvmpStatic;
+use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class BrandColorController extends Controller
+class SiteSettingsController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +19,7 @@ class BrandColorController extends Controller
     {
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "system_colors" => BrandColor::all(),
-            "static_images" => RvmpStatic::where('static_value', 'not like' ,'%revamp_logo%')->get(),
+            "static_images" => Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get(),
         ]);
     }
 

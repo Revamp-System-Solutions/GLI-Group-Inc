@@ -48,14 +48,14 @@
 
                 <template v-for="static_image in static_images" :key="static_image">
                   <div class="p-6">
-                    <span class="text-base text-gray-900">{{ static_image.static_value }} 
+                    <span class="text-base text-gray-900">{{ static_image.media_name }} 
                       <span @click="
                       openModal('brand');
                       stageImg=static_image"><i class="fas fa-sync"></i> Update Current Image</span></span>
                     <p>{{ static_image.description }}</p>
                   </div>
                   <div class="p-6">
-                      <img v-if="static_image.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="static_image.image_url" :alt="static_image.static_value">
+                      <img v-if="static_image.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="static_image.image_url" :alt="static_image.media_name">
                   </div>
                 </template>
             </DisclosurePanel>
@@ -64,7 +64,7 @@
 
   <TransitionRoot appear :show="isOpen">
     <Dialog as="div" @close="closeModal">
-      <div class="fixed inset-0 z-50 overflow-y-auto bg-gray-600 bg-opacity-30 ">
+      <div class="fixed inset-0 z-30 overflow-y-auto bg-gray-600 bg-opacity-30 ">
         <div class="min-h-screen px-4 text-center">
           <TransitionChild
       
@@ -136,7 +136,7 @@
                 update image
               </DialogTitle>
               <div class="mt-2">
-                <upload-media :stageImage="stageImg"  v-if="caller==='brand'"/>
+                <upload-media :stageImage="stageImg" :type="iType" v-if="caller==='brand'"/>
               </div>
 
               <div class="mt-4 p-6">
@@ -184,7 +184,9 @@ export default {
     },
     props: {
         errors: Object,
-        stageImage: String
+        stageImage: String,
+        type: String,
+
     },
     data: () => ({
         oldColor:{
@@ -194,6 +196,7 @@ export default {
         caller: null,
         stageColor: [],
         stageImg: [],
+        iType:'UlZNUF9DTElFTlRfRklMRQ==',
         success:false,
         color: '#59c7f9',
         suckerCanvas: null,
@@ -224,7 +227,6 @@ export default {
             this.closeModal()
             this.form.alias = this.stageColor.alias
             this.form.color = this.stageColor.value
-   
             this.submit()
             
         },

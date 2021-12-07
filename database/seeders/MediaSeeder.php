@@ -1,10 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\RvmpStatic;
+use App\Models\Media;
 use Illuminate\Database\Seeder;
 
-class RvmpStaticSeeder extends Seeder
+class MediaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,47 +16,47 @@ class RvmpStaticSeeder extends Seeder
         $rvmps = [
             [
                 'id'             => 1,
-                'static_value'   => 'revamp_logo',
+                'media_name'   => 'revamp_logo',
                 'image'          => 'revamp-system-solutions.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
                 'type'           => 'RVMP_FILE'
             ],
             [
                 'id'             => 2,
-                'static_value'   => 'revamp_logo_alt',
+                'media_name'     => 'revamp_logo_alt',
                 'image'          => 'revamp-system-solutions-alt.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
                 'type'           => 'RVMP_FILE'
             ],
             [
                 'id'             => 3,
-                'static_value'   => 'brand-logo',
+                'media_name'     => 'brand-logo',
                 'image'          => 'brand-logo.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE'
             ],
             [
                 'id'             => 4,
-                'static_value'   => 'brand-logo-no-text',
+                'media_name'     => 'brand-logo-no-text',
                 'image'          => 'brand-logo-no-text.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE'
             ],
             [
                 'id'             => 5,
-                'static_value'   => 'brand-logo-small',
+                'media_name'     => 'brand-logo-small',
                 'image'          => 'brand-logo-small.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE'
             ],
            
         ];
-        $saved_statics = RvmpStatic::all();
+        $saved_statics = Media::all();
         foreach ($saved_statics as $index => $saved_static)
         {
             foreach ($rvmps as $rvmp)
             {
-                if (strtolower($rvmp['static_value']) === strtolower($saved_static['static_value']))
+                if (strtolower($rvmp['media_name']) === strtolower($saved_static['media_name']))
                 {
                     unset($rvmps[$rvmp['id']-1]);
                 }
@@ -64,6 +64,6 @@ class RvmpStaticSeeder extends Seeder
             }
         }
 
-        RvmpStatic::insert($rvmps);
+        Media::insert($rvmps);
     }
 }

@@ -3,7 +3,7 @@
   
         <div class="col-md-6 offset-md-3">
             <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Upload Media {{stageImage}}</h2>
+                <h2 class="text-left">Upload Media </h2>
 
                 <div class="form-group">
                     <label for="media_name">Media Name</label>
@@ -35,14 +35,17 @@ export default {
         AppHeader
     },
     inheritAttrs: false,
-    props: ["stageImage"],
-    setup() {
+    props: ["stageImage","type"],
+    setup(props) {
         const form = reactive({
-            medianame: null,
+            media_name: null,
             image: null,
+            type: null,
             _token: usePage().props.value.csrf_token
         });
-
+        
+        form.type = (Buffer.from(props.type, 'base64')).toString()
+       
         const route = inject('$route');
 
         function selectFile($event) {
@@ -50,8 +53,11 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('media.store'), form, {
-                forceFormData: true
+            Inertia.post(route('settings.branding.change'), form, {
+                forceFormData: true,
+                    onSuccess:  (event) => {
+  console.log(event)},
+                 onError: (errors) => {console.log(errors)},
             });
         }
 
@@ -60,7 +66,8 @@ export default {
         }
     },
     mounted(){
-      
+     
+    //   this.form.type = this.stageImage ? this.stageImage.type : 'CLIENT_FILE';
     }
 }
 </script>

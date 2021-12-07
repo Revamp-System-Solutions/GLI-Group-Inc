@@ -19,7 +19,7 @@ class MediaController extends Controller
         return Inertia::render('Admin/Media/ShowMedia', [
             "medias" => Media::when($request->fn, function($query, $filename){
                 $query->where('media_name', 'LIKE', '%'.$filename.'%');
-            })->orderBy('id', 'ASC')->paginate(8)
+            })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
         ]);
     }
     public function create()
@@ -29,20 +29,22 @@ class MediaController extends Controller
     public function store(Request $request)
     {
         $this->getValidate($request);
+        if($request->type === "RVMP_CLIENT_FILE"){$this->upload($request);}
+        else{
+            $media = new Media();
 
-        $media = new Media();
+            $media->media_name = $request->input('media_name');
 
-        $media->media_name = $request->input('media_name');
-
-        if($request->file('image')) {
-            $media->image = $this->upload($request);
+            if($request->file('image')) {
+                $media->image = $this->upload($request);
+            }
+            $media->type = $request->type;
+            $media->save();
         }
-
-        $media->save();
 
         $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
 
-        return redirect()->route('admin.media');
+        return redirect()->route(($request->type === "RVMP_CLIENT_FILE")?'admin.settings':'admin.media');
     }
     /**
      * @param Request $request
@@ -52,6 +54,7 @@ class MediaController extends Controller
     {
         $data = [
             'media_name' => 'required',
+            'image' => 'required',
         ];
 
         $this->validate($request, $data);
@@ -61,10 +64,10 @@ class MediaController extends Controller
     {
         $image = $request->file('image');
 
-        $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
-
-        $image->move(public_path('rvmp-content/rvmp-uploads'), $imageName);
-
-        return $imageName;
+        $imageName = $request->type == 'RVMP_CLIENT_FILE' ? $request->media_name. "." . $image->getClientOriginalExtension() : md5(uniqid()) . "." . $image->getClientOriginalExtension();
+        $image_path = public_path( $request->type == 'RVMP_CLIENT_FILE' ? 'rvmp-content/rvmp-static': 'rvmp-content/rvmp-uploads');
+        if($request->type == 'RVMP_CLIENT_FILE'){unlink($image_path.'/'. $imageName);}
+        $image->move($image_path, $imageName);
+        if($request->type == 'CLIENT_FILE'){return $imageName;} 
     }
 }

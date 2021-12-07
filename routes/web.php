@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
-use App\Http\Controllers\BrandColorController;
+use App\Http\Controllers\SiteSettingsController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -57,7 +57,7 @@ Route::get('gli-admin/posts/create', [PostsController::class, 'create'])->name('
 
 Route::post('gli-admin/posts/create', [PostsController::class, 'store'])->name('post.store');
 
-Route::get('gli-admin/posts/edit/{post}', [PostsController::class, 'edit'])->name('post.edit');
+Route::get('gli-admin/posts/edit/{slug}', [PostsController::class, 'edit'])->name('post.edit');
 
 Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
 
@@ -73,9 +73,9 @@ Route::get('gli-admin/site/categories/create', [CategoriesController::class, 'cr
 Route::post('gli-admin/site/categories/create', [CategoriesController::class, 'store'])->name('category.store');
 
 
-Route::get('gli-admin/site/settings', [BrandColorController::class, 'index'])->name('admin.settings');
-Route::post('gli-admin/site/settings/{sys_color}', [BrandColorController::class, 'update'])->name('settings.color.change');
-
+Route::get('gli-admin/site/settings', [SiteSettingsController::class, 'index'])->name('admin.settings');
+Route::post('gli-admin/site/settings/{sys_color}', [SiteSettingsController::class, 'update'])->name('settings.color.change');
+Route::post('gli-admin/site/settings', [MediaController::class, 'store'])->name('settings.branding.change');
 
 
 

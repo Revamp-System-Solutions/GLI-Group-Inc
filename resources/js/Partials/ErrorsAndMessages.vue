@@ -1,6 +1,5 @@
-<template>
-    
-<TransitionRoot appear :show="Object.keys(errors).length > 0">
+<template> 
+<TransitionRoot appear :show="onerror && errorOpen">
         <TransitionChild
             as="template"
             enter="duration-300 ease-out"
@@ -51,11 +50,11 @@ export default {
     name: "ErrorsAndMessages",
     props: ["errors"],
     data: () => ({
-    
+      errorOpen: false
   	}),
     components: { TransitionRoot, TransitionChild },
     setup() {
-      const isShowing = ref(true)
+      const isShowing = ref(false)
 
       return {
         isShowing,
@@ -63,23 +62,21 @@ export default {
     },
     computed:{
         success() {
-              setTimeout(function () { this.closeAlert() }.bind(this), 25000)
+              setTimeout(function () {  this.$page.props.flash.success = null }.bind(this), 15000)
              return this.$page.props.flash.success!==null ? true:false;
         },
+        onerror(){
+            setTimeout(function () { this.errorOpen = false }.bind(this), 10000)
+            this.errorOpen = true
+            return Object.keys(this.errors).length > 0 ? true:false;
+        }
     },
     mounted(){
-    
+     
     },
     methods:{
-        closeAlert(){
-            this.$page.props.flash.success = null
-        },
-        
+
     }
     
 }
 </script>
-
-<style scoped>
-
-</style>

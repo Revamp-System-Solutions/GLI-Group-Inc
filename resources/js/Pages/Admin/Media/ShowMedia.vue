@@ -19,7 +19,7 @@
                         <div v-for="media in medias.data" :key="media.id" class="lg:w-1/4 m-w-1/4 px-4 mb-8">
                           {{media.media_name }}
                           <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
-                          <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link>
+                          <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
                           <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
                         </div>
                       </div>
