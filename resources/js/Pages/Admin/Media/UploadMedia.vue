@@ -25,7 +25,6 @@
 import AppHeader from "./../../../Partials/AppHeader";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {inject, reactive} from "vue";
-import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
@@ -36,7 +35,6 @@ export default {
     },
     inheritAttrs: false,
     props: ["stageImage","type"],
-    // emits:['submitI'],
     setup(props,{ emit }) {
         const form = reactive({
             media_name: null,

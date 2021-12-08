@@ -2,44 +2,85 @@
 <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
   <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
-    <h2 class="font-semibold text-3xl my-4">Site Settings</h2>
-        <Disclosure v-slot="{ open }" >
-					<DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
-            <span class="text-xl"><i class="fas fa-palette mx-2"></i> Site Colors</span>
-            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
-					</DisclosureButton>
-					<DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+      <h2 class="font-semibold text-3xl my-4">Site Settings</h2>
+      <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
+        <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+          <span class="text-xl"><i class="fas fa-bookmark mx-2"></i> Category</span>
+          <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+        </DisclosureButton>
+        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
 
-                <template v-for="system_color in system_colors" :key="system_color">
-                  <div class="p-6 lg:bg-transparent bg-gray-300">
-                    <div class="text-base text-gray-900">{{ system_color.alias }} </div>
-                    <div class="text-sm text-gray-500">{{ system_color.description }}</div>
-                  </div>
-                  <div class="lg:p-6 py-4 pl-8">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
+              <!-- <template v-for="category in categories" :key="category">
+                <div class="p-6">
+                  <span class="text-base text-gray-900">{{ category.name }} 
+                    <span @click="
+                    openModal('brand');
+                    stageImg=category"><i class="fas fa-sync"></i> Update Current Image</span></span>
+                  <p>{{ category.description }}</p>
+                </div>
+                <div class="p-6">
+                    <img v-if="category.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="category.image_url" :alt="category.media_name">
+                </div>
+              </template> -->
+              {{categories[0].name}}
+        </DisclosurePanel>
+      </Disclosure>
+      <Disclosure v-slot="{ open }" > <!-- COLORS SECTION -->
+        <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+          <span class="text-xl"><i class="fas fa-palette mx-2"></i> Site Colors</span>
+          <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+        </DisclosureButton>
+        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+            <div class=" grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200">
+              <template v-for="system_color in system_colors.data" :key="system_color">
+                <div class="p-6 lg:bg-transparent bg-gray-300">
+                  <div class="text-base text-gray-900">{{ system_color.alias }} </div>
+                  <div class="text-sm text-gray-500">{{ system_color.description }}</div>
+                </div>
+                <div class="lg:p-6 py-4 pl-8">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
 
-                      </div>
-                      <div class="ml-4">
-                        <div class="text-sm font-medium text-gray-900 capitalize">
-                          <span class="block">{{ system_color.value }}</span>
-                          <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
-                          <span @click="
-                              openModal('color');
-                              color = 'rgba('+system_color.value+')';
-                              stageColor = system_color;
-                              oldColor.alias = system_color.alias;
-                              oldColor.value = system_color.value;
-                            " class="block text-gray-500"> <i class="fas fa-edit"></i>change color</span>
-              
-                        </div>
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900 capitalize">
+                        <span class="block">{{ system_color.value }}</span>
+                        <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
+                        <span @click="
+                            openModal('color');
+                            color = 'rgba('+system_color.value+')';
+                            stageColor = system_color;
+                            oldColor.alias = system_color.alias;
+                            oldColor.value = system_color.value;
+                          " class="block text-gray-500"> <i class="fas fa-edit"></i>change color</span>
+            
                       </div>
                     </div>
                   </div>
-                </template>
-					</DisclosurePanel>
-        </Disclosure>
-        <Disclosure v-slot="{ open }" >
+                </div>
+              </template>
+              </div>
+              <nav aria-label="Page navigation" v-if="system_colors.total > system_colors.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
+                  <ul class="pagination  flex flex-row justify-between">
+                      <!-- Previous link -->
+                      <li :class="'page-item' + (system_colors.links[0].url == null ? ' disabled' : '')">
+                          <inertia-link :href="system_colors.links[0].url == null ? '#' : system_colors.links[0].url" class="page-link" v-html="system_colors.links[0].label" preserve-state preserve-scroll></inertia-link>
+                      </li>
+                      
+                      <!-- Numbers -->
+                      <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
+                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
+                      </li>
+
+                      <!-- Next link -->
+                      <li :class="'page-item' + (system_colors.links[system_colors.links.length - 1].url == null ? ' disabled' : '')">
+                          <inertia-link :href="system_colors.links[system_colors.links.length - 1].url == null ? '#' : system_colors.links[system_colors.links.length - 1].url" class="page-link" v-html="system_colors.links[system_colors.links.length - 1].label" preserve-state preserve-scroll></inertia-link>
+                      </li>
+                  </ul>
+              </nav>
+        </DisclosurePanel>
+      </Disclosure>
+      <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
             <span class="text-xl"><i class="fas fa-images mx-2"></i> Site Branding</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
@@ -135,18 +176,10 @@
               <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
                 update image
               </DialogTitle>
-              <div class="mt-2">
+              <div class="mt-2 p-6">
                 <upload-media :stage-image="stageImg" :type="iType" @submit-image="setNewBrandImage" v-if="caller==='brand'"/>
               </div>
-<!-- 
-              <div class="mt-4 p-6">
-                <button
-                  type="button"
-                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="setFormColor">
-                  Save Changes 
-                </button>
-              </div> -->
+
             </div>
           </TransitionChild>
         </div>
@@ -195,7 +228,7 @@ export default {
             alias: null,
             value: null
         },
-        caller: null,
+        
         stageColor: [],
         stageImg: [],
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
@@ -226,7 +259,6 @@ export default {
         console.log(this.stageColor)
         },
         setFormColor (){
-            this.closeModal()
             this.newcolor.alias = this.stageColor.alias
             this.newcolor.color = this.stageColor.value
             this.submitColor()
@@ -238,15 +270,7 @@ export default {
            this.newBrandImage.type = value.type;
             this.submitBrandImg()
         },
-        closeModal() {
-                this.isOpen = false
-                this.busy = false
-                
-        },
-        openModal(cb) {
-            this.isOpen = true
-            this.caller=cb
-        }
+     
     },
     setup() {
         const newcolor = reactive({
@@ -262,36 +286,60 @@ export default {
             _token: usePage().props.value.csrf_token
         });
         const isOpen = ref(false)
+        const caller = ref(null)
         const route = inject('$route');
-          const system_colors = computed(() => usePage().props.value.system_colors);
+        
+        const system_colors = computed(() => usePage().props.value.system_colors);
+        const colorLinks = system_colors.value.links.filter((v, i) => i > 0 && i < system_colors.value.links.length - 1);
+
         const static_images = computed(() => usePage().props.value.static_images);
-         
+        
+        const categories = computed(() => usePage().props.value.categories);
+        
         const user = computed(() => usePage().props.value.auth.user);
+
         function submitColor() {
             Inertia.post(route('settings.color.change', {'sys_color': newcolor.alias}), newcolor, {
                 forceFormData: true,
+                preserveState:true,
+                onFinish: () =>{
+                  isOpen.value = false
+                }
             });
         }
-         function submitBrandImg() {    
-           console.log(newBrandImage.media_name)
+        function submitBrandImg() {    
             Inertia.post(route('settings.branding.change'), newBrandImage, {
-                            forceFormData: true,
-                            preserveState:false,
-                        });
-                          console.log( computed(() => usePage().props.value.static_images))
+                  forceFormData: true,
+                  preserveState:true,
+                  onFinish: () =>{
+                    isOpen.value = false
+                  }
+            });         
         }
 
       
         return {
             newcolor,
+            caller,
+            newBrandImage,
+            colorLinks,
             system_colors,
             submitColor,
             submitBrandImg,
             user,
             static_images,
+            categories,
             isOpen,
-            newBrandImage
-           
+            closeModal() {
+                isOpen.value = false
+
+                
+            },
+            openModal(cb) {
+                isOpen.value = true
+                caller.value=cb
+            },
+            
             
         }
     },

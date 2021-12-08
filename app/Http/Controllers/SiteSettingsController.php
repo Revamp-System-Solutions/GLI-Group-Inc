@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BrandColor;
 use App\Models\Media;
+use App\Models\Categories;
+use App\Models\Subcategories;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,9 +19,17 @@ class SiteSettingsController extends Controller
 
     public function index()
     {
+        $catssubcats = array();
+        foreach(Categories::where('name', '!=' ,'Pages')->where('name', '!=' ,'Templates')->get() as $category){
+            $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->get()->toArray();          
+        }
+
+
         return Inertia::render('Admin/Site/ShowSiteSetting', [
-            "system_colors" => BrandColor::all(),
+            "categories" => $catssubcats,
+            "system_colors" => BrandColor::orderBy('id', 'ASC')->paginate(5),
             "static_images" => Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get(),
+            
             
         ]);
     }

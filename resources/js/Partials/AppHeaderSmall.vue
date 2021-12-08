@@ -7,7 +7,7 @@
           <a href="#">
             <span class="sr-only">Workflow</span>
 			
-            <img class="h-8 w-auto sm:h-10" src="/rvmp-content/rvmp-static/brand-logo-no-text-alt.png" alt="" />
+            <img class="h-8 w-auto sm:h-10" src="/images/brand-logo-no-text-alt.png" alt="" />
           </a>
         </div>
         <div class="-mr-2 -my-2 md:hidden">
@@ -72,7 +72,7 @@
           <div class="pt-5 px-5">
             <div class="flex items-center justify-between">
               <div>
-                <img class="h-8 w-auto" src="/rvmp-content/rvmp-static/brand-logo-no-text-alt.png" alt="Workflow" />
+                <img class="h-8 w-auto" src="/images/brand-logo-no-text-alt.png" alt="Workflow" />
               </div>
               <div class="-mr-2">
                 <PopoverButton class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-red-600">

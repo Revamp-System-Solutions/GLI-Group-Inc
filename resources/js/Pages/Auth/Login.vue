@@ -3,7 +3,7 @@
         <div class=" m-auto w-screen md:w-4/12 overflow-y-hidden">
             <div >
                 <form method="post" @submit.prevent="submit" class="border-2 border-white  bg-gray-700 p-6 m-2 rounded-sm">
-                    <img src="/rvmp-content/rvmp-static/brand-logo.png" class="mx-auto w-auto ">
+                    <img src="/images/brand-logo.png" class="mx-auto w-auto ">
 
                     <errors-and-messages :errors="errors"></errors-and-messages>
 

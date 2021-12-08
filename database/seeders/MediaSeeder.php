@@ -30,21 +30,21 @@ class MediaSeeder extends Seeder
             ],
             [
                 'id'             => 3,
-                'media_name'     => 'brand-logo',
+                'media_name'     => 'Brand Logo',
                 'image'          => 'brand-logo.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
                 'type'           => 'RVMP_CLIENT_FILE'
             ],
             [
                 'id'             => 4,
-                'media_name'     => 'brand-logo-no-text',
+                'media_name'     => 'Brand Logo No Text',
                 'image'          => 'brand-logo-no-text.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
                 'type'           => 'RVMP_CLIENT_FILE'
             ],
             [
                 'id'             => 5,
-                'media_name'     => 'brand-logo-small',
+                'media_name'     => 'Favicon',
                 'image'          => 'brand-logo-small.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
                 'type'           => 'RVMP_CLIENT_FILE'
