@@ -29,8 +29,19 @@ class MediaController extends Controller
     public function store(Request $request)
     {
         $this->getValidate($request);
-        if($request->type === "RVMP_CLIENT_FILE"){$this->upload($request);}
-        else{
+        if($request->type === "RVMP_CLIENT_FILE"){
+                
+            $media = Media::where('media_name', $request->media_name)->firstOrFail();
+            if($request->file('image')) {
+                $media->image = $this->upload($request);
+            }
+
+            $media->save();
+        
+
+            $request->session()->flash('success', 'Brand Image Update successful!|>><<|Refresh the site to view the changes');
+        }
+        else if($request->type === "CLIENT_FILE"){
             $media = new Media();
 
             $media->media_name = $request->input('media_name');
@@ -40,9 +51,10 @@ class MediaController extends Controller
             }
             $media->type = $request->type;
             $media->save();
+            $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
         }
 
-        $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
+     
 
         return redirect()->route(($request->type === "RVMP_CLIENT_FILE")?'admin.settings':'admin.media');
     }
@@ -64,10 +76,13 @@ class MediaController extends Controller
     {
         $image = $request->file('image');
 
-        $imageName = $request->type == 'RVMP_CLIENT_FILE' ? $request->media_name. "." . $image->getClientOriginalExtension() : md5(uniqid()) . "." . $image->getClientOriginalExtension();
+        $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
         $image_path = public_path( $request->type == 'RVMP_CLIENT_FILE' ? 'rvmp-content/rvmp-static': 'rvmp-content/rvmp-uploads');
-        if($request->type == 'RVMP_CLIENT_FILE'){unlink($image_path.'/'. $imageName);}
+        if($request->type == 'RVMP_CLIENT_FILE'){
+            $tmp = Media::where('media_name', $request->media_name)->firstOrFail();
+            unlink($image_path.'/'. $tmp->image);
+        }
         $image->move($image_path, $imageName);
-        if($request->type == 'CLIENT_FILE'){return $imageName;} 
+       return $imageName;
     }
 }

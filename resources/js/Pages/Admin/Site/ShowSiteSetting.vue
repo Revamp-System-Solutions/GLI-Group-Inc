@@ -136,9 +136,9 @@
                 update image
               </DialogTitle>
               <div class="mt-2">
-                <upload-media :stageImage="stageImg" :type="iType" v-if="caller==='brand'"/>
+                <upload-media :stage-image="stageImg" :type="iType" @submit-image="setNewBrandImage" v-if="caller==='brand'"/>
               </div>
-
+<!-- 
               <div class="mt-4 p-6">
                 <button
                   type="button"
@@ -146,7 +146,7 @@
                   @click="setFormColor">
                   Save Changes 
                 </button>
-              </div>
+              </div> -->
             </div>
           </TransitionChild>
         </div>
@@ -161,7 +161,7 @@ import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import UploadMedia from '../Media/UploadMedia';
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject, reactive, ref} from "vue";
+import {computed, watchEffect, inject, reactive, ref} from "vue";
 import { ColorPicker } from 'vue-color-kit'
 import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 
@@ -184,9 +184,11 @@ export default {
     },
     props: {
         errors: Object,
-        stageImage: String,
+        stageImage: {
+            Type: Object,
+            default: null
+          },
         type: String,
-
     },
     data: () => ({
         oldColor:{
@@ -225,46 +227,70 @@ export default {
         },
         setFormColor (){
             this.closeModal()
-            this.form.alias = this.stageColor.alias
-            this.form.color = this.stageColor.value
-            this.submit()
+            this.newcolor.alias = this.stageColor.alias
+            this.newcolor.color = this.stageColor.value
+            this.submitColor()
             
         },
-         closeModal() {
+        setNewBrandImage(value){
+          this.newBrandImage.media_name = value.media_name;
+           this.newBrandImage.image = value.image;
+           this.newBrandImage.type = value.type;
+            this.submitBrandImg()
+        },
+        closeModal() {
                 this.isOpen = false
                 this.busy = false
                 
         },
         openModal(cb) {
             this.isOpen = true
-          this.caller=cb
+            this.caller=cb
         }
     },
     setup() {
-        const form = reactive({
+        const newcolor = reactive({
             alias: null,
             color: null,
             _token: usePage().props.value.csrf_token
         });
+
+        const newBrandImage = reactive({
+            media_name  : null,
+            type: null,
+            image: null,
+            _token: usePage().props.value.csrf_token
+        });
         const isOpen = ref(false)
         const route = inject('$route');
-
-        function submit() {
-            Inertia.post(route('settings.color.change', {'sys_color': form.alias}), form, {
+          const system_colors = computed(() => usePage().props.value.system_colors);
+        const static_images = computed(() => usePage().props.value.static_images);
+         
+        const user = computed(() => usePage().props.value.auth.user);
+        function submitColor() {
+            Inertia.post(route('settings.color.change', {'sys_color': newcolor.alias}), newcolor, {
                 forceFormData: true,
             });
         }
+         function submitBrandImg() {    
+           console.log(newBrandImage.media_name)
+            Inertia.post(route('settings.branding.change'), newBrandImage, {
+                            forceFormData: true,
+                            preserveState:false,
+                        });
+                          console.log( computed(() => usePage().props.value.static_images))
+        }
 
-        const system_colors = computed(() => usePage().props.value.system_colors);
-        const static_images = computed(() => usePage().props.value.static_images);
-        const user = computed(() => usePage().props.value.auth.user);
+      
         return {
-            form,
+            newcolor,
             system_colors,
-            submit,
+            submitColor,
+            submitBrandImg,
             user,
             static_images,
             isOpen,
+            newBrandImage
            
             
         }

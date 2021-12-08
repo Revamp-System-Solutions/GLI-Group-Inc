@@ -5,7 +5,7 @@
             <form method="post" @submit.prevent="submit">
                 <h2 class="text-left">Upload Media </h2>
 
-                <div class="form-group">
+                <div class="form-group" v-show="checkType">
                     <label for="media_name">Media Name</label>
                     <input type="text" class="form-control"  name="media_name" id="media_name" v-model="form.media_name" />
                 </div>
@@ -36,16 +36,17 @@ export default {
     },
     inheritAttrs: false,
     props: ["stageImage","type"],
-    setup(props) {
+    // emits:['submitI'],
+    setup(props,{ emit }) {
         const form = reactive({
             media_name: null,
             image: null,
-            type: null,
+            type: (Buffer.from(props.type, 'base64')).toString(),
             _token: usePage().props.value.csrf_token
         });
         
-        form.type = (Buffer.from(props.type, 'base64')).toString()
        
+        const checkType = (form.type).startsWith('RVMP') ? false: true
         const route = inject('$route');
 
         function selectFile($event) {
@@ -53,22 +54,18 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('settings.branding.change'), form, {
-                forceFormData: true,
-                    onSuccess:  (event) => {
-  console.log(event)},
-                 onError: (errors) => {console.log(errors)},
-            });
+            form.media_name = props.stageImage.media_name==null? form.media_name:props.stageImage.media_name
+            emit('submitImage', form)
         }
 
         return {
-            form, submit, selectFile
+            form, 
+            submit,
+            selectFile,
+            checkType
         }
     },
-    mounted(){
-     
-    //   this.form.type = this.stageImage ? this.stageImage.type : 'CLIENT_FILE';
-    }
+
 }
 </script>
 

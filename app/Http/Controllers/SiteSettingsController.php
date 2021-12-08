@@ -20,6 +20,7 @@ class SiteSettingsController extends Controller
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "system_colors" => BrandColor::all(),
             "static_images" => Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get(),
+            
         ]);
     }
 
@@ -42,4 +43,5 @@ class SiteSettingsController extends Controller
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
         return redirect()->route('admin.settings');
     }
+   
 }

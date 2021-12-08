@@ -15,6 +15,7 @@ class BrandColor extends Model
     ];
     protected $hidden = [
         'var_name',
+        'id',
         'last_updated_by'
     ];
 }
