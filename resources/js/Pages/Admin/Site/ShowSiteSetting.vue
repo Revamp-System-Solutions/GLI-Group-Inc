@@ -8,21 +8,26 @@
           <span class="text-xl"><i class="fas fa-bookmark mx-2"></i> Category</span>
           <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
         </DisclosureButton>
-        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-3 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
 
-              <!-- <template v-for="category in categories" :key="category">
-                <div class="p-6">
-                  <span class="text-base text-gray-900">{{ category.name }} 
-                    <span @click="
-                    openModal('brand');
-                    stageImg=category"><i class="fas fa-sync"></i> Update Current Image</span></span>
-                  <p>{{ category.description }}</p>
+              <template v-for="(category,index) in categories" :key="category" :index="index">
+                <div class="p-6 lg:col-span-1">
+                  <span class="text-base text-gray-900">{{ index }}</span> 
+                   
                 </div>
-                <div class="p-6">
-                    <img v-if="category.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="category.image_url" :alt="category.media_name">
+                <div class="p-6 grid lg:col-span-2 gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200">
+                  <template v-for="(subcategory,index) in category" :key="subcategory" :index="index">
+                    
+                    <div class="p-6 ">
+                      <span class="text-base text-gray-900">{{subcategory.name}}</span> 
+                      <div class="text-sm text-gray-500">{{ subcategory.description }}</div>
+                    </div>
+                    <div class="p-6">
+                          ACTIONS HERE
+                    </div>
+                  </template>
                 </div>
-              </template> -->
-              {{categories[0].name}}
+              </template>
         </DisclosurePanel>
       </Disclosure>
       <Disclosure v-slot="{ open }" > <!-- COLORS SECTION -->
@@ -295,7 +300,7 @@ export default {
         const static_images = computed(() => usePage().props.value.static_images);
         
         const categories = computed(() => usePage().props.value.categories);
-        
+          console.log(categories)
         const user = computed(() => usePage().props.value.auth.user);
 
         function submitColor() {

@@ -66,7 +66,7 @@ class PostsController extends Controller
             $media->media_name = $fileName;
             
             $media->image = $post->image;
-     
+            $media->type = 'CLIENT_FILE';
             $media->save();
             $post->image_id = $media->id;
         }else{
@@ -113,6 +113,7 @@ class PostsController extends Controller
             $media->media_name = $fileName;
             
             $media->image = $post->image;
+            $media->type = 'CLIENT_FILE';
  
     
             $media->save();
