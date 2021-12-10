@@ -22,16 +22,13 @@
 </template>
 
 <script>
-import AppHeader from "./../../../Partials/AppHeader";
-import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive} from "vue";
+import { reactive} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "Create",
+    name: "UploadMedia",
     components: {
-        ErrorsAndMessages,
-        AppHeader
+
     },
     inheritAttrs: false,
     props: ["stageImage","type"],
@@ -45,7 +42,6 @@ export default {
         
        
         const checkType = (form.type).startsWith('RVMP') ? false: true
-        const route = inject('$route');
 
         function selectFile($event) {
             form.image = $event.target.files[0];

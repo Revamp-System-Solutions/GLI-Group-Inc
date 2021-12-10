@@ -227,13 +227,6 @@ export default {
 				parentLink: 'Media'
 			},
 			{
-				name: 'Category',
-				href: 'admin.category',
-				icon: 'fas fa-bookmark',
-				order: 'order-1',
-				parentLink: 'Site'
-			},
-			{
 				name: 'Users',
 				href: 'media.create',
 				icon: 'fas fa-users',

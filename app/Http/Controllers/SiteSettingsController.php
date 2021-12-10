@@ -21,18 +21,47 @@ class SiteSettingsController extends Controller
     {
         $catssubcats = array();
         foreach(Categories::where('name', '!=' ,'Pages')->where('name', '!=' ,'Templates')->get() as $category){
-            $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->get()->toArray();          
+            $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->where('name', '!=' ,'Comments')->orderBy('id', 'ASC')->paginate(
+                $perPage = 3, $columns = ['*'], $pageName = $category->name
+            );          
         }
-
+      
 
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories" => $catssubcats,
-            "system_colors" => BrandColor::orderBy('id', 'ASC')->paginate(5),
+            "system_colors" => BrandColor::orderBy('id', 'ASC')->paginate( $perPage = 4, $columns = ['*'], $pageName = 'site_colors'),
             "static_images" => Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get(),
             
             
         ]);
     }
+
+    public function storeSubcat(Request $request)
+    {
+       
+        $subcat = new Subcategories();
+        $subcat->name =  $request->name;
+        $subcat->description = $request->description;
+        $cat = Categories::where('name', $request->category)->firstOrFail();
+        $subcat->category_id = $cat->id;
+        $subcat->permission = '-xw';
+        $subcat->save();
+        $request->session()->flash('success', $request->category.'>'.$request->name.' has been added!|>><<|It can now be used as a category for blogs');
+        return redirect()->route('admin.settings');
+    }
+
+    public function updateSubcat(Request $request)
+    {
+       
+        $subcat =  Subcategories::where('name', $request->category)->firstOrFail();
+        $subcat->name =  $request->name;
+        $subcat->description = $request->description;
+
+        $subcat->save();
+        $request->session()->flash('success', $request->name.' has been updated!|>><<|No posts had been harmed');
+        return redirect()->route('admin.settings');
+    }
+
 
     public function update(Request $request, $sys_color)
     {
@@ -54,4 +83,12 @@ class SiteSettingsController extends Controller
         return redirect()->route('admin.settings');
     }
    
+    public function destroySubcat(Request $request, $subcat)
+    {    
+        $subcategory =  Subcategories::where('name', $subcat)->firstOrFail();
+        $subcategory->delete();
+        $request->session()->flash('success', $subcat.' has been removed!|>><<|No posts had been harmed');
+        return redirect()->route('admin.settings');
+    }
+
 }

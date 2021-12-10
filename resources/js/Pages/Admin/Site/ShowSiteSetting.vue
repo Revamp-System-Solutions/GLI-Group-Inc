@@ -13,19 +13,39 @@
               <template v-for="(category,index) in categories" :key="category" :index="index">
                 <div class="p-6 lg:col-span-1">
                   <span class="text-base text-gray-900">{{ index }}</span> 
-                   
+                   <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white cursor-pointer" @click="stageCat=index; openModal('category')" ><i class="fas fa-upload"></i> Add New </span>
                 </div>
-                <div class="p-6 grid lg:col-span-2 gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200">
-                  <template v-for="(subcategory,index) in category" :key="subcategory" :index="index">
-                    
+                <div class="p-6  lg:col-span-2 ">
+                  <div class="grid gap-0 grid-cols-2 divide-y divide-gray-200">
+                  <template v-for="subcategory in category.data" :key="subcategory" :index="subcategory.name">
                     <div class="p-6 ">
                       <span class="text-base text-gray-900">{{subcategory.name}}</span> 
                       <div class="text-sm text-gray-500">{{ subcategory.description }}</div>
                     </div>
-                    <div class="p-6">
-                          ACTIONS HERE
+                    <div class="p-6 grid gap-4 grid-cols-2 place-items-center" >
+                      <span class="action-btn capitalize cursor-pointer" v-if="subcategory.defined_permission!=''" @click="stageCat=subcategory; openModal('category')" v-html="subcategory.defined_permission[0]"> </span>
+                      <span class="action-btn capitalize cursor-pointer" v-if="subcategory.defined_permission!=''" @click="deleteCat(subcategory.name)" v-html="subcategory.defined_permission[1]"> </span>
                     </div>
                   </template>
+                  </div>
+                   <nav aria-label="Page navigation" v-if="category.total > category.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
+                  <ul class="pagination  flex flex-row justify-between">
+                      <!-- Previous link -->
+                      <li :class="'page-item' + (category.links[0].url == null ? ' disabled' : '')">
+                          <inertia-link :href="category.links[0].url == null ? '#' : category.links[0].url" class="page-link" v-html="category.links[0].label" preserve-state preserve-scroll></inertia-link>
+                      </li>
+                      
+                      <!-- Numbers
+                      <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
+                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
+                      </li> -->
+
+                      <!-- Next link -->
+                      <li :class="'page-item' + (category.links[category.links.length - 1].url == null ? ' disabled' : '')">
+                          <inertia-link :href="category.links[category.links.length - 1].url == null ? '#' : category.links[category.links.length - 1].url" class="page-link" v-html="category.links[category.links.length - 1].label" preserve-state preserve-scroll></inertia-link>
+                      </li>
+                  </ul>
+              </nav>
                 </div>
               </template>
         </DisclosurePanel>
@@ -74,7 +94,7 @@
                       
                       <!-- Numbers -->
                       <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
-                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
+                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label" preserve-state preserve-scroll></inertia-link>
                       </li>
 
                       <!-- Next link -->
@@ -177,15 +197,18 @@
                 </button>
               </div>
             </div>
-            <div v-if="caller==='brand'" class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+            <div v-if="caller!=='color'" class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
-                update image
+                <!-- update image {{stageCategory}}: Add Sub-Category -->
+                {{caller==='brand'? stageImg.media_name:caller==='category' ?  (typeof this.stageCat === 'object') ? 'Update Sub-Category: '+stageCat.name: stageCat+': Add new Sub-Category' :''}}
               </DialogTitle>
               <div class="mt-2 p-6">
                 <upload-media :stage-image="stageImg" :type="iType" @submit-image="setNewBrandImage" v-if="caller==='brand'"/>
+                 <create-category  :stage-category="stageCat" @submit-category="setNewCategory" v-if="caller==='category'"/>
               </div>
 
             </div>
+     
           </TransitionChild>
         </div>
       </div>
@@ -197,9 +220,10 @@
 import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import UploadMedia from '../Media/UploadMedia';
+import CreateCategory from '../Category/CreateCategory';
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, watchEffect, inject, reactive, ref} from "vue";
+import {computed, inject, reactive, ref} from "vue";
 import { ColorPicker } from 'vue-color-kit'
 import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 
@@ -209,6 +233,7 @@ export default {
         ErrorsAndMessages,     
         AppHeaderSmall,
         UploadMedia,
+        CreateCategory,
         TransitionRoot,
         TransitionChild,
         Dialog,
@@ -227,6 +252,10 @@ export default {
             default: null
           },
         type: String,
+        stageCategory: {
+            Type: Object,
+            default: null
+          },
     },
     data: () => ({
         oldColor:{
@@ -275,6 +304,7 @@ export default {
            this.newBrandImage.type = value.type;
             this.submitBrandImg()
         },
+       
      
     },
     setup() {
@@ -290,8 +320,17 @@ export default {
             image: null,
             _token: usePage().props.value.csrf_token
         });
+        const newCategory = reactive({
+            name  : null,
+            description: null,
+            category: null,
+            action:null,
+            _token: usePage().props.value.csrf_token
+        });
         const isOpen = ref(false)
         const caller = ref(null)
+        const stageCat= ref(null)
+
         const route = inject('$route');
         
         const system_colors = computed(() => usePage().props.value.system_colors);
@@ -300,13 +339,14 @@ export default {
         const static_images = computed(() => usePage().props.value.static_images);
         
         const categories = computed(() => usePage().props.value.categories);
-          console.log(categories)
+
         const user = computed(() => usePage().props.value.auth.user);
 
         function submitColor() {
             Inertia.post(route('settings.color.change', {'sys_color': newcolor.alias}), newcolor, {
                 forceFormData: true,
                 preserveState:true,
+                onError: (event) =>{console.log(event)},
                 onFinish: () =>{
                   isOpen.value = false
                 }
@@ -316,25 +356,45 @@ export default {
             Inertia.post(route('settings.branding.change'), newBrandImage, {
                   forceFormData: true,
                   preserveState:true,
+                  preserveScroll: true,
+                   onError: (event) =>{console.log(event)},
                   onFinish: () =>{
                     isOpen.value = false
                   }
             });         
         }
-
+         function submitCat() {  
+             Inertia.post(route(newCategory.action=='new' ? 'settings.subcat.new' : 'settings.subcat.update'), newCategory, {
+                  forceFormData: true,
+                  preserveState:true,
+                  preserveScroll: true,
+                  onError: (event) =>{console.log(event)},
+                  onFinish: () =>{
+                    isOpen.value = false
+                  }
+            });
+         }
+          const deleteCat = (subcat) => {
+           
+            Inertia.delete(route('settings.subcat.destroy', {subcat}));
+        }
       
         return {
             newcolor,
             caller,
+            stageCat,
             newBrandImage,
             colorLinks,
             system_colors,
+            newCategory,
             submitColor,
             submitBrandImg,
+            submitCat,
             user,
             static_images,
             categories,
             isOpen,
+            deleteCat,
             closeModal() {
                 isOpen.value = false
 
@@ -344,6 +404,14 @@ export default {
                 isOpen.value = true
                 caller.value=cb
             },
+            setNewCategory(value){
+                newCategory.name = value.name;
+                newCategory.description = value.description;
+                newCategory.category = (typeof stageCat.value === 'object') ? stageCat.value.name: stageCat.value;
+                console.log(stageCat.value.name)
+                newCategory.action = value.action;
+                submitCat()
+           },
             
             
         }
