@@ -1,24 +1,23 @@
 <template>
-    <div class="row">
-  
-        <div class="col-md-6 offset-md-3">
+
             <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Upload Media </h2>
-
-                <div class="form-group" v-show="checkType">
-                    <label for="media_name">Media Name</label>
-                    <input type="text" class="form-control"  name="media_name" id="media_name" v-model="form.media_name" />
+                
+                 <div >
+                    <label class="text-lg w-1/12 mr-2" for="image">Image</label>
+                    <input type="file" id="image" name="image" class="w-full px-4 py-3 rounded" @change="selectFile">
                 </div>
 
-                <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" id="image" name="image" class="form-control" @change="selectFile">
+                <div  v-show="checkType">
+                    <label class="text-lg w-1/12 mr-2" for="media_name">Media Name</label>
+                    <input type="text" class="w-full px-4 py-3 rounded"  name="media_name" id="media_name" v-model="form.media_name" />
                 </div>
 
-                <input type="submit" class="btn btn-primary btn-block" value="Save" />
+               
+                <div class=" py-3 flex w-full justify-end">
+                    <input type="submit" class=" px-4 py-3 rounded w-36 text-white text-lg bg-green-600 hover:bg-green-200 hover:text-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" value="Save" />
+                </div>
             </form>
-        </div>
-    </div>
+
 </template>
 
 <script>
@@ -48,7 +47,7 @@ export default {
         }
 
         function submit() {
-            form.media_name = props.stageImage.media_name==null? form.media_name:props.stageImage.media_name
+            form.media_name = !(form.type).startsWith('RVMP') ? form.media_name:props.stageImage.media_name
             emit('submitImage', form)
         }
 
@@ -62,9 +61,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-    form {
-        margin-top: 20px;
-    }
-</style>

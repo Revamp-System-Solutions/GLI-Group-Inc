@@ -12,7 +12,7 @@
                                 <input type="text" id="description" name="description" class="w-full px-4 py-3 rounded"  v-model="form.description">
                             </div>
                           
-                         <div class="form-group py-3 flex w-full justify-end">
+                         <div class=" py-3 flex w-full justify-end">
                         <input type="submit" class=" px-4 py-3 rounded w-36 text-white text-lg bg-green-600 hover:bg-green-200 hover:text-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" value="Save" />
                          </div>
                     </form>

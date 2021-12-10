@@ -22,10 +22,7 @@ class MediaController extends Controller
             })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
         ]);
     }
-    public function create()
-    {
-        return Inertia::render('Admin/Media/UploadMedia');
-    }
+
     public function store(Request $request)
     {
         $this->getValidate($request);
