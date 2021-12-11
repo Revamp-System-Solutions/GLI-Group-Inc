@@ -18,19 +18,22 @@ class SubcategoriesSeeder extends Seeder
                 'id'                => 1,
                 'name'              => 'Post',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3
+                'category_id'       => 3,
+                'premission'       => '-r'
             ],
             [
                 'id'                => 2,
                 'name'              => 'Testimonials',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3
+                'category_id'       => 3,
+                'premission'       => '-r'
             ],            
             [
                 'id'                => 3,
                 'name'              => 'Comments',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3
+                'category_id'       => 3,
+                'premission'       => '-r'
             ],
            
         ];

@@ -6,7 +6,7 @@
        
       <div id="content-area" class="w-full h-auto bg-gray-50">
        <div class="h-auto"> 
-        <span class="text-xl inline-block p-3 font-semibold">  Media Library<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('media.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
+        <span class="text-xl inline-block p-3 font-semibold">  Media Library <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="openDialog()"><i class="fas fa-upload"></i> Add New</span> </span>
             <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
                   <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Media: </label>
@@ -20,7 +20,7 @@
                           {{media.media_name }}
                           <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                           <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
-                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
+                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(media.media_name)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
                         </div>
                       </div>
                   </div>
@@ -46,7 +46,7 @@
                     </nav>   
                     </template>
                     <div class="text-center" v-else>
-                        No medias found! <inertia-link :href="$route('media.create')">Create Post</inertia-link>
+                        No media found! <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="upload()"><i class="fas fa-upload"></i> Add New</span>
                     </div>
                    
                    
@@ -73,11 +73,11 @@
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-              Delete Post
+              Delete media
             </h3>
             <div class="mt-2">
               <p class="text-sm text-gray-500">
-                Are you sure you want to this post? This action cannot be undone.
+                Are you sure you want to this media? This action cannot be undone.
               </p>
             </div>
           </div>
@@ -94,31 +94,80 @@
     </div>
   </div>
 </div>
+
+  <TransitionRoot appear :show="isOpen">
+    <Dialog as="div" @close="closeModal">
+      <div class="fixed inset-0 z-30 overflow-y-auto bg-gray-600 bg-opacity-30 ">
+        <div class="min-h-screen px-4 text-center">
+          <TransitionChild  
+            enter="duration-300 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0">
+            <DialogOverlay class="fixed inset-0" />
+          </TransitionChild>
+          <span class="inline-block h-2/4 align-middle" aria-hidden="true">
+            &#8203;
+          </span>
+          <TransitionChild
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95">
+             <div class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700 capitalize">
+               upload new image
+              </DialogTitle>
+              <div class="mt-2 p-6">
+                <upload-media :type="iType" @submit-image="setNewImage"/>
+                
+              </div>
+
+            </div>
+     
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
 </template>
+
 
 <script>
 import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
-
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import UploadMedia from './UploadMedia';
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject} from "vue";
+import {computed, inject, reactive,ref} from "vue";
 import _ from 'lodash';
+import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, } from '@headlessui/vue'
 
 export default {
     name: "Media",
     components: {
-        ErrorsAndMessages,
-         
-        AppHeaderSmall
+        ErrorsAndMessages,         
+        AppHeaderSmall,
+        UploadMedia,
+         TransitionRoot,
+        TransitionChild,
+        Dialog,
+        DialogOverlay,
+        DialogTitle,
     },
     props: {
-        errors: Object
+        errors: Object,
+        type: String,
     },
     data: () => ({
     	modalOpen: false,
       target: '',
-      fn: ''
+      fn: '',
+      iType:'Q0xJRU5UX0ZJTEU=',
   	}),
     methods: {
         openModal(id){
@@ -130,11 +179,18 @@ export default {
         }, 200)
     },
     setup() {
+        const newImage = reactive({
+            media_name  : null,
+            type: null,
+            image: null,
+            _token: usePage().props.value.csrf_token
+        });
+        const isOpen = ref(false)
         const route = inject('$route');
 
         const deletePost = (id) => {
            
-            Inertia.delete(route('post.destroy', {id}));
+            Inertia.delete(route('media.destroy', {id}));
         }
 
         const medias = computed(() => usePage().props.value.medias);
@@ -142,11 +198,39 @@ export default {
 
         const user = computed(() => usePage().props.value.auth.user);
 
+
+           function submitImg() {    
+            Inertia.post(route('media.store'), newImage, {
+                  forceFormData: true,
+                  preserveState:true,
+                  preserveScroll: true,
+                   onError: (event) =>{console.log(event)},
+                  onFinish: () =>{
+                    isOpen.value = false
+                  }
+            });         
+        }
         return {
             medias,
-            deletePost,
             numberLinks,
-            user
+            user,
+            deletePost,
+            submitImg,
+            isOpen,
+            closeModal() {
+                isOpen.value = false        
+            },
+            openDialog() {
+                isOpen.value = true
+               
+            },
+            setNewImage(value){
+                  newImage.media_name = value.media_name;
+                  newImage.image = value.image;
+                  newImage.type = value.type;
+                  submitImg()
+           },
+           
         }
     }
 }

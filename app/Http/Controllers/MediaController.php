@@ -22,26 +22,11 @@ class MediaController extends Controller
             })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
         ]);
     }
-    public function create()
-    {
-        return Inertia::render('Admin/Media/UploadMedia');
-    }
+
     public function store(Request $request)
     {
         $this->getValidate($request);
-        if($request->type === "RVMP_CLIENT_FILE"){
-                
-            $media = Media::where('media_name', $request->media_name)->firstOrFail();
-            if($request->file('image')) {
-                $media->image = $this->upload($request);
-            }
-
-            $media->save();
-        
-
-            $request->session()->flash('success', 'Brand Image Update successful!|>><<|Refresh the site to view the changes');
-        }
-        else if($request->type === "CLIENT_FILE"){
+      if($request->type === "CLIENT_FILE"){
             $media = new Media();
 
             $media->media_name = $request->input('media_name');
@@ -56,7 +41,17 @@ class MediaController extends Controller
 
      
 
-        return redirect()->route(($request->type === "RVMP_CLIENT_FILE")?'admin.settings':'admin.media');
+        return redirect()->route('admin.media');
+    }
+
+    public function destroyMedia(Request $request, $media_name)
+    {    
+        $media =  Media::where('media_name', $media_name)->firstOrFail();
+        if($media->type === "CLIENT_FILE"){
+        $media->delete();
+        $request->session()->flash('success', $media_name.' has been removed!|>><<|All done');
+        }
+        return redirect()->route('admin.media');
     }
     /**
      * @param Request $request
@@ -77,11 +72,8 @@ class MediaController extends Controller
         $image = $request->file('image');
 
         $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
-        $image_path = public_path( $request->type == 'RVMP_CLIENT_FILE' ? 'rvmp-content/rvmp-static': 'rvmp-content/rvmp-uploads');
-        if($request->type == 'RVMP_CLIENT_FILE'){
-            $tmp = Media::where('media_name', $request->media_name)->firstOrFail();
-            unlink($image_path.'/'. $tmp->image);
-        }
+        $image_path = 'rvmp-content/rvmp-uploads';
+
         $image->move($image_path, $imageName);
        return $imageName;
     }

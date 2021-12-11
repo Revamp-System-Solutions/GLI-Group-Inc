@@ -20,3 +20,8 @@
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(var(--rvmp-brand-color-three)); 
 }
+#nprogress .bar {
+    background: rgb(var(--rvmp-brand-color-one)) !important;
+    top: initial !important;
+    bottom: 0 !important;
+}

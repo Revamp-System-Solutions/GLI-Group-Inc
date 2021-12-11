@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Subcategories extends Model
 {
     use HasFactory;
+    protected $appends=['defined_permission'];
+    protected $hidden=['id','category_id','permission'];
+
+    function getDefinedPermissionAttribute()
+    {
+        return $this->permission=='-xw' ? ['<i class="fas fa-edit text-green-600"></i> Edit ','<i class="fas fa-trash-alt text-red-600"></i> delete']: '';
+    }
 
     public function categories()
     {
