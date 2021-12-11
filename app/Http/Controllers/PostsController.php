@@ -41,7 +41,7 @@ class PostsController extends Controller
     public function create()
     {
         $medias = Media::all()->pluck('image_url', 'media_name');
-        $categories = Subcategories::all()->pluck('name', 'id');
+        $categories = Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id');
         return Inertia::render('Admin/Posts/CreatePost', ['categories' => $categories, "medias" => $medias]);
     }
 
@@ -55,9 +55,8 @@ class PostsController extends Controller
         $post->content = $request->input('content');
         $post->short_text = $request->input('short_text');
         $post->author = $request->input('author');
-        $post->subcategory_id = $request->input('category');
+        $post->subcategory_id = $request->category;
         $post->slug = $request->input('slug');
-        // dd($request);
         if($request->file('image')) {
             $post->image = $this->upload($request);
              
@@ -67,7 +66,7 @@ class PostsController extends Controller
             $media->media_name = $fileName;
             
             $media->image = $post->image;
-     
+            $media->type = 'CLIENT_FILE';
             $media->save();
             $post->image_id = $media->id;
         }else{
@@ -78,7 +77,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        $request->session()->flash('success', 'Post created successfully!');
+        $request->session()->flash('success', 'New post has been added|>><<|Post created successfully!');
 
         return redirect()->route('adminPost');
     }
@@ -88,7 +87,7 @@ class PostsController extends Controller
         // $post = Post::where('slug', $slug)->firstOrFail();
         return Inertia::render('Admin/Posts/EditPost', [
             'post' => Post::where('slug', $slug)->firstOrFail(),
-            'categories' => Subcategories::all()->pluck('name', 'id'),
+            'categories' => Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id'),
             'medias' => Media::all()->pluck('image_url', 'media_name')
         ]);
     }
@@ -114,6 +113,7 @@ class PostsController extends Controller
             $media->media_name = $fileName;
             
             $media->image = $post->image;
+            $media->type = 'CLIENT_FILE';
  
     
             $media->save();
@@ -127,7 +127,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        $request->session()->flash('success', 'Post updated successfully!');
+        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$requst->title.' has been updated.');
 
         return redirect()->route('adminPost');
     }
@@ -138,7 +138,7 @@ class PostsController extends Controller
         $post =Post::where('slug', $slug)->firstOrFail();
         
         $post->delete();
-        $request->session()->flash('success', 'Post deleted successfully!');
+        $request->session()->flash('success', 'Post deleted!|>><<|Post deletion complete.');
 
         return redirect()->route('adminPost');
     }

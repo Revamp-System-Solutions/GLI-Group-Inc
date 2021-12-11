@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         
         $this->call([
-            RvmpStaticSeeder::class,
+            BrandColorSeeder::class,
+            MediaSeeder::class,
             UsersTableSeeder::class,
             CategoriesSeeder::class,
             SubcategoriesSeeder::class,

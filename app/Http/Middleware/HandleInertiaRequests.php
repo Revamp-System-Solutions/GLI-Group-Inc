@@ -41,8 +41,7 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'success' => fn () => $request->session()->get('success')
             ],
-            'makepostexclusionList' => ['Testimonials', 'Comments'],
-            'auth.user' => fn () => $request->user() ? $request->user()->only('id', 'name', 'email') : null
+            'auth.user' => fn () => $request->user() ? $request->user()->only('name', 'email') : null
         ]);
     }
 }

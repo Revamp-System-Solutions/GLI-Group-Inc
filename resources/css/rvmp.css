@@ -1,0 +1,89 @@
+@layer utilities {
+    @variants responsive, hover, group-hover, focus, focus-within, focus-visible, active, first-child, nth-child, disabled, important {
+        .ck-editor__editable_inline {
+            min-height: 350px;
+        }        
+        .brand-logo-text{
+            font-family: BrandFont;
+        }
+        .brand-text{
+            font-family: RVMP;
+        }
+        .rvmp-default-text{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+        }
+        .rvmp-default-alt-text{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+        }        
+        .rvmp-bg-main{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-bg-main), var(--tw-bg-opacity));
+        }
+        .rvmp-bg-alt{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-bg-alt), var(--tw-bg-opacity));
+        }
+        .rvmp-text-main{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
+        }
+        .rvmp-text-alt{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-main{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-accent{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-highlight{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+        }
+        .rvmp-brand-color-darker{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+        }
+        .rvmp-brand-bg-main{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-one), var(--tw-bg-opacity));
+        }
+        .rvmp-brand-bg-accent{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-two), var(--tw-bg-opacity));
+        }
+        .rvmp-brand-bg-highlight{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-three), var(--tw-bg-opacity));
+        }
+        .rvmp-brand-bg-darker{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-brand-color-four), var(--tw-bg-opacity));
+        }
+        .rvmp-banner-text-color{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-main{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-accent{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-highlight{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+        }
+        .rvmp-brand-border-darker{
+            --tw-border-opacity: 1;
+            border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+        }
+    }
+}

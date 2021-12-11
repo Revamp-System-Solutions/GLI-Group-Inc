@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categories extends Model
 {
     use HasFactory;
-
+    protected $hidden=['id'];
     public function subcategories()
     {
         return $this->hasMany(Subcategories::class, 'category_id', 'id');

@@ -2,74 +2,26 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
-    font-family: CenturyGothic;
-    src: url('/fonts/CenturyGothicRegular.ttf');
-
-}
-
-@font-face {
-    font-family: CenturyGothic;
-    src: url('/fonts/CenturyGothicBold.ttf');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: FranklinGothic;
-    src: url('/fonts/FranklinGothicBookRegular.otf');
-}
-
-@font-face {
-    font-family: FranklinGothic;
-    src: url('/fonts/FranklinGothic.ttf');
-    font-weight: bold;
-}
-
-.brand-logo-bold,.brand-logo-light{
-    font-family: CenturyGothic !important;
-}
-
-.brand-text-header,.brand-text-footer, .brand-text-content{
-    font-family: FranklinGothic;
-}
-
-/* width */
+@import '/css/font-family.css';
+@import '/css/rvmp.css';
+@import '/css/vue-color-kit.css';
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #229C23; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1cbf1c; 
-  }
-
-.text-green-600{
-	color: #229C23 !important
-}
-.alert li {
-    font-size: 14px;
 }
 
-body{
-    background: #FFFFFF ;   
-}
-.bg-green-o-70 {
-    background-color: rgb(41 159 42 / 70%);
-}
-.bg-white-o-70 {
-    background-color: rgb(255 255 255 / 70%);
+::-webkit-scrollbar-track {
+    background: rgb(var(--rvmp-bg-main)); 
 }
 
-.ck-editor__editable_inline {
-    min-height: 350px;
+::-webkit-scrollbar-thumb {
+    background: rgb(var(--rvmp-brand-color-one)); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--rvmp-brand-color-three)); 
+}
+#nprogress .bar {
+    background: rgb(var(--rvmp-brand-color-one)) !important;
+    top: initial !important;
+    bottom: 0 !important;
 }

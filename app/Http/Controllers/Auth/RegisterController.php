@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input("password"));
         $user->save();
 
-        $request->session()->flash('success', 'User registered successfully! you can sign in now');
+        $request->session()->flash('success', 'User Creation successful!|>><<|User may now sign in');
 
         return Redirect::route('showLoginForm');
     }

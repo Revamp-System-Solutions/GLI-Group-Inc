@@ -19,29 +19,38 @@ class MediaController extends Controller
         return Inertia::render('Admin/Media/ShowMedia', [
             "medias" => Media::when($request->fn, function($query, $filename){
                 $query->where('media_name', 'LIKE', '%'.$filename.'%');
-            })->orderBy('id', 'ASC')->paginate(8)
+            })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
         ]);
     }
-    public function create()
-    {
-        return Inertia::render('Admin/Media/UploadMedia');
-    }
+
     public function store(Request $request)
     {
         $this->getValidate($request);
+      if($request->type === "CLIENT_FILE"){
+            $media = new Media();
 
-        $media = new Media();
+            $media->media_name = $request->input('media_name');
 
-        $media->media_name = $request->input('media_name');
-
-        if($request->file('image')) {
-            $media->image = $this->upload($request);
+            if($request->file('image')) {
+                $media->image = $this->upload($request);
+            }
+            $media->type = $request->type;
+            $media->save();
+            $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
         }
 
-        $media->save();
+     
 
-        $request->session()->flash('success', 'Media created successfully!');
+        return redirect()->route('admin.media');
+    }
 
+    public function destroyMedia(Request $request, $media_name)
+    {    
+        $media =  Media::where('media_name', $media_name)->firstOrFail();
+        if($media->type === "CLIENT_FILE"){
+        $media->delete();
+        $request->session()->flash('success', $media_name.' has been removed!|>><<|All done');
+        }
         return redirect()->route('admin.media');
     }
     /**
@@ -52,6 +61,7 @@ class MediaController extends Controller
     {
         $data = [
             'media_name' => 'required',
+            'image' => 'required',
         ];
 
         $this->validate($request, $data);
@@ -62,9 +72,9 @@ class MediaController extends Controller
         $image = $request->file('image');
 
         $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
+        $image_path = 'rvmp-content/rvmp-uploads';
 
-        $image->move(public_path('rvmp-content/rvmp-uploads'), $imageName);
-
-        return $imageName;
+        $image->move($image_path, $imageName);
+       return $imageName;
     }
 }
