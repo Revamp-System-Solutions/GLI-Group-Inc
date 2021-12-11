@@ -20,7 +20,7 @@
                           {{media.media_name }}
                           <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                           <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
-                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.id)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
+                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(media.media_name)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
                         </div>
                       </div>
                   </div>
@@ -73,11 +73,11 @@
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
             <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-              Delete Post
+              Delete media
             </h3>
             <div class="mt-2">
               <p class="text-sm text-gray-500">
-                Are you sure you want to this post? This action cannot be undone.
+                Are you sure you want to this media? This action cannot be undone.
               </p>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default {
 
         const deletePost = (id) => {
            
-            Inertia.delete(route('post.destroy', {id}));
+            Inertia.delete(route('media.destroy', {id}));
         }
 
         const medias = computed(() => usePage().props.value.medias);

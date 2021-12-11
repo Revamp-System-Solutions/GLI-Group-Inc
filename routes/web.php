@@ -64,12 +64,12 @@ Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->
 Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
-Route::get('gli-admin/media/upload', [MediaController::class, 'create'])->name('media.create');
-Route::post('gli-admin/media/upload', [MediaController::class, 'store'])->name('media.store');
+Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.store');
+Route::delete('gli-admin/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('media.destroy');
 
 Route::get('gli-admin/site/settings', [SiteSettingsController::class, 'index'])->name('admin.settings');
 Route::post('gli-admin/site/settings/{sys_color}', [SiteSettingsController::class, 'update'])->name('settings.color.change');
-Route::post('gli-admin/site/settings', [MediaController::class, 'store'])->name('settings.branding.change');
+Route::post('gli-admin/site/settings}', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
 Route::post('gli-admin/site/settings', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
 Route::post('gli-admin/site/settings', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
 Route::delete('gli-admin/site/settings/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');

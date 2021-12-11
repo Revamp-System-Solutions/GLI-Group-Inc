@@ -220,13 +220,6 @@ export default {
 				parentLink: 'Media'
 			},
 			{
-				name: 'Add New',
-				href: 'media.create',
-				icon: 'fas fa-upload',
-				order: 'order-2',
-				parentLink: 'Media'
-			},
-			{
 				name: 'Users',
 				href: 'media.create',
 				icon: 'fas fa-users',

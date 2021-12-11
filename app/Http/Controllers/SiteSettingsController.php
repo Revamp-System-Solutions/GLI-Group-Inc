@@ -82,13 +82,57 @@ class SiteSettingsController extends Controller
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
         return redirect()->route('admin.settings');
     }
-   
+    public function updateBrandImg(Request $request)
+    {
+  
+        $this->getValidate($request);
+        if($request->type === "RVMP_CLIENT_FILE"){
+                
+            $media = Media::where('media_name',$request->media_name)->firstOrFail();
+            if($request->file('image')) {
+                $media->image = $this->upload($request);
+            }
+
+            $media->save();
+        
+
+            $request->session()->flash('success', $media->media_name.' Update successful!|>><<|Refresh the site to view the changes');
+        }
+        return redirect()->route('admin.settings');
+    }
     public function destroySubcat(Request $request, $subcat)
     {    
         $subcategory =  Subcategories::where('name', $subcat)->firstOrFail();
         $subcategory->delete();
         $request->session()->flash('success', $subcat.' has been removed!|>><<|No posts had been harmed');
         return redirect()->route('admin.settings');
+    }
+     /**
+     * @param Request $request
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    private function getValidate(Request $request, $id = null): void
+    {
+        $data = [
+            'media_name' => 'required',
+            'image' => 'required',
+        ];
+
+        $this->validate($request, $data);
+    }
+
+    private function upload($request)
+    {
+        $image = $request->file('image');
+
+        $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
+        $image_path = public_path( $request->type == 'RVMP_CLIENT_FILE' ? 'rvmp-content/rvmp-static': 'rvmp-content/rvmp-uploads');
+        if($request->type == 'RVMP_CLIENT_FILE'){
+            $tmp = Media::where('media_name', $request->media_name)->firstOrFail();
+            unlink($image_path.'/'. $tmp->image);
+        }
+        $image->move($image_path, $imageName);
+       return $imageName;
     }
 
 }
