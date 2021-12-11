@@ -50,7 +50,7 @@ class SiteSettingsController extends Controller
         return redirect()->route('admin.settings');
     }
 
-    public function updateSubcat(Request $request)
+    public function updateSubcat(Request $request, $action)
     {
        
         $subcat =  Subcategories::where('name', $request->category)->firstOrFail();

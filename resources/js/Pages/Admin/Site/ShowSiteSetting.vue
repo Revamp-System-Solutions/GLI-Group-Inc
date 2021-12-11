@@ -178,7 +178,7 @@
                          <span class="block text-center">Current Color</span>
                           <div class="mx-auto rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+oldColor.value+')', 'style')"></div>
                           <span class="block"> {{oldColor.value}}</span>
-                          <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
+                            <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
                        </span>
                       </div>
                 </div>
@@ -346,7 +346,7 @@ export default {
             Inertia.post(route('settings.branding.change'), newBrandImage, {
                   forceFormData: true,
                   preserveState:true,
-                  preserveScroll: true,
+     
                    onError: (event) =>{console.log(event)},
                   onFinish: () =>{
                     isOpen.value = false
@@ -354,15 +354,30 @@ export default {
             });         
         }
          function submitCat() {  
-             Inertia.post(route(newCategory.action=='new' ? 'settings.subcat.new' : 'settings.subcat.update'), newCategory, {
+            if(newCategory.action=='new'){
+                    Inertia.post(route('settings.subcat.new'), newCategory, {
                   forceFormData: true,
                   preserveState:true,
-                  preserveScroll: true,
+
                   onError: (event) =>{console.log(event)},
                   onFinish: () =>{
                     isOpen.value = false
                   }
+                 
             });
+                  }else{
+                     Inertia.post(route('settings.subcat.update', {'action':newCategory.action}), newCategory, {
+                  forceFormData: true,
+                  preserveState:true,
+
+                  onError: (event) =>{console.log(event)},
+                  onFinish: () =>{
+                    isOpen.value = false
+                  }
+                 
+            });
+                  }
+             
          }
           const deleteCat = (subcat) => {
            
@@ -398,7 +413,6 @@ export default {
                 newCategory.name = value.name;
                 newCategory.description = value.description;
                 newCategory.category = (typeof stageCat.value === 'object') ? stageCat.value.name: stageCat.value;
-                console.log(stageCat.value.name)
                 newCategory.action = value.action;
                 submitCat()
            },

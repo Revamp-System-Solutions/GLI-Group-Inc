@@ -34,7 +34,7 @@ export default {
         const form = reactive({
             name: props.stageCategory == null ? null: props.stageCategory.name,
             description: props.stageCategory == null ? null: props.stageCategory.description,
-            action: props.stageCategory == null ? 'new': 'update',
+            action: (typeof props.stageCategory === 'string') ? 'new': 'update',
             _token: usePage().props.value.csrf_token
         });
 

@@ -26954,7 +26954,7 @@ __webpack_require__.r(__webpack_exports__);
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       name: props.stageCategory == null ? null : props.stageCategory.name,
       description: props.stageCategory == null ? null : props.stageCategory.description,
-      action: props.stageCategory == null ? 'new' : 'update',
+      action: typeof props.stageCategory === 'string' ? 'new' : 'update',
       _token: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.csrf_token
     });
 
@@ -27719,7 +27719,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post(route('settings.branding.change'), newBrandImage, {
         forceFormData: true,
         preserveState: true,
-        preserveScroll: true,
         onError: function onError(event) {
           console.log(event);
         },
@@ -27730,17 +27729,31 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     function submitCat() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post(route(newCategory.action == 'new' ? 'settings.subcat.new' : 'settings.subcat.update'), newCategory, {
-        forceFormData: true,
-        preserveState: true,
-        preserveScroll: true,
-        onError: function onError(event) {
-          console.log(event);
-        },
-        onFinish: function onFinish() {
-          isOpen.value = false;
-        }
-      });
+      if (newCategory.action == 'new') {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post(route('settings.subcat.new'), newCategory, {
+          forceFormData: true,
+          preserveState: true,
+          onError: function onError(event) {
+            console.log(event);
+          },
+          onFinish: function onFinish() {
+            isOpen.value = false;
+          }
+        });
+      } else {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post(route('settings.subcat.update', {
+          'action': newCategory.action
+        }), newCategory, {
+          forceFormData: true,
+          preserveState: true,
+          onError: function onError(event) {
+            console.log(event);
+          },
+          onFinish: function onFinish() {
+            isOpen.value = false;
+          }
+        });
+      }
     }
 
     var deleteCat = function deleteCat(subcat) {
@@ -27776,7 +27789,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         newCategory.name = value.name;
         newCategory.description = value.description;
         newCategory.category = _typeof(stageCat.value) === 'object' ? stageCat.value.name : stageCat.value;
-        console.log(stageCat.value.name);
         newCategory.action = value.action;
         submitCat();
       }

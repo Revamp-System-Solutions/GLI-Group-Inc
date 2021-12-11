@@ -24,7 +24,6 @@ use App\Models\Post;
 */
 Route::redirect('/', 'home');
 
-
 // Route::resource('home', GuestController::class);
 Route::get('home', [GuestController::class, 'index'])->name('guest.index');
 Route::get('home#designstudio', [GuestController::class, 'index'])->name('guest.studio');
@@ -39,28 +38,17 @@ Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.bl
 Route::redirect('gli-admin', 'gli-admin/dashboard');
 
 Route::get('gli-admin/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm')->middleware('guest');
-
 Route::post('gli-admin/login', [LoginController::class, 'authenticate'])->name('login');
-
 Route::get('gli-admin/register', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
-
 Route::post('gli-admin/register', [RegisterController::class, 'register'])->name('register');
-
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-
 Route::get('gli-admin/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
-
 Route::get('gli-admin/posts', [PostsController::class, 'adminPost'])->name('adminPost');
-
 Route::get('gli-admin/posts/create', [PostsController::class, 'create'])->name('post.create');
-
 Route::post('gli-admin/posts/create', [PostsController::class, 'store'])->name('post.store');
-
 Route::get('gli-admin/posts/edit/{slug}', [PostsController::class, 'edit'])->name('post.edit');
-
 Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
-
 Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
@@ -68,8 +56,15 @@ Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.
 Route::delete('gli-admin/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('media.destroy');
 
 Route::get('gli-admin/site/settings', [SiteSettingsController::class, 'index'])->name('admin.settings');
-Route::post('gli-admin/site/settings/{sys_color}', [SiteSettingsController::class, 'update'])->name('settings.color.change');
-Route::post('gli-admin/site/settings}', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
-Route::post('gli-admin/site/settings', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
-Route::post('gli-admin/site/settings', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
-Route::delete('gli-admin/site/settings/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
+Route::post('gli-admin/site/settings/branding', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
+Route::post('gli-admin/site/settings/sys_color/{sys_color}', [SiteSettingsController::class, 'update'])->name('settings.color.change');
+
+Route::post('gli-admin/site/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
+Route::post('gli-admin/site/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
+Route::delete('gli-admin/site/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
+
+
+
+
+
+
