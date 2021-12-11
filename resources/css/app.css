@@ -22,6 +22,6 @@
 }
 #nprogress .bar {
     background: rgb(var(--rvmp-brand-color-one)) !important;
-    top: initial !important;
+    top: unset !important;
     bottom: 0 !important;
 }
