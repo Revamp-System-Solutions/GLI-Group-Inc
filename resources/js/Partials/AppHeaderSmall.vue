@@ -221,7 +221,7 @@ export default {
 			},
 			{
 				name: 'Users',
-				href: 'media.create',
+				href: 'admin.media',
 				icon: 'fas fa-users',
 				order: 'order-2',
 				parentLink: 'Site'
