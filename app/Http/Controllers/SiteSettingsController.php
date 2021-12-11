@@ -40,7 +40,11 @@ class SiteSettingsController extends Controller
 
     public function storeSubcat(Request $request)
     {
-       
+        $this->validate($request, [
+            'name' => ['required', 'max:100', 'unique:subcategories'],
+
+            'description' => ['required', 'min:4']
+        ]);
         $subcat = new Subcategories();
         $subcat->name =  $request->name;
         $subcat->description = $request->description;
