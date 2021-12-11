@@ -57,7 +57,7 @@ Route::delete('gli-admin/media/{media_name}', [MediaController::class, 'destroyM
 
 Route::get('gli-admin/site/settings', [SiteSettingsController::class, 'index'])->name('admin.settings');
 Route::post('gli-admin/site/settings/branding', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
-Route::post('gli-admin/site/settings/sys_color/{sys_color}', [SiteSettingsController::class, 'update'])->name('settings.color.change');
+Route::post('gli-admin/site/settings/sys_color/{sys_color}', [SiteSettingsController::class, 'updateSiteColor'])->name('settings.color.change');
 
 Route::post('gli-admin/site/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
 Route::post('gli-admin/site/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');

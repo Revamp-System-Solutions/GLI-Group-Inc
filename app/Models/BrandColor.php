@@ -10,7 +10,6 @@ class BrandColor extends Model
     use HasFactory;
 
     protected $fillable = [
-        'alias',
         'value',
     ];
     protected $hidden = [

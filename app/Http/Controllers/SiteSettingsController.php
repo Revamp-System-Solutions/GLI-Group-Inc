@@ -19,19 +19,21 @@ class SiteSettingsController extends Controller
 
     public function index()
     {
-        $catssubcats = array();
+        // $catssubcats = array();
         foreach(Categories::where('name', '!=' ,'Pages')->where('name', '!=' ,'Templates')->get() as $category){
             $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->where('name', '!=' ,'Comments')->orderBy('id', 'ASC')->paginate(
                 $perPage = 3, $columns = ['*'], $pageName = $category->name
             );          
         }
-      
 
+        $system_colors = BrandColor::orderBy('id', 'ASC')->paginate($perPage = 4, $columns = ['*'], $pageName = 'sitecolor');
+        $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
+        // 'system_colors' => Inertia::lazy(fn () => BrandColor::get()),
         return Inertia::render('Admin/Site/ShowSiteSetting', [
-            "categories" => $catssubcats,
-            "system_colors" => BrandColor::orderBy('id', 'ASC')->paginate( $perPage = 4, $columns = ['*'], $pageName = 'site_colors'),
-            "static_images" => Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get(),
-            
+            "categories"    => $catssubcats,
+            "system_colors" =>  $system_colors,
+            "static_images" => $static_img ,
+          
             
         ]);
     }
@@ -63,16 +65,16 @@ class SiteSettingsController extends Controller
     }
 
 
-    public function update(Request $request, $sys_color)
+    public function updateSiteColor(Request $request)
     {
-        $system_color = BrandColor::where('alias', $sys_color)->firstOrFail();
+        $system_color = BrandColor::where('alias', $request->alias)->firstOrFail();
         $system_color->value = $request->color;
         $system_color->save();
         $myfile = fopen("css/client.css", "w") or die("Unable to open file!");
         $txt = ':root{ ';
         fwrite($myfile, $txt); 
-        foreach (BrandColor::all() as $sys_color) {
-            $txt = $sys_color->var_name.": ".$sys_color->value.';';
+        foreach (BrandColor::all() as $sys_colors) {
+            $txt = $sys_colors->var_name.": ".$sys_colors->value.';';
             fwrite($myfile, $txt);
         }      
         $txt = '}';
@@ -82,13 +84,13 @@ class SiteSettingsController extends Controller
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
         return redirect()->route('admin.settings');
     }
-    public function updateBrandImg(Request $request)
+    public function updateBrandImg(Request $request, $mn)
     {
   
         $this->getValidate($request);
         if($request->type === "RVMP_CLIENT_FILE"){
                 
-            $media = Media::where('media_name',$request->media_name)->firstOrFail();
+            $media = Media::where('media_name',$mn)->firstOrFail();
             if($request->file('image')) {
                 $media->image = $this->upload($request);
             }
@@ -98,7 +100,7 @@ class SiteSettingsController extends Controller
 
             $request->session()->flash('success', $media->media_name.' Update successful!|>><<|Refresh the site to view the changes');
         }
-        return redirect()->route('admin.settings');
+        return redirect()->route('settings.branding');
     }
     public function destroySubcat(Request $request, $subcat)
     {    
