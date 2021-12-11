@@ -37,7 +37,11 @@ class SiteSettingsController extends Controller
             
         ]);
     }
-
+    public function userManager()
+    {
+    
+        return Inertia::render('Admin/Site/UserManager');
+    }
     public function storeSubcat(Request $request)
     {
         $this->validate($request, [
@@ -58,6 +62,11 @@ class SiteSettingsController extends Controller
 
     public function updateSubcat(Request $request, $action)
     {
+        $this->validate($request, [
+            'name' => ['required', 'max:100', 'unique:subcategories'],
+
+            'description' => ['required', 'min:4']
+        ]);
        
         $subcat =  Subcategories::where('name', $request->category)->firstOrFail();
         $subcat->name =  $request->name;
@@ -71,6 +80,9 @@ class SiteSettingsController extends Controller
 
     public function updateSiteColor(Request $request)
     {
+        $this->validate($request, [
+            'color' => ['required'],
+        ]);
         $system_color = BrandColor::where('alias', $request->alias)->firstOrFail();
         $system_color->value = $request->color;
         $system_color->save();
@@ -86,7 +98,7 @@ class SiteSettingsController extends Controller
         fclose($myfile);
      
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
-        return redirect()->route('admin.settings');
+        return redirect()->back();
     }
     public function updateBrandImg(Request $request, $mn)
     {

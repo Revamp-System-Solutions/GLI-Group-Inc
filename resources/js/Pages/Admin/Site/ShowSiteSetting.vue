@@ -73,10 +73,7 @@
                         <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
                         <span @click="
                             openModal('color');
-                            color = 'rgba('+system_color.value+')';
                             stageColor = system_color;
-                            oldColor.alias = system_color.alias;
-                            oldColor.value = system_color.value;
                           " class="block text-gray-500 cursor-pointer"> <i class="fas fa-edit text-green-600"> </i>change color</span>
             
                       </div>
@@ -152,49 +149,15 @@
             leave="duration-200 ease-in"
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95">
-            <div v-if="caller==='color'" class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+   
+            <div  class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
-                {{stageColor.alias}}
-              </DialogTitle>
-              <div class="mt-2">
-                  <div class="cover grid lg:grid-cols-2 lg:gap-4  grid-cols-1 gap-0 px-6">
-                    <ColorPicker
-                    class="!w-56 col-span-1"
-                    theme="dark"
-                    :color="color"
-                    :sucker-hide="true"
-                    :sucker-canvas="suckerCanvas"
-                    :sucker-area="suckerArea"
-                    @changeColor="changeColor"
-                    @openSucker="false"/>
-                     <div class="col-span-1  grid grid-cols-2 gap-2">
-                       <span>
-                         <span class="block text-center">New Color</span>
-                          <div class="mx-auto rounded-full h-11 w-11 border border-black" :style="rgba2hex(color, 'style')"></div>
-                          <span class="block"> {{stageColor.value}}</span>
-                          <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
-                       </span>
-                       <span>
-                         <span class="block text-center">Current Color</span>
-                          <div class="mx-auto rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+oldColor.value+')', 'style')"></div>
-                          <span class="block"> {{oldColor.value}}</span>
-                            <span class="block">{{ rgba2hex('rgba('+oldColor.value+')', 'hex') }}</span>
-                       </span>
-                      </div>
-                </div>
-              </div>
-
-              <div class="mt-4 p-6 w-full flex justify-end">
-                <button type="button"  @click="setFormColor" class="  px-4 py-3 rounded w-36 text-white text-lg bg-green-600 hover:bg-green-200 hover:text-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" > Save </button>
-              </div>
-            </div>
-            <div v-if="caller!=='color'" class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-              <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
-                {{caller==='brand'? 'Change '+stageImg.media_name:caller==='category' ?  (typeof this.stageCat === 'object') ? 'Update Sub-Category: '+stageCat.name: stageCat+': Add new Sub-Category' :''}}
+                {{caller==='brand'? 'Change '+stageImg.media_name:caller==='category' ?  (typeof this.stageCat === 'object') ? 'Update Sub-Category: '+stageCat.name: stageCat+': Add new Sub-Category' :stageColor.alias}}
               </DialogTitle>
               <div class="mt-2 p-6">
                 <upload-media :stage-image="stageImg" :type="iType" @submit-image="setNewBrandImage" v-if="caller==='brand'"/>
                  <create-category  :stage-category="stageCat" @submit-category="setNewCategory" v-if="caller==='category'"/>
+                 <color-picker :stage-colors="stageColor" @submit-color="setFormColor" v-if="caller==='color'"/>
               </div>
 
             </div>
@@ -211,10 +174,10 @@ import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import UploadMedia from '../Media/UploadMedia';
 import CreateCategory from '../Category/CreateCategory';
+import ColorPicker from './ColorPicker';
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject, reactive, ref} from "vue";
-import { ColorPicker } from 'vue-color-kit'
 import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 
 export default {
@@ -224,12 +187,12 @@ export default {
         AppHeaderSmall,
         UploadMedia,
         CreateCategory,
+        ColorPicker,
         TransitionRoot,
         TransitionChild,
         Dialog,
         DialogOverlay,
         DialogTitle,
-        ColorPicker,
         Disclosure,
         DisclosureButton,
         DisclosurePanel,
@@ -246,55 +209,19 @@ export default {
             Type: Object,
             default: null
           },
-    },
-    data: () => ({
-        oldColor:{
-            alias: null,
-            value: null
+        stageColors: {
+          Type: Object,
+          default: null
         },
-        
+    },
+    data: () => ({      
         stageColor: [],
         stageImg: [],
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
         success:false,
-        color: '#59c7f9',
-        suckerCanvas: null,
-        suckerArea: [],
-        isOpenSucker: false,
   	}),
     methods: {
-       rgba2hex(rgba, ch) {
-        rgba = rgba.match(
-            /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
-        );
-        var prefix = ch=='style' ? 'background: ': '';
-        return rgba && rgba.length === 4
-            ? prefix+"#"+
-                ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
-                ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
-                ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
-            : "";
-        },
-         changeColor(color) {
-        const { r, g, b, a } = color.rgba
-        this.color = `rgba(${r}, ${g}, ${b})`
- 
-        this.stageColor.value=`${r}, ${g}, ${b}`
-        console.log(this.stageColor)
-        },
-        setFormColor (){
-            this.newcolor.alias = this.stageColor.alias
-            this.newcolor.color = this.stageColor.value
-            this.submitColor()
-            
-        },
-        setNewBrandImage(value){
-          this.newBrandImage.media_name = value.media_name;
-           this.newBrandImage.image = value.image;
-           this.newBrandImage.type = value.type;
-            this.submitBrandImg()
-        },
-       
+
      
     },
     setup() {
@@ -333,13 +260,12 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
 
         function submitColor() {
-            Inertia.post(route('settings.color.change', {'sys_color': newcolor.alias}), newcolor, {
+            Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
-                preserveState:true,
-                onError: (event) =>{console.log(event)},
-                onFinish: () =>{
-                  isOpen.value = false
-                }
+                replace:true,
+                 onSuccess: () =>{
+                    isOpen.value = false
+                  }
             });
         }
         function submitBrandImg() {    
@@ -348,7 +274,7 @@ export default {
                   preserveState:true,
      
                    onError: (event) =>{console.log(event)},
-                  onFinish: () =>{
+                  onSuccess: () =>{
                     isOpen.value = false
                   }
             });         
@@ -360,7 +286,7 @@ export default {
                   preserveState:true,
 
                   onError: (event) =>{console.log(event)},
-                  onFinish: () =>{
+                  onSuccess: () =>{
                     isOpen.value = false
                   }
                  
@@ -371,7 +297,7 @@ export default {
                   preserveState:true,
 
                   onError: (event) =>{console.log(event)},
-                  onFinish: () =>{
+                  onSuccess: () =>{
                     isOpen.value = false
                   }
                  
@@ -416,7 +342,30 @@ export default {
                 newCategory.action = value.action;
                 submitCat()
            },
+          setFormColor (ncolor){
+            newcolor.alias = ncolor.alias
+            newcolor.color = ncolor.color
+            submitColor()
             
+        },
+           setNewBrandImage(value){
+            newBrandImage.media_name = value.media_name;
+            newBrandImage.image = value.image;
+            newBrandImage.type = value.type;
+            submitBrandImg()
+           },
+           rgba2hex(rgba, ch) {
+        rgba = rgba.match(
+            /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
+        );
+        var prefix = ch=='style' ? 'background: ': '';
+        return rgba && rgba.length === 4
+            ? prefix+"#"+
+                ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
+                ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
+                ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
+            : "";
+        }, 
             
         }
     },

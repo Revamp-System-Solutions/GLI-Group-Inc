@@ -221,7 +221,7 @@ export default {
 			},
 			{
 				name: 'Users',
-				href: 'admin.settings',
+				href: 'admin.manager',
 				icon: 'fas fa-users',
 				order: 'order-2',
 				parentLink: 'Site'
