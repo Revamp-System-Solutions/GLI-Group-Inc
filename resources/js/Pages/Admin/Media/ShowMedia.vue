@@ -1,12 +1,10 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
-   <div class="flex flex-row">
 
-       
-      <div id="content-area" class="w-full h-auto bg-gray-50">
-       <div class="h-auto"> 
-        <span class="text-xl inline-block p-3 font-semibold">  Media Library <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="openDialog()"><i class="fas fa-upload"></i> Add New</span> </span>
+      <div id="content-area" class="w-full h-auto 2xl:px-80 xl:px-56 lg:px-28">
+
+        <span class="text-3xl inline-block p-3 font-semibold">  Media Library <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="openDialog()"><i class="fas fa-upload"></i> Add New</span> </span>
             <div class="flex flex-col justify-center px-4" >
                 <div class="w-full bg-gray-400 flex  border rounded justify-end">
                   <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Media: </label>
@@ -45,7 +43,7 @@
                         </ul>
                     </nav>   
                     </template>
-                    <div class="text-center" v-else>
+                    <div class="text-center mt-4" v-else>
                         No media found! <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="upload()"><i class="fas fa-upload"></i> Add New</span>
                     </div>
                    
@@ -55,8 +53,7 @@
             
         </div>
          
-        </div>
-    </div>
+
 <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>

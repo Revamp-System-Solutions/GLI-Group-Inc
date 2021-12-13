@@ -23,6 +23,7 @@ class Role
         'updated_at',
         'deleted_at',
     ];
+    protected $hidden = ['id', 'pivot','created_at','updated_at', 'deleted_at',];
 
     public function users()
     {

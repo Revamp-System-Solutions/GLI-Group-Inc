@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
                 'title'      => 'Editor',
             ],
             [
-                'id'          => 5,
+                'id'          => 4,
                 'title'       => 'Author',
             ],
             

@@ -45,8 +45,8 @@
                 <TabPanels>
                     <TabPanel class="w-full">
                     <div class="flex flex-wrap  -mb-8 mt-4">
-                        <div v-for="(image, i) in images" :key="i" class="lg:w-1/4 m-w-1/4 px-4 mb-8">
-                          <img  class="rounded shadow-md object-contain h-52 w-full" :src="'https://tom.imgix.net/artsy/' + image" >
+                        <div v-for="(image, i) in images" :key="i" class="lg:w-1/6 m-w-1/6 px-4 mb-8">
+                          <img  class="rounded object-fill h-52 w-full shadow-none" :src="'https://tom.imgix.net/artsy/' + image" >
                         </div>
                     </div>
                     </TabPanel>

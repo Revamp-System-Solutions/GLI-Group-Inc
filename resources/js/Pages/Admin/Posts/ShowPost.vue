@@ -1,11 +1,10 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <app-header-small></app-header-small>
-   <div class="flex flex-row">
-         
-        <div id="content-area" class="w-full h-auto bg-gray-50">
-          <div class="h-screen"> 
-          <span class="text-xl inline-block p-3 font-semibold"> Blog Posts<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link> </span>
+
+        <div id="content-area" class="w-full h-auto 2xl:px-80 xl:px-56 lg:px-28">
+
+          <span class="text-xl inline-block p-3 font-semibold"> Blog Posts<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-plus"></i> Add New</inertia-link> </span>
             
               <div class="flex flex-col justify-center px-4" >
                       <div class="w-full bg-gray-400 flex  border rounded justify-end">
@@ -67,9 +66,9 @@
                       </nav>
                     
               </div>
-          </div> 
+
         </div>
-    </div>
+
 <div class="fixed z-30 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-show="modalOpen">
   <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
