@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             BrandColorSeeder::class,
             MediaSeeder::class,
             UsersTableSeeder::class,
+            RoleSeeder::class,
             CategoriesSeeder::class,
             SubcategoriesSeeder::class,
         ]);

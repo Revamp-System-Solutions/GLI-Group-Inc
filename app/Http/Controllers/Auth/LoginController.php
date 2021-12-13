@@ -23,8 +23,8 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/gli-admin');
+         
+            return redirect()->intended('/gli-admin/dashboard');
         }
 
         return back()->withErrors([
