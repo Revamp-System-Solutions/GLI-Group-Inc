@@ -1,29 +1,65 @@
 <template>
     <app-header></app-header>
-        <div class="transition duration-500 ease-in-out w-full h-auto flex overflow-hidden relative" >            
-                <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/design.jpg')" id="designstudio" @mouseover="expandHovered('designstudio')">  
-                    <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-1"> 
-                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Design Studio</h2>      
-                    </div>               
-                </div>
-                <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/builders.jpg')" id="builders" @mouseover="expandHovered('builders')" >  
-                    <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-2">
-                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Builders</h2>  
-                    </div>               
-                </div> 
-                <div class="transition-width duration-700 ease-in-out cursor-pointer h-auto bg-local bg-cover bg-center static w-1/3" style="background-image: url('/images/pages/modularcabs.jpg')" id="modularcabinets" @mouseover="expandHovered('modularcabinets')">  
-                    <div class="static transition duration-500 ease-in-out uppercase text-center lg:h-48 h-96 rvmp-brand-bg-main bg-opacity-70 " id="pcChild-3">
-                        <h2 class="transition duration-500 ease-in-out brand-logo-text lg:text-3xl text-base text-white font-light  transform origin-center lg:-translate-x-0 lg:translate-y-20 translate-y-48">Modular Cabinets</h2>  
-                    </div>               
-                </div>                        
-        </div>
-        <div v-if="hovered != null">
-                {{hovered}}            
-        </div>
+         <div>
+
+            <TabGroup>
+                <TabList class="flex w-full">
+                    <Tab v-slot="{ selected }"
+                         class="w-1/3 bg-green-600">
+                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
+                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
+                                style="background-image: url('/images/pages/CABINETS.jpg')">
+
+                            <div class="w-full transition ease-in duration-300 py-2.5"
+                            :class="[selected?'bg-green-800':'']">
+                                <div class=" text-4xl font-bold">GLI</div>
+                                <div>MODULAR CABINETS</div>
+                            </div>
+                        </button>
+                    </Tab>
+                    <Tab v-slot="{ selected }"
+                         class="w-1/3 bg-green-600">
+                          <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
+                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
+                                style="background-image: url('/images/pages/BUILDERS-1.jpg')">
+                                <div class="w-full transition ease-in duration-300 py-2.5"
+                                :class="[selected?'bg-green-800':'']">
+                                        <div class=" text-4xl font-bold">GLI</div>
+                                        <div>BUILDERS</div>
+                                </div>
+                        </button>
+                    </Tab>
+                    <Tab v-slot="{ selected }"
+                    class="w-1/3  bg-green-600">
+                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
+                        :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
+                        style="background-image: url('/images/pages/STUDIO.jpg')">
+                            <div class="w-full transition ease-in duration-300 py-2.5"
+                                :class="[selected?'bg-green-800':'']">
+                                <div class=" text-4xl font-bold">GLI</div>
+                                <div>DESIGN STUDIO</div>
+                            </div>
+                        </button>
+                    </Tab>
+                </TabList>
+                <TabPanels>
+                    <TabPanel class="w-full">
+                    <div class="flex flex-wrap  -mb-8 mt-4">
+                        <div v-for="(image, i) in images" :key="i" class="lg:w-1/4 m-w-1/4 px-4 mb-8">
+                          <img  class="rounded shadow-md object-contain h-52 w-full" :src="'https://tom.imgix.net/artsy/' + image" >
+                        </div>
+                    </div>
+                    </TabPanel>
+                    <TabPanel>Content 2</TabPanel>
+                    <TabPanel>Content 3</TabPanel>
+                </TabPanels>
+            </TabGroup>
+    </div>
     <app-footer></app-footer>
 </template>
 
 <script>
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
 import AppFooter from "../Partials/AppFooter";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
@@ -35,6 +71,11 @@ export default {
     components: {
         ErrorsAndMessages,
         AppHeader,
+        TabGroup,
+        TabList,
+        Tab,
+        TabPanels,
+        TabPanel,
         AppFooter
     },
     props: {
@@ -42,29 +83,13 @@ export default {
     },
     data: () =>({
         portfolioCats: {'designstudio':false,'builders':false,'modularcabinets':false},
-        hovered: null
+        hovered: null,
+        images: [ '1.jpg?', '2.jpg?', '3.jpg?', '4.jpg?', '5.jpg?', '6.jpg?']
 
     }),
     
     methods:{
-        expandHovered: function(id){
-
-            for(var pc in this.portfolioCats){
-                this.portfolioCats[pc]=false
-                if(id!==pc){
-                    $("#"+pc).removeClass('w-10/12')
-                    $("#"+pc).removeClass('w-1/3').addClass("w-1/12 ");          
-                    $("#"+$("#"+pc).children('div').attr('id')).removeClass('rvmp-brand-bg-main ').addClass('rvmp-brand-bg-darker')
-                    $("#"+$("#"+pc).children('div').attr('id')).children('h2').removeClass('rotate-0 translate-y-48 lg:text-3xl').addClass('-rotate-90 translate-y-60 lg:text-xs whitespace-nowrap')
-                }else{
-                    this.hovered = pc;     
-                    this.portfolioCats[pc]=true
-                    $("#"+pc).removeClass('w-1/3').addClass('w-10/12');
-                    $("#"+$("#"+pc).children('div').attr('id')).removeClass('rvmp-brand-bg-darker').addClass('rvmp-brand-bg-main ')
-                    $("#"+$("#"+pc).children('div').attr('id')).children('h2').removeClass('-rotate-90 translate-y-60 lg:text-xs whitespace-nowrap').addClass('rotate-0 translate-y-48 lg:text-3xl')
-                }
-            }
-        },
+ 
 
     }
    
