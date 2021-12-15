@@ -30,9 +30,9 @@ export default {
     // props: ["stageImage","type"],
     setup(props,{ emit }) {
         const form = reactive({
-            media_name: null,
-            image: null,
-
+            username: null,
+            email: null,
+            
             _token: usePage().props.value.csrf_token
         });
         

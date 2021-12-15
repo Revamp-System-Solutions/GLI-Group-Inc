@@ -37,7 +37,7 @@
                     modalOpen
               </DialogTitle>
               <div class="mt-2 p-6">
-                    <create-user />
+                    <register />
               </div>
 
             </div>
@@ -55,6 +55,7 @@ import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 import {ref} from 'vue'
 import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 import CreateUser from './CreateUser';
+import Register from './../Auth/Register';
 export default {
     name: "Admin",
     components: {
@@ -69,6 +70,7 @@ export default {
         DisclosureButton,
         DisclosurePanel,
         CreateUser,
+        Register,
     },
     props: {
         errors: Object

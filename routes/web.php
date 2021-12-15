@@ -39,8 +39,7 @@ Route::redirect('gli-admin', 'gli-admin/dashboard');
 
 Route::get('gli-admin/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm')->middleware('guest');
 Route::post('gli-admin/login', [LoginController::class, 'authenticate'])->name('login');
-Route::get('gli-admin/register', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
-Route::post('gli-admin/register', [RegisterController::class, 'register'])->name('register');
+
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('gli-admin/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
@@ -63,8 +62,9 @@ Route::post('gli-admin/site/settings/category', [SiteSettingsController::class, 
 Route::post('gli-admin/site/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
 Route::delete('gli-admin/site/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
 
-Route::get('gli-admin/site/usermanager', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
-
+Route::get('gli-admin/site/users', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
+Route::get('gli-admin/site/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
+Route::post('gli-admin/site/users/create', [RegisterController::class, 'register'])->name('register');
 
 
 
