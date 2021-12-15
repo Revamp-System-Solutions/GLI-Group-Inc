@@ -1,7 +1,6 @@
 <template>
-    <footer class="footer bg-white relative pt-1 " ondragstart="return false;">
+<footer class="footer bg-white relative pt-1 " ondragstart="return false;">
     <div class="container mx-auto px-6">
-
         <div class="flex mt-8 bg-gray">
             <div class="mt-0 w-full lg:px-8 flex flex-col justify-center">
                 <div class="flex flex-col">
@@ -44,19 +43,20 @@
 </template>
 
 <script>
-import {computed} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "AppFooter",
+    components:{
+
+    },
     data: () => ({
 		switchInertia: false,
   	}),
     setup() {
-        const user = computed(() => usePage().props.value.auth.user);
+       
 
         return {
-            user
+            
         }
     },
     mounted() {
