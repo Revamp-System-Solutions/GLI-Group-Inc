@@ -50,12 +50,13 @@
               </template>
         </DisclosurePanel>
       </Disclosure>
-      <Disclosure v-slot="{ open }" > <!-- COLORS SECTION -->
-        <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+      <Disclosure  > <!-- COLORS SECTION -->
+        <DisclosureButton @click="isHashSiteColor=!isHashSiteColor" class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg" >
           <span class="text-xl"><i class="fas fa-palette mx-2"></i> Site Colors</span>
-          <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+          <span class="fas " :class="[isHashSiteColor ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
         </DisclosureButton>
-        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+         <div v-show="isHashSiteColor" id="SiteColors">
+        <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
             <div class=" grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200">
               <template v-for="system_color in system_colors.data" :key="system_color">
                 <div class="p-6 lg:bg-transparent bg-gray-300">
@@ -86,28 +87,30 @@
                   <ul class="pagination  flex flex-row justify-between">
                       <!-- Previous link -->
                       <li :class="'page-item' + (system_colors.links[0].url == null ? ' disabled' : '')">
-                          <inertia-link :href="system_colors.links[0].url == null ? '#' : system_colors.links[0].url" class="page-link" v-html="system_colors.links[0].label" preserve-state preserve-scroll></inertia-link>
+                          <inertia-link :href="system_colors.links[0].url == null ? '#' : system_colors.links[0].url" class="page-link" v-html="system_colors.links[0].label" ></inertia-link>
                       </li>
                       
                       <!-- Numbers -->
                       <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
-                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label" preserve-state preserve-scroll></inertia-link>
+                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label" ></inertia-link>
                       </li>
 
                       <!-- Next link -->
                       <li :class="'page-item' + (system_colors.links[system_colors.links.length - 1].url == null ? ' disabled' : '')">
-                          <inertia-link :href="system_colors.links[system_colors.links.length - 1].url == null ? '#' : system_colors.links[system_colors.links.length - 1].url" class="page-link" v-html="system_colors.links[system_colors.links.length - 1].label" preserve-state preserve-scroll></inertia-link>
+                          <inertia-link :href="system_colors.links[system_colors.links.length - 1].url == null ? '#' : system_colors.links[system_colors.links.length - 1].url" class="page-link" v-html="system_colors.links[system_colors.links.length - 1].label" ></inertia-link>
                       </li>
                   </ul>
               </nav>
         </DisclosurePanel>
+         </div>
       </Disclosure>
       <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
             <span class="text-xl"><i class="fas fa-images mx-2"></i> Site Branding</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
           </DisclosureButton>
-          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
+          <div v-show="open">
+          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
 
                 <template v-for="static_image in static_images" :key="static_image">
                   <div class="p-6">
@@ -123,6 +126,7 @@
                   </div>
                 </template>
             </DisclosurePanel>
+          </div>
 				</Disclosure>
     </div>
 
@@ -262,18 +266,18 @@ export default {
         function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
-                replace:true,
-                 onSuccess: () =>{
+                replace:false,
+                preserveState: true,
+                onSuccess: () =>{
                     isOpen.value = false
-                  }
+                }
             });
         }
         function submitBrandImg() {    
             Inertia.post(route('settings.branding.change'), newBrandImage, {
                   forceFormData: true,
                   preserveState:true,
-     
-                   onError: (event) =>{console.log(event)},
+                  onError: (event) =>{console.log(event)},
                   onSuccess: () =>{
                     isOpen.value = false
                   }
@@ -281,35 +285,33 @@ export default {
         }
          function submitCat() {  
             if(newCategory.action=='new'){
-                    Inertia.post(route('settings.subcat.new'), newCategory, {
+              Inertia.post(route('settings.subcat.new'), newCategory, {
                   forceFormData: true,
                   preserveState:true,
-
+                  replace:false,
                   onError: (event) =>{console.log(event)},
                   onSuccess: () =>{
                     isOpen.value = false
-                  }
-                 
-            });
-                  }else{
-                     Inertia.post(route('settings.subcat.update', {'action':newCategory.action}), newCategory, {
+                  }                 
+              });
+            }else{
+              Inertia.post(route('settings.subcat.update', {'action':newCategory.action}), newCategory, {
                   forceFormData: true,
                   preserveState:true,
-
+                  replace:false,
                   onError: (event) =>{console.log(event)},
                   onSuccess: () =>{
                     isOpen.value = false
-                  }
-                 
-            });
-                  }
+                  }                 
+                });
+            }
              
          }
           const deleteCat = (subcat) => {
            
             Inertia.delete(route('settings.subcat.destroy', {subcat}));
         }
-      
+        const isHashSiteColor = location.hash === '#SiteColors'
         return {
             newcolor,
             caller,
@@ -326,6 +328,7 @@ export default {
             categories,
             isOpen,
             deleteCat,
+            isHashSiteColor,
             closeModal() {
                 isOpen.value = false
 
@@ -342,32 +345,32 @@ export default {
                 newCategory.action = value.action;
                 submitCat()
            },
-          setFormColor (ncolor){
-            newcolor.alias = ncolor.alias
-            newcolor.color = ncolor.color
-            submitColor()
-            
-        },
-           setNewBrandImage(value){
-            newBrandImage.media_name = value.media_name;
-            newBrandImage.image = value.image;
-            newBrandImage.type = value.type;
-            submitBrandImg()
-           },
+            setFormColor (ncolor){
+              newcolor.alias = ncolor.alias
+              newcolor.color = ncolor.color
+              submitColor()
+              
+            },
+            setNewBrandImage(value){
+              newBrandImage.media_name = value.media_name;
+              newBrandImage.image = value.image;
+              newBrandImage.type = value.type;
+              submitBrandImg()
+            },
            rgba2hex(rgba, ch) {
-        rgba = rgba.match(
-            /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
-        );
-        var prefix = ch=='style' ? 'background: ': '';
-        return rgba && rgba.length === 4
-            ? prefix+"#"+
-                ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
-                ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
-                ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
-            : "";
-        }, 
+            rgba = rgba.match(
+                /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
+            );
+            var prefix = ch=='style' ? 'background: ': '';
+            return rgba && rgba.length === 4
+                ? prefix+"#"+
+                    ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
+                    ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
+                    ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
+                : "";
+            }, 
             
-        }
+          }
     },
   
 }

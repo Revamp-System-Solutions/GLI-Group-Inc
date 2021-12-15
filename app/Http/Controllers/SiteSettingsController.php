@@ -26,7 +26,7 @@ class SiteSettingsController extends Controller
             );          
         }
 
-        $system_colors = BrandColor::orderBy('id', 'ASC')->paginate($perPage = 4, $columns = ['*'], $pageName = 'sitecolor');
+        $system_colors = BrandColor::orderBy('id', 'ASC')->paginate($perPage = 4, $columns = ['*'], $pageName = 'sitecolor' )->fragment('SiteColors');
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
         // 'system_colors' => Inertia::lazy(fn () => BrandColor::get()),
         return Inertia::render('Admin/Site/ShowSiteSetting', [
@@ -57,7 +57,7 @@ class SiteSettingsController extends Controller
         $subcat->permission = '-xw';
         $subcat->save();
         $request->session()->flash('success', $request->category.'>'.$request->name.' has been added!|>><<|It can now be used as a category for blogs');
-        return redirect()->route('admin.settings');
+        return back();
     }
 
     public function updateSubcat(Request $request, $action)
@@ -74,7 +74,7 @@ class SiteSettingsController extends Controller
 
         $subcat->save();
         $request->session()->flash('success', $request->name.' has been updated!|>><<|No posts had been harmed');
-        return redirect()->route('admin.settings');
+        return back();
     }
 
 
@@ -98,7 +98,7 @@ class SiteSettingsController extends Controller
         fclose($myfile);
      
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
-        return redirect()->back();
+        return back();
     }
     public function updateBrandImg(Request $request, $mn)
     {
