@@ -42,41 +42,65 @@
                         </button>
                     </Tab>
                 </TabList>
-                <!-- <TabPanels>
+                <TabPanels>
                     <TabPanel class="w-full">
-                    <div class="flex flex-wrap  -mb-8 mt-4">
-                        <div v-for="(image, i) in images" :key="i" class="lg:w-1/6 m-w-1/6 px-4 mb-8">
-                          <img  class="rounded object-fill h-52 w-full shadow-none" :src="'https://tom.imgix.net/artsy/' + image" >
-                        </div>
-                    </div>
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                            <a v-for="product in products" :key="product.id" :href="product.href" class="group">
+                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
+                              <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
+                              </div>
+                              <h3 class="mt-4 text-sm text-gray-700">
+                                {{ product.name }}
+                              </h3>
+                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+                                {{ product.price }}
+                              </p> -->
+                            </a>
+                          </div>
+                      </div>
                     </TabPanel>
-                    <TabPanel>Content 2</TabPanel>
-                    <TabPanel>Content 3</TabPanel>
-                </TabPanels> -->
+                    <TabPanel>
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                            <a v-for="product in products" :key="product.id" :href="product.href" class="group">
+                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
+                              <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
+                              </div>
+                              <h3 class="mt-4 text-sm text-gray-700">
+                                {{ product.name }}
+                              </h3>
+                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+                                {{ product.price }}
+                              </p> -->
+                            </a>
+                          </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel>
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                            <a v-for="product in products" :key="product.id" :href="product.href" class="group">
+                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
+                              <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
+                              </div>
+                              <h3 class="mt-4 text-sm text-gray-700">
+                                {{ product.name }}
+                              </h3>
+                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+                                {{ product.price }}
+                              </p> -->
+                            </a>
+                          </div>
+                      </div>
+                    </TabPanel>
+                </TabPanels>
             </TabGroup>
-            <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2>GLI GROUP DESIGN WORKSHOP</h2>
+    
+    
+  </div>
 
-      <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-        <a v-for="product in products" :key="product.id" :href="product.href" class="group">
-          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
-          <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">
-            {{ product.name }}
-          </h3>
-          <!-- <p class="mt-1 text-lg font-medium text-gray-900">
-            {{ product.price }}
-          </p> -->
-        </a>
-      </div>
-    </div>
-        <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
-        </div>
-    </div>
-    <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 border-t border-gray-200">
       <div class="md:col-span-1">
         <div class="px-4 sm:px-0">
           <h3 class="text-lg font-medium leading-6 text-gray-900 uppercase semibold">Tell us about your project</h3>
@@ -122,13 +146,6 @@
           </div>
         </form>
       </div>
-    </div>
-  </div>
-
-    <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
-        </div>
     </div>
     <app-footer></app-footer>
 </template>
