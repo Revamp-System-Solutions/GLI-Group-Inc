@@ -22,7 +22,7 @@ class RegisterController extends Controller
     }
     public function showRegisterForm()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Admin/Auth/Register');
     }
 
     public function register(Request $request)

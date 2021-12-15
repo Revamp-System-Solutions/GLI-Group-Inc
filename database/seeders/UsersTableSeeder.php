@@ -10,15 +10,29 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'id'             => 1,
-                'name'           => 'Revamp',
-                'email'          => 'dev@rvmp.com',
+                'name'           => 'Super Admin',
+                'email'          => 'su@gligroupinc.com',
                 'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'remember_token' => null,
             ],
             [
                 'id'             => 2,
-                'name'           => 'Zorich Guia',
-                'email'          => 'zorich@gligroupinc.com',
+                'name'           => 'Administrator',
+                'email'          => 'admin@gligroupinc.com',
+                'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 3,
+                'name'           => 'Editor',
+                'email'          => 'editor@gligroupinc.com',
+                'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 4,
+                'name'           => 'Author',
+                'email'          => 'author@gligroupinc.com',
                 'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'remember_token' => null,
             ],

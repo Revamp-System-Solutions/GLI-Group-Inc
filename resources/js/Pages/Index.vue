@@ -63,16 +63,136 @@
                     </Tab>
                 </TabList>
                 <TabPanels>
-                    <TabPanel class="flex items-center text-center">
-                        <div class="w-1/2">1</div>
-                        <div class="w-1/2">2</div>
+                    <TabPanel class="flex items-center text-center m-20 space-x-10">
+                        <div class="w-1/2">
+                            <img src="/images/pages/CABINETS.jpg">
+                        </div>
+                        <div class="w-1/2 space-y-10">
+                                <ul class="border-l-4 text-left pl-2.5 font-bold">
+                                    <li>Here at GLI Modular Cabinets</li>
+                                    <li>We offer you</li>
+                                </ul>
+                                <div class="text-5xl uppercase font-bold text-left">
+                                    <div class="">
+                                        firm building
+                                    </div>
+                                    <div class="text-green-800">
+                                        Structures
+                                    </div>
+                                </div>
+                                <p class="text-left pl-32">
+                                    is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                    type specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                </p>
+                                <div class="space-x-5 flex justify-start">
+                                    <a href="$route('guest.portfolio')">
+                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
+                                        Give us a Call!
+                                    </button>
+                                    </a>
+                                    <a href="$route('guest.contact')">
+                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                        Our Portfolio
+                                    </button>
+                                    </a>
+                                </div>
+                        </div>
                     </TabPanel>
-                    <TabPanel>Content 2</TabPanel>
-                    <TabPanel>Content 3</TabPanel>
+                    <TabPanel class="flex items-center text-center m-20 space-x-10">
+                        <div class="w-1/2">
+                            <img src="/images/pages/BUILDERS-1.jpg">
+                        </div>
+                        <div class="w-1/2 space-y-10">
+                                <ul class="border-l-4 text-left pl-2.5 font-bold">
+                                    <li>Here at GLI Modular Cabinets</li>
+                                    <li>We offer you</li>
+                                </ul>
+                                <div class="text-5xl uppercase font-bold text-left">
+                                    <div class="">
+                                        firm building
+                                    </div>
+                                    <div class="text-green-800">
+                                        Structures
+                                    </div>
+                                </div>
+                                <p class="text-left pl-32">
+                                    is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                    type specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                </p>
+                                <div class="space-x-5 flex justify-start">
+                                    <a href="$route('guest.portfolio')">
+                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
+                                        Give us a Call!
+                                    </button>
+                                    </a>
+                                    <a href="$route('guest.contact')">
+                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                        Our Portfolio
+                                    </button>
+                                    </a>
+                                </div>
+                        </div>
+                    </TabPanel>
+                    <TabPanel class="flex items-center text-center m-20 space-x-10">
+                        <div class="w-1/2">
+                            <img src="/images/pages/STUDIO.jpg">
+                        </div>
+                        <div class="w-1/2 space-y-10">
+                                <ul class="border-l-4 text-left pl-2.5 font-bold">
+                                    <li>Here at GLI Modular Cabinets</li>
+                                    <li>We offer you</li>
+                                </ul>
+                                <div class="text-5xl uppercase font-bold text-left">
+                                    <div class="">
+                                        firm building
+                                    </div>
+                                    <div class="text-green-800">
+                                        Structures
+                                    </div>
+                                </div>
+                                <p class="text-left pl-32">
+                                    is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                    type specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                </p>
+                                <div class="space-x-5 flex justify-start">
+                                    <a href="$route('guest.portfolio')">
+                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
+                                        Give us a Call!
+                                    </button>
+                                    </a>
+                                    <a href="$route('guest.contact')">
+                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                        Our Portfolio
+                                    </button>
+                                    </a>
+                                </div>
+                        </div>
+                    </TabPanel>
                 </TabPanels>
             </TabGroup>
     </div>
-
+    <div>
+        <div class=" uppercase text-center my-10">
+            <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
+        </div>
+        <div class="flex overflow-x-auto w-96">
+            <div class="w-80">1</div>
+            <div class="w-80">2</div>
+            <div class="w-80">3</div>
+            <div class="w-80">4</div>
+            <div class="w-80">5</div>
+            <div class="w-80">6</div>
+        </div>
+    </div>
     <app-footer></app-footer>
 </template>
 

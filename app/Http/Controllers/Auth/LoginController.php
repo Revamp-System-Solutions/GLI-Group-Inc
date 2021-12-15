@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render('Admin/Auth/Login');
     }
 
     public function authenticate(Request $request)
@@ -23,8 +23,8 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/gli-admin');
+         
+            return redirect()->intended('/gli-admin/dashboard');
         }
 
         return back()->withErrors([

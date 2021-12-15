@@ -1,5 +1,5 @@
 <template>
-        <app-header></app-header>
+ 
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form method="post" @submit.prevent="submit">
@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import AppHeader from "../../Partials/AppHeader";
-import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
+
+
 
 import {inject, reactive} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
@@ -40,12 +40,11 @@ import {Inertia} from "@inertiajs/inertia";
 export default {
     name: "Register",
     components: {
-        ErrorsAndMessages,
-        AppHeader
+   
     },
-    props: {
-        errors: Object
-    },
+    // props: {
+    //     errors: Object
+    // },
     setup() {
         const form = reactive({
             name: null,

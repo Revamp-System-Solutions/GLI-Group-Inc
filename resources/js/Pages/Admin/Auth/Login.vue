@@ -23,7 +23,7 @@
 
 <script>
 
-    import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
+    import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
 
     import {Inertia} from "@inertiajs/inertia";
     import { usePage } from '@inertiajs/inertia-vue3'
