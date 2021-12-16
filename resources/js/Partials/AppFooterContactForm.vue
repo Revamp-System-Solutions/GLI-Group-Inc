@@ -1,82 +1,74 @@
 <template>
-    <footer class="footer bg-white relative pt-1 " ondragstart="return false;">
-    <div class="container mx-auto px-6">
-        <div class="flex mt-8 bg-gray">
-            <div class="mt-0 w-full lg:px-8 flex flex-col justify-center border-t-2 border-gray-100">
-
-                <div class="mt-4 px-4 sm:px-0">
-                  <h3 class="text-lg font-medium leading-6 text-gray-900 uppercase semibold">Tell us about your project</h3>
-                </div>
-
-                <form action="#" method="POST" class="my-4">
-                  <div class="overflow-hidden">
-                    <div class="px-4 py-5 bg-white sm:p-6">
-                      <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-6 sm:col-span-3">
-                          <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                          <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                          <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-4">
-                          <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                          <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-4">
-                          <label for="email-address" class="block text-sm font-medium text-gray-700">Subject</label>
-                          <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
-                        </div>
-
-                        <div class="col-span-6">
-                          <label for="street-address" class="block text-sm font-medium text-gray-700">Message</label>
-                          <textarea type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " ></textarea>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="px-4 py-3  text-center sm:px-6">
-                       <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
-                            Sumbit
-                        </button>
-                    </div>
-                  </div>
-                </form>
+    <footer class="footer !rvmp-footer-contact-bg relative pt-1 " ondragstart="return false;">
+    <div class="container mx-auto bg-transparent">
  
-                <div class="flex flex-col">
-                    <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-36 w-24 "></span>
-                    <div class="flex lg:flex-row flex-col text-center text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-text">
-                        <span class="mx-2">
-                            <a v-if="!switchInertia" href="#designstudio" class="text-black hover:text-green-600">Design Studio</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-black hover:text-green-600 ">
-								Design Studio
-							</inertia-link></span>
-                        <span class="mx-2">
-                            <a v-if="!switchInertia" href="#builders" class="text-black hover:text-green-600">Builders</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-black hover:text-green-600 ">
-								Builders
-							</inertia-link>
-                            </span>
-                        <span class="mx-2">
-                            <a v-if="!switchInertia" href="#modularcabinets" class="text-black hover:text-green-600">Modular Cabinets</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-black hover:text-green-600 ">
-								Modular Cabinets
-							</inertia-link>
-                            </span>
+            <div class="w-full bg-transparent grid lg:grid-cols-6 grid-cols-1 gap-1 my-4">
+                <div class="lg:col-span-2 col-span-1 flex flex-col">
+                      <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-36 w-24 "></span>
+                    
+                  </div>
+                <div class="col-span-1">
+                  <div class="flex flex-col lg:text-left text-center text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-text space-y-3">
+                          <span class="mx-2">
+                              <a v-if="!switchInertia" href="#designstudio" class="rvmp-footer-contact-text hover:text-green-600">Design Studio</a>
+                              <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="rvmp-footer-contact-text hover:text-green-600 ">Design Studio</inertia-link></span>
+                          <span class="mx-2">
+                              <a v-if="!switchInertia" href="#builders" class="rvmp-footer-contact-text hover:text-green-600">Builders</a>
+                              <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="rvmp-footer-contact-text hover:text-green-600 ">Builders</inertia-link></span>
+                          <span class="mx-2">
+                              <a v-if="!switchInertia" href="#modularcabinets" class="rvmp-footer-contact-text hover:text-green-600">Modular Cabinets</a>
+                              <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="rvmp-footer-contact-text hover:text-green-600 ">Modular Cabinets</inertia-link></span>
                     </div>
                 </div>
-                
-            </div>
-        </div>
+                <div class="col-span-1 space-y-3">
+                    <div class="w-full flex flex-row" >
+                          <span class="fas fa-map-marker-alt px-2 rvmp-brand-color-main self-center 2xl:text-4xl xl:text-2xl text-xl text-left"></span>
+                            <span class="brand-text italic 2xl:text-lg text-xs text-left ">
+                                Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines
+                              </span>
+                    </div>
+                    <div class="w-full flex flex-row">           
+                              <span class="fas fa-phone-alt px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-xl text-lg text-left"></span>
+                              <span class="brand-text italic 2xl:text-lg text-xs text-left">
+                                0905-000-0000
+                              </span>
+                    </div>
+                    <div class="w-full flex flex-row">
+                              <span class="fas fa-envelope px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-xl text-lg text-left"></span>
+                              <span class="brand-text italic 2xl:text-lg text-xs text-left">
+                                client.gli@gmail.com
+                              </span>
+                        
+                      </div>
+                </div>
+                <div class="lg:col-span-2 col-span-1 lg:mx-2 px-3">
+                    <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent">
+                        <div class="col-span-6">
+                          <h3 class="text-lg font-medium leading-6 mb-0 rvmp-footer-contact-text uppercase semibold">Tell us about your project</h3>
+                        </div>
+                        <div class="col-span-6">
+                          <label for="first-name" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Full name</label>
+                          <input type="text" name="first-name" id="first-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
+                        </div>
+                        <div class="col-span-6">
+                          <label for="email-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Email address</label>
+                          <input type="text" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
+                        </div>
+                        <div class="col-span-6">
+                          <label for="street-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Message</label>
+                          <textarea type="text" name="street-address" id="street-address" placeholder="Message" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " ></textarea>
+                        </div>
+                        <div class="col-span-6">
+                          <button class="bg-green-600 text-white px-4 py-1.5  hover:bg-green-700 w-full transition ease-in-out duration-300">Sumbit</button>
+                        </div>
+                    </form>
+                </div>        
+          </div>
     </div>
-    <div class="container mx-auto px-6">
-        <div class="mt-8 border-t-2 border-gray-100 flex flex-col items-center">
-            <div class="w-full text-center py-6 relative">
-                <p class="text-sm text-gray-400 font-semibold mb-2 uppercase brand-logo-text">
+    <div class="container  px-6 bg-transparent">
+        <div class="border-t-2 border-gray-100 flex flex-col items-center bg-transparent">
+            <div class="w-full text-center py-6 relative bg-transparent">
+                <p class="text-sm rvmp-footer-contact-text font-semibold mb-2 uppercase brand-logo-text">
                     © {{ new Date().getFullYear() }} | GLI <span class='brand-logo-text font-light'>Group Inc.</span> 
                 </p>
                 <img src="/images/revamp-system-solutions.png" oncontextmenu="return false;" class="mx-auto w-1/3 lg:w-36 ">

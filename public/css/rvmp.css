@@ -1,23 +1,11 @@
-.ck-editor__editable_inline {
-  min-height: 350px;
-}
-
-.brand-logo-text{
-  font-family: BrandFont;
-}
-
-.brand-text{
-  font-family: RVMP;
-}
-
 .rvmp-default-text{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .rvmp-default-alt-text{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .rvmp-bg-main{
@@ -87,44 +75,52 @@
 
 .rvmp-brand-border-main{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .rvmp-brand-border-accent{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .rvmp-brand-border-highlight{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .rvmp-brand-border-darker{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.hover\:ck-editor__editable_inline:hover {
-  min-height: 350px;
+.rvmp-footer-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.hover\:brand-logo-text:hover{
-  font-family: BrandFont;
+.rvmp-footer-text{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.hover\:brand-text:hover{
-  font-family: RVMP;
+.rvmp-footer-contact-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.rvmp-footer-contact-text{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .hover\:rvmp-default-text:hover{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .hover\:rvmp-default-alt-text:hover{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .hover\:rvmp-bg-main:hover{
@@ -194,44 +190,52 @@
 
 .hover\:rvmp-brand-border-main:hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .hover\:rvmp-brand-border-accent:hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .hover\:rvmp-brand-border-highlight:hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .hover\:rvmp-brand-border-darker:hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.group:hover .group-hover\:ck-editor__editable_inline {
-  min-height: 350px;
+.hover\:rvmp-footer-bg:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:brand-logo-text{
-  font-family: BrandFont;
+.hover\:rvmp-footer-text:hover{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.group:hover .group-hover\:brand-text{
-  font-family: RVMP;
+.hover\:rvmp-footer-contact-bg:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.hover\:rvmp-footer-contact-text:hover{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:rvmp-default-text{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:rvmp-default-alt-text{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:rvmp-bg-main{
@@ -301,44 +305,52 @@
 
 .group:hover .group-hover\:rvmp-brand-border-main{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:rvmp-brand-border-accent{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:rvmp-brand-border-highlight{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:rvmp-brand-border-darker{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.focus\:ck-editor__editable_inline:focus {
-  min-height: 350px;
+.group:hover .group-hover\:rvmp-footer-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.focus\:brand-logo-text:focus{
-  font-family: BrandFont;
+.group:hover .group-hover\:rvmp-footer-text{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.focus\:brand-text:focus{
-  font-family: RVMP;
+.group:hover .group-hover\:rvmp-footer-contact-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:rvmp-footer-contact-text{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .focus\:rvmp-default-text:focus{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus\:rvmp-default-alt-text:focus{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .focus\:rvmp-bg-main:focus{
@@ -408,44 +420,52 @@
 
 .focus\:rvmp-brand-border-main:focus{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .focus\:rvmp-brand-border-accent:focus{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .focus\:rvmp-brand-border-highlight:focus{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .focus\:rvmp-brand-border-darker:focus{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.focus-within\:ck-editor__editable_inline:focus-within {
-  min-height: 350px;
+.focus\:rvmp-footer-bg:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.focus-within\:brand-logo-text:focus-within{
-  font-family: BrandFont;
+.focus\:rvmp-footer-text:focus{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.focus-within\:brand-text:focus-within{
-  font-family: RVMP;
+.focus\:rvmp-footer-contact-bg:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.focus\:rvmp-footer-contact-text:focus{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .focus-within\:rvmp-default-text:focus-within{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus-within\:rvmp-default-alt-text:focus-within{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .focus-within\:rvmp-bg-main:focus-within{
@@ -515,44 +535,52 @@
 
 .focus-within\:rvmp-brand-border-main:focus-within{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .focus-within\:rvmp-brand-border-accent:focus-within{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .focus-within\:rvmp-brand-border-highlight:focus-within{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .focus-within\:rvmp-brand-border-darker:focus-within{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.focus-visible\:ck-editor__editable_inline:focus-visible {
-  min-height: 350px;
+.focus-within\:rvmp-footer-bg:focus-within{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.focus-visible\:brand-logo-text:focus-visible{
-  font-family: BrandFont;
+.focus-within\:rvmp-footer-text:focus-within{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.focus-visible\:brand-text:focus-visible{
-  font-family: RVMP;
+.focus-within\:rvmp-footer-contact-bg:focus-within{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.focus-within\:rvmp-footer-contact-text:focus-within{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .focus-visible\:rvmp-default-text:focus-visible{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus-visible\:rvmp-default-alt-text:focus-visible{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .focus-visible\:rvmp-bg-main:focus-visible{
@@ -622,44 +650,52 @@
 
 .focus-visible\:rvmp-brand-border-main:focus-visible{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .focus-visible\:rvmp-brand-border-accent:focus-visible{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .focus-visible\:rvmp-brand-border-highlight:focus-visible{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .focus-visible\:rvmp-brand-border-darker:focus-visible{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.active\:ck-editor__editable_inline:active {
-  min-height: 350px;
+.focus-visible\:rvmp-footer-bg:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.active\:brand-logo-text:active{
-  font-family: BrandFont;
+.focus-visible\:rvmp-footer-text:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.active\:brand-text:active{
-  font-family: RVMP;
+.focus-visible\:rvmp-footer-contact-bg:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.focus-visible\:rvmp-footer-contact-text:focus-visible{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .active\:rvmp-default-text:active{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .active\:rvmp-default-alt-text:active{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .active\:rvmp-bg-main:active{
@@ -729,44 +765,52 @@
 
 .active\:rvmp-brand-border-main:active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .active\:rvmp-brand-border-accent:active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .active\:rvmp-brand-border-highlight:active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .active\:rvmp-brand-border-darker:active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.first-child\:ck-editor__editable_inline:first-child {
-  min-height: 350px;
+.active\:rvmp-footer-bg:active{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.first-child\:brand-logo-text:first-child{
-  font-family: BrandFont;
+.active\:rvmp-footer-text:active{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.first-child\:brand-text:first-child{
-  font-family: RVMP;
+.active\:rvmp-footer-contact-bg:active{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.active\:rvmp-footer-contact-text:active{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .first-child\:rvmp-default-text:first-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .first-child\:rvmp-default-alt-text:first-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .first-child\:rvmp-bg-main:first-child{
@@ -836,44 +880,52 @@
 
 .first-child\:rvmp-brand-border-main:first-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .first-child\:rvmp-brand-border-accent:first-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .first-child\:rvmp-brand-border-highlight:first-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .first-child\:rvmp-brand-border-darker:first-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.nth-child\:ck-editor__editable_inline:nth-child {
-  min-height: 350px;
+.first-child\:rvmp-footer-bg:first-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.nth-child\:brand-logo-text:nth-child{
-  font-family: BrandFont;
+.first-child\:rvmp-footer-text:first-child{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.nth-child\:brand-text:nth-child{
-  font-family: RVMP;
+.first-child\:rvmp-footer-contact-bg:first-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.first-child\:rvmp-footer-contact-text:first-child{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .nth-child\:rvmp-default-text:nth-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .nth-child\:rvmp-default-alt-text:nth-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .nth-child\:rvmp-bg-main:nth-child{
@@ -943,44 +995,52 @@
 
 .nth-child\:rvmp-brand-border-main:nth-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .nth-child\:rvmp-brand-border-accent:nth-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .nth-child\:rvmp-brand-border-highlight:nth-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .nth-child\:rvmp-brand-border-darker:nth-child{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.disabled\:ck-editor__editable_inline:disabled {
-  min-height: 350px;
+.nth-child\:rvmp-footer-bg:nth-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.disabled\:brand-logo-text:disabled{
-  font-family: BrandFont;
+.nth-child\:rvmp-footer-text:nth-child{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.disabled\:brand-text:disabled{
-  font-family: RVMP;
+.nth-child\:rvmp-footer-contact-bg:nth-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.nth-child\:rvmp-footer-contact-text:nth-child{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .disabled\:rvmp-default-text:disabled{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .disabled\:rvmp-default-alt-text:disabled{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
 }
 
 .disabled\:rvmp-bg-main:disabled{
@@ -1050,44 +1110,52 @@
 
 .disabled\:rvmp-brand-border-main:disabled{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
 }
 
 .disabled\:rvmp-brand-border-accent:disabled{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
 }
 
 .disabled\:rvmp-brand-border-highlight:disabled{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
 }
 
 .disabled\:rvmp-brand-border-darker:disabled{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
 }
 
-.\!ck-editor__editable_inline {
-  min-height: 350px !important;
+.disabled\:rvmp-footer-bg:disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
 }
 
-.\!brand-logo-text{
-  font-family: BrandFont !important;
+.disabled\:rvmp-footer-text:disabled{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
 }
 
-.\!brand-text{
-  font-family: RVMP !important;
+.disabled\:rvmp-footer-contact-bg:disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+}
+
+.disabled\:rvmp-footer-contact-text:disabled{
+  --tw-text-opacity: 1;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
 .\!rvmp-default-text{
   --tw-text-opacity: 1 !important;
-  color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
 }
 
 .\!rvmp-default-alt-text{
   --tw-text-opacity: 1 !important;
-  color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+  color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
 }
 
 .\!rvmp-bg-main{
@@ -1157,45 +1225,65 @@
 
 .\!rvmp-brand-border-main{
   --tw-border-opacity: 1 !important;
-  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+  border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
 }
 
 .\!rvmp-brand-border-accent{
   --tw-border-opacity: 1 !important;
-  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+  border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
 }
 
 .\!rvmp-brand-border-highlight{
   --tw-border-opacity: 1 !important;
-  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+  border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
 }
 
 .\!rvmp-brand-border-darker{
   --tw-border-opacity: 1 !important;
-  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+  border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
 }
 
-@media (min-width: 640px) {
-  .sm\:ck-editor__editable_inline {
-    min-height: 350px;
-  }
+.\!rvmp-footer-bg{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+}
 
-  .sm\:brand-logo-text{
-    font-family: BrandFont;
-  }
+.\!rvmp-footer-text{
+  --tw-text-opacity: 1 !important;
+  color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+}
 
-  .sm\:brand-text{
-    font-family: RVMP;
-  }
+.\!rvmp-footer-contact-bg{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+}
 
+.\!rvmp-footer-contact-text{
+  --tw-text-opacity: 1 !important;
+  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
+}
+
+.ck-editor__editable_inline {
+  min-height: 350px;
+}
+
+.brand-logo-text{
+  font-family: BrandFont;
+}
+
+.brand-text{
+  font-family: RVMP;
+}
+
+@media (min-width: 640px){
   .sm\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:rvmp-bg-main{
@@ -1265,44 +1353,52 @@
 
   .sm\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:hover\:ck-editor__editable_inline:hover {
-    min-height: 350px;
+  .sm\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:hover\:brand-logo-text:hover{
-    font-family: BrandFont;
+  .sm\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:hover\:brand-text:hover{
-    font-family: RVMP;
+  .sm\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:hover\:rvmp-default-alt-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:hover\:rvmp-bg-main:hover{
@@ -1372,44 +1468,52 @@
 
   .sm\:hover\:rvmp-brand-border-main:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:hover\:rvmp-brand-border-accent:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:hover\:rvmp-brand-border-highlight:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:hover\:rvmp-brand-border-darker:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .group:hover .sm\:group-hover\:ck-editor__editable_inline {
-    min-height: 350px;
+  .sm\:hover\:rvmp-footer-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .group:hover .sm\:group-hover\:brand-logo-text{
-    font-family: BrandFont;
+  .sm\:hover\:rvmp-footer-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .group:hover .sm\:group-hover\:brand-text{
-    font-family: RVMP;
+  .sm\:hover\:rvmp-footer-contact-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:hover\:rvmp-footer-contact-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-bg-main{
@@ -1479,44 +1583,52 @@
 
   .group:hover .sm\:group-hover\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:focus\:ck-editor__editable_inline:focus {
-    min-height: 350px;
+  .group:hover .sm\:group-hover\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:focus\:brand-logo-text:focus{
-    font-family: BrandFont;
+  .group:hover .sm\:group-hover\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:focus\:brand-text:focus{
-    font-family: RVMP;
+  .group:hover .sm\:group-hover\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .group:hover .sm\:group-hover\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus\:rvmp-default-alt-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:focus\:rvmp-bg-main:focus{
@@ -1586,44 +1698,52 @@
 
   .sm\:focus\:rvmp-brand-border-main:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:focus\:rvmp-brand-border-accent:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:focus\:rvmp-brand-border-highlight:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:focus\:rvmp-brand-border-darker:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:focus-within\:ck-editor__editable_inline:focus-within {
-    min-height: 350px;
+  .sm\:focus\:rvmp-footer-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:focus-within\:brand-logo-text:focus-within{
-    font-family: BrandFont;
+  .sm\:focus\:rvmp-footer-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:focus-within\:brand-text:focus-within{
-    font-family: RVMP;
+  .sm\:focus\:rvmp-footer-contact-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus\:rvmp-footer-contact-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:focus-within\:rvmp-default-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus-within\:rvmp-default-alt-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:focus-within\:rvmp-bg-main:focus-within{
@@ -1693,44 +1813,52 @@
 
   .sm\:focus-within\:rvmp-brand-border-main:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:focus-within\:rvmp-brand-border-accent:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:focus-within\:rvmp-brand-border-highlight:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:focus-within\:rvmp-brand-border-darker:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:focus-visible\:ck-editor__editable_inline:focus-visible {
-    min-height: 350px;
+  .sm\:focus-within\:rvmp-footer-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:focus-visible\:brand-logo-text:focus-visible{
-    font-family: BrandFont;
+  .sm\:focus-within\:rvmp-footer-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:focus-visible\:brand-text:focus-visible{
-    font-family: RVMP;
+  .sm\:focus-within\:rvmp-footer-contact-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-within\:rvmp-footer-contact-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus-visible\:rvmp-default-alt-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:focus-visible\:rvmp-bg-main:focus-visible{
@@ -1800,44 +1928,52 @@
 
   .sm\:focus-visible\:rvmp-brand-border-main:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:focus-visible\:rvmp-brand-border-accent:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:focus-visible\:rvmp-brand-border-darker:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:active\:ck-editor__editable_inline:active {
-    min-height: 350px;
+  .sm\:focus-visible\:rvmp-footer-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:active\:brand-logo-text:active{
-    font-family: BrandFont;
+  .sm\:focus-visible\:rvmp-footer-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:active\:brand-text:active{
-    font-family: RVMP;
+  .sm\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-footer-contact-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:active\:rvmp-default-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:active\:rvmp-default-alt-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:active\:rvmp-bg-main:active{
@@ -1907,44 +2043,52 @@
 
   .sm\:active\:rvmp-brand-border-main:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:active\:rvmp-brand-border-accent:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:active\:rvmp-brand-border-highlight:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:active\:rvmp-brand-border-darker:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:first-child\:ck-editor__editable_inline:first-child {
-    min-height: 350px;
+  .sm\:active\:rvmp-footer-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:first-child\:brand-logo-text:first-child{
-    font-family: BrandFont;
+  .sm\:active\:rvmp-footer-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:first-child\:brand-text:first-child{
-    font-family: RVMP;
+  .sm\:active\:rvmp-footer-contact-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:active\:rvmp-footer-contact-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:first-child\:rvmp-default-alt-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:first-child\:rvmp-bg-main:first-child{
@@ -2014,44 +2158,52 @@
 
   .sm\:first-child\:rvmp-brand-border-main:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:first-child\:rvmp-brand-border-accent:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:first-child\:rvmp-brand-border-highlight:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:first-child\:rvmp-brand-border-darker:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:nth-child\:ck-editor__editable_inline:nth-child {
-    min-height: 350px;
+  .sm\:first-child\:rvmp-footer-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:nth-child\:brand-logo-text:nth-child{
-    font-family: BrandFont;
+  .sm\:first-child\:rvmp-footer-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:nth-child\:brand-text:nth-child{
-    font-family: RVMP;
+  .sm\:first-child\:rvmp-footer-contact-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:first-child\:rvmp-footer-contact-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:nth-child\:rvmp-default-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:nth-child\:rvmp-default-alt-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:nth-child\:rvmp-bg-main:nth-child{
@@ -2121,44 +2273,52 @@
 
   .sm\:nth-child\:rvmp-brand-border-main:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:nth-child\:rvmp-brand-border-accent:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:nth-child\:rvmp-brand-border-highlight:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:nth-child\:rvmp-brand-border-darker:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:disabled\:ck-editor__editable_inline:disabled {
-    min-height: 350px;
+  .sm\:nth-child\:rvmp-footer-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:disabled\:brand-logo-text:disabled{
-    font-family: BrandFont;
+  .sm\:nth-child\:rvmp-footer-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:disabled\:brand-text:disabled{
-    font-family: RVMP;
+  .sm\:nth-child\:rvmp-footer-contact-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:nth-child\:rvmp-footer-contact-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:disabled\:rvmp-default-alt-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .sm\:disabled\:rvmp-bg-main:disabled{
@@ -2228,44 +2388,52 @@
 
   .sm\:disabled\:rvmp-brand-border-main:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .sm\:disabled\:rvmp-brand-border-accent:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .sm\:disabled\:rvmp-brand-border-highlight:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .sm\:disabled\:rvmp-brand-border-darker:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .sm\:\!ck-editor__editable_inline {
-    min-height: 350px !important;
+  .sm\:disabled\:rvmp-footer-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .sm\:\!brand-logo-text{
-    font-family: BrandFont !important;
+  .sm\:disabled\:rvmp-footer-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .sm\:\!brand-text{
-    font-family: RVMP !important;
+  .sm\:disabled\:rvmp-footer-contact-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .sm\:disabled\:rvmp-footer-contact-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .sm\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .sm\:\!rvmp-default-alt-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
   }
 
   .sm\:\!rvmp-bg-main{
@@ -2335,46 +2503,54 @@
 
   .sm\:\!rvmp-brand-border-main{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
   }
 
   .sm\:\!rvmp-brand-border-accent{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
   }
 
   .sm\:\!rvmp-brand-border-highlight{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
   }
 
   .sm\:\!rvmp-brand-border-darker{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
+  }
+
+  .sm\:\!rvmp-footer-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .sm\:\!rvmp-footer-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+  }
+
+  .sm\:\!rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .sm\:\!rvmp-footer-contact-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }
 
-@media (min-width: 768px) {
-  .md\:ck-editor__editable_inline {
-    min-height: 350px;
-  }
-
-  .md\:brand-logo-text{
-    font-family: BrandFont;
-  }
-
-  .md\:brand-text{
-    font-family: RVMP;
-  }
-
+@media (min-width: 768px){
   .md\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:rvmp-bg-main{
@@ -2444,44 +2620,52 @@
 
   .md\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:hover\:ck-editor__editable_inline:hover {
-    min-height: 350px;
+  .md\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:hover\:brand-logo-text:hover{
-    font-family: BrandFont;
+  .md\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:hover\:brand-text:hover{
-    font-family: RVMP;
+  .md\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:hover\:rvmp-default-alt-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:hover\:rvmp-bg-main:hover{
@@ -2551,44 +2735,52 @@
 
   .md\:hover\:rvmp-brand-border-main:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:hover\:rvmp-brand-border-accent:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:hover\:rvmp-brand-border-highlight:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:hover\:rvmp-brand-border-darker:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .group:hover .md\:group-hover\:ck-editor__editable_inline {
-    min-height: 350px;
+  .md\:hover\:rvmp-footer-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .group:hover .md\:group-hover\:brand-logo-text{
-    font-family: BrandFont;
+  .md\:hover\:rvmp-footer-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .group:hover .md\:group-hover\:brand-text{
-    font-family: RVMP;
+  .md\:hover\:rvmp-footer-contact-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:hover\:rvmp-footer-contact-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-bg-main{
@@ -2658,44 +2850,52 @@
 
   .group:hover .md\:group-hover\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:focus\:ck-editor__editable_inline:focus {
-    min-height: 350px;
+  .group:hover .md\:group-hover\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:focus\:brand-logo-text:focus{
-    font-family: BrandFont;
+  .group:hover .md\:group-hover\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:focus\:brand-text:focus{
-    font-family: RVMP;
+  .group:hover .md\:group-hover\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .group:hover .md\:group-hover\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus\:rvmp-default-alt-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:focus\:rvmp-bg-main:focus{
@@ -2765,44 +2965,52 @@
 
   .md\:focus\:rvmp-brand-border-main:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:focus\:rvmp-brand-border-accent:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:focus\:rvmp-brand-border-highlight:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:focus\:rvmp-brand-border-darker:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:focus-within\:ck-editor__editable_inline:focus-within {
-    min-height: 350px;
+  .md\:focus\:rvmp-footer-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:focus-within\:brand-logo-text:focus-within{
-    font-family: BrandFont;
+  .md\:focus\:rvmp-footer-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:focus-within\:brand-text:focus-within{
-    font-family: RVMP;
+  .md\:focus\:rvmp-footer-contact-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:focus\:rvmp-footer-contact-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:focus-within\:rvmp-default-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus-within\:rvmp-default-alt-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:focus-within\:rvmp-bg-main:focus-within{
@@ -2872,44 +3080,52 @@
 
   .md\:focus-within\:rvmp-brand-border-main:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:focus-within\:rvmp-brand-border-accent:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:focus-within\:rvmp-brand-border-highlight:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:focus-within\:rvmp-brand-border-darker:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:focus-visible\:ck-editor__editable_inline:focus-visible {
-    min-height: 350px;
+  .md\:focus-within\:rvmp-footer-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:focus-visible\:brand-logo-text:focus-visible{
-    font-family: BrandFont;
+  .md\:focus-within\:rvmp-footer-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:focus-visible\:brand-text:focus-visible{
-    font-family: RVMP;
+  .md\:focus-within\:rvmp-footer-contact-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-within\:rvmp-footer-contact-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus-visible\:rvmp-default-alt-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:focus-visible\:rvmp-bg-main:focus-visible{
@@ -2979,44 +3195,52 @@
 
   .md\:focus-visible\:rvmp-brand-border-main:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:focus-visible\:rvmp-brand-border-accent:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:focus-visible\:rvmp-brand-border-darker:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:active\:ck-editor__editable_inline:active {
-    min-height: 350px;
+  .md\:focus-visible\:rvmp-footer-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:active\:brand-logo-text:active{
-    font-family: BrandFont;
+  .md\:focus-visible\:rvmp-footer-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:active\:brand-text:active{
-    font-family: RVMP;
+  .md\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-footer-contact-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:active\:rvmp-default-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:active\:rvmp-default-alt-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:active\:rvmp-bg-main:active{
@@ -3086,44 +3310,52 @@
 
   .md\:active\:rvmp-brand-border-main:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:active\:rvmp-brand-border-accent:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:active\:rvmp-brand-border-highlight:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:active\:rvmp-brand-border-darker:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:first-child\:ck-editor__editable_inline:first-child {
-    min-height: 350px;
+  .md\:active\:rvmp-footer-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:first-child\:brand-logo-text:first-child{
-    font-family: BrandFont;
+  .md\:active\:rvmp-footer-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:first-child\:brand-text:first-child{
-    font-family: RVMP;
+  .md\:active\:rvmp-footer-contact-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:active\:rvmp-footer-contact-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:first-child\:rvmp-default-alt-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:first-child\:rvmp-bg-main:first-child{
@@ -3193,44 +3425,52 @@
 
   .md\:first-child\:rvmp-brand-border-main:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:first-child\:rvmp-brand-border-accent:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:first-child\:rvmp-brand-border-highlight:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:first-child\:rvmp-brand-border-darker:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:nth-child\:ck-editor__editable_inline:nth-child {
-    min-height: 350px;
+  .md\:first-child\:rvmp-footer-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:nth-child\:brand-logo-text:nth-child{
-    font-family: BrandFont;
+  .md\:first-child\:rvmp-footer-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:nth-child\:brand-text:nth-child{
-    font-family: RVMP;
+  .md\:first-child\:rvmp-footer-contact-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:first-child\:rvmp-footer-contact-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:nth-child\:rvmp-default-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:nth-child\:rvmp-default-alt-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:nth-child\:rvmp-bg-main:nth-child{
@@ -3300,44 +3540,52 @@
 
   .md\:nth-child\:rvmp-brand-border-main:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:nth-child\:rvmp-brand-border-accent:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:nth-child\:rvmp-brand-border-highlight:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:nth-child\:rvmp-brand-border-darker:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:disabled\:ck-editor__editable_inline:disabled {
-    min-height: 350px;
+  .md\:nth-child\:rvmp-footer-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:disabled\:brand-logo-text:disabled{
-    font-family: BrandFont;
+  .md\:nth-child\:rvmp-footer-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:disabled\:brand-text:disabled{
-    font-family: RVMP;
+  .md\:nth-child\:rvmp-footer-contact-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:nth-child\:rvmp-footer-contact-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:disabled\:rvmp-default-alt-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .md\:disabled\:rvmp-bg-main:disabled{
@@ -3407,44 +3655,52 @@
 
   .md\:disabled\:rvmp-brand-border-main:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .md\:disabled\:rvmp-brand-border-accent:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .md\:disabled\:rvmp-brand-border-highlight:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .md\:disabled\:rvmp-brand-border-darker:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .md\:\!ck-editor__editable_inline {
-    min-height: 350px !important;
+  .md\:disabled\:rvmp-footer-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .md\:\!brand-logo-text{
-    font-family: BrandFont !important;
+  .md\:disabled\:rvmp-footer-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .md\:\!brand-text{
-    font-family: RVMP !important;
+  .md\:disabled\:rvmp-footer-contact-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .md\:disabled\:rvmp-footer-contact-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .md\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .md\:\!rvmp-default-alt-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
   }
 
   .md\:\!rvmp-bg-main{
@@ -3514,46 +3770,54 @@
 
   .md\:\!rvmp-brand-border-main{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
   }
 
   .md\:\!rvmp-brand-border-accent{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
   }
 
   .md\:\!rvmp-brand-border-highlight{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
   }
 
   .md\:\!rvmp-brand-border-darker{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
+  }
+
+  .md\:\!rvmp-footer-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .md\:\!rvmp-footer-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+  }
+
+  .md\:\!rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .md\:\!rvmp-footer-contact-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }
 
-@media (min-width: 1024px) {
-  .lg\:ck-editor__editable_inline {
-    min-height: 350px;
-  }
-
-  .lg\:brand-logo-text{
-    font-family: BrandFont;
-  }
-
-  .lg\:brand-text{
-    font-family: RVMP;
-  }
-
+@media (min-width: 1024px){
   .lg\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:rvmp-bg-main{
@@ -3623,44 +3887,52 @@
 
   .lg\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:hover\:ck-editor__editable_inline:hover {
-    min-height: 350px;
+  .lg\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:hover\:brand-logo-text:hover{
-    font-family: BrandFont;
+  .lg\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:hover\:brand-text:hover{
-    font-family: RVMP;
+  .lg\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:hover\:rvmp-default-alt-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:hover\:rvmp-bg-main:hover{
@@ -3730,44 +4002,52 @@
 
   .lg\:hover\:rvmp-brand-border-main:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:hover\:rvmp-brand-border-accent:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:hover\:rvmp-brand-border-highlight:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:hover\:rvmp-brand-border-darker:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .group:hover .lg\:group-hover\:ck-editor__editable_inline {
-    min-height: 350px;
+  .lg\:hover\:rvmp-footer-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .group:hover .lg\:group-hover\:brand-logo-text{
-    font-family: BrandFont;
+  .lg\:hover\:rvmp-footer-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .group:hover .lg\:group-hover\:brand-text{
-    font-family: RVMP;
+  .lg\:hover\:rvmp-footer-contact-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:hover\:rvmp-footer-contact-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-bg-main{
@@ -3837,44 +4117,52 @@
 
   .group:hover .lg\:group-hover\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:focus\:ck-editor__editable_inline:focus {
-    min-height: 350px;
+  .group:hover .lg\:group-hover\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:focus\:brand-logo-text:focus{
-    font-family: BrandFont;
+  .group:hover .lg\:group-hover\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:focus\:brand-text:focus{
-    font-family: RVMP;
+  .group:hover .lg\:group-hover\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .group:hover .lg\:group-hover\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus\:rvmp-default-alt-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:focus\:rvmp-bg-main:focus{
@@ -3944,44 +4232,52 @@
 
   .lg\:focus\:rvmp-brand-border-main:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:focus\:rvmp-brand-border-accent:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:focus\:rvmp-brand-border-highlight:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:focus\:rvmp-brand-border-darker:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:focus-within\:ck-editor__editable_inline:focus-within {
-    min-height: 350px;
+  .lg\:focus\:rvmp-footer-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:focus-within\:brand-logo-text:focus-within{
-    font-family: BrandFont;
+  .lg\:focus\:rvmp-footer-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:focus-within\:brand-text:focus-within{
-    font-family: RVMP;
+  .lg\:focus\:rvmp-footer-contact-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus\:rvmp-footer-contact-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:focus-within\:rvmp-default-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus-within\:rvmp-default-alt-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:focus-within\:rvmp-bg-main:focus-within{
@@ -4051,44 +4347,52 @@
 
   .lg\:focus-within\:rvmp-brand-border-main:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:focus-within\:rvmp-brand-border-accent:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:focus-within\:rvmp-brand-border-highlight:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:focus-within\:rvmp-brand-border-darker:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:focus-visible\:ck-editor__editable_inline:focus-visible {
-    min-height: 350px;
+  .lg\:focus-within\:rvmp-footer-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:focus-visible\:brand-logo-text:focus-visible{
-    font-family: BrandFont;
+  .lg\:focus-within\:rvmp-footer-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:focus-visible\:brand-text:focus-visible{
-    font-family: RVMP;
+  .lg\:focus-within\:rvmp-footer-contact-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-within\:rvmp-footer-contact-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus-visible\:rvmp-default-alt-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:focus-visible\:rvmp-bg-main:focus-visible{
@@ -4158,44 +4462,52 @@
 
   .lg\:focus-visible\:rvmp-brand-border-main:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:focus-visible\:rvmp-brand-border-accent:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:focus-visible\:rvmp-brand-border-darker:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:active\:ck-editor__editable_inline:active {
-    min-height: 350px;
+  .lg\:focus-visible\:rvmp-footer-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:active\:brand-logo-text:active{
-    font-family: BrandFont;
+  .lg\:focus-visible\:rvmp-footer-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:active\:brand-text:active{
-    font-family: RVMP;
+  .lg\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-footer-contact-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:active\:rvmp-default-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:active\:rvmp-default-alt-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:active\:rvmp-bg-main:active{
@@ -4265,44 +4577,52 @@
 
   .lg\:active\:rvmp-brand-border-main:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:active\:rvmp-brand-border-accent:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:active\:rvmp-brand-border-highlight:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:active\:rvmp-brand-border-darker:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:first-child\:ck-editor__editable_inline:first-child {
-    min-height: 350px;
+  .lg\:active\:rvmp-footer-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:first-child\:brand-logo-text:first-child{
-    font-family: BrandFont;
+  .lg\:active\:rvmp-footer-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:first-child\:brand-text:first-child{
-    font-family: RVMP;
+  .lg\:active\:rvmp-footer-contact-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:active\:rvmp-footer-contact-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:first-child\:rvmp-default-alt-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:first-child\:rvmp-bg-main:first-child{
@@ -4372,44 +4692,52 @@
 
   .lg\:first-child\:rvmp-brand-border-main:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:first-child\:rvmp-brand-border-accent:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:first-child\:rvmp-brand-border-highlight:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:first-child\:rvmp-brand-border-darker:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:nth-child\:ck-editor__editable_inline:nth-child {
-    min-height: 350px;
+  .lg\:first-child\:rvmp-footer-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:nth-child\:brand-logo-text:nth-child{
-    font-family: BrandFont;
+  .lg\:first-child\:rvmp-footer-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:nth-child\:brand-text:nth-child{
-    font-family: RVMP;
+  .lg\:first-child\:rvmp-footer-contact-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:first-child\:rvmp-footer-contact-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:nth-child\:rvmp-default-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:nth-child\:rvmp-default-alt-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:nth-child\:rvmp-bg-main:nth-child{
@@ -4479,44 +4807,52 @@
 
   .lg\:nth-child\:rvmp-brand-border-main:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:nth-child\:rvmp-brand-border-accent:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:nth-child\:rvmp-brand-border-highlight:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:nth-child\:rvmp-brand-border-darker:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:disabled\:ck-editor__editable_inline:disabled {
-    min-height: 350px;
+  .lg\:nth-child\:rvmp-footer-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:disabled\:brand-logo-text:disabled{
-    font-family: BrandFont;
+  .lg\:nth-child\:rvmp-footer-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:disabled\:brand-text:disabled{
-    font-family: RVMP;
+  .lg\:nth-child\:rvmp-footer-contact-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:nth-child\:rvmp-footer-contact-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:disabled\:rvmp-default-alt-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .lg\:disabled\:rvmp-bg-main:disabled{
@@ -4586,44 +4922,52 @@
 
   .lg\:disabled\:rvmp-brand-border-main:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .lg\:disabled\:rvmp-brand-border-accent:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .lg\:disabled\:rvmp-brand-border-highlight:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .lg\:disabled\:rvmp-brand-border-darker:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .lg\:\!ck-editor__editable_inline {
-    min-height: 350px !important;
+  .lg\:disabled\:rvmp-footer-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .lg\:\!brand-logo-text{
-    font-family: BrandFont !important;
+  .lg\:disabled\:rvmp-footer-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .lg\:\!brand-text{
-    font-family: RVMP !important;
+  .lg\:disabled\:rvmp-footer-contact-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .lg\:disabled\:rvmp-footer-contact-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .lg\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .lg\:\!rvmp-default-alt-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
   }
 
   .lg\:\!rvmp-bg-main{
@@ -4693,46 +5037,54 @@
 
   .lg\:\!rvmp-brand-border-main{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
   }
 
   .lg\:\!rvmp-brand-border-accent{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
   }
 
   .lg\:\!rvmp-brand-border-highlight{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
   }
 
   .lg\:\!rvmp-brand-border-darker{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
+  }
+
+  .lg\:\!rvmp-footer-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .lg\:\!rvmp-footer-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+  }
+
+  .lg\:\!rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .lg\:\!rvmp-footer-contact-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }
 
-@media (min-width: 1280px) {
-  .xl\:ck-editor__editable_inline {
-    min-height: 350px;
-  }
-
-  .xl\:brand-logo-text{
-    font-family: BrandFont;
-  }
-
-  .xl\:brand-text{
-    font-family: RVMP;
-  }
-
+@media (min-width: 1280px){
   .xl\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:rvmp-bg-main{
@@ -4802,44 +5154,52 @@
 
   .xl\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:hover\:ck-editor__editable_inline:hover {
-    min-height: 350px;
+  .xl\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:hover\:brand-logo-text:hover{
-    font-family: BrandFont;
+  .xl\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:hover\:brand-text:hover{
-    font-family: RVMP;
+  .xl\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:hover\:rvmp-default-alt-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:hover\:rvmp-bg-main:hover{
@@ -4909,44 +5269,52 @@
 
   .xl\:hover\:rvmp-brand-border-main:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:hover\:rvmp-brand-border-accent:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:hover\:rvmp-brand-border-highlight:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:hover\:rvmp-brand-border-darker:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .group:hover .xl\:group-hover\:ck-editor__editable_inline {
-    min-height: 350px;
+  .xl\:hover\:rvmp-footer-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .group:hover .xl\:group-hover\:brand-logo-text{
-    font-family: BrandFont;
+  .xl\:hover\:rvmp-footer-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .group:hover .xl\:group-hover\:brand-text{
-    font-family: RVMP;
+  .xl\:hover\:rvmp-footer-contact-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:hover\:rvmp-footer-contact-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-bg-main{
@@ -5016,44 +5384,52 @@
 
   .group:hover .xl\:group-hover\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:focus\:ck-editor__editable_inline:focus {
-    min-height: 350px;
+  .group:hover .xl\:group-hover\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:focus\:brand-logo-text:focus{
-    font-family: BrandFont;
+  .group:hover .xl\:group-hover\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:focus\:brand-text:focus{
-    font-family: RVMP;
+  .group:hover .xl\:group-hover\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .group:hover .xl\:group-hover\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus\:rvmp-default-alt-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:focus\:rvmp-bg-main:focus{
@@ -5123,44 +5499,52 @@
 
   .xl\:focus\:rvmp-brand-border-main:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:focus\:rvmp-brand-border-accent:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:focus\:rvmp-brand-border-highlight:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:focus\:rvmp-brand-border-darker:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:focus-within\:ck-editor__editable_inline:focus-within {
-    min-height: 350px;
+  .xl\:focus\:rvmp-footer-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:focus-within\:brand-logo-text:focus-within{
-    font-family: BrandFont;
+  .xl\:focus\:rvmp-footer-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:focus-within\:brand-text:focus-within{
-    font-family: RVMP;
+  .xl\:focus\:rvmp-footer-contact-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus\:rvmp-footer-contact-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:focus-within\:rvmp-default-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus-within\:rvmp-default-alt-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:focus-within\:rvmp-bg-main:focus-within{
@@ -5230,44 +5614,52 @@
 
   .xl\:focus-within\:rvmp-brand-border-main:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:focus-within\:rvmp-brand-border-accent:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:focus-within\:rvmp-brand-border-highlight:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:focus-within\:rvmp-brand-border-darker:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:focus-visible\:ck-editor__editable_inline:focus-visible {
-    min-height: 350px;
+  .xl\:focus-within\:rvmp-footer-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:focus-visible\:brand-logo-text:focus-visible{
-    font-family: BrandFont;
+  .xl\:focus-within\:rvmp-footer-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:focus-visible\:brand-text:focus-visible{
-    font-family: RVMP;
+  .xl\:focus-within\:rvmp-footer-contact-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-within\:rvmp-footer-contact-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:focus-visible\:rvmp-bg-main:focus-visible{
@@ -5337,44 +5729,52 @@
 
   .xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:focus-visible\:rvmp-brand-border-accent:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:focus-visible\:rvmp-brand-border-darker:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:active\:ck-editor__editable_inline:active {
-    min-height: 350px;
+  .xl\:focus-visible\:rvmp-footer-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:active\:brand-logo-text:active{
-    font-family: BrandFont;
+  .xl\:focus-visible\:rvmp-footer-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:active\:brand-text:active{
-    font-family: RVMP;
+  .xl\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:active\:rvmp-default-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:active\:rvmp-default-alt-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:active\:rvmp-bg-main:active{
@@ -5444,44 +5844,52 @@
 
   .xl\:active\:rvmp-brand-border-main:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:active\:rvmp-brand-border-accent:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:active\:rvmp-brand-border-highlight:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:active\:rvmp-brand-border-darker:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:first-child\:ck-editor__editable_inline:first-child {
-    min-height: 350px;
+  .xl\:active\:rvmp-footer-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:first-child\:brand-logo-text:first-child{
-    font-family: BrandFont;
+  .xl\:active\:rvmp-footer-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:first-child\:brand-text:first-child{
-    font-family: RVMP;
+  .xl\:active\:rvmp-footer-contact-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:active\:rvmp-footer-contact-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:first-child\:rvmp-default-alt-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:first-child\:rvmp-bg-main:first-child{
@@ -5551,44 +5959,52 @@
 
   .xl\:first-child\:rvmp-brand-border-main:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:first-child\:rvmp-brand-border-accent:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:first-child\:rvmp-brand-border-highlight:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:first-child\:rvmp-brand-border-darker:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:nth-child\:ck-editor__editable_inline:nth-child {
-    min-height: 350px;
+  .xl\:first-child\:rvmp-footer-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:nth-child\:brand-logo-text:nth-child{
-    font-family: BrandFont;
+  .xl\:first-child\:rvmp-footer-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:nth-child\:brand-text:nth-child{
-    font-family: RVMP;
+  .xl\:first-child\:rvmp-footer-contact-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:first-child\:rvmp-footer-contact-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:nth-child\:rvmp-default-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:nth-child\:rvmp-default-alt-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:nth-child\:rvmp-bg-main:nth-child{
@@ -5658,44 +6074,52 @@
 
   .xl\:nth-child\:rvmp-brand-border-main:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:nth-child\:rvmp-brand-border-accent:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:nth-child\:rvmp-brand-border-highlight:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:nth-child\:rvmp-brand-border-darker:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:disabled\:ck-editor__editable_inline:disabled {
-    min-height: 350px;
+  .xl\:nth-child\:rvmp-footer-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:disabled\:brand-logo-text:disabled{
-    font-family: BrandFont;
+  .xl\:nth-child\:rvmp-footer-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:disabled\:brand-text:disabled{
-    font-family: RVMP;
+  .xl\:nth-child\:rvmp-footer-contact-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:nth-child\:rvmp-footer-contact-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:disabled\:rvmp-default-alt-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .xl\:disabled\:rvmp-bg-main:disabled{
@@ -5765,44 +6189,52 @@
 
   .xl\:disabled\:rvmp-brand-border-main:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .xl\:disabled\:rvmp-brand-border-accent:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .xl\:disabled\:rvmp-brand-border-highlight:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .xl\:disabled\:rvmp-brand-border-darker:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .xl\:\!ck-editor__editable_inline {
-    min-height: 350px !important;
+  .xl\:disabled\:rvmp-footer-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .xl\:\!brand-logo-text{
-    font-family: BrandFont !important;
+  .xl\:disabled\:rvmp-footer-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .xl\:\!brand-text{
-    font-family: RVMP !important;
+  .xl\:disabled\:rvmp-footer-contact-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .xl\:disabled\:rvmp-footer-contact-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .xl\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .xl\:\!rvmp-default-alt-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
   }
 
   .xl\:\!rvmp-bg-main{
@@ -5872,46 +6304,54 @@
 
   .xl\:\!rvmp-brand-border-main{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
   }
 
   .xl\:\!rvmp-brand-border-accent{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
   }
 
   .xl\:\!rvmp-brand-border-highlight{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
   }
 
   .xl\:\!rvmp-brand-border-darker{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
+  }
+
+  .xl\:\!rvmp-footer-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .xl\:\!rvmp-footer-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+  }
+
+  .xl\:\!rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .xl\:\!rvmp-footer-contact-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }
 
-@media (min-width: 1536px) {
-  .\32xl\:ck-editor__editable_inline {
-    min-height: 350px;
-  }
-
-  .\32xl\:brand-logo-text{
-    font-family: BrandFont;
-  }
-
-  .\32xl\:brand-text{
-    font-family: RVMP;
-  }
-
+@media (min-width: 1536px){
   .\32xl\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:rvmp-bg-main{
@@ -5981,44 +6421,52 @@
 
   .\32xl\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:hover\:ck-editor__editable_inline:hover {
-    min-height: 350px;
+  .\32xl\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:hover\:brand-logo-text:hover{
-    font-family: BrandFont;
+  .\32xl\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:hover\:brand-text:hover{
-    font-family: RVMP;
+  .\32xl\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:hover\:rvmp-default-alt-text:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:hover\:rvmp-bg-main:hover{
@@ -6088,44 +6536,52 @@
 
   .\32xl\:hover\:rvmp-brand-border-main:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:hover\:rvmp-brand-border-accent:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:hover\:rvmp-brand-border-highlight:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:hover\:rvmp-brand-border-darker:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .group:hover .\32xl\:group-hover\:ck-editor__editable_inline {
-    min-height: 350px;
+  .\32xl\:hover\:rvmp-footer-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .group:hover .\32xl\:group-hover\:brand-logo-text{
-    font-family: BrandFont;
+  .\32xl\:hover\:rvmp-footer-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .group:hover .\32xl\:group-hover\:brand-text{
-    font-family: RVMP;
+  .\32xl\:hover\:rvmp-footer-contact-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:hover\:rvmp-footer-contact-text:hover{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-default-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-bg-main{
@@ -6195,44 +6651,52 @@
 
   .group:hover .\32xl\:group-hover\:rvmp-brand-border-main{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-brand-border-accent{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-brand-border-highlight{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-brand-border-darker{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:focus\:ck-editor__editable_inline:focus {
-    min-height: 350px;
+  .group:hover .\32xl\:group-hover\:rvmp-footer-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:focus\:brand-logo-text:focus{
-    font-family: BrandFont;
+  .group:hover .\32xl\:group-hover\:rvmp-footer-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:focus\:brand-text:focus{
-    font-family: RVMP;
+  .group:hover .\32xl\:group-hover\:rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .group:hover .\32xl\:group-hover\:rvmp-footer-contact-text{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus\:rvmp-default-alt-text:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:focus\:rvmp-bg-main:focus{
@@ -6302,44 +6766,52 @@
 
   .\32xl\:focus\:rvmp-brand-border-main:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:focus\:rvmp-brand-border-accent:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:focus\:rvmp-brand-border-highlight:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:focus\:rvmp-brand-border-darker:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:focus-within\:ck-editor__editable_inline:focus-within {
-    min-height: 350px;
+  .\32xl\:focus\:rvmp-footer-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:focus-within\:brand-logo-text:focus-within{
-    font-family: BrandFont;
+  .\32xl\:focus\:rvmp-footer-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:focus-within\:brand-text:focus-within{
-    font-family: RVMP;
+  .\32xl\:focus\:rvmp-footer-contact-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus\:rvmp-footer-contact-text:focus{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-default-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-default-alt-text:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-bg-main:focus-within{
@@ -6409,44 +6881,52 @@
 
   .\32xl\:focus-within\:rvmp-brand-border-main:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-brand-border-accent:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-brand-border-highlight:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-brand-border-darker:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:focus-visible\:ck-editor__editable_inline:focus-visible {
-    min-height: 350px;
+  .\32xl\:focus-within\:rvmp-footer-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:focus-visible\:brand-logo-text:focus-visible{
-    font-family: BrandFont;
+  .\32xl\:focus-within\:rvmp-footer-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:focus-visible\:brand-text:focus-visible{
-    font-family: RVMP;
+  .\32xl\:focus-within\:rvmp-footer-contact-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-within\:rvmp-footer-contact-text:focus-within{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-bg-main:focus-visible{
@@ -6516,44 +6996,52 @@
 
   .\32xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-brand-border-accent:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-brand-border-highlight:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-brand-border-darker:focus-visible{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:active\:ck-editor__editable_inline:active {
-    min-height: 350px;
+  .\32xl\:focus-visible\:rvmp-footer-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:active\:brand-logo-text:active{
-    font-family: BrandFont;
+  .\32xl\:focus-visible\:rvmp-footer-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:active\:brand-text:active{
-    font-family: RVMP;
+  .\32xl\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:active\:rvmp-default-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:active\:rvmp-default-alt-text:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:active\:rvmp-bg-main:active{
@@ -6623,44 +7111,52 @@
 
   .\32xl\:active\:rvmp-brand-border-main:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:active\:rvmp-brand-border-accent:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:active\:rvmp-brand-border-highlight:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:active\:rvmp-brand-border-darker:active{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:first-child\:ck-editor__editable_inline:first-child {
-    min-height: 350px;
+  .\32xl\:active\:rvmp-footer-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:first-child\:brand-logo-text:first-child{
-    font-family: BrandFont;
+  .\32xl\:active\:rvmp-footer-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:first-child\:brand-text:first-child{
-    font-family: RVMP;
+  .\32xl\:active\:rvmp-footer-contact-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:active\:rvmp-footer-contact-text:active{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:first-child\:rvmp-default-alt-text:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:first-child\:rvmp-bg-main:first-child{
@@ -6730,44 +7226,52 @@
 
   .\32xl\:first-child\:rvmp-brand-border-main:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:first-child\:rvmp-brand-border-accent:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:first-child\:rvmp-brand-border-highlight:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:first-child\:rvmp-brand-border-darker:first-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:nth-child\:ck-editor__editable_inline:nth-child {
-    min-height: 350px;
+  .\32xl\:first-child\:rvmp-footer-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:nth-child\:brand-logo-text:nth-child{
-    font-family: BrandFont;
+  .\32xl\:first-child\:rvmp-footer-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:nth-child\:brand-text:nth-child{
-    font-family: RVMP;
+  .\32xl\:first-child\:rvmp-footer-contact-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:first-child\:rvmp-footer-contact-text:first-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-default-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-default-alt-text:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-bg-main:nth-child{
@@ -6837,44 +7341,52 @@
 
   .\32xl\:nth-child\:rvmp-brand-border-main:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-brand-border-accent:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-brand-border-highlight:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-brand-border-darker:nth-child{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:disabled\:ck-editor__editable_inline:disabled {
-    min-height: 350px;
+  .\32xl\:nth-child\:rvmp-footer-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:disabled\:brand-logo-text:disabled{
-    font-family: BrandFont;
+  .\32xl\:nth-child\:rvmp-footer-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:disabled\:brand-text:disabled{
-    font-family: RVMP;
+  .\32xl\:nth-child\:rvmp-footer-contact-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:nth-child\:rvmp-footer-contact-text:nth-child{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:disabled\:rvmp-default-alt-text:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
   }
 
   .\32xl\:disabled\:rvmp-bg-main:disabled{
@@ -6944,44 +7456,52 @@
 
   .\32xl\:disabled\:rvmp-brand-border-main:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity));
   }
 
   .\32xl\:disabled\:rvmp-brand-border-accent:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity));
   }
 
   .\32xl\:disabled\:rvmp-brand-border-highlight:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity));
   }
 
   .\32xl\:disabled\:rvmp-brand-border-darker:disabled{
     --tw-border-opacity: 1;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity));
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
   }
 
-  .\32xl\:\!ck-editor__editable_inline {
-    min-height: 350px !important;
+  .\32xl\:disabled\:rvmp-footer-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));
   }
 
-  .\32xl\:\!brand-logo-text{
-    font-family: BrandFont !important;
+  .\32xl\:disabled\:rvmp-footer-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:\!brand-text{
-    font-family: RVMP !important;
+  .\32xl\:disabled\:rvmp-footer-contact-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
+  }
+
+  .\32xl\:disabled\:rvmp-footer-contact-text:disabled{
+    --tw-text-opacity: 1;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
   .\32xl\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-default-alt-text{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-color-alt), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-bg-main{
@@ -7051,22 +7571,41 @@
 
   .\32xl\:\!rvmp-brand-border-main{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-one), var(--tw-border-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-brand-border-accent{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-two), var(--tw-border-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-brand-border-highlight{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-three), var(--tw-border-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-brand-border-darker{
     --tw-border-opacity: 1 !important;
-    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-text-opacity)) !important;
+    border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity)) !important;
+  }
+
+  .\32xl\:\!rvmp-footer-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .\32xl\:\!rvmp-footer-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
+  }
+
+  .\32xl\:\!rvmp-footer-contact-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
+  }
+
+  .\32xl\:\!rvmp-footer-contact-text{
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }
-
