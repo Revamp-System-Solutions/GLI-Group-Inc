@@ -47,15 +47,15 @@
                           <h3 class="text-lg font-medium leading-6 mb-0 rvmp-footer-contact-text uppercase semibold">Tell us about your project</h3>
                         </div>
                         <div class="col-span-6">
-                          <label for="first-name" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Full name</label>
+                          <label for="first-name" class="block text-sm font-medium rvmp-footer-contact-text capitalize ">Full name</label>
                           <input type="text" name="first-name" id="first-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
                         </div>
                         <div class="col-span-6">
-                          <label for="email-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Email address</label>
+                          <label for="email-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize ">Email address</label>
                           <input type="text" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
                         </div>
                         <div class="col-span-6">
-                          <label for="street-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize hidden">Message</label>
+                          <label for="street-address" class="block text-sm font-medium rvmp-footer-contact-text capitalize ">Message</label>
                           <textarea type="text" name="street-address" id="street-address" placeholder="Message" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " ></textarea>
                         </div>
                         <div class="col-span-6">
