@@ -55,7 +55,7 @@ class BrandColorSeeder extends Seeder
                 'var_name'      => '--rvmp-bg-main',
                 'alias'         => 'Main Content Background Color',
                 'description'   => 'for affected classes',
-                'value'         => '34, 156, 35',
+                'value'         => '255, 255, 255',
             ],
             [
                 'id'            => 7,
@@ -84,6 +84,34 @@ class BrandColorSeeder extends Seeder
                 'alias'         => 'Banner Font Color',
                 'description'   => 'effects on Hero Banner text',
                 'value'         => '255, 255, 255',
+            ],
+            [
+                'id'            => 11,
+                'var_name'      => '--rvmp-footer-bg',
+                'alias'         => 'Standard Footer Background color',
+                'description'   => 'for affected classes',
+                'value'         => '255, 255, 255',
+            ],
+            [
+                'id'            => 12,
+                'var_name'      => '--rvmp-footer-text',
+                'alias'         => 'Standard Footer Font Color',
+                'description'   => 'effects on Hero Banner text',
+                'value'         => '0, 0, 0',
+            ],
+            [
+                'id'            => 13,
+                'var_name'      => '--rvmp-footer-contact-bg',
+                'alias'         => 'Footer with Contact Form Background color',
+                'description'   => 'for affected classes',
+                'value'         => '204, 204, 204',
+            ],
+            [
+                'id'            => 14,
+                'var_name'      => '--rvmp-footer-contact-text',
+                'alias'         => 'Footer with Contact FormFooter Font Color',
+                'description'   => 'effects on Hero Banner text',
+                'value'         => '0, 0, 0',
             ],
            
         ];

@@ -1,7 +1,6 @@
 <template>
     <app-header></app-header>
-         <div>
-
+    <div class="rvmp-container">
             <TabGroup>
                 <TabList class="flex w-full">
                     <Tab v-slot="{ selected }"
@@ -43,8 +42,8 @@
                     </Tab>
                 </TabList>
                 <TabPanels>
-                    <TabPanel class="w-full">
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <TabPanel class="bg-transparent">
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
                           <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
                             <a v-for="product in products" :key="product.id" :href="product.href" class="group">
                               <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
@@ -53,16 +52,13 @@
                               <h3 class="mt-4 text-sm text-gray-700">
                                 {{ product.name }}
                               </h3>
-                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
-                                {{ product.price }}
-                              </p> -->
                             </a>
                           </div>
                       </div>
                     </TabPanel>
-                    <TabPanel>
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                    <TabPanel class="bg-transparent">
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
+                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 bg-transparent">
                             <a v-for="product in products" :key="product.id" :href="product.href" class="group">
                               <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
                               <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
@@ -70,16 +66,13 @@
                               <h3 class="mt-4 text-sm text-gray-700">
                                 {{ product.name }}
                               </h3>
-                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
-                                {{ product.price }}
-                              </p> -->
                             </a>
                           </div>
                       </div>
                     </TabPanel>
-                    <TabPanel>
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                    <TabPanel class="bg-transparent">
+                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
+                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 bg-transparent">
                             <a v-for="product in products" :key="product.id" :href="product.href" class="group">
                               <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
                               <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
@@ -87,73 +80,20 @@
                               <h3 class="mt-4 text-sm text-gray-700">
                                 {{ product.name }}
                               </h3>
-                              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
-                                {{ product.price }}
-                              </p> -->
                             </a>
                           </div>
                       </div>
                     </TabPanel>
                 </TabPanels>
             </TabGroup>
-    
-    
-  </div>
-
-    <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 border-t border-gray-200">
-      <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900 uppercase semibold">Tell us about your project</h3>
-        </div>
-      </div>
-      <div class="mt-5 md:mt-0 md:col-span-2">
-        <form action="#" method="POST">
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                  <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Subject</label>
-                  <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6">
-                  <label for="street-address" class="block text-sm font-medium text-gray-700">Message</label>
-                  <textarea type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                </div>
-
-              </div>
-            </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
-    <app-footer></app-footer>
+    <app-footer-contact-form />
 </template>
 
 <script>
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
-import AppFooter from "../Partials/AppFooter";
+import AppFooterContactForm from "../Partials/AppFooterContactForm";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
@@ -224,7 +164,7 @@ export default {
         Tab,
         TabPanels,
         TabPanel,
-        AppFooter
+        AppFooterContactForm
     },
     props: {
         errors: Object
