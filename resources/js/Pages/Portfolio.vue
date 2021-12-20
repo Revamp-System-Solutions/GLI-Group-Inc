@@ -9,9 +9,9 @@
                                 :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
                                 style="background-image: url('/images/pages/CABINETS.jpg')">
 
-                            <div class="w-full transition ease-in duration-300 py-2.5"
+                            <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
                             :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl font-bold">GLI</div>
+                                <div class=" text-4xl  font-semibold">GLI</div>
                                 <div>MODULAR CABINETS</div>
                             </div>
                         </button>
@@ -21,9 +21,9 @@
                           <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
                                 :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
                                 style="background-image: url('/images/pages/BUILDERS-1.jpg')">
-                                <div class="w-full transition ease-in duration-300 py-2.5"
+                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
                                 :class="[selected?'bg-green-800':'']">
-                                        <div class=" text-4xl font-bold">GLI</div>
+                                        <div class=" text-4xl  font-semibold">GLI</div>
                                         <div>BUILDERS</div>
                                 </div>
                         </button>
@@ -33,10 +33,10 @@
                          <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
                         :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
                         style="background-image: url('/images/pages/STUDIO.jpg')"> 
-                            <div class="w-full transition ease-in duration-300 py-2.5"
+                            <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
                                 :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl font-bold">GLI</div>
-                                <div>DESIGN STUDIO</div>
+                                <div class=" text-4xl  font-semibold">GLI</div>
+                                <div class="font-thin">DESIGN STUDIO</div>
                             </div>
                         </button>
                     </Tab>
@@ -46,7 +46,7 @@
                       <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
                           <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
                             <a v-for="product in products" :key="product.id" :href="product.href" class="group">
-                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-xl h-18">
+                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-sm h-18">
                               <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
                               </div>
                               <h3 class="mt-4 text-sm text-gray-700">
