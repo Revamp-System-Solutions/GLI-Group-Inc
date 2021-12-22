@@ -31669,153 +31669,98 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mx-auto h-auto"
+  "class": "rvmp-container h-full bg-gray-100"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex lg:flex-row-reverse flex-col-reverse h-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/3 w-full h-auto flex flex-col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full 2xl:px-24 xl:px-12 lg:px-8 lg:py-0 p-6 lg:rvmp-bg-alt rvmp-bg-main lg:rvmp-text-alt rvmp-text-main h-1/2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full grid grid-cols-1 gap-5 place-content-center h-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full flex flex-col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
-  className: "self-end my-2 border-l-8 rvmp-brand-border-main quote"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap"
-}, "Come and Visit us")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "self-end brand-text my-2 italic 2xl:text-lg text-xs whitespace-nowrap"
-}, "we're residing at the coziest place in Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "brand-text italic 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Unit 3, Uypitching Building"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Km. 8, Jose Romero Road"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("6215 Valencia, Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Philippines ")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full 2xl:px-24 xl:px-12 lg:px-8 lg:py-0 p-6 lg:rvmp-bg-main rvmp-bg-alt lg:rvmp-text-main rvmp-text-alt h-1/2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full grid grid-cols-1 gap-5 place-content-center h-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full flex flex-col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
-  className: "self-end my-2 border-l-8 rvmp-brand-border-main quote"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-bold text-right ml-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap"
-}, "Call Us Here")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "self-end brand-text my-2 italic 2xl:text-lg text-xs whitespace-nowrap"
-}, "having trouble or don't have time? Call Us Any time!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "self-end my-2 grid grid-cols-3 sm:gap-x-5 gap-x-3.5 place-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-phone-alt rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "brand-text italic 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
-}, " 0905-000-0000 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "fas fa-envelope rvmp-brand-color-main 2xl:text-5xl xl:text-3xl text-xl self-center text-right"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "brand-text italic 2xl:text-lg text-xs col-span-2 self-center text-right xl:whitespace-nowrap whitespace-normal"
-}, " client.gli@gmail.com ")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-2/3 w-full lg:h-screen"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-full h-96 bg-cover bg-top bg-local",
-  style: {
-    "background-image": "url('/images/pages/map.png')"
-  }
-}, "   ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28"
+  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 pt-9"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
   action: "#",
-  method: "POST"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "shadow overflow-hidden sm:rounded-md"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "px-4 py-5 bg-white sm:p-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "grid grid-cols-6 gap-6"
+  method: "POST",
+  "class": "grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent 2xl:px-40 xl:px-16 lg:px-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-bold mb-4 2xl:text-6xl xl:text-4xl text-3xl whitespace-nowrap"
-}, "Get in touch"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-sm"
-}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec blandit erat. Proin sed arcu id ligula bibendum pretium. Morbi quis euismod mauris. Phasellus interdum leo metus, vel tristique dui aliquet vel. Integer vitae mauris quam. Vivamus tincidunt dignissim ligula, at pulvinar erat luctus vel. Vestibulum finibus vulputate eros, quis faucibus tortor dapibus vel. Phasellus vestibulum massa vel lorem rutrum, sed ultrices sem gravida. Nullam quis mi magna. Fusce tincidunt massa est, in dictum felis pellentesque mollis. Suspendisse fermentum, velit sed ultricies vulputate, massa ante tempor orci, sed pharetra justo sapien interdum lorem.")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 sm:col-span-3"
+  "class": "text-3xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text capitalize text-center"
+}, "Tell us about your project"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text text-center text-lg px-10"
+}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus magna, rutrum nec arcu nec, fringilla scelerisque nisl. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "first-name",
-  "class": "block text-sm font-medium text-gray-700"
-}, "First name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
+}, "Full name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   name: "first-name",
   id: "first-name",
-  autocomplete: "given-name",
-  "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  placeholder: "Full name",
+  autocomplete: "off",
+  "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 sm:col-span-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "last-name",
-  "class": "block text-sm font-medium text-gray-700"
-}, "Last name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  name: "last-name",
-  id: "last-name",
-  autocomplete: "family-name",
-  "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 sm:col-span-4"
+  "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "email-address",
-  "class": "block text-sm font-medium text-gray-700"
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
 }, "Email address"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   name: "email-address",
   id: "email-address",
-  autocomplete: "email",
-  "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  placeholder: "Email Address",
+  autocomplete: "off",
+  "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 sm:col-span-3"
+  "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "last-name",
-  "class": "block text-sm font-medium text-gray-700"
-}, "Subject"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "for": "street-address",
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
+}, "Message"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
   type: "text",
-  name: "last-name",
-  id: "last-name",
-  autocomplete: "family-name",
-  "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  name: "street-address",
+  id: "street-address",
+  placeholder: "Message",
+  autocomplete: "off",
+  "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 resize-none"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 flex items-start"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex items-center h-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "comments",
-  name: "comments",
-  type: "checkbox",
-  "class": "focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ml-3 text-sm"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "comments",
-  "class": "font-medium text-gray-700"
-}, "Need an Architect?"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-gray-500"
-}, "Get notified when someones posts a comment on a posting.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-6 sm:col-span-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "last-name",
-  "class": "block text-sm font-medium text-gray-700"
-}, "Message"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-gray-500 text-sm"
-}, "Tell me about your project (timeline, scope, etc.)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-  name: "last-name",
-  id: "last-name",
-  autocomplete: "family-name",
-  "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "px-4 py-3 bg-gray-50 text-right sm:px-6"
+  "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "submit",
-  "class": "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-}, " Save ")])])])])], -1
+  "class": "bg-green-600 text-white px-4 py-1.5 rounded-md hover:bg-green-700 w-full transition ease-in-out duration-300"
+}, "Sumbit")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 py-9 flex lg:flex-row flex-col space-x-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-1/3 lg:h-48 h-36 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 justify-center place-content-center p-10"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl xl:text-2xl text-lg"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase"
+}, "our location"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text italic 2xl:text-base text-xs text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "Unit 3, Uypitching Building"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "Km. 8, Jose Romero Road"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "6215 Valencia, Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "Philippines")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-1/3 lg:h-48 h-36 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 justify-center place-content-center p-10"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-phone-volume rvmp-brand-color-main 2xl:text-3xl xl:text-2xl text-lg"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase"
+}, "let's talk"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text italic 2xl:text-base text-xs text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "0905-000-0000")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-1/3 lg:h-48 h-36 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 justify-center place-content-center p-10"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl xl:text-2xl text-lg"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase"
+}, "email us"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text italic 2xl:text-base text-xs text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block"
+}, "support@gligroupinc.com")])])])], -1
 /* HOISTED */
 );
 
@@ -32656,7 +32601,7 @@ var _hoisted_2 = {
   "class": "container mx-auto bg-transparent"
 };
 var _hoisted_3 = {
-  "class": "w-full bg-transparent grid lg:grid-cols-6 grid-cols-1 gap-1 my-4"
+  "class": "w-full bg-transparent grid lg:grid-cols-7 grid-cols-1 gap-1 my-4"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"lg:col-span-2 col-span-1 flex flex-col\"><span class=\"text-center mb-3\"><img src=\"/images/brand-logo.png\" class=\"mx-auto lg:w-24 w-16\"></span><p class=\"brand-description-footer lg:text-sm text-xs text-justify lg:px-4 px-3\"><span class=\"brand-logo-text font-semibold\">GLI <span class=\"font-thin\">Group Inc.</span></span> is A Design &amp; Build Firm with Architectural &amp; Engineering Design Services Team and a Construction Services Team. We also have a cabinetry fabrication team, that caters mostly laminated kitchen cabinets, bedroom closets &amp; office tables and cabinetry works.</p></div>", 1);
@@ -32665,7 +32610,7 @@ var _hoisted_5 = {
   "class": "col-span-1 lg:px-0 px-3"
 };
 var _hoisted_6 = {
-  "class": "flex flex-col lg:text-left text-center text-xs lg:text-md mx-auto capitalize font-semibold brand-logo-text space-y-3"
+  "class": "flex flex-col lg:text-left text-center text-xs lg:text-base mx-auto capitalize font-semibold brand-logo-text space-y-3"
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
@@ -32710,7 +32655,7 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-1 space-y-3 lg:px-0 px-3\"><h3 class=\"text-lg font-medium leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase semibold lg:text-left text-center\">Contact Us</h3><div class=\"w-full flex flex-row\"><span class=\"fas fa-map-marker-alt px-2 rvmp-brand-color-main self-center 2xl:text-4xl xl:text-2xl text-xl text-left\"></span><span class=\"brand-text italic 2xl:text-lg text-xs text-left\"> Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines </span></div><div class=\"w-full flex flex-row\"><span class=\"fas fa-phone-alt px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-xl text-lg text-left\"></span><span class=\"brand-text italic 2xl:text-lg text-xs text-left\"> 0905-000-0000 </span></div><div class=\"w-full flex flex-row\"><span class=\"fas fa-envelope px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-xl text-lg text-left\"></span><span class=\"brand-text italic 2xl:text-lg text-xs text-left\"> client.gli@gmail.com </span></div></div>", 1);
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"lg:col-span-2 col-span-1 space-y-3 lg:px-6 px-3\"><h3 class=\"text-lg font-medium leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase semibold lg:text-left text-center\">Contact Us</h3><div class=\"w-full flex flex-row\" id=\"address\"><span class=\"fas fa-map-marker-alt px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-2xl text-xl text-left\"></span><span class=\"brand-text italic 2xl:text-sm text-xs text-left\"> Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines </span></div><div class=\"w-full flex flex-row\" id=\"contact-number\"><span class=\"fas fa-phone-alt px-2 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></span><span class=\"brand-text italic 2xl:text-sm text-xs text-left\"> 0905-000-0000 </span></div><div class=\"w-full flex flex-row\" id=\"contact-email\"><span class=\"fas fa-envelope px-2 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></span><span class=\"brand-text italic 2xl:text-sm text-xs text-left\"> client.gli@gmail.com </span></div><div class=\"w-full grid grid-cols-2 gap-y-1\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-contact-text\"><span class=\"font-semibold\">GLI</span> <span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-contact-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-contact-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-contact-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 1);
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "lg:col-span-2 col-span-1 lg:mx-2 px-3"
@@ -32726,38 +32671,38 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "first-name",
-  "class": "block text-sm font-medium rvmp-footer-contact-text capitalize hidden"
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
 }, "Full name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   name: "first-name",
   id: "first-name",
   placeholder: "Full name",
   autocomplete: "off",
-  "class": "focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300"
+  "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "email-address",
-  "class": "block text-sm font-medium rvmp-footer-contact-text capitalize hidden"
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
 }, "Email address"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   name: "email-address",
   id: "email-address",
   placeholder: "Email Address",
   autocomplete: "off",
-  "class": "focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300"
+  "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "street-address",
-  "class": "block text-sm font-medium rvmp-footer-contact-text capitalize hidden"
+  "class": "text-sm font-medium rvmp-footer-contact-text capitalize hidden"
 }, "Message"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
   type: "text",
   name: "street-address",
   id: "street-address",
   placeholder: "Message",
   autocomplete: "off",
-  "class": "focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300"
+  "class": "focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 resize-none"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-span-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -32767,10 +32712,10 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_16 = {
-  "class": "container px-6 bg-transparent"
+  "class": "container mx-auto bg-transparent"
 };
 var _hoisted_17 = {
-  "class": "lg:grid lg:grid-cols-6 flex flex-col border-t-2 border-gray-100 flex flex-col items-center bg-transparent"
+  "class": "lg:grid lg:grid-cols-6 flex flex-col border-t-2 border-gray-100 items-center bg-transparent"
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
