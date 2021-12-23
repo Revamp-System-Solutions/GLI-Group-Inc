@@ -93,6 +93,15 @@
             --tw-text-opacity: 1;
             color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
         }
+        .carousel__prev {
+            background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
+        }
+        .carousel__next {
+            background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
+        }
+        .carousel__pagination-button {
+            background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
+        }
 
     }
 }

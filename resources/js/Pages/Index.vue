@@ -180,25 +180,28 @@
                 </TabPanels>
             </TabGroup>
     </div>
-    <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 ">
+    <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8">
         <div class=" uppercase text-center my-10">
             <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
         </div>
     
-    <Carousel :itemsToShow="1" :wrapAround="false" :arrow="true">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item mx-8">  <div class="w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6">
-          <i class="fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"></i>
-          <h3 class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase ">email us</h3>
-          <p class="brand-text italic 2xl:text-base text-xs text-center">
-              <span class="block">support@gligroupinc.com</span>
-          </p>
-      </div></div>
-    </Slide>
+    <Carousel :settings="settings" :breakpoints="breakpoints" :warpAround="true">
+        <Slide v-for="slide in 10" :key="slide">
+        <div class="carousel__item m-8">
+            <div class="w-full h-56 shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 lg:p-10 p-6">
+                <i class="fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"></i>
+                <h3 class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase ">email us</h3>
+                <p class="brand-text italic 2xl:text-base text-xs text-center">
+                    <span class="block">support@gligroupinc.com</span>
+                </p>
+            </div>
+        </div>
+        </Slide>
 
-    <template #addons>
-      <Pagination />
-    </template>
+        <template #addons>
+        <Pagination />
+        <Navigation />
+        </template>
   </Carousel>
     </div>
     <app-footer></app-footer>
@@ -212,9 +215,9 @@ import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject, defineComponent } from "vue";
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination } from 'vue3-carousel';
-export default defineComponent ( {
+// import '';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+export default {
     name: "Home",
     components: {
         ErrorsAndMessages,
@@ -228,30 +231,35 @@ export default defineComponent ( {
         Carousel,
         Slide,
         Pagination,
-        
+        Navigation,
     },
     props: {
         errors: Object
     },
-})
+    setup() {
+		return {
+			// carousel settings
+			settings: {
+				itemsToShow: 1,
+				snapAlign: "center",
+			},
+			// breakpoints are mobile first
+			// any settings not specified will fallback to the carousel settings
+			breakpoints: {
+				// 700px and up
+				700: {
+					itemsToShow: 2,
+					snapAlign: "center",
+
+				},
+				// 1024 and up
+				1024: {
+					itemsToShow: 3,
+					snapAlign: "center",
+
+				}
+			}
+		};
+	}
+}
 </script>
-<style scoped>
-.carousel__slide > .carousel__item {
-  transform: scale(1);
-  opacity: 0.5;
-  transition: 0.5s;
-}
-.carousel__slide--visible > .carousel__item {
-  opacity: 1;
-  transform: rotateY(0);
-}
-.carousel__slide--next > .carousel__item {
-  transform: scale(0.9) translate(-10px);
-}
-.carousel__slide--prev > .carousel__item {
-  transform: scale(0.9) translate(10px);
-}
-.carousel__slide--active > .carousel__item {
-  transform: scale(1.1);
-}
-</style>
