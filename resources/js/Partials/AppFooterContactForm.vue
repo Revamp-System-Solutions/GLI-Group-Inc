@@ -4,12 +4,11 @@
             <div class="w-full bg-transparent grid lg:grid-cols-7 grid-cols-1 gap-1 my-4">
                 <div class="lg:col-span-2 col-span-1 flex flex-col">
                       <span class="text-center mb-3"><img src="/images/brand-logo.png" class="mx-auto lg:w-24 w-16 "></span>
-                      <p class="brand-description-footer brand-text font-light lg:text-sm text-xs text-justify lg:px-4 px-3"> <span class="brand-logo-text font-semibold">GLI <span class="font-thin">Group Inc.</span> </span> is A Design & Build Firm with Architectural & Engineering Design Services Team and a Construction Services Team. We also have a cabinetry fabrication team, that caters mostly laminated kitchen cabinets, bedroom closets & office tables and cabinetry works.</p>
-                    
+                      <p class="brand-description-footer brand-text font-light lg:text-sm text-xs text-justify lg:px-4 px-3"> <span class="brand-logo-text font-semibold">GLI <span class="font-thin">Group Inc.</span> </span> is A Design & Build Firm with Architectural & Engineering Design Services Team and a Construction Services Team. We also have a cabinetry fabrication team, that caters mostly laminated kitchen cabinets, bedroom closets & office tables and cabinetry works.</p>       
                   </div>
                 <div class="col-span-1 lg:px-0 px-3">
                   <div class="flex flex-col lg:text-left text-center text-xs lg:text-base mx-auto capitalize font-semibold brand-text space-y-3">
-                    <h3 class="text-lg font-medium leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase font-semibold">Here's what we can offer</h3>
+                    <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase font-semibold">Here's what we can offer</h3>
                     <Disclosure v-slot="{ open }">
                       <DisclosureButton
                         class="flex justify-between w-full bg-transaparent focus:outline-none focus-visible:ring focus-visible:ring-green-500 focus-visible:ring-opacity-75">
@@ -52,7 +51,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-2 col-span-1 space-y-3 lg:px-6 px-3">
-                  <h3 class="text-lg font-medium leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase font-semibold lg:text-left text-center">Contact Us</h3>
+                  <h3 class="text-lg font-semibold leading-6 mb-0 brand-text rvmp-footer-contact-text uppercase lg:text-left text-center">Contact Us</h3>
                     <div class="w-full flex flex-row" id="address" >
                           <span class="fas fa-map-marker-alt px-2 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-2xl text-xl text-left"></span>
                             <span class="brand-text italic 2xl:text-sm text-xs text-left ">
@@ -82,7 +81,7 @@
                 <div class="lg:col-span-2 col-span-1 lg:mx-2 px-3">
                     <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent">
                         <div class="col-span-6">
-                          <h3 class="text-lg font-medium leading-6 mb-0 brand-text rvmp-footer-contact-text capitalize font-semibold lg:text-left text-center">Get in touch</h3>
+                          <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-contact-text capitalize font-semibold lg:text-left text-center">Get in touch</h3>
                         </div>
                         <div class="col-span-6">
                           <label for="first-name" class="text-sm font-medium rvmp-footer-contact-text capitalize hidden">Full name</label>

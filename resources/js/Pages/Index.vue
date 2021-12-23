@@ -180,18 +180,26 @@
                 </TabPanels>
             </TabGroup>
     </div>
-    <div>
+    <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 ">
         <div class=" uppercase text-center my-10">
             <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
         </div>
-        <div class="flex overflow-x-auto w-96">
-            <div class="w-80">1</div>
-            <div class="w-80">2</div>
-            <div class="w-80">3</div>
-            <div class="w-80">4</div>
-            <div class="w-80">5</div>
-            <div class="w-80">6</div>
-        </div>
+    
+    <Carousel :itemsToShow="1" :wrapAround="false" :arrow="true">
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item mx-8">  <div class="w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6">
+          <i class="fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"></i>
+          <h3 class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase ">email us</h3>
+          <p class="brand-text italic 2xl:text-base text-xs text-center">
+              <span class="block">support@gligroupinc.com</span>
+          </p>
+      </div></div>
+    </Slide>
+
+    <template #addons>
+      <Pagination />
+    </template>
+  </Carousel>
     </div>
     <app-footer></app-footer>
 </template>
@@ -203,8 +211,10 @@ import AppFooter from "../Partials/AppFooter";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject} from "vue";
-export default {
+import {computed, inject, defineComponent } from "vue";
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination } from 'vue3-carousel';
+export default defineComponent ( {
     name: "Home",
     components: {
         ErrorsAndMessages,
@@ -214,10 +224,34 @@ export default {
         Tab,
         TabPanels,
         TabPanel,
-        AppFooter
+        AppFooter,
+        Carousel,
+        Slide,
+        Pagination,
+        
     },
     props: {
         errors: Object
     },
-}
+})
 </script>
+<style scoped>
+.carousel__slide > .carousel__item {
+  transform: scale(1);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel__slide--visible > .carousel__item {
+  opacity: 1;
+  transform: rotateY(0);
+}
+.carousel__slide--next > .carousel__item {
+  transform: scale(0.9) translate(-10px);
+}
+.carousel__slide--prev > .carousel__item {
+  transform: scale(0.9) translate(10px);
+}
+.carousel__slide--active > .carousel__item {
+  transform: scale(1.1);
+}
+</style>
