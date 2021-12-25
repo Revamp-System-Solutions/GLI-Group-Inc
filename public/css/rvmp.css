@@ -113,18 +113,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
-.carousel__prev {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.carousel__next {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.carousel__pagination-button {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .hover\:rvmp-default-text:hover{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -238,18 +226,6 @@
 .hover\:rvmp-footer-contact-text:hover{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.hover\:carousel__prev:hover {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.hover\:carousel__next:hover {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.hover\:carousel__pagination-button:hover {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 
 .group:hover .group-hover\:rvmp-default-text{
@@ -367,18 +343,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
-.group:hover .group-hover\:carousel__prev {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.group:hover .group-hover\:carousel__next {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.group:hover .group-hover\:carousel__pagination-button {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .focus\:rvmp-default-text:focus{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -492,18 +456,6 @@
 .focus\:rvmp-footer-contact-text:focus{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.focus\:carousel__prev:focus {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus\:carousel__next:focus {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus\:carousel__pagination-button:focus {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 
 .focus-within\:rvmp-default-text:focus-within{
@@ -621,18 +573,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
-.focus-within\:carousel__prev:focus-within {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus-within\:carousel__next:focus-within {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus-within\:carousel__pagination-button:focus-within {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .focus-visible\:rvmp-default-text:focus-visible{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -746,18 +686,6 @@
 .focus-visible\:rvmp-footer-contact-text:focus-visible{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.focus-visible\:carousel__prev:focus-visible {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus-visible\:carousel__next:focus-visible {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.focus-visible\:carousel__pagination-button:focus-visible {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 
 .active\:rvmp-default-text:active{
@@ -875,18 +803,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
-.active\:carousel__prev:active {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.active\:carousel__next:active {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.active\:carousel__pagination-button:active {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .first-child\:rvmp-default-text:first-child{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -1000,18 +916,6 @@
 .first-child\:rvmp-footer-contact-text:first-child{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.first-child\:carousel__prev:first-child {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.first-child\:carousel__next:first-child {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.first-child\:carousel__pagination-button:first-child {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 
 .nth-child\:rvmp-default-text:nth-child{
@@ -1129,18 +1033,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
 }
 
-.nth-child\:carousel__prev:nth-child {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.nth-child\:carousel__next:nth-child {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.nth-child\:carousel__pagination-button:nth-child {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .disabled\:rvmp-default-text:disabled{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -1254,18 +1146,6 @@
 .disabled\:rvmp-footer-contact-text:disabled{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.disabled\:carousel__prev:disabled {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.disabled\:carousel__next:disabled {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.disabled\:carousel__pagination-button:disabled {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 
 .\!rvmp-default-text{
@@ -1383,18 +1263,6 @@
   color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
 }
 
-.\!carousel__prev {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.\!carousel__next {
-  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
-.\!carousel__pagination-button {
-  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-}
-
 .ck-editor__editable_inline {
   min-height: 350px;
 }
@@ -1405,6 +1273,26 @@
 
 .brand-text{
   font-family: RVMP-Poppins;
+}
+
+.carousel__prev {
+  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
+}
+
+.carousel__next {
+  background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
+}
+
+.carousel__pagination-button {
+  background-color:  rgba(var(--rvmp-brand-color-one), 0.5) !important;
+}
+
+.carousel__pagination-button--active{
+  background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
+}
+
+.carousel__track{
+  height: 650px !important;
 }
 
 @media (min-width: 640px){
@@ -1523,18 +1411,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .sm\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -1648,18 +1524,6 @@
   .sm\:hover\:rvmp-footer-contact-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:hover\:carousel__prev:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:hover\:carousel__next:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:hover\:carousel__pagination-button:hover {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .group:hover .sm\:group-hover\:rvmp-default-text{
@@ -1777,18 +1641,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .group:hover .sm\:group-hover\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .sm\:group-hover\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .sm\:group-hover\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -1902,18 +1754,6 @@
   .sm\:focus\:rvmp-footer-contact-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus\:carousel__prev:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus\:carousel__next:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus\:carousel__pagination-button:focus {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .sm\:focus-within\:rvmp-default-text:focus-within{
@@ -2031,18 +1871,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .sm\:focus-within\:carousel__prev:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus-within\:carousel__next:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus-within\:carousel__pagination-button:focus-within {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -2156,18 +1984,6 @@
   .sm\:focus-visible\:rvmp-footer-contact-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus-visible\:carousel__prev:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus-visible\:carousel__next:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:focus-visible\:carousel__pagination-button:focus-visible {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .sm\:active\:rvmp-default-text:active{
@@ -2285,18 +2101,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .sm\:active\:carousel__prev:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:active\:carousel__next:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:active\:carousel__pagination-button:active {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -2410,18 +2214,6 @@
   .sm\:first-child\:rvmp-footer-contact-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:first-child\:carousel__prev:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:first-child\:carousel__next:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:first-child\:carousel__pagination-button:first-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .sm\:nth-child\:rvmp-default-text:nth-child{
@@ -2539,18 +2331,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .sm\:nth-child\:carousel__prev:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:nth-child\:carousel__next:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:nth-child\:carousel__pagination-button:nth-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -2666,18 +2446,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .sm\:disabled\:carousel__prev:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:disabled\:carousel__next:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:disabled\:carousel__pagination-button:disabled {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .sm\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
@@ -2791,18 +2559,6 @@
   .sm\:\!rvmp-footer-contact-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
-
-  .sm\:\!carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:\!carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .sm\:\!carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 }
 
@@ -2922,18 +2678,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .md\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -3047,18 +2791,6 @@
   .md\:hover\:rvmp-footer-contact-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:hover\:carousel__prev:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:hover\:carousel__next:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:hover\:carousel__pagination-button:hover {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .group:hover .md\:group-hover\:rvmp-default-text{
@@ -3176,18 +2908,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .group:hover .md\:group-hover\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .md\:group-hover\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .md\:group-hover\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -3301,18 +3021,6 @@
   .md\:focus\:rvmp-footer-contact-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus\:carousel__prev:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus\:carousel__next:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus\:carousel__pagination-button:focus {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .md\:focus-within\:rvmp-default-text:focus-within{
@@ -3430,18 +3138,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .md\:focus-within\:carousel__prev:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus-within\:carousel__next:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus-within\:carousel__pagination-button:focus-within {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -3555,18 +3251,6 @@
   .md\:focus-visible\:rvmp-footer-contact-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus-visible\:carousel__prev:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus-visible\:carousel__next:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:focus-visible\:carousel__pagination-button:focus-visible {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .md\:active\:rvmp-default-text:active{
@@ -3684,18 +3368,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .md\:active\:carousel__prev:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:active\:carousel__next:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:active\:carousel__pagination-button:active {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -3809,18 +3481,6 @@
   .md\:first-child\:rvmp-footer-contact-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:first-child\:carousel__prev:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:first-child\:carousel__next:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:first-child\:carousel__pagination-button:first-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .md\:nth-child\:rvmp-default-text:nth-child{
@@ -3938,18 +3598,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .md\:nth-child\:carousel__prev:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:nth-child\:carousel__next:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:nth-child\:carousel__pagination-button:nth-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -4065,18 +3713,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .md\:disabled\:carousel__prev:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:disabled\:carousel__next:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:disabled\:carousel__pagination-button:disabled {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .md\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
@@ -4190,18 +3826,6 @@
   .md\:\!rvmp-footer-contact-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
-
-  .md\:\!carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:\!carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .md\:\!carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 }
 
@@ -4321,18 +3945,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .lg\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -4446,18 +4058,6 @@
   .lg\:hover\:rvmp-footer-contact-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:hover\:carousel__prev:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:hover\:carousel__next:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:hover\:carousel__pagination-button:hover {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .group:hover .lg\:group-hover\:rvmp-default-text{
@@ -4575,18 +4175,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .group:hover .lg\:group-hover\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .lg\:group-hover\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .lg\:group-hover\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -4700,18 +4288,6 @@
   .lg\:focus\:rvmp-footer-contact-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus\:carousel__prev:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus\:carousel__next:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus\:carousel__pagination-button:focus {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .lg\:focus-within\:rvmp-default-text:focus-within{
@@ -4829,18 +4405,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .lg\:focus-within\:carousel__prev:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus-within\:carousel__next:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus-within\:carousel__pagination-button:focus-within {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -4954,18 +4518,6 @@
   .lg\:focus-visible\:rvmp-footer-contact-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus-visible\:carousel__prev:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus-visible\:carousel__next:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:focus-visible\:carousel__pagination-button:focus-visible {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .lg\:active\:rvmp-default-text:active{
@@ -5083,18 +4635,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .lg\:active\:carousel__prev:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:active\:carousel__next:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:active\:carousel__pagination-button:active {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -5208,18 +4748,6 @@
   .lg\:first-child\:rvmp-footer-contact-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:first-child\:carousel__prev:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:first-child\:carousel__next:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:first-child\:carousel__pagination-button:first-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .lg\:nth-child\:rvmp-default-text:nth-child{
@@ -5337,18 +4865,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .lg\:nth-child\:carousel__prev:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:nth-child\:carousel__next:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:nth-child\:carousel__pagination-button:nth-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -5464,18 +4980,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .lg\:disabled\:carousel__prev:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:disabled\:carousel__next:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:disabled\:carousel__pagination-button:disabled {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .lg\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
@@ -5589,18 +5093,6 @@
   .lg\:\!rvmp-footer-contact-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
-
-  .lg\:\!carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:\!carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .lg\:\!carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 }
 
@@ -5720,18 +5212,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .xl\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -5845,18 +5325,6 @@
   .xl\:hover\:rvmp-footer-contact-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:hover\:carousel__prev:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:hover\:carousel__next:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:hover\:carousel__pagination-button:hover {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .group:hover .xl\:group-hover\:rvmp-default-text{
@@ -5974,18 +5442,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .group:hover .xl\:group-hover\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .xl\:group-hover\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .xl\:group-hover\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -6099,18 +5555,6 @@
   .xl\:focus\:rvmp-footer-contact-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus\:carousel__prev:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus\:carousel__next:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus\:carousel__pagination-button:focus {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .xl\:focus-within\:rvmp-default-text:focus-within{
@@ -6228,18 +5672,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .xl\:focus-within\:carousel__prev:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus-within\:carousel__next:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus-within\:carousel__pagination-button:focus-within {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -6353,18 +5785,6 @@
   .xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus-visible\:carousel__prev:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus-visible\:carousel__next:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:focus-visible\:carousel__pagination-button:focus-visible {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .xl\:active\:rvmp-default-text:active{
@@ -6482,18 +5902,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .xl\:active\:carousel__prev:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:active\:carousel__next:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:active\:carousel__pagination-button:active {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -6607,18 +6015,6 @@
   .xl\:first-child\:rvmp-footer-contact-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:first-child\:carousel__prev:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:first-child\:carousel__next:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:first-child\:carousel__pagination-button:first-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .xl\:nth-child\:rvmp-default-text:nth-child{
@@ -6736,18 +6132,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .xl\:nth-child\:carousel__prev:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:nth-child\:carousel__next:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:nth-child\:carousel__pagination-button:nth-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -6863,18 +6247,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .xl\:disabled\:carousel__prev:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:disabled\:carousel__next:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:disabled\:carousel__pagination-button:disabled {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .xl\:\!rvmp-default-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
@@ -6988,18 +6360,6 @@
   .xl\:\!rvmp-footer-contact-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
-
-  .xl\:\!carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:\!carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .xl\:\!carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 }
 
@@ -7119,18 +6479,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .\32xl\:hover\:rvmp-default-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -7244,18 +6592,6 @@
   .\32xl\:hover\:rvmp-footer-contact-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:hover\:carousel__prev:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:hover\:carousel__next:hover {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:hover\:carousel__pagination-button:hover {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-default-text{
@@ -7373,18 +6709,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .group:hover .\32xl\:group-hover\:carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .\32xl\:group-hover\:carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .group:hover .\32xl\:group-hover\:carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .\32xl\:focus\:rvmp-default-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -7498,18 +6822,6 @@
   .\32xl\:focus\:rvmp-footer-contact-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus\:carousel__prev:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus\:carousel__next:focus {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus\:carousel__pagination-button:focus {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .\32xl\:focus-within\:rvmp-default-text:focus-within{
@@ -7627,18 +6939,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:focus-within\:carousel__prev:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus-within\:carousel__next:focus-within {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus-within\:carousel__pagination-button:focus-within {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .\32xl\:focus-visible\:rvmp-default-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -7752,18 +7052,6 @@
   .\32xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus-visible\:carousel__prev:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus-visible\:carousel__next:focus-visible {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:focus-visible\:carousel__pagination-button:focus-visible {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .\32xl\:active\:rvmp-default-text:active{
@@ -7881,18 +7169,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:active\:carousel__prev:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:active\:carousel__next:active {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:active\:carousel__pagination-button:active {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .\32xl\:first-child\:rvmp-default-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -8006,18 +7282,6 @@
   .\32xl\:first-child\:rvmp-footer-contact-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:first-child\:carousel__prev:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:first-child\:carousel__next:first-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:first-child\:carousel__pagination-button:first-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .\32xl\:nth-child\:rvmp-default-text:nth-child{
@@ -8135,18 +7399,6 @@
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
   }
 
-  .\32xl\:nth-child\:carousel__prev:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:nth-child\:carousel__next:nth-child {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:nth-child\:carousel__pagination-button:nth-child {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
   .\32xl\:disabled\:rvmp-default-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
@@ -8260,18 +7512,6 @@
   .\32xl\:disabled\:rvmp-footer-contact-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:disabled\:carousel__prev:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:disabled\:carousel__next:disabled {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:disabled\:carousel__pagination-button:disabled {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
   }
 
   .\32xl\:\!rvmp-default-text{
@@ -8388,17 +7628,4 @@
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
-
-  .\32xl\:\!carousel__prev {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:\!carousel__next {
-    background-color: rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
-
-  .\32xl\:\!carousel__pagination-button {
-    background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
-  }
 }
-

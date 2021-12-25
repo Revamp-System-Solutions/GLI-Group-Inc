@@ -185,15 +185,20 @@
             <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
         </div>
     
-    <Carousel :settings="settings" :breakpoints="breakpoints" :warpAround="true">
-        <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item m-8">
-            <div class="w-full h-56 shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 lg:p-10 p-6">
-                <i class="fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"></i>
-                <h3 class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase ">email us</h3>
-                <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">support@gligroupinc.com</span>
+    <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
+        <Slide v-for="slide in 10" :key="slide" >
+        <div class="carousel__item m-4" >
+            <div class="w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
+                <img src="/images/pages/mission.jpg" class="rounder-t-md"/>
+                <div class="w-full text-center ratings text-yellow-400 space-x-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="p-4 testimonial-content">
+                    <p class="brand-text italic text-xs text-center mb-5 font-light">
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
+                <h3 class="text-base font-semibold leading-6 mb-0 brand-text rvmp-footer-contact-text capitalize">Elonzo Musk</h3>
+                <h2 class="text-xs font-light leading-6 brand-text rvmp-footer-contact-text capitalize">Tesla</h2>
+                </div>
+                
             </div>
         </div>
         </Slide>
@@ -214,8 +219,7 @@ import AppFooter from "../Partials/AppFooter";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject, defineComponent } from "vue";
-// import '';
+import {computed, inject } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 export default {
     name: "Home",
@@ -241,21 +245,26 @@ export default {
 			// carousel settings
 			settings: {
 				itemsToShow: 1,
-				snapAlign: "center",
+				snapAlign: "center-odd",
 			},
 			// breakpoints are mobile first
 			// any settings not specified will fallback to the carousel settings
 			breakpoints: {
 				// 700px and up
 				700: {
-					itemsToShow: 2,
-					snapAlign: "center",
+					itemsToShow: 1.95,
+					snapAlign: "center-odd",
 
 				},
 				// 1024 and up
 				1024: {
-					itemsToShow: 3,
-					snapAlign: "center",
+					itemsToShow: 2.95,
+					snapAlign: "center-odd",
+
+				},
+                1280: {
+					itemsToShow: 3.95,
+					snapAlign: "center-odd",
 
 				}
 			}

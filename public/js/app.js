@@ -28155,7 +28155,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import '';
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -28182,20 +28181,24 @@ __webpack_require__.r(__webpack_exports__);
       // carousel settings
       settings: {
         itemsToShow: 1,
-        snapAlign: "center"
+        snapAlign: "center-odd"
       },
       // breakpoints are mobile first
       // any settings not specified will fallback to the carousel settings
       breakpoints: {
         // 700px and up
         700: {
-          itemsToShow: 2,
-          snapAlign: "center"
+          itemsToShow: 1.95,
+          snapAlign: "center-odd"
         },
         // 1024 and up
         1024: {
-          itemsToShow: 3,
-          snapAlign: "center"
+          itemsToShow: 2.95,
+          snapAlign: "center-odd"
+        },
+        1280: {
+          itemsToShow: 3.95,
+          snapAlign: "center-odd"
         }
       }
     };
@@ -31912,18 +31915,33 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "carousel__item m-8"
+  "class": "carousel__item m-4"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full h-56 shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 lg:p-10 p-6"
+  "class": "w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/pages/mission.jpg",
+  "class": "rounder-t-md"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-full text-center ratings text-yellow-400 space-x-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
-  "class": "text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-contact-text uppercase"
-}, "email us"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "brand-text italic 2xl:text-base text-xs text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "support@gligroupinc.com")])])], -1
+  "class": "fas fa-star"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-star"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-star"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-star"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-star"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "p-4 testimonial-content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text italic text-xs text-center mb-5 font-light"
+}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-base font-semibold leading-6 mb-0 brand-text rvmp-footer-contact-text capitalize"
+}, "Elonzo Musk"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "text-xs font-light leading-6 brand-text rvmp-footer-contact-text capitalize"
+}, "Tesla")])])], -1
 /* HOISTED */
 );
 
@@ -32066,7 +32084,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
     settings: $setup.settings,
     breakpoints: $setup.breakpoints,
-    warpAround: true
+    wrapAround: true,
+    mouseDrag: true
   }, {
     addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation)];
