@@ -4,7 +4,7 @@
     <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28 "  >
         <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
             <div class="w-full h-3/4 lg:py-36 lg:pl-0 p-6 static" >
-                <div class=" lg:py-36 lg:my-12 static">
+                <div class="lg:py-36 lg:my-12 static">
                     <div class="rvmp-bg-main bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full ">  
                        <blockquote className="self-start border-l-8 my-2">
                             <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold">MEET THE CEO OF</h2>

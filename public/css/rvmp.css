@@ -1292,7 +1292,8 @@
 }
 
 .carousel__track{
-  height: 650px !important;
+  height: 600px !important;
+  margin: 20px 0px 20px 0px !important;
 }
 
 @media (min-width: 640px){

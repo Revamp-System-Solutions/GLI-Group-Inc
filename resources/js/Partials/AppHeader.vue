@@ -27,26 +27,25 @@
 						 	Services
 						</a>
 						<div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="rvmp-bg-main text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" ref="popoverDropdownRef">
-							<a v-if="!switchInertia" href="#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Design Studio
+							<a v-if="!switchInertia" href="#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Modular Cabinets
 							</a>
 							<a v-if="!switchInertia" href="#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Builders
 							</a>
-							<a v-if="!switchInertia" href="#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Modular Cabinets
-							</a>
-
-							<inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+							<a v-if="!switchInertia" href="#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Design Studio
+							</a>
+							
+							<inertia-link v-if="switchInertia" href="/home#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Modular Cabinets
 							</inertia-link>
-							<inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+							<inertia-link v-if="switchInertia" href="/home#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Builders
 							</inertia-link>
-							<inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Modular Cabinets
+							<inertia-link v-if="switchInertia" href="/home#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Design Studio
 							</inertia-link>
-
 						</div>
 					</div>
 				</li>
@@ -72,11 +71,15 @@
 <script>
 import { createPopper } from "@popperjs/core";
 import { directive } from "vue3-click-away";
+
 export default {
     name: "AppHeader",
 	directives: {
     	ClickAway: directive
   	},
+	  components: {
+  
+  },
 	 data: () => ({
     	dropdownPopoverShow: false,
 		switchInertia: false,

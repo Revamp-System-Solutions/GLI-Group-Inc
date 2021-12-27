@@ -8,18 +8,18 @@
                     <div class="flex lg:flex-row flex-col text-center text-xs lg:text-base mx-auto uppercase font-semibold brand-logo-text">
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#designstudio" class="text-black hover:text-green-600">Design Studio</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.studio') " class="text-black hover:text-green-600 ">
+                            <inertia-link v-if="switchInertia"  href="/home#designstudio"  class="text-black hover:text-green-600 ">
 								Design Studio
 							</inertia-link></span>
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#builders" class="text-black hover:text-green-600">Builders</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.builders') " class="text-black hover:text-green-600 ">
+                            <inertia-link v-if="switchInertia"  href="/home#builders"  class="text-black hover:text-green-600 ">
 								Builders
 							</inertia-link>
                             </span>
                         <span class="mx-2">
                             <a v-if="!switchInertia" href="#modularcabinets" class="text-black hover:text-green-600">Modular Cabinets</a>
-                            <inertia-link v-if="switchInertia" :href="$route('guest.modcabinet') " class="text-black hover:text-green-600 ">
+                            <inertia-link v-if="switchInertia"  href="/home#modularcabinets" class="text-black hover:text-green-600 ">
 								Modular Cabinets
 							</inertia-link>
                             </span>

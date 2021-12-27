@@ -118,5 +118,6 @@
     background-color:  rgba(var(--rvmp-brand-color-one), 1) !important;
 }
 .carousel__track{
-    height: 650px !important;
+    height: 600px !important;
+    margin: 20px 0px 20px 0px !important;
 }

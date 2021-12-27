@@ -1,221 +1,227 @@
 <template>
     <app-header></app-header>
-    <div  class="flex lg:flex-row flex-col-reverse mx-auto h-full lg:px-36 md:px-2">
-        <div class="lg:w-2/5 my-auto p-5 py-10 lg:-mr-28 z-10 bg-white opacity-75 ">
-            <ul class="border-l-4 px-5 uppercase text-lg font-bold">
-                <li>simple</li>
-                <li>modern</li>
-                <li>innovative</li>
-                <li>residential architecture</li>
-            </ul>
-            <div class="font-light italic mt-20 mb-10">
-                Our team of professionals will help you turn your dream house into reality fast.
+    <div class="rvmp-container h-full space-y-6 mb-8">
+        <div  class="h-auto 2xl:px-40 xl:px-16 lg:px-8"  >
+        <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative ">
+            <div class="lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-70" >
+                <div class="lg:py-36 lg:my-12 lg:static">
+                    <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2  w-full lg:space-y-10 space-y-5">  
+                       <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2">
+                            <ul class="px-5 uppercase lg:mt-0 mt-8 text-lg font-bold">
+                                <li>simple</li>
+                                <li>modern</li>
+                                <li>innovative</li>
+                                <li>residential architecture</li>
+                            </ul>
+                        </blockquote>
+                        <div class="font-light italic lg:mt-20 lg:mb-10">
+                             Our team of professionals will help you turn your dream house into reality fast.
+                        </div>
+                        <div class="space-x-5 flex lg:justify-start justify-center">
+                            <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Give us a Call!</button>
+                            <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</button>
+                        </div>
+                    </div>            
+                </div>               
             </div>
-            <div class="space-x-5">
-                <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">Give us a Call!</button>
-                <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</button>
+            <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/section-1.jpg')" >
+                        &nbsp;
             </div>
         </div>
-        <div class="lg:w-4/6 lg:right-0 bg-cover bg-center"><img src="/images/pages/section-1.jpg"></div>
     </div>
-    <div>
-        <div class=" uppercase text-center my-10">
-            <span class="border-b-4 text-xl font-bold pb-2.5">Here's what we can offer</span>
-        </div>
-            <TabGroup>
-                <TabList class="flex w-full">
-                    <Tab v-slot="{ selected }"
-                         class="w-1/3 bg-green-600">
-                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                                style="background-image: url('/images/pages/CABINETS.jpg')">
-
-                            <div class="w-full transition ease-in duration-300 py-2.5"
-                            :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl font-bold">GLI</div>
-                                <div>MODULAR CABINETS</div>
+        <div>
+            <div class="uppercase text-center">
+                <span class="border-b-4 text-xl font-bold pb-2.5">Here's what we can offer</span>
+            </div>
+            <div class="tab-container mt-10" >
+                <TabGroup >
+                    <TabList class="flex w-full">
+                        <Tab v-slot="{ selected }" id="modularcabinets"
+                            class="w-1/3  bg-cover bg-center" style="background-image: url('/images/pages/CABINETS.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96  transition ease-in duration-300"
+                                    :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                :class="[selected?'rvmp-brand-bg-darker':'']">
+                                    <div class="text-4xl font-semibold">GLI</div>
+                                    <div class="font-thin">MODULAR CABINETS</div>
+                                </div>
+                            </button>
+                        </Tab>
+                        <Tab v-slot="{ selected }" id="builders"
+                            class="w-1/3 bg-cover bg-center"  style="background-image: url('/images/pages/BUILDERS-1.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96  transition ease-in duration-300"
+                                    :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                    <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                    :class="[selected?'rvmp-brand-bg-darker':'']">
+                                            <div class="text-4xl font-semibold">GLI</div>
+                                            <div class="font-thin">BUILDERS</div>
+                                    </div>
+                            </button>
+                        </Tab>
+                        <Tab v-slot="{ selected }" id="designstudio"
+                        class="w-1/3  bg-cover bg-center" style="background-image: url('/images/pages/STUDIO.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96 transition ease-in duration-300"
+                            :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                    :class="[selected?'rvmp-brand-bg-darker':'']">
+                                    <div class="text-4xl font-semibold">GLI</div>
+                                    <div class="font-thin">DESIGN STUDIO</div>
+                                </div>
+                            </button>
+                        </Tab>
+                    </TabList>
+                    <TabPanels>
+                        <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/CABINETS.jpg">
                             </div>
-                        </button>
-                    </Tab>
-                    <Tab v-slot="{ selected }"
-                         class="w-1/3 bg-green-600">
-                          <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                                style="background-image: url('/images/pages/BUILDERS-1.jpg')">
-                                <div class="w-full transition ease-in duration-300 py-2.5"
-                                :class="[selected?'bg-green-800':'']">
-                                        <div class=" text-4xl font-bold">GLI</div>
-                                        <div>BUILDERS</div>
-                                </div>
-                        </button>
-                    </Tab>
-                    <Tab v-slot="{ selected }"
-                    class="w-1/3  bg-green-600">
-                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                        :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                        style="background-image: url('/images/pages/STUDIO.jpg')">
-                            <div class="w-full transition ease-in duration-300 py-2.5"
-                                :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl font-bold">GLI</div>
-                                <div>DESIGN STUDIO</div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold">
+                                        <li>Here at GLI Modular Cabinets</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                        <span class="">
+                                            firm building
+                                        </span>
+                                        <span class="text-green-800">
+                                            Structures
+                                        </span>
+                                    </div>
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                        is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the
+                                        1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                        type specimen book. It has survived not only five centuries, but also the leap into
+                                        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">
+                                            Give us a Call!
+                                        </button>
+                                        <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                            Our Portfolio
+                                        </button>
+                                    </div>
                             </div>
-                        </button>
-                    </Tab>
-                </TabList>
-                <TabPanels>
-                    <TabPanel class="flex items-center text-center m-20 space-x-10">
-                        <div class="w-1/2">
-                            <img src="/images/pages/CABINETS.jpg">
-                        </div>
-                        <div class="w-1/2 space-y-10">
-                                <ul class="border-l-4 text-left pl-2.5 font-bold">
-                                    <li>Here at GLI Modular Cabinets</li>
-                                    <li>We offer you</li>
-                                </ul>
-                                <div class="text-5xl uppercase font-bold text-left">
-                                    <div class="">
-                                        firm building
+                        </TabPanel>
+                        <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/BUILDERS-1.jpg">
+                            </div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                        <li>Here at GLI Builders</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                        <span class="">
+                                            firm building
+                                        </span>
+                                        <span class="text-green-800">
+                                            Structures
+                                        </span>
                                     </div>
-                                    <div class="text-green-800">
-                                        Structures
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                        is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the
+                                        1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                        type specimen book. It has survived not only five centuries, but also the leap into
+                                        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">
+                                            Give us a Call!
+                                        </button>
+                                        <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                            Our Portfolio
+                                        </button>
                                     </div>
-                                </div>
-                                <p class="text-left pl-32">
-                                    is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
-                                    type specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                </p>
-                                <div class="space-x-5 flex justify-start">
-                                    <a href="$route('guest.portfolio')">
-                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
-                                        Give us a Call!
-                                    </button>
-                                    </a>
-                                    <a href="$route('guest.contact')">
-                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
-                                        Our Portfolio
-                                    </button>
-                                    </a>
-                                </div>
-                        </div>
-                    </TabPanel>
-                    <TabPanel class="flex items-center text-center m-20 space-x-10">
-                        <div class="w-1/2">
-                            <img src="/images/pages/BUILDERS-1.jpg">
-                        </div>
-                        <div class="w-1/2 space-y-10">
-                                <ul class="border-l-4 text-left pl-2.5 font-bold">
-                                    <li>Here at GLI Modular Cabinets</li>
-                                    <li>We offer you</li>
-                                </ul>
-                                <div class="text-5xl uppercase font-bold text-left">
-                                    <div class="">
-                                        firm building
+                            </div>
+                        </TabPanel>
+                        <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/STUDIO.jpg">
+                            </div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                        <li>Here at GLI Design Studio</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                        <span class="">
+                                            firm building
+                                        </span>
+                                        <span class="text-green-800">
+                                            Structures
+                                        </span>
                                     </div>
-                                    <div class="text-green-800">
-                                        Structures
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                        is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the
+                                        1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                        type specimen book. It has survived not only five centuries, but also the leap into
+                                        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">
+                                            Give us a Call!
+                                        </button>
+                                        <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
+                                            Our Portfolio
+                                        </button>
                                     </div>
-                                </div>
-                                <p class="text-left pl-32">
-                                    is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
-                                    type specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                </p>
-                                <div class="space-x-5 flex justify-start">
-                                    <a href="$route('guest.portfolio')">
-                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
-                                        Give us a Call!
-                                    </button>
-                                    </a>
-                                    <a href="$route('guest.contact')">
-                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
-                                        Our Portfolio
-                                    </button>
-                                    </a>
-                                </div>
-                        </div>
-                    </TabPanel>
-                    <TabPanel class="flex items-center text-center m-20 space-x-10">
-                        <div class="w-1/2">
-                            <img src="/images/pages/STUDIO.jpg">
-                        </div>
-                        <div class="w-1/2 space-y-10">
-                                <ul class="border-l-4 text-left pl-2.5 font-bold">
-                                    <li>Here at GLI Modular Cabinets</li>
-                                    <li>We offer you</li>
-                                </ul>
-                                <div class="text-5xl uppercase font-bold text-left">
-                                    <div class="">
-                                        firm building
-                                    </div>
-                                    <div class="text-green-800">
-                                        Structures
-                                    </div>
-                                </div>
-                                <p class="text-left pl-32">
-                                    is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the
-                                    1500s, when an unknown printer took a galley of type and scrambled it to make a
-                                    type specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                </p>
-                                <div class="space-x-5 flex justify-start">
-                                    <a href="$route('guest.portfolio')">
-                                    <button class="bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 transition ease-in-out duration-300">
-                                        Give us a Call!
-                                    </button>
-                                    </a>
-                                    <a href="$route('guest.contact')">
-                                    <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">
-                                        Our Portfolio
-                                    </button>
-                                    </a>
-                                </div>
-                        </div>
-                    </TabPanel>
-                </TabPanels>
-            </TabGroup>
-    </div>
-    <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8">
-        <div class=" uppercase text-center my-10">
-            <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
-        </div>
-    
-    <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
-        <Slide v-for="slide in 10" :key="slide" >
-        <div class="carousel__item m-4" >
-            <div class="w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
-                <img src="/images/pages/mission.jpg" class="rounder-t-md"/>
-                <div class="w-full text-center ratings text-yellow-400 space-x-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <div class="p-4 testimonial-content">
-                    <p class="brand-text italic text-xs text-center mb-5 font-light">
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <h3 class="text-base font-semibold leading-6 mb-0 brand-text rvmp-footer-contact-text capitalize">Elonzo Musk</h3>
-                <h2 class="text-xs font-light leading-6 brand-text rvmp-footer-contact-text capitalize">Tesla</h2>
-                </div>
-                
+                            </div>
+                        </TabPanel>
+                    </TabPanels>
+                </TabGroup>
             </div>
         </div>
-        </Slide>
-
-        <template #addons>
-        <Pagination />
-        <Navigation />
-        </template>
-  </Carousel>
+        <div>
+            <div class="uppercase text-center">
+                    <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
+            </div>
+            <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8 ">    
+                <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
+                    <Slide v-for="slide in 10" :key="slide" >
+                    <div class="carousel__item m-4" >
+                        <div class="w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
+                            <img src="/images/pages/mission.jpg" class="rounder-t-md"/>
+                            
+                            <div class="p-4 testimonial-content space-y-3">
+                                <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </p>
+                                <p class="brand-text italic text-xs text-center mb-0 font-light">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <p>
+                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-contact-text capitalize block">Elonzo Musk</strong>
+                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-contact-text capitalize">Tesla</span>
+                                </p>
+                            </div>  
+                        </div>
+                    </div>
+                    </Slide>
+                    <template #addons>
+                        <Pagination />
+                        <Navigation />
+                    </template>
+                </Carousel>
+            </div>
+        </div>
     </div>
-    <app-footer></app-footer>
+    <app-footer-small></app-footer-small>
 </template>
 
 <script>
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
-import AppFooter from "../Partials/AppFooter";
+import AppFooterSmall from "../Partials/AppFooterSmall";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
@@ -231,7 +237,7 @@ export default {
         Tab,
         TabPanels,
         TabPanel,
-        AppFooter,
+        AppFooterSmall,
         Carousel,
         Slide,
         Pagination,
@@ -245,24 +251,23 @@ export default {
 			// carousel settings
 			settings: {
 				itemsToShow: 1,
-				snapAlign: "center-odd",
+				snapAlign: "center",
 			},
-			// breakpoints are mobile first
-			// any settings not specified will fallback to the carousel settings
 			breakpoints: {
-				// 700px and up
-				700: {
+				// md
+				768: {
 					itemsToShow: 1.95,
 					snapAlign: "center-odd",
 
 				},
-				// 1024 and up
+				// lg
 				1024: {
 					itemsToShow: 2.95,
 					snapAlign: "center-odd",
 
 				},
-                1280: {
+                //custom
+                1440: {
 					itemsToShow: 3.95,
 					snapAlign: "center-odd",
 
