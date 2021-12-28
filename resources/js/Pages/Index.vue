@@ -7,7 +7,7 @@
                 <div class="lg:py-36 lg:my-12 lg:static">
                     <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2  w-full lg:space-y-10 space-y-5">  
                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2">
-                            <ul class="px-5 uppercase lg:mt-0 mt-8 text-lg font-bold">
+                            <ul class="px-5 uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
                                 <li>simple</li>
                                 <li>modern</li>
                                 <li>innovative</li>
@@ -31,7 +31,7 @@
     </div>
         <div>
             <div class="uppercase text-center">
-                <span class="border-b-4 text-xl font-bold pb-2.5">Here's what we can offer</span>
+                <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Here's what we can offer</span>
             </div>
             <div class="tab-container mt-10" >
                 <TabGroup >
@@ -84,7 +84,7 @@
                                         <span class="">
                                             firm building
                                         </span>
-                                        <span class="text-green-800">
+                                        <span class="rvmp-brand-color-highlight">
                                             Structures
                                         </span>
                                     </div>
@@ -118,7 +118,7 @@
                                         <span class="">
                                             firm building
                                         </span>
-                                        <span class="text-green-800">
+                                        <span class="rvmp-brand-color-highlight">
                                             Structures
                                         </span>
                                     </div>
@@ -152,7 +152,7 @@
                                         <span class="">
                                             firm building
                                         </span>
-                                        <span class="text-green-800">
+                                        <span class="rvmp-brand-color-highlight">
                                             Structures
                                         </span>
                                     </div>
@@ -179,15 +179,13 @@
         </div>
         <div>
             <div class="uppercase text-center">
-                    <span class="border-b-4 text-xl font-bold pb-2.5">Our Client's Testimonial</span>
+                    <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Our Client's Testimonial</span>
             </div>
             <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8 ">    
                 <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
                     <Slide v-for="slide in 10" :key="slide" >
-                    <div class="carousel__item m-4" >
-                        <div class="w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
-                            <img src="/images/pages/mission.jpg" class="rounder-t-md"/>
-                            
+                        <div class="carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
+                            <img src="/images/pages/mission.jpg" class="rounded-t-md"/>            
                             <div class="p-4 testimonial-content space-y-3">
                                 <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0">
                                     <i class="fas fa-star"></i>
@@ -205,7 +203,6 @@
                                 </p>
                             </div>  
                         </div>
-                    </div>
                     </Slide>
                     <template #addons>
                         <Pagination />
