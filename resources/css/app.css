@@ -5,6 +5,7 @@
 @import '/css/font-family.css';
 @import '/css/rvmp.css';
 @import '/css/vue-color-kit.css';
+@import 'vue3-carousel/dist/carousel.css';
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -24,4 +25,22 @@
     background: rgb(var(--rvmp-brand-color-one)) !important;
     top: unset !important;
     bottom: 0 !important;
+}
+.carousel__slide > .carousel__item {
+  transform: scale(1);
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel__slide--visible > .carousel__item {
+  opacity: 1;
+  transform: rotateY(0);
+}
+.carousel__slide--next > .carousel__item {
+  transform: scale(0.9) translate(-10px);
+}
+.carousel__slide--prev > .carousel__item {
+  transform: scale(0.9) translate(10px);
+}
+.carousel__slide--active > .carousel__item {
+  transform: scale(1.1);
 }
