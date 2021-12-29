@@ -331,8 +331,6 @@ export default {
             isHashSiteColor,
             closeModal() {
                 isOpen.value = false
-
-                
             },
             openModal(cb) {
                 isOpen.value = true

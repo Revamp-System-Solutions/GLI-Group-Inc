@@ -1,39 +1,37 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
-        <div  class="h-auto 2xl:px-40 xl:px-16 lg:px-8"  >
-        <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative ">
-            <div class="lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-70" >
-                <div class="lg:py-36 lg:my-12 lg:static">
-                    <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2  w-full lg:space-y-10 space-y-5">  
-                       <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2">
-                            <ul class="px-5 uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
-                                <li>simple</li>
-                                <li>modern</li>
-                                <li>innovative</li>
-                                <li>residential architecture</li>
-                            </ul>
-                        </blockquote>
-                        <div class="font-light italic lg:mt-20 lg:mb-10">
-                             Our team of professionals will help you turn your dream house into reality fast.
-                        </div>
-                        <div class="space-x-5 flex lg:justify-start justify-center">
-                            <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Give us a Call!</button>
-                            <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</button>
-                        </div>
-                    </div>            
-                </div>               
-            </div>
-            <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/section-1.jpg')" >
-                        &nbsp;
+        <div class="h-auto 2xl:px-40 xl:px-16 lg:px-8" id="rvmp-lead-section-1">
+            <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
+                <div class="lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80">
+                    <div class="lg:py-36 lg:my-12 lg:static">
+                        <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">  
+                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2" id="rvmp-lead-heading">
+                                <ul class="px-5 uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
+                                    <li>simple</li>
+                                    <li>modern</li>
+                                    <li>innovative</li>
+                                    <li>residential architecture</li>
+                                </ul>
+                            </blockquote>
+                            <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text">
+                                Our team of professionals will help you turn your dream house into reality fast.
+                            </div>
+                            <div class="space-x-5 flex lg:justify-start justify-center" id="rvmp-lead-cta">
+                                <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Give us a Call!</button>
+                                <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</button>
+                            </div>
+                        </div>            
+                    </div>               
+                </div>
+                <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" id="rvmp-lead-image" style="background-image: url('/images/pages/section-1.jpg')" >&nbsp;</div>
             </div>
         </div>
-    </div>
-        <div>
-            <div class="uppercase text-center">
+        <div id="rvmp-services-section-1">
+            <div class="uppercase text-center" id="rvmp-services-heading">
                 <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Here's what we can offer</span>
             </div>
-            <div class="tab-container mt-10" >
+            <div class="tab-container mt-10" id="rvmp-services-content">
                 <TabGroup >
                     <TabList class="flex w-full">
                         <Tab v-slot="{ selected }" id="modularcabinets"
@@ -80,7 +78,7 @@
                                         <li>Here at GLI Modular Cabinets</li>
                                         <li>We offer you</li>
                                     </ul>
-                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
                                         <span class="">
                                             firm building
                                         </span>
@@ -114,7 +112,7 @@
                                         <li>Here at GLI Builders</li>
                                         <li>We offer you</li>
                                     </ul>
-                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
                                         <span class="">
                                             firm building
                                         </span>
@@ -148,7 +146,7 @@
                                         <li>Here at GLI Design Studio</li>
                                         <li>We offer you</li>
                                     </ul>
-                                    <div class="lg:text-5xl text-3xl uppercase font-bold text-left">
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
                                         <span class="">
                                             firm building
                                         </span>
@@ -177,11 +175,11 @@
                 </TabGroup>
             </div>
         </div>
-        <div>
-            <div class="uppercase text-center">
-                    <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Our Client's Testimonial</span>
+        <div id="rvmp-testimonials-section-1">
+            <div class="uppercase text-center" id="rvmp-testimonial-heading">
+                <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Our Client's Testimonial</span>
             </div>
-            <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8 ">    
+            <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8" id="rvmp-testimonial-content">    
                 <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
                     <Slide v-for="slide in 10" :key="slide" >
                         <div class="carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
