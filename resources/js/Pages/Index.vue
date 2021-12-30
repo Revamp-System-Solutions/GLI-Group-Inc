@@ -29,7 +29,7 @@
         </div>
         <div id="rvmp-services-section-1">
             <div class="uppercase text-center" id="rvmp-services-heading">
-                <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Here's what we can offer</span>
+                <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Here's what we offer</span>
             </div>
             <div class="tab-container mt-10" id="rvmp-services-content">
                 <TabGroup >

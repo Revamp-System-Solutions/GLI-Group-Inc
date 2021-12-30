@@ -1,51 +1,9 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container">
-            <TabGroup>
-                <TabList class="flex w-full">
-                    <Tab v-slot="{ selected }"
-                         class="w-1/3 bg-green-600">
-                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                                style="background-image: url('/images/pages/CABINETS.jpg')">
-
-                            <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
-                            :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl  font-semibold">GLI</div>
-                                <div>MODULAR CABINETS</div>
-                            </div>
-                        </button>
-                    </Tab>
-                    <Tab v-slot="{ selected }"
-                         class="w-1/3 bg-green-600">
-                          <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                                :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                                style="background-image: url('/images/pages/BUILDERS-1.jpg')">
-                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
-                                :class="[selected?'bg-green-800':'']">
-                                        <div class=" text-4xl  font-semibold">GLI</div>
-                                        <div>BUILDERS</div>
-                                </div>
-                        </button>
-                    </Tab>
-                    <Tab v-slot="{ selected }"
-                    class="w-1/3  bg-green-600">
-                         <button class="w-full bg-cover h-96 bg-center transition ease-in duration-300"
-                        :class="[selected ? 'text-white opacity-100' : 'text-green-800 opacity-25']"
-                        style="background-image: url('/images/pages/STUDIO.jpg')"> 
-                            <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
-                                :class="[selected?'bg-green-800':'']">
-                                <div class=" text-4xl  font-semibold">GLI</div>
-                                <div class="font-thin">DESIGN STUDIO</div>
-                            </div>
-                        </button>
-                    </Tab>
-                </TabList>
-                <TabPanels>
-                    <TabPanel class="bg-transparent">
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
+            <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
                           <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-                            <span @click="openModal(product)" v-for="product in products" :key="product.id" :href="product.href" class="group">
+                            <span @click="openModal(product)" v-for="product in products" :key="product.id" :href="product.href" class="group cursor-pointer">
                               <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-md h-18">
                               <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
                               </div>
@@ -55,37 +13,6 @@
                             </span>
                           </div>
                       </div>
-                    </TabPanel>
-                    <TabPanel class="bg-transparent">
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
-                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 bg-transparent">
-                            <a v-for="product in products" :key="product.id" :href="product.href" class="group">
-                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-md h-18">
-                              <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
-                              </div>
-                              <h3 class="mt-4 text-sm text-gray-700">
-                                {{ product.name }}
-                              </h3>
-                            </a>
-                          </div>
-                      </div>
-                    </TabPanel>
-                    <TabPanel class="bg-transparent">
-                      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
-                          <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 bg-transparent">
-                            <a v-for="product in products" :key="product.id" :href="product.href" class="group">
-                              <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-md h-18">
-                              <div class="w-full h-96"><img :src="product.imageSrc" :alt="product.imageAlt" class="w-full h-full object-center object-cover group-hover:opacity-75" /></div>
-                              </div>
-                              <h3 class="mt-4 text-sm text-gray-700">
-                                {{ product.name }}
-                              </h3>
-                            </a>
-                          </div>
-                      </div>
-                    </TabPanel>
-                </TabPanels>
-            </TabGroup>
     </div>
     <app-footer-contact-form />
     <TransitionRoot appear :show="isOpen">
@@ -112,146 +39,52 @@
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95">
    
-            <div  class="inline-block w-full h-screen text-left align-middle transition-all transform bg-white shadow-xl rounded-md">
-              <!-- <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
-                hello boss
-              </DialogTitle> -->
-              <div class="bg-white">
-    <div class="pt-6">
-      <!-- Image gallery -->
-      <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-        <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-          <img :src="product.images[0].src" :alt="product.images[0].alt" class="w-full h-full object-center object-cover" />
-        </div>
-        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-          <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-            <img :src="product.images[1].src" :alt="product.images[1].alt" class="w-full h-full object-center object-cover" />
-          </div>
-          <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-            <img :src="product.images[2].src" :alt="product.images[2].alt" class="w-full h-full object-center object-cover" />
-          </div>
-        </div>
-        <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-          <img :src="product.images[3].src" :alt="product.images[3].alt" class="w-full h-full object-center object-cover" />
-        </div>
-      </div>
-
-      <!-- Product info -->
-      <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
-        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-          <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-            {{ product.name }}
-          </h1>
-        </div>
-
-        <!-- Options -->
-        <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <h2 class="sr-only">Product information</h2>
-          <p class="text-3xl text-gray-900">{{ product.price }}</p>
-
-          <!-- Reviews -->
-          <div class="mt-6">
-            <h3 class="sr-only">Reviews</h3>
-            <div class="flex items-center">
-              <div class="flex items-center">
-                <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating" :class="[reviews.average > rating ? 'text-gray-900' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']" aria-hidden="true" />
-              </div>
-              <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
-              <a :href="reviews.href" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ reviews.totalCount }} reviews</a>
-            </div>
-          </div>
-
-          <form class="mt-10">
-            <!-- Colors -->
-            <div>
-              <h3 class="text-sm text-gray-900 font-medium">Color</h3>
-
-              <RadioGroup v-model="selectedColor" class="mt-4">
-                <RadioGroupLabel class="sr-only">
-                  Choose a color
-                </RadioGroupLabel>
-                <div class="flex items-center space-x-3">
-                  <RadioGroupOption as="template" v-for="color in product.colors" :key="color.name" :value="color" v-slot="{ active, checked }">
-                    <div :class="[color.selectedClass, active && checked ? 'ring ring-offset-1' : '', !active && checked ? 'ring-2' : '', '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none']">
-                      <RadioGroupLabel as="p" class="sr-only">
-                        {{ color.name }}
-                      </RadioGroupLabel>
-                      <span aria-hidden="true" :class="[color.class, 'h-8 w-8 border border-black border-opacity-10 rounded-full']" />
+            <div class="inline-block w-full h-auto text-left align-middle transition-all transform bg-white shadow-xl rounded-md">              
+              <div class="p-8 grid grid-cols-6 space-x-5">
+                  <div class="col-span-4 mt-6 grid grid-cols-1 gap-8 px-8">
+                    <div class="hidden aspect-w-2 aspect-h-3 rounded-md overflow-hidden lg:block shadow-md">
+                      <img :src="product.images[0].src" :alt="product.images[0].alt" class="w-full h-full object-center object-cover" />
                     </div>
-                  </RadioGroupOption>
-                </div>
-              </RadioGroup>
-            </div>
-
-            <!-- Sizes -->
-            <div class="mt-10">
-              <div class="flex items-center justify-between">
-                <h3 class="text-sm text-gray-900 font-medium">Size</h3>
-                <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
-              </div>
-
-              <RadioGroup v-model="selectedSize" class="mt-4">
-                <RadioGroupLabel class="sr-only">
-                  Choose a size
-                </RadioGroupLabel>
-                <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                  <RadioGroupOption as="template" v-for="size in product.sizes" :key="size.name" :value="size" :disabled="!size.inStock" v-slot="{ active, checked }">
-                    <div :class="[size.inStock ? 'bg-white shadow-sm text-gray-900 cursor-pointer' : 'bg-gray-50 text-gray-200 cursor-not-allowed', active ? 'ring-2 ring-indigo-500' : '', 'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6']">
-                      <RadioGroupLabel as="p">
-                        {{ size.name }}
-                      </RadioGroupLabel>
-                      <div v-if="size.inStock" :class="[active ? 'border' : 'border-2', checked ? 'border-indigo-500' : 'border-transparent', 'absolute -inset-px rounded-md pointer-events-none']" aria-hidden="true" />
-                      <div v-else aria-hidden="true" class="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none">
-                        <svg class="absolute inset-0 w-full h-full text-gray-200 stroke-2" viewBox="0 0 100 100" preserveAspectRatio="none" stroke="currentColor">
-                          <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke" />
-                        </svg>
+                    <div class="grid grid-cols-2 gap-8">
+                      <div class="aspect-w-3 aspect-h-2 rounded-md overflow-hidden shadow-md">
+                        <img :src="product.images[1].src" :alt="product.images[1].alt" class="w-full h-full object-center object-cover" />
+                      </div>
+                      <div class="aspect-w-3 aspect-h-2 rounded-md overflow-hidden shadow-md">
+                        <img :src="product.images[2].src" :alt="product.images[2].alt" class="w-full h-full object-center object-cover" />
                       </div>
                     </div>
-                  </RadioGroupOption>
-                </div>
-              </RadioGroup>
+                    <div class="aspect-w-2 aspect-h-3 sm:rounded-md sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 shadow-md">
+                      <img :src="product.images[3].src" :alt="product.images[3].alt" class="w-full h-full object-center object-cover" />
+                    </div>
+                  </div>
+                  <div class="col-span-2 mt-6">
+                      <div class="w-full lg:space-y-10 space-y-3 lg:px-0">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight brand-logo-text text-xl text-left pl-2.5 font-semibold">
+                                        <li>Modular Cabinets</li>
+                                    </ul>
+                                    <div class="lg:text-3xl text-xl uppercase brand-text font-bold text-left">
+                                        <span class="">
+                                            Furniture
+                                        </span>
+                                        <span class="rvmp-brand-color-highlight">
+                                            Design
+                                        </span>
+                                    </div>
+                                    <div class="text-left px-8">
+                                        <p class="mb-2">
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum ipsum eget elit lacinia dignissim. Donec nec neque orci. Proin in tincidunt leo. Aliquam pretium placerat lacinia. Sed nec enim posuere, dignissim ipsum a, ornare magna. Cras ac volutpat enim. Donec commodo sem quam, sit amet tristique massa vestibulum sed.
+
+                                          Nulla vitae vestibulum purus. Nulla vitae rhoncus mauris, at condimentum nisi. Aenean maximus ultricies elementum. Ut sed turpis id enim ultricies faucibus sed at dui. Pellentesque dapibus, nulla ut porta scelerisque, metus justo cursus tellus, eget fermentum orci justo quis ipsum. Donec pulvinar ac augue eu dignissim. Quisque eget vestibulum magna. Nullam quis mauris non turpis faucibus molestie. Vivamus sapien ipsum, mattis quis eleifend eu, aliquet a lacus. Sed at fermentum purus, eu imperdiet mi.
+
+                                          Integer eget scelerisque dolor, at pharetra enim. Phasellus posuere lectus eget dui cursus, maximus imperdiet sapien faucibus. Nullam ligula diam, laoreet nec ex in, tempor consectetur felis. Etiam et leo at massa vehicula lacinia quis nec neque. Cras ac dolor nec magna ultrices vestibulum fringilla id lorem. Proin viverra accumsan diam, a eleifend nulla imperdiet elementum. Aliquam aliquet, tortor sit amet ornare pretium, metus lacus auctor tortor, vitae commodo purus metus et justo. Pellentesque tincidunt augue leo. Integer posuere volutpat elit, maximus pretium nunc malesuada in. Morbi a lobortis leo. Donec sit amet vulputate ante.
+                                        </p>
+                                        <span class="italic block mb-2">Project Architect/Lead Designer</span>
+                                        <span class="italic block mb-2">Photos: RVMP</span>
+                                    </div>
+                            </div>
+                  </div>
+              </div>
             </div>
-
-            <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
-          </form>
-        </div>
-
-        <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-          <!-- Description and details -->
-          <div>
-            <h3 class="sr-only">Description</h3>
-
-            <div class="space-y-6">
-              <p class="text-base text-gray-900">{{ product.description }}</p>
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-
-            <div class="mt-4">
-              <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                <li v-for="highlight in product.highlights" :key="highlight" class="text-gray-400">
-                  <span class="text-gray-600">{{ highlight }}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-10">
-            <h2 class="text-sm font-medium text-gray-900">Details</h2>
-
-            <div class="mt-4 space-y-6">
-              <p class="text-sm text-gray-600">{{ product.details }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-            </div>
-     
           </TransitionChild>
         </div>
       </div>
@@ -260,7 +93,7 @@
 </template>
 
 <script>
-import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, TabGroup, TabList, Tab, TabPanels, TabPanel, RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
+import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
 import AppFooterContactForm from "../Partials/AppFooterContactForm";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
@@ -331,19 +164,19 @@ const product = {
   ],
   images: [
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
+      src: './images/portfolio/pexels-photo-903028.jpeg',
       alt: 'Two each of gray, white, and black shirts laying flat.',
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      src: './images/portfolio/pexels-photo-2294125.jpeg',
       alt: 'Model wearing plain black basic tee.',
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      src: './images/portfolio/pexels-photo-2089698.jpeg',
       alt: 'Model wearing plain gray basic tee.',
     },
     {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      src: './images/portfolio/pexels-photo-1029803.jpeg',
       alt: 'Model wearing plain white basic tee.',
     },
   ],
@@ -391,9 +224,6 @@ export default {
         TabPanels,
         TabPanel,
         AppFooterContactForm,
-        RadioGroup,
-        RadioGroupLabel,
-        RadioGroupOption,
     },
     props: {
         errors: Object
