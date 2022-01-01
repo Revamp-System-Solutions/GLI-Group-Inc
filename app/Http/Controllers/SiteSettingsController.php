@@ -19,22 +19,24 @@ class SiteSettingsController extends Controller
 
     public function index()
     {
-        // $catssubcats = array();
         foreach(Categories::where('name', '!=' ,'Pages')->where('name', '!=' ,'Templates')->get() as $category){
             $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->where('name', '!=' ,'Comments')->orderBy('id', 'ASC')->paginate(
                 $perPage = 3, $columns = ['*'], $pageName = $category->name
             );          
         }
+        foreach(BrandColor::distinct()->get('group') as $key=>$site_color_group){
+            $mask = array_filter(explode('_',$site_color_group->group), fn($value) => !is_null($value) && $value !== ' ');
+            unset($mask[0]);
+            $group = implode(' ', $mask);
+            $system_colors[$group] = BrandColor::where('group', '=', $site_color_group['group'])->get();
+        }
 
-        $system_colors = BrandColor::orderBy('id', 'ASC')->paginate($perPage = 4, $columns = ['*'], $pageName = 'sitecolor' )->fragment('SiteColors');
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
-        // 'system_colors' => Inertia::lazy(fn () => BrandColor::get()),
+
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories"    => $catssubcats,
             "system_colors" =>  $system_colors,
-            "static_images" => $static_img ,
-          
-            
+            "static_images" => $static_img,
         ]);
     }
     public function userManager()

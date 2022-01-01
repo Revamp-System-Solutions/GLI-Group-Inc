@@ -57,50 +57,25 @@
         </DisclosureButton>
          <div v-show="isHashSiteColor" id="SiteColors">
         <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
-            <div class=" grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200">
-              <template v-for="system_color in system_colors.data" :key="system_color">
-                <div class="p-6 lg:bg-transparent bg-gray-300">
-                  <div class="text-base text-gray-900">{{ system_color.alias }} </div>
-                  <div class="text-sm text-gray-500">{{ system_color.description }}</div>
+            <div class=" grid grid-cols-2 gap-y-2">
+              <div v-for="(system_color_group,index) in system_colors" :index="index" :key="system_color_group" :class="index=='CLIENT BRANDING' ? 'col-span-2':'col-span-1'" class="border-b border-gray-500 border-dotted">
+                <div class="px-6 lg:bg-transparent bg-gray-300">
+                  <span class="text-base font-semibold text-gray-900 normal-case">{{ index }}</span>   
                 </div>
-                <div class="lg:p-6 py-4 pl-8">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black" :style="rgba2hex('rgba('+system_color.value+')', 'style')">
-
-                    </div>
-                    <div class="ml-4">
+                <div class="flex lg:p-6 py-4 pl-8 space-x-8" >
+                  <div class="flex flex-col"  v-for="(system_color,index) in system_color_group" :index="index" :key="system_color">             
+                      <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black self-center" :style="rgba2hex('rgba('+system_color.value+')', 'style')"></div>
+                      <div class="text-sm text-black">{{ system_color.alias }}</div>
                       <div class="text-sm font-medium text-gray-900 capitalize">
-                        <span class="block">{{ system_color.value }}</span>
-                        <span class="block">{{ rgba2hex('rgba('+system_color.value+')', 'hex') }}</span>
-                        <span @click="
-                            openModal('color');
-                            stageColor = system_color;
-                          " class="block text-gray-500 cursor-pointer"> <i class="fas fa-edit text-green-600"> </i>change color</span>
-            
+                          <span @click="
+                              openModal('color');
+                              stageColor = system_color;
+                            " class="block text-gray-500 cursor-pointer"> <i class="fas fa-edit text-green-600 mr-2"> </i> change color</span>
                       </div>
-                    </div>
                   </div>
                 </div>
-              </template>
               </div>
-              <nav aria-label="Page navigation" v-if="system_colors.total > system_colors.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
-                  <ul class="pagination  flex flex-row justify-between">
-                      <!-- Previous link -->
-                      <li :class="'page-item' + (system_colors.links[0].url == null ? ' disabled' : '')">
-                          <inertia-link :href="system_colors.links[0].url == null ? '#' : system_colors.links[0].url" class="page-link" v-html="system_colors.links[0].label" ></inertia-link>
-                      </li>
-                      
-                      <!-- Numbers -->
-                      <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
-                          <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label" ></inertia-link>
-                      </li>
-
-                      <!-- Next link -->
-                      <li :class="'page-item' + (system_colors.links[system_colors.links.length - 1].url == null ? ' disabled' : '')">
-                          <inertia-link :href="system_colors.links[system_colors.links.length - 1].url == null ? '#' : system_colors.links[system_colors.links.length - 1].url" class="page-link" v-html="system_colors.links[system_colors.links.length - 1].label" ></inertia-link>
-                      </li>
-                  </ul>
-              </nav>
+              </div>
         </DisclosurePanel>
          </div>
       </Disclosure>
@@ -255,7 +230,8 @@ export default {
         const route = inject('$route');
         
         const system_colors = computed(() => usePage().props.value.system_colors);
-        const colorLinks = system_colors.value.links.filter((v, i) => i > 0 && i < system_colors.value.links.length - 1);
+        console.log(system_colors.value)
+        const colorLinks = null;
 
         const static_images = computed(() => usePage().props.value.static_images);
         

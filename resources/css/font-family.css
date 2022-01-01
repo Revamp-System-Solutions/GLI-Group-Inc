@@ -1,64 +1,64 @@
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-Thin.otf');
     font-weight: 100;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-ExtraLight.otf');
     font-weight: 200;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-Light.otf');
     font-weight: 300;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-Regular.otf');
     ont-weight: 400;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src:  url('/fonts/Poppins-Medium.otf');
     font-weight: 500;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src:  url('/fonts/Poppins-SemiBold.otf');
     font-weight: 600;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-Bold.otf');
     font-weight: 700;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-ExtraBold.otf');
     font-weight: 800;
 }
 
 @font-face {
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
     src: url('/fonts/Poppins-Black.otf');
     font-weight: 900;
 }
 
 @font-face {
-    font-family: BrandFont;
-    src: url('/fonts/BrandFont.ttf');
+    font-family: "Century Gothic";
+    src: url('/fonts/CenturyGothicRegular');
 }
 
 @font-face {
-    font-family: BrandFont;
-    src:  url('/fonts/BrandFontBold.ttf');
+    font-family: "Century Gothic";
+    src:  url('/fonts/CenturyGothicBold');
     font-weight: 600;
 }

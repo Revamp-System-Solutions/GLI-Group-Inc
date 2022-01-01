@@ -29,25 +29,17 @@
             </div>
         </div>
     </div>
-    <div class="container mx-auto px-6">
-        <div class="mt-8 border-t-2 border-gray-100 flex flex-col items-center">
-            <div class="w-full text-center py-6 relative">
-                <p class="text-sm text-gray-400 font-semibold mb-2 uppercase brand-logo-text">
-                    © {{ new Date().getFullYear() }} | GLI <span class='brand-logo-text font-light'>Group Inc.</span> 
-                </p>
-                <img src="/images/revamp-system-solutions.png" oncontextmenu="return false;" class="mx-auto w-1/3 lg:w-36 ">
-            </div>
-        </div>
-    </div>
+    <app-footer-small/>
 </footer>
 </template>
 
 <script>
+import AppFooterSmall from "./AppFooterSmall"
 
 export default {
     name: "AppFooter",
     components:{
-
+        AppFooterSmall,
     },
     data: () => ({
 		switchInertia: false,

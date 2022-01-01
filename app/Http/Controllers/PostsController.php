@@ -127,7 +127,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$requst->title.' has been updated.');
+        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$request->title.' has been updated.');
 
         return redirect()->route('adminPost');
     }

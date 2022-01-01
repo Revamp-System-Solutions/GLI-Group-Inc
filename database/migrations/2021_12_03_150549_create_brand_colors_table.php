@@ -16,9 +16,8 @@ class CreateBrandColorsTable extends Migration
         Schema::create('brand_colors', function (Blueprint $table) {
             $table->id();
             $table->string('var_name')->unique();
-            $table->string('alias')->unique();
+            $table->string('alias');
             $table->string('value');
-            $table->mediumText('description');
             $table->string('last_updated_by')->nullable();
             $table->timestamps();
         });

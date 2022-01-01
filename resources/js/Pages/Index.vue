@@ -196,8 +196,8 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                 </p>
                                 <p>
-                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-contact-text capitalize block">Elonzo Musk</strong>
-                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-contact-text capitalize">Tesla</span>
+                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">Elonzo Musk</strong>
+                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">Tesla</span>
                                 </p>
                             </div>  
                         </div>
@@ -210,13 +210,13 @@
             </div>
         </div>
     </div>
-    <app-footer-small></app-footer-small>
+    <app-footer-default/>
 </template>
 
 <script>
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
-import AppFooterSmall from "../Partials/AppFooterSmall";
+import AppFooterDefault from "../Partials/AppFooterDefault";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
@@ -232,7 +232,7 @@ export default {
         Tab,
         TabPanels,
         TabPanel,
-        AppFooterSmall,
+        AppFooterDefault,
         Carousel,
         Slide,
         Pagination,
