@@ -73,13 +73,13 @@
 @font-face {
   font-family: "Century Gothic";
 
-  src: url('/fonts/CenturyGothicRegular.ttf');
+  src: url('/fonts/CenturyGothicRegular');
 }
 
 @font-face {
   font-family: "Century Gothic";
 
-  src:  url('/fonts/CenturyGothicBold.ttf');
+  src:  url('/fonts/CenturyGothicBold');
 
   font-weight: 600;
 }
