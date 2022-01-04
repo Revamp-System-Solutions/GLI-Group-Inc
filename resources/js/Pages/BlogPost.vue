@@ -2,20 +2,20 @@
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
     <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/groups.jpeg')">
-        <div class="h-40 mx-auto 2xl:px-80 xl:px-56 lg:px-28 px-8 flex flex-wrap content-center rvmp-banner-bg bg-opacity-80">
-                <div class="self-start">
-                        <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color">Latest Posts from <span class="brand-logo-text">GLI</span></h1>
-                </div>
+        <div class="h-40 mx-auto 2xl:px-80 xl:px-56 lg:px-28 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
+            <div class="lg:w-full lg:self-start self-center">
+                <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color">Latest Posts from GLI</h1>
+            </div>
         </div>
     </div>
-    <div  class="mx-auto 2xl:px-80 xl:px-56 lg:px-28 ">
-            <div class="w-full flex lg:flex-row flex-col lg:space-x-8 " >
-                <div class="w-full lg:px-20 px-8 space-y-6">
+    <div  class="mx-auto sm:py-24 2xl:px-80 xl:px-56 lg:px-28 ">
+            <div class="w-full flex lg:flex-row flex-col lg:space-x-8 space-x-0 lg:space-y-0 space-y-8" >
+                <div class="w-full px-8 space-y-6">
                     <template v-if="posts.data.length > 0">
                         
-                                <div class="flex lg:flex-row flex-col space-y-6" v-for="post in posts.data" :key="post.id">
-                                    <div v-if="post.image_url" class="h-52 lg:w-52 w-full rounded-md bg-content-border bg-cover bg-center bg-local" :style="makeBG(post.image_url)"></div>
-                                    <div class="lg:w-96 w-full lg:max-h-52 lg:h-52 lg:px-6 lg:py-4 space-y-3 brand-text">
+                                <div class="flex 2xl:flex-row flex-col 2xl:space-y-6 space-y-3" v-for="post in posts.data" :key="post.id">
+                                    <div v-if="post.image_url" class="h-52 2xl:w-52 w-full rounded-md bg-content-border bg-cover bg-center bg-local" :style="makeBG(post.image_url)"></div>
+                                    <div class="lg:w-96 w-full lg:max-h-52 2xl:h-52 lg:px-6 xl:py-4 space-y-3 brand-text">
                                         <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="rvmp-text-main hover:rvmp-brand-color-highlight"> <h4 class="lg:text-xl text-base font-semibold">{{post.title}}</h4></inertia-link>
                                         <div class="space-x-2"><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="fas fa-at"></i> {{post.author}}</span><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="far fa-folder-open"></i> {{post.name}}</span></div>
                                         <div class="overflow-ellipsis overflow-hidden lg:text-sm text-xs font-light">  {{ post.short_text }} </div>
@@ -25,7 +25,7 @@
                         <!-- Pagination links-->
 
                         <nav class="w-20" aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">
-                            <ul class="pagination flex flex-row justify-between">
+                            <ul class="pagination flex flex-row justify-between space-x-2">
                                 <!-- Previous link -->
                                 
                                 <li v-if="posts.links[1].active != true" :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
@@ -48,7 +48,7 @@
                         No posts Yet!
                     </div>
                 </div>
-                <div class="w-full lg:px-14 px-4">
+                <div class="w-full xl:px-7 px-4">
                     <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl">
                         <div class="col-span-6">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">Free Quotation</span></h3>

@@ -7,12 +7,9 @@
                     <div class="lg:py-36 lg:my-12 lg:static">
                         <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">  
                         <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2" id="rvmp-lead-heading">
-                                <ul class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
-                                    <li>simple</li>
-                                    <li>modern</li>
-                                    <li>innovative</li>
-                                    <li>residential architecture</li>
-                                </ul>
+                                <h1 class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
+                                    Building A Better Built Environment Together      
+                                </h1>
                             </blockquote>
                             <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text">
                                 Our team of professionals will help you turn your dream house into reality fast.

@@ -1,7 +1,14 @@
 <template>
     <app-header></app-header>
-    <div class="rvmp-container">
-            <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
+    <div class="rvmp-container h-full space-y-6 mb-8">
+        <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
+          <div class="h-40 mx-auto 2xl:px-80 xl:px-56 lg:px-28 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
+            <div class="lg:w-full lg:self-start self-center">
+              <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color">Built Better</h1>
+            </div>
+          </div>
+        </div>
+            <div class="max-w-2xl mx-auto  px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 bg-transparent">
                           <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
                             <span @click="openModal(product)" v-for="product in products" :key="product.id" :href="product.href" class="group cursor-pointer">
                               <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden xl:aspect-w-7 xl:aspect-h-8 shadow-lg bg-white rounded-md h-18">
