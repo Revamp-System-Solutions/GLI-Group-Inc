@@ -1,8 +1,3 @@
-.rvmp-default-text{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-}
-
 .rvmp-default-alt-text{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -70,7 +65,12 @@
 
 .rvmp-banner-text-color{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.rvmp-banner-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .rvmp-brand-border-main{
@@ -101,21 +101,6 @@
 .rvmp-footer-text{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.rvmp-footer-contact-bg{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.rvmp-footer-contact-text{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.hover\:rvmp-default-text:hover{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .hover\:rvmp-default-alt-text:hover{
@@ -185,7 +170,12 @@
 
 .hover\:rvmp-banner-text-color:hover{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.hover\:rvmp-banner-bg:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .hover\:rvmp-brand-border-main:hover{
@@ -216,21 +206,6 @@
 .hover\:rvmp-footer-text:hover{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.hover\:rvmp-footer-contact-bg:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.hover\:rvmp-footer-contact-text:hover{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.group:hover .group-hover\:rvmp-default-text{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:rvmp-default-alt-text{
@@ -300,7 +275,12 @@
 
 .group:hover .group-hover\:rvmp-banner-text-color{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:rvmp-banner-bg{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .group:hover .group-hover\:rvmp-brand-border-main{
@@ -331,21 +311,6 @@
 .group:hover .group-hover\:rvmp-footer-text{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.group:hover .group-hover\:rvmp-footer-contact-bg{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.group:hover .group-hover\:rvmp-footer-contact-text{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.focus\:rvmp-default-text:focus{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus\:rvmp-default-alt-text:focus{
@@ -415,7 +380,12 @@
 
 .focus\:rvmp-banner-text-color:focus{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.focus\:rvmp-banner-bg:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .focus\:rvmp-brand-border-main:focus{
@@ -446,21 +416,6 @@
 .focus\:rvmp-footer-text:focus{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.focus\:rvmp-footer-contact-bg:focus{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.focus\:rvmp-footer-contact-text:focus{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.focus-within\:rvmp-default-text:focus-within{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus-within\:rvmp-default-alt-text:focus-within{
@@ -530,7 +485,12 @@
 
 .focus-within\:rvmp-banner-text-color:focus-within{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.focus-within\:rvmp-banner-bg:focus-within{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .focus-within\:rvmp-brand-border-main:focus-within{
@@ -561,21 +521,6 @@
 .focus-within\:rvmp-footer-text:focus-within{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.focus-within\:rvmp-footer-contact-bg:focus-within{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.focus-within\:rvmp-footer-contact-text:focus-within{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.focus-visible\:rvmp-default-text:focus-visible{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -645,7 +590,12 @@
 
 .focus-visible\:rvmp-banner-text-color:focus-visible{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.focus-visible\:rvmp-banner-bg:focus-visible{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -676,21 +626,6 @@
 .focus-visible\:rvmp-footer-text:focus-visible{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.focus-visible\:rvmp-footer-contact-bg:focus-visible{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.focus-visible\:rvmp-footer-contact-text:focus-visible{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.active\:rvmp-default-text:active{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .active\:rvmp-default-alt-text:active{
@@ -760,7 +695,12 @@
 
 .active\:rvmp-banner-text-color:active{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.active\:rvmp-banner-bg:active{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .active\:rvmp-brand-border-main:active{
@@ -791,21 +731,6 @@
 .active\:rvmp-footer-text:active{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.active\:rvmp-footer-contact-bg:active{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.active\:rvmp-footer-contact-text:active{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.first-child\:rvmp-default-text:first-child{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .first-child\:rvmp-default-alt-text:first-child{
@@ -875,7 +800,12 @@
 
 .first-child\:rvmp-banner-text-color:first-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.first-child\:rvmp-banner-bg:first-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .first-child\:rvmp-brand-border-main:first-child{
@@ -906,21 +836,6 @@
 .first-child\:rvmp-footer-text:first-child{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.first-child\:rvmp-footer-contact-bg:first-child{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.first-child\:rvmp-footer-contact-text:first-child{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.nth-child\:rvmp-default-text:nth-child{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .nth-child\:rvmp-default-alt-text:nth-child{
@@ -990,7 +905,12 @@
 
 .nth-child\:rvmp-banner-text-color:nth-child{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.nth-child\:rvmp-banner-bg:nth-child{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .nth-child\:rvmp-brand-border-main:nth-child{
@@ -1021,21 +941,6 @@
 .nth-child\:rvmp-footer-text:nth-child{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.nth-child\:rvmp-footer-contact-bg:nth-child{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.nth-child\:rvmp-footer-contact-text:nth-child{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.disabled\:rvmp-default-text:disabled{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
 }
 
 .disabled\:rvmp-default-alt-text:disabled{
@@ -1105,7 +1010,12 @@
 
 .disabled\:rvmp-banner-text-color:disabled{
   --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+}
+
+.disabled\:rvmp-banner-bg:disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
 }
 
 .disabled\:rvmp-brand-border-main:disabled{
@@ -1136,21 +1046,6 @@
 .disabled\:rvmp-footer-text:disabled{
   --tw-text-opacity: 1;
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-}
-
-.disabled\:rvmp-footer-contact-bg:disabled{
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-}
-
-.disabled\:rvmp-footer-contact-text:disabled{
-  --tw-text-opacity: 1;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-}
-
-.\!rvmp-default-text{
-  --tw-text-opacity: 1 !important;
-  color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
 }
 
 .\!rvmp-default-alt-text{
@@ -1220,7 +1115,12 @@
 
 .\!rvmp-banner-text-color{
   --tw-text-opacity: 1 !important;
-  color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+  color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+}
+
+.\!rvmp-banner-bg{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
 }
 
 .\!rvmp-brand-border-main{
@@ -1253,26 +1153,16 @@
   color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
 }
 
-.\!rvmp-footer-contact-bg{
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-}
-
-.\!rvmp-footer-contact-text{
-  --tw-text-opacity: 1 !important;
-  color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-}
-
 .ck-editor__editable_inline {
   min-height: 350px;
 }
 
 .brand-logo-text{
-  font-family: BrandFont;
+  font-family: "Century Gothic";
 }
 
 .brand-text{
-  font-family: RVMP-Poppins;
+  font-family: Poppins;
 }
 
 .carousel__prev {
@@ -1297,11 +1187,6 @@
 }
 
 @media (min-width: 640px){
-  .sm\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-  }
-
   .sm\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -1369,7 +1254,12 @@
 
   .sm\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:rvmp-brand-border-main{
@@ -1400,21 +1290,6 @@
   .sm\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:hover\:rvmp-default-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:hover\:rvmp-default-alt-text:hover{
@@ -1484,7 +1359,12 @@
 
   .sm\:hover\:rvmp-banner-text-color:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:hover\:rvmp-banner-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:hover\:rvmp-brand-border-main:hover{
@@ -1515,21 +1395,6 @@
   .sm\:hover\:rvmp-footer-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:hover\:rvmp-footer-contact-bg:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:hover\:rvmp-footer-contact-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .sm\:group-hover\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-default-alt-text{
@@ -1599,7 +1464,12 @@
 
   .group:hover .sm\:group-hover\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .group:hover .sm\:group-hover\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .group:hover .sm\:group-hover\:rvmp-brand-border-main{
@@ -1630,21 +1500,6 @@
   .group:hover .sm\:group-hover\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .sm\:group-hover\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .group:hover .sm\:group-hover\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus\:rvmp-default-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus\:rvmp-default-alt-text:focus{
@@ -1714,7 +1569,12 @@
 
   .sm\:focus\:rvmp-banner-text-color:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:focus\:rvmp-banner-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:focus\:rvmp-brand-border-main:focus{
@@ -1745,21 +1605,6 @@
   .sm\:focus\:rvmp-footer-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus\:rvmp-footer-contact-bg:focus{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:focus\:rvmp-footer-contact-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus-within\:rvmp-default-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus-within\:rvmp-default-alt-text:focus-within{
@@ -1829,7 +1674,12 @@
 
   .sm\:focus-within\:rvmp-banner-text-color:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-within\:rvmp-banner-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:focus-within\:rvmp-brand-border-main:focus-within{
@@ -1860,21 +1710,6 @@
   .sm\:focus-within\:rvmp-footer-text:focus-within{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus-within\:rvmp-footer-contact-bg:focus-within{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:focus-within\:rvmp-footer-contact-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus-visible\:rvmp-default-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -1944,7 +1779,12 @@
 
   .sm\:focus-visible\:rvmp-banner-text-color:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:focus-visible\:rvmp-banner-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -1975,21 +1815,6 @@
   .sm\:focus-visible\:rvmp-footer-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:focus-visible\:rvmp-footer-contact-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:active\:rvmp-default-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:active\:rvmp-default-alt-text:active{
@@ -2059,7 +1884,12 @@
 
   .sm\:active\:rvmp-banner-text-color:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:active\:rvmp-banner-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:active\:rvmp-brand-border-main:active{
@@ -2090,21 +1920,6 @@
   .sm\:active\:rvmp-footer-text:active{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:active\:rvmp-footer-contact-bg:active{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:active\:rvmp-footer-contact-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:first-child\:rvmp-default-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:first-child\:rvmp-default-alt-text:first-child{
@@ -2174,7 +1989,12 @@
 
   .sm\:first-child\:rvmp-banner-text-color:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:first-child\:rvmp-banner-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:first-child\:rvmp-brand-border-main:first-child{
@@ -2205,21 +2025,6 @@
   .sm\:first-child\:rvmp-footer-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:first-child\:rvmp-footer-contact-bg:first-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:first-child\:rvmp-footer-contact-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:nth-child\:rvmp-default-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:nth-child\:rvmp-default-alt-text:nth-child{
@@ -2289,7 +2094,12 @@
 
   .sm\:nth-child\:rvmp-banner-text-color:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:nth-child\:rvmp-banner-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:nth-child\:rvmp-brand-border-main:nth-child{
@@ -2320,21 +2130,6 @@
   .sm\:nth-child\:rvmp-footer-text:nth-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:nth-child\:rvmp-footer-contact-bg:nth-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:nth-child\:rvmp-footer-contact-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:disabled\:rvmp-default-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .sm\:disabled\:rvmp-default-alt-text:disabled{
@@ -2404,7 +2199,12 @@
 
   .sm\:disabled\:rvmp-banner-text-color:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .sm\:disabled\:rvmp-banner-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .sm\:disabled\:rvmp-brand-border-main:disabled{
@@ -2435,21 +2235,6 @@
   .sm\:disabled\:rvmp-footer-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .sm\:disabled\:rvmp-footer-contact-bg:disabled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .sm\:disabled\:rvmp-footer-contact-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .sm\:\!rvmp-default-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .sm\:\!rvmp-default-alt-text{
@@ -2519,7 +2304,12 @@
 
   .sm\:\!rvmp-banner-text-color{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+  }
+
+  .sm\:\!rvmp-banner-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
   }
 
   .sm\:\!rvmp-brand-border-main{
@@ -2551,24 +2341,9 @@
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
   }
-
-  .sm\:\!rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1 !important;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-  }
-
-  .sm\:\!rvmp-footer-contact-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
 }
 
 @media (min-width: 768px){
-  .md\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-  }
-
   .md\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -2636,7 +2411,12 @@
 
   .md\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:rvmp-brand-border-main{
@@ -2667,21 +2447,6 @@
   .md\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:hover\:rvmp-default-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:hover\:rvmp-default-alt-text:hover{
@@ -2751,7 +2516,12 @@
 
   .md\:hover\:rvmp-banner-text-color:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:hover\:rvmp-banner-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:hover\:rvmp-brand-border-main:hover{
@@ -2782,21 +2552,6 @@
   .md\:hover\:rvmp-footer-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:hover\:rvmp-footer-contact-bg:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:hover\:rvmp-footer-contact-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .md\:group-hover\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-default-alt-text{
@@ -2866,7 +2621,12 @@
 
   .group:hover .md\:group-hover\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .group:hover .md\:group-hover\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .group:hover .md\:group-hover\:rvmp-brand-border-main{
@@ -2897,21 +2657,6 @@
   .group:hover .md\:group-hover\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .md\:group-hover\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .group:hover .md\:group-hover\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus\:rvmp-default-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus\:rvmp-default-alt-text:focus{
@@ -2981,7 +2726,12 @@
 
   .md\:focus\:rvmp-banner-text-color:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:focus\:rvmp-banner-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:focus\:rvmp-brand-border-main:focus{
@@ -3012,21 +2762,6 @@
   .md\:focus\:rvmp-footer-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus\:rvmp-footer-contact-bg:focus{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:focus\:rvmp-footer-contact-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus-within\:rvmp-default-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus-within\:rvmp-default-alt-text:focus-within{
@@ -3096,7 +2831,12 @@
 
   .md\:focus-within\:rvmp-banner-text-color:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:focus-within\:rvmp-banner-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:focus-within\:rvmp-brand-border-main:focus-within{
@@ -3127,21 +2867,6 @@
   .md\:focus-within\:rvmp-footer-text:focus-within{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus-within\:rvmp-footer-contact-bg:focus-within{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:focus-within\:rvmp-footer-contact-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus-visible\:rvmp-default-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -3211,7 +2936,12 @@
 
   .md\:focus-visible\:rvmp-banner-text-color:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:focus-visible\:rvmp-banner-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -3242,21 +2972,6 @@
   .md\:focus-visible\:rvmp-footer-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:focus-visible\:rvmp-footer-contact-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:active\:rvmp-default-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:active\:rvmp-default-alt-text:active{
@@ -3326,7 +3041,12 @@
 
   .md\:active\:rvmp-banner-text-color:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:active\:rvmp-banner-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:active\:rvmp-brand-border-main:active{
@@ -3357,21 +3077,6 @@
   .md\:active\:rvmp-footer-text:active{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:active\:rvmp-footer-contact-bg:active{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:active\:rvmp-footer-contact-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:first-child\:rvmp-default-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:first-child\:rvmp-default-alt-text:first-child{
@@ -3441,7 +3146,12 @@
 
   .md\:first-child\:rvmp-banner-text-color:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:first-child\:rvmp-banner-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:first-child\:rvmp-brand-border-main:first-child{
@@ -3472,21 +3182,6 @@
   .md\:first-child\:rvmp-footer-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:first-child\:rvmp-footer-contact-bg:first-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:first-child\:rvmp-footer-contact-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:nth-child\:rvmp-default-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:nth-child\:rvmp-default-alt-text:nth-child{
@@ -3556,7 +3251,12 @@
 
   .md\:nth-child\:rvmp-banner-text-color:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:nth-child\:rvmp-banner-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:nth-child\:rvmp-brand-border-main:nth-child{
@@ -3587,21 +3287,6 @@
   .md\:nth-child\:rvmp-footer-text:nth-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:nth-child\:rvmp-footer-contact-bg:nth-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:nth-child\:rvmp-footer-contact-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:disabled\:rvmp-default-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .md\:disabled\:rvmp-default-alt-text:disabled{
@@ -3671,7 +3356,12 @@
 
   .md\:disabled\:rvmp-banner-text-color:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .md\:disabled\:rvmp-banner-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .md\:disabled\:rvmp-brand-border-main:disabled{
@@ -3702,21 +3392,6 @@
   .md\:disabled\:rvmp-footer-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .md\:disabled\:rvmp-footer-contact-bg:disabled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .md\:disabled\:rvmp-footer-contact-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .md\:\!rvmp-default-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .md\:\!rvmp-default-alt-text{
@@ -3786,7 +3461,12 @@
 
   .md\:\!rvmp-banner-text-color{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+  }
+
+  .md\:\!rvmp-banner-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
   }
 
   .md\:\!rvmp-brand-border-main{
@@ -3818,24 +3498,9 @@
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
   }
-
-  .md\:\!rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1 !important;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-  }
-
-  .md\:\!rvmp-footer-contact-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
 }
 
 @media (min-width: 1024px){
-  .lg\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-  }
-
   .lg\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -3903,7 +3568,12 @@
 
   .lg\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:rvmp-brand-border-main{
@@ -3934,21 +3604,6 @@
   .lg\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:hover\:rvmp-default-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:hover\:rvmp-default-alt-text:hover{
@@ -4018,7 +3673,12 @@
 
   .lg\:hover\:rvmp-banner-text-color:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:hover\:rvmp-banner-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:hover\:rvmp-brand-border-main:hover{
@@ -4049,21 +3709,6 @@
   .lg\:hover\:rvmp-footer-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:hover\:rvmp-footer-contact-bg:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:hover\:rvmp-footer-contact-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .lg\:group-hover\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-default-alt-text{
@@ -4133,7 +3778,12 @@
 
   .group:hover .lg\:group-hover\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .group:hover .lg\:group-hover\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .group:hover .lg\:group-hover\:rvmp-brand-border-main{
@@ -4164,21 +3814,6 @@
   .group:hover .lg\:group-hover\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .lg\:group-hover\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .group:hover .lg\:group-hover\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus\:rvmp-default-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus\:rvmp-default-alt-text:focus{
@@ -4248,7 +3883,12 @@
 
   .lg\:focus\:rvmp-banner-text-color:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:focus\:rvmp-banner-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:focus\:rvmp-brand-border-main:focus{
@@ -4279,21 +3919,6 @@
   .lg\:focus\:rvmp-footer-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus\:rvmp-footer-contact-bg:focus{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:focus\:rvmp-footer-contact-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus-within\:rvmp-default-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus-within\:rvmp-default-alt-text:focus-within{
@@ -4363,7 +3988,12 @@
 
   .lg\:focus-within\:rvmp-banner-text-color:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-within\:rvmp-banner-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:focus-within\:rvmp-brand-border-main:focus-within{
@@ -4394,21 +4024,6 @@
   .lg\:focus-within\:rvmp-footer-text:focus-within{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus-within\:rvmp-footer-contact-bg:focus-within{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:focus-within\:rvmp-footer-contact-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus-visible\:rvmp-default-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -4478,7 +4093,12 @@
 
   .lg\:focus-visible\:rvmp-banner-text-color:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:focus-visible\:rvmp-banner-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -4509,21 +4129,6 @@
   .lg\:focus-visible\:rvmp-footer-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:focus-visible\:rvmp-footer-contact-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:active\:rvmp-default-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:active\:rvmp-default-alt-text:active{
@@ -4593,7 +4198,12 @@
 
   .lg\:active\:rvmp-banner-text-color:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:active\:rvmp-banner-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:active\:rvmp-brand-border-main:active{
@@ -4624,21 +4234,6 @@
   .lg\:active\:rvmp-footer-text:active{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:active\:rvmp-footer-contact-bg:active{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:active\:rvmp-footer-contact-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:first-child\:rvmp-default-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:first-child\:rvmp-default-alt-text:first-child{
@@ -4708,7 +4303,12 @@
 
   .lg\:first-child\:rvmp-banner-text-color:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:first-child\:rvmp-banner-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:first-child\:rvmp-brand-border-main:first-child{
@@ -4739,21 +4339,6 @@
   .lg\:first-child\:rvmp-footer-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:first-child\:rvmp-footer-contact-bg:first-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:first-child\:rvmp-footer-contact-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:nth-child\:rvmp-default-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:nth-child\:rvmp-default-alt-text:nth-child{
@@ -4823,7 +4408,12 @@
 
   .lg\:nth-child\:rvmp-banner-text-color:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:nth-child\:rvmp-banner-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:nth-child\:rvmp-brand-border-main:nth-child{
@@ -4854,21 +4444,6 @@
   .lg\:nth-child\:rvmp-footer-text:nth-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:nth-child\:rvmp-footer-contact-bg:nth-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:nth-child\:rvmp-footer-contact-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:disabled\:rvmp-default-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .lg\:disabled\:rvmp-default-alt-text:disabled{
@@ -4938,7 +4513,12 @@
 
   .lg\:disabled\:rvmp-banner-text-color:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .lg\:disabled\:rvmp-banner-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .lg\:disabled\:rvmp-brand-border-main:disabled{
@@ -4969,21 +4549,6 @@
   .lg\:disabled\:rvmp-footer-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .lg\:disabled\:rvmp-footer-contact-bg:disabled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .lg\:disabled\:rvmp-footer-contact-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .lg\:\!rvmp-default-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .lg\:\!rvmp-default-alt-text{
@@ -5053,7 +4618,12 @@
 
   .lg\:\!rvmp-banner-text-color{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+  }
+
+  .lg\:\!rvmp-banner-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
   }
 
   .lg\:\!rvmp-brand-border-main{
@@ -5085,24 +4655,9 @@
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
   }
-
-  .lg\:\!rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1 !important;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-  }
-
-  .lg\:\!rvmp-footer-contact-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
 }
 
 @media (min-width: 1280px){
-  .xl\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-  }
-
   .xl\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -5170,7 +4725,12 @@
 
   .xl\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:rvmp-brand-border-main{
@@ -5201,21 +4761,6 @@
   .xl\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:hover\:rvmp-default-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:hover\:rvmp-default-alt-text:hover{
@@ -5285,7 +4830,12 @@
 
   .xl\:hover\:rvmp-banner-text-color:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:hover\:rvmp-banner-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:hover\:rvmp-brand-border-main:hover{
@@ -5316,21 +4866,6 @@
   .xl\:hover\:rvmp-footer-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:hover\:rvmp-footer-contact-bg:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:hover\:rvmp-footer-contact-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .xl\:group-hover\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-default-alt-text{
@@ -5400,7 +4935,12 @@
 
   .group:hover .xl\:group-hover\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .group:hover .xl\:group-hover\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .group:hover .xl\:group-hover\:rvmp-brand-border-main{
@@ -5431,21 +4971,6 @@
   .group:hover .xl\:group-hover\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .xl\:group-hover\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .group:hover .xl\:group-hover\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus\:rvmp-default-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus\:rvmp-default-alt-text:focus{
@@ -5515,7 +5040,12 @@
 
   .xl\:focus\:rvmp-banner-text-color:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:focus\:rvmp-banner-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:focus\:rvmp-brand-border-main:focus{
@@ -5546,21 +5076,6 @@
   .xl\:focus\:rvmp-footer-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus\:rvmp-footer-contact-bg:focus{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:focus\:rvmp-footer-contact-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus-within\:rvmp-default-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus-within\:rvmp-default-alt-text:focus-within{
@@ -5630,7 +5145,12 @@
 
   .xl\:focus-within\:rvmp-banner-text-color:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-within\:rvmp-banner-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:focus-within\:rvmp-brand-border-main:focus-within{
@@ -5661,21 +5181,6 @@
   .xl\:focus-within\:rvmp-footer-text:focus-within{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus-within\:rvmp-footer-contact-bg:focus-within{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:focus-within\:rvmp-footer-contact-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus-visible\:rvmp-default-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -5745,7 +5250,12 @@
 
   .xl\:focus-visible\:rvmp-banner-text-color:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:focus-visible\:rvmp-banner-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -5776,21 +5286,6 @@
   .xl\:focus-visible\:rvmp-footer-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:active\:rvmp-default-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:active\:rvmp-default-alt-text:active{
@@ -5860,7 +5355,12 @@
 
   .xl\:active\:rvmp-banner-text-color:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:active\:rvmp-banner-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:active\:rvmp-brand-border-main:active{
@@ -5891,21 +5391,6 @@
   .xl\:active\:rvmp-footer-text:active{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:active\:rvmp-footer-contact-bg:active{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:active\:rvmp-footer-contact-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:first-child\:rvmp-default-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:first-child\:rvmp-default-alt-text:first-child{
@@ -5975,7 +5460,12 @@
 
   .xl\:first-child\:rvmp-banner-text-color:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:first-child\:rvmp-banner-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:first-child\:rvmp-brand-border-main:first-child{
@@ -6006,21 +5496,6 @@
   .xl\:first-child\:rvmp-footer-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:first-child\:rvmp-footer-contact-bg:first-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:first-child\:rvmp-footer-contact-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:nth-child\:rvmp-default-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:nth-child\:rvmp-default-alt-text:nth-child{
@@ -6090,7 +5565,12 @@
 
   .xl\:nth-child\:rvmp-banner-text-color:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:nth-child\:rvmp-banner-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:nth-child\:rvmp-brand-border-main:nth-child{
@@ -6121,21 +5601,6 @@
   .xl\:nth-child\:rvmp-footer-text:nth-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:nth-child\:rvmp-footer-contact-bg:nth-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:nth-child\:rvmp-footer-contact-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:disabled\:rvmp-default-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .xl\:disabled\:rvmp-default-alt-text:disabled{
@@ -6205,7 +5670,12 @@
 
   .xl\:disabled\:rvmp-banner-text-color:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .xl\:disabled\:rvmp-banner-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .xl\:disabled\:rvmp-brand-border-main:disabled{
@@ -6236,21 +5706,6 @@
   .xl\:disabled\:rvmp-footer-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .xl\:disabled\:rvmp-footer-contact-bg:disabled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .xl\:disabled\:rvmp-footer-contact-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .xl\:\!rvmp-default-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .xl\:\!rvmp-default-alt-text{
@@ -6320,7 +5775,12 @@
 
   .xl\:\!rvmp-banner-text-color{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+  }
+
+  .xl\:\!rvmp-banner-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
   }
 
   .xl\:\!rvmp-brand-border-main{
@@ -6352,24 +5812,9 @@
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
   }
-
-  .xl\:\!rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1 !important;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-  }
-
-  .xl\:\!rvmp-footer-contact-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
-  }
 }
 
 @media (min-width: 1536px){
-  .\32xl\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-  }
-
   .\32xl\:rvmp-default-alt-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -6437,7 +5882,12 @@
 
   .\32xl\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:rvmp-brand-border-main{
@@ -6468,21 +5918,6 @@
   .\32xl\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:hover\:rvmp-default-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:hover\:rvmp-default-alt-text:hover{
@@ -6552,7 +5987,12 @@
 
   .\32xl\:hover\:rvmp-banner-text-color:hover{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:hover\:rvmp-banner-bg:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:hover\:rvmp-brand-border-main:hover{
@@ -6583,21 +6023,6 @@
   .\32xl\:hover\:rvmp-footer-text:hover{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:hover\:rvmp-footer-contact-bg:hover{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:hover\:rvmp-footer-contact-text:hover{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .\32xl\:group-hover\:rvmp-default-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-default-alt-text{
@@ -6667,7 +6092,12 @@
 
   .group:hover .\32xl\:group-hover\:rvmp-banner-text-color{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .group:hover .\32xl\:group-hover\:rvmp-banner-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:rvmp-brand-border-main{
@@ -6698,21 +6128,6 @@
   .group:hover .\32xl\:group-hover\:rvmp-footer-text{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .group:hover .\32xl\:group-hover\:rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .group:hover .\32xl\:group-hover\:rvmp-footer-contact-text{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus\:rvmp-default-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus\:rvmp-default-alt-text:focus{
@@ -6782,7 +6197,12 @@
 
   .\32xl\:focus\:rvmp-banner-text-color:focus{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus\:rvmp-banner-bg:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:focus\:rvmp-brand-border-main:focus{
@@ -6813,21 +6233,6 @@
   .\32xl\:focus\:rvmp-footer-text:focus{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus\:rvmp-footer-contact-bg:focus{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:focus\:rvmp-footer-contact-text:focus{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus-within\:rvmp-default-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-default-alt-text:focus-within{
@@ -6897,7 +6302,12 @@
 
   .\32xl\:focus-within\:rvmp-banner-text-color:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-within\:rvmp-banner-bg:focus-within{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:focus-within\:rvmp-brand-border-main:focus-within{
@@ -6928,21 +6338,6 @@
   .\32xl\:focus-within\:rvmp-footer-text:focus-within{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus-within\:rvmp-footer-contact-bg:focus-within{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:focus-within\:rvmp-footer-contact-text:focus-within{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus-visible\:rvmp-default-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-default-alt-text:focus-visible{
@@ -7012,7 +6407,12 @@
 
   .\32xl\:focus-visible\:rvmp-banner-text-color:focus-visible{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:focus-visible\:rvmp-banner-bg:focus-visible{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:focus-visible\:rvmp-brand-border-main:focus-visible{
@@ -7043,21 +6443,6 @@
   .\32xl\:focus-visible\:rvmp-footer-text:focus-visible{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:focus-visible\:rvmp-footer-contact-bg:focus-visible{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:focus-visible\:rvmp-footer-contact-text:focus-visible{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:active\:rvmp-default-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:active\:rvmp-default-alt-text:active{
@@ -7127,7 +6512,12 @@
 
   .\32xl\:active\:rvmp-banner-text-color:active{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:active\:rvmp-banner-bg:active{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:active\:rvmp-brand-border-main:active{
@@ -7158,21 +6548,6 @@
   .\32xl\:active\:rvmp-footer-text:active{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:active\:rvmp-footer-contact-bg:active{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:active\:rvmp-footer-contact-text:active{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:first-child\:rvmp-default-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:first-child\:rvmp-default-alt-text:first-child{
@@ -7242,7 +6617,12 @@
 
   .\32xl\:first-child\:rvmp-banner-text-color:first-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:first-child\:rvmp-banner-bg:first-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:first-child\:rvmp-brand-border-main:first-child{
@@ -7273,21 +6653,6 @@
   .\32xl\:first-child\:rvmp-footer-text:first-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:first-child\:rvmp-footer-contact-bg:first-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:first-child\:rvmp-footer-contact-text:first-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:nth-child\:rvmp-default-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-default-alt-text:nth-child{
@@ -7357,7 +6722,12 @@
 
   .\32xl\:nth-child\:rvmp-banner-text-color:nth-child{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:nth-child\:rvmp-banner-bg:nth-child{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:nth-child\:rvmp-brand-border-main:nth-child{
@@ -7388,21 +6758,6 @@
   .\32xl\:nth-child\:rvmp-footer-text:nth-child{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:nth-child\:rvmp-footer-contact-bg:nth-child{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:nth-child\:rvmp-footer-contact-text:nth-child{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:disabled\:rvmp-default-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
   }
 
   .\32xl\:disabled\:rvmp-default-alt-text:disabled{
@@ -7472,7 +6827,12 @@
 
   .\32xl\:disabled\:rvmp-banner-text-color:disabled{
     --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+  }
+
+  .\32xl\:disabled\:rvmp-banner-bg:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
   }
 
   .\32xl\:disabled\:rvmp-brand-border-main:disabled{
@@ -7503,21 +6863,6 @@
   .\32xl\:disabled\:rvmp-footer-text:disabled{
     --tw-text-opacity: 1;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:disabled\:rvmp-footer-contact-bg:disabled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-  }
-
-  .\32xl\:disabled\:rvmp-footer-contact-text:disabled{
-    --tw-text-opacity: 1;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-  }
-
-  .\32xl\:\!rvmp-default-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-text-main), var(--tw-text-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-default-alt-text{
@@ -7587,7 +6932,12 @@
 
   .\32xl\:\!rvmp-banner-text-color{
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity)) !important;
+    color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity)) !important;
+  }
+
+  .\32xl\:\!rvmp-banner-bg{
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity)) !important;
   }
 
   .\32xl\:\!rvmp-brand-border-main{
@@ -7618,15 +6968,5 @@
   .\32xl\:\!rvmp-footer-text{
     --tw-text-opacity: 1 !important;
     color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity)) !important;
-  }
-
-  .\32xl\:\!rvmp-footer-contact-bg{
-    --tw-bg-opacity: 1 !important;
-    background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity)) !important;
-  }
-
-  .\32xl\:\!rvmp-footer-contact-text{
-    --tw-text-opacity: 1 !important;
-    color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity)) !important;
   }
 }

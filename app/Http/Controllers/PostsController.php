@@ -20,7 +20,7 @@ class PostsController extends Controller
     public function index()
     {
         return Inertia::render('BlogPost', [
-            "posts" => Post::orderBy('id', 'DESC')->paginate(10),
+            "posts" => Post::join('subcategories', 'posts.subcategory_id', '=', 'subcategories.id')->orderBy('posts.created_at', 'DESC')->paginate(4),
         ]);
     }
     public function show($slug)
@@ -127,7 +127,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$requst->title.' has been updated.');
+        $request->session()->flash('success', 'Post updated successfully!|>><<|'.$request->title.' has been updated.');
 
         return redirect()->route('adminPost');
     }

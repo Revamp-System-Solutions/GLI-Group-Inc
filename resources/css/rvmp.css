@@ -1,10 +1,5 @@
 @layer utilities {
     @variants responsive, hover, group-hover, focus, focus-within, focus-visible, active, first-child, nth-child, disabled, important {
-        
-        .rvmp-default-text{
-            --tw-text-opacity: 1;
-            color: rgba(var(--rvmp-text-main), var(--tw-text-opacity));
-        }
         .rvmp-default-alt-text{
             --tw-text-opacity: 1;
             color: rgba(var(--rvmp-text-alt), var(--tw-text-opacity));
@@ -59,7 +54,11 @@
         }
         .rvmp-banner-text-color{
             --tw-text-opacity: 1;
-            color: rgba(var(--rvmp-brand-color-one), var(--tw-text-opacity));
+            color: rgba(var(--rvmp-banner-color), var(--tw-text-opacity));
+        }
+        .rvmp-banner-bg{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-banner-bg), var(--tw-bg-opacity));
         }
         .rvmp-brand-border-main{
             --tw-border-opacity: 1;
@@ -85,14 +84,7 @@
             --tw-text-opacity: 1;
             color: rgba(var(--rvmp-footer-text), var(--tw-text-opacity));
         }
-        .rvmp-footer-contact-bg{
-            --tw-bg-opacity: 1;
-            background-color: rgba(var(--rvmp-footer-contact-bg), var(--tw-bg-opacity));
-        }
-        .rvmp-footer-contact-text{
-            --tw-text-opacity: 1;
-            color: rgba(var(--rvmp-footer-contact-text), var(--tw-text-opacity));
-        }
+     
 
     }
 }
@@ -100,10 +92,10 @@
     min-height: 350px;
 }        
 .brand-logo-text{
-    font-family: BrandFont;
+    font-family: "Century Gothic";
 }
 .brand-text{
-    font-family: RVMP-Poppins;
+    font-family: Poppins;
 }
 .carousel__prev {
     background-color: rgba(var(--rvmp-brand-color-one), 1) !important;

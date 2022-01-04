@@ -199,9 +199,16 @@ export default {
 		],
 		menuSubLinks:[
 			{
-				name: 'Post',
+				name: 'Posts',
 				href: 'adminPost',
 				icon: 'fas fa-sticky-note',
+				order: 'order-1',
+				parentLink: 'Blog'
+			},
+			{
+				name: 'Testimonials',
+				href: 'adminPost',
+				icon: 'fas fa-comment-dots',
 				order: 'order-1',
 				parentLink: 'Blog'
 			},

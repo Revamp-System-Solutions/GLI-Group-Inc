@@ -14,6 +14,9 @@ module.exports = {
         'width': 'width',
         'height': 'height'
       },
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
     },
     backgroundSize: {
       'auto': 'auto',
@@ -56,7 +59,8 @@ module.exports = {
           })
         })
       })
-    })
+    }),
+    require('@tailwindcss/aspect-ratio'),
   ],
   important: false,
 }
