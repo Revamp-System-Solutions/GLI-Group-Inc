@@ -176,7 +176,7 @@ export default {
 				has_dropdown: true
 			},
 			{
-				title: 'Blog',
+				title: 'Posts',
 				href: '',
 				order: 'order-3',
 				icon:"fas fa-blog",
@@ -199,25 +199,25 @@ export default {
 		],
 		menuSubLinks:[
 			{
-				title: 'Posts',
+				title: 'Blog',
 				href: 'adminPost',
 				icon: 'fas fa-sticky-note',
 				order: 'order-1',
-				parentLink: 'Blog'
+				parentLink: 'Posts'
 			},
 			{
 				title: 'Testimonials',
-				href: 'adminPost',
+				href: 'adminTestimonials',
 				icon: 'fas fa-comment-dots',
 				order: 'order-2',
-				parentLink: 'Blog'
+				parentLink: 'Posts'
 			},
 			{
 				title: 'Portfolio',
-				href: 'post.create',
+				href: 'adminPortfolio',
 				icon: 'fas fa-portrait',
 				order: 'order-3',
-				parentLink: 'Blog'
+				parentLink: 'Posts'
 			},
 			{
 				title: 'Library',

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Portfolio;
+use App\Models\Testimonials;
 use App\Models\Subcategories;
 use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
@@ -40,14 +42,14 @@ class PostsController extends Controller
     
     public function create()
     {
-        $medias = Media::all()->pluck('image_url', 'media_name');
-        $categories = Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id');
+        $medias = Media::where('type','=','CLIENT_FILE')->pluck('image_url', 'media_name');
+        $categories = Subcategories::whereCategoryId(3)->where('name',"!=", "Comments")->pluck('name', 'id');
         return Inertia::render('Admin/Posts/CreatePost', ['categories' => $categories, "medias" => $medias]);
     }
 
     public function store(Request $request)
     {
-        $this->getValidate($request);
+        $this->getValidateBlog($request);
 
         $post = new Post();
 
@@ -94,7 +96,7 @@ class PostsController extends Controller
 
     public function update(Request $request, $slug)
     {
-        $this->getValidate($request, $slug);
+        $this->getValidateBlog($request, $slug);
 
         $post = Post::where('slug', $slug)->firstOrFail();
 
@@ -143,11 +145,80 @@ class PostsController extends Controller
         return redirect()->route('adminPost');
     }
 
+    public function adminPortfolio()
+    {
+        return Inertia::render('Admin/Posts/ShowPortfolio', [
+            "posts" => Portfolio::orderBy('id', 'DESC')->paginate(15)
+        ]);
+    }
+
+    public function createPortfolio()
+    {
+        $medias = Media::where('type','=','CLIENT_FILE')->pluck('image_url', 'media_name');
+        $categories = Subcategories::whereCategoryId(5)->pluck('name', 'id');
+        return Inertia::render('Admin/Posts/CreatePortfolio', ['categories' => $categories, "medias" => $medias]);
+    }
+
+    public function adminTestimonials()
+    {
+        return Inertia::render('Admin/Posts/ShowTestimonials', [
+            "posts" => Testimonials::orderBy('id', 'DESC')->paginate(15)
+        ]);
+    }
+    public function createTestimonials()
+    {
+        $medias = Media::where('type','=','CLIENT_FILE')->pluck('image', 'media_name');
+        $categories = Subcategories::whereCategoryId(4)->pluck('name', 'id');
+        return Inertia::render('Admin/Posts/CreateTestimonials', ['categories' => $categories, "medias" => $medias]);
+    }
+    public function storeTestimonials(Request $request)
+    {
+        $this->validate($request, [
+            'ratings' => ['required','max:5','min:0'],
+            'client_name' => 'required',
+            'client_org' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+            'image' => ['nullable', 'image', 'max:1024'],
+        ]);
+
+        $post = new Testimonials();
+
+        $post->ratings = $request->input('ratings');
+        $post->content = $request->input('content');
+        $post->client_name = $request->input('client_name');
+        $post->subcategory_id = $request->category;
+        $post->client_org = $request->input('client_org');
+        if($request->file('image')) {
+            $post->image = $this->upload($request);
+             
+            $media = new Media();
+            $file = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($file,PATHINFO_FILENAME);
+            $media->media_name = $fileName;
+            
+            $media->image = $post->image;
+            $media->type = 'CLIENT_FILE';
+            $media->save();
+           
+        }else{
+            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            $post->image= $media->image;
+           
+        }
+
+        $post->save();
+
+        $request->session()->flash('success', 'New Testimonial has been added|>><<|Testimonial created successfully!');
+
+        return redirect()->route('adminTestimonials');
+    }
+
     /**
      * @param Request $request
      * @throws \Illuminate\Validation\ValidationException
      */
-    private function getValidate(Request $request, $id = null): void
+    private function getValidateBlog(Request $request, $id = null): void
     {
         $data = [
             'title' => 'required',

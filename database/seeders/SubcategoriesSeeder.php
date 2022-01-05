@@ -23,9 +23,9 @@ class SubcategoriesSeeder extends Seeder
             ],
             [
                 'id'                => 2,
-                'name'              => 'Testimonials',
+                'name'              => 'Customer Review',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3,
+                'category_id'       => 4,
                 'permission'       => '-r'
             ],            
             [
@@ -37,9 +37,9 @@ class SubcategoriesSeeder extends Seeder
             ],
             [
                 'id'                => 4,
-                'name'              => 'Portfolio',
+                'name'              => 'Default',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3,
+                'category_id'       => 5,
                 'permission'       => '-r'
             ],
            

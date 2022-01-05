@@ -40,12 +40,20 @@ Route::post('gli-admin/login', [LoginController::class, 'authenticate'])->name('
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('gli-admin/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
-Route::get('gli-admin/posts', [PostsController::class, 'adminPost'])->name('adminPost');
-Route::get('gli-admin/posts/create', [PostsController::class, 'create'])->name('post.create');
-Route::post('gli-admin/posts/create', [PostsController::class, 'store'])->name('post.store');
-Route::get('gli-admin/posts/edit/{slug}', [PostsController::class, 'edit'])->name('post.edit');
-Route::post('gli-admin/posts/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
-Route::delete('gli-admin/posts/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
+Route::get('gli-admin/posts/blog', [PostsController::class, 'adminPost'])->name('adminPost');
+Route::get('gli-admin/posts/blog/create', [PostsController::class, 'create'])->name('post.create');
+Route::post('gli-admin/posts/blog/create', [PostsController::class, 'store'])->name('post.store');
+Route::get('gli-admin/posts/blog/edit/{slug}', [PostsController::class, 'edit'])->name('post.edit');
+Route::post('gli-admin/posts/blog/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
+Route::delete('gli-admin/posts/blog/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
+
+Route::get('gli-admin/posts/testimonials', [PostsController::class, 'adminTestimonials'])->name('adminTestimonials');
+Route::get('gli-admin/posts/testimonials/create', [PostsController::class, 'createTestimonials'])->name('testimonial.create');
+Route::post('gli-admin/posts/testimonials/create', [PostsController::class, 'storeTestimonials'])->name('testimonial.store');
+
+Route::get('gli-admin/posts/portfolio', [PostsController::class, 'adminPortfolio'])->name('adminPortfolio');
+Route::get('gli-admin/posts/portfolio/create', [PostsController::class, 'createPortfolio'])->name('portfolio.create');
+// Route::post('gli-admin/posts/portfolio/create', [PostsController::class, 'store'])->name('post.store');
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
 Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.store');

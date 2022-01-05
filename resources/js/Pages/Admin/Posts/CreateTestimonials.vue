@@ -3,18 +3,14 @@
     <app-header-small></app-header-small> 
     <div id="content-area" class="w-full h-auto bg-gray-50">
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
-            <span class="text-xl inline-block p-3 font-semibold">Create Blog Posts</span>
+            <span class="text-xl inline-block p-3 font-semibold">Create Testimonials</span>
             <form method="post" @submit.prevent="submit">
-                <div class="shadow sm:rounded-md">
+                <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6">
-                                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                                <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" @blur="makeSlug" v-model="form.title">
-                            </div>
-                            <div class="col-span-6">
-                                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-                                <input type="text" name="slug" id="slug" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.slug">
+                                <label for="title" class="block text-sm font-medium text-gray-700">Rating</label>
+                                <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.ratings">
                             </div>
                             <div class="col-span-6"> 
                                 <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
@@ -42,8 +38,12 @@
                                 </Listbox>
                             </div>
                             <div class="col-span-6">
-                                <label for="short_text" class="block text-sm font-medium text-gray-700">Short Text</label>
-                                <textarea type="text" id="short_text" name="short_text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.short_text"></textarea>
+                                <label for="client_name" class="block text-sm font-medium text-gray-700">Client Name</label>
+                                <input type="text" id="client_name" name="client_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_name">
+                            </div>
+                            <div class="col-span-6">
+                                <label for="client_org" class="block text-sm font-medium text-gray-700">Client Organization</label>
+                                <input type="text" id="client_org" name="client_org" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_org">
                             </div>
                             <div class="col-span-6">
                                 <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
@@ -125,9 +125,9 @@ export default {
         
         const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
-            title: null,
-            slug: null,
-            short_text:null,
+            ratings: null,
+            client_name: null,
+            client_org:null,
             author: null,
             content: null,
             image: null,
@@ -152,13 +152,14 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('post.store'), form, {
+            Inertia.post(route('testimonial.store'), form, {
                 forceFormData: true,
             });
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        form.category = ref(categories.value[1])
+        form.category = ref(categories.value[0])
+        //  const selectedCategory = ref(categories.value[1])
         return {
             form, categories,submit, selectFile,user,medias
         }
@@ -175,16 +176,7 @@ export default {
            $("#image").val('')
            this.form.from_library =null
         },
-        makeSlug: function(){
-            if(this.form.title.includes(" ")==true){
-                    var tmpslug = (this.form.title.split(" ")).join("-")
-                   
-            }else{
-                var tmpslug = this.form.title
-            }
-            this.form.slug = tmpslug.toLowerCase()
 
-        },
         setFrLib(val){
             if(this.form.from_library == val)
                 val = null
