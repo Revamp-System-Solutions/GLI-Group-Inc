@@ -20,14 +20,11 @@
                                         <div class="space-x-2"><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="fas fa-at"></i> {{post.author}}</span><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="far fa-folder-open"></i> {{post.name}}</span></div>
                                         <div class="xl:overflow-ellipsis overflow-hidden lg:text-sm text-xs font-light">  {{ post.short_text }} </div>
                                     </div>
-                                </div>
-                        
+                                </div>                        
                         <!-- Pagination links-->
-
                         <nav class="w-20" aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">
                             <ul class="pagination flex flex-row justify-between space-x-2">
-                                <!-- Previous link -->
-                                
+                                <!-- Previous link -->                                
                                 <li v-if="posts.links[1].active != true" :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
                                     <inertia-link :href="posts.links[0].url == null ? '#' : posts.links[0].url" class="page-link" v-html="posts.links[0].label"></inertia-link>
                                 </li>
