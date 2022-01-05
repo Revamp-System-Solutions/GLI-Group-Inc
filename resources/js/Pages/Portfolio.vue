@@ -4,7 +4,7 @@
         <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
           <div class="h-40 mx-auto 2xl:px-80 xl:px-56 lg:px-28 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
             <div class="lg:w-full lg:self-start self-center">
-              <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color">Built Better</h1>
+              <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">Built Better</h1>
             </div>
           </div>
         </div>

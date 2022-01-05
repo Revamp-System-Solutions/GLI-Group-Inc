@@ -1,10 +1,10 @@
 <template>
     <app-header></app-header>
-    <div class="rvmp-container h-full space-y-6 mb-8">
+    <div class="rvmp-container h-auto space-y-6 mb-8">
     <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/groups.jpeg')">
-        <div class="h-40 mx-auto 2xl:px-80 xl:px-56 lg:px-28 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
+        <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
             <div class="lg:w-full lg:self-start self-center">
-                <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color">Latest Posts from GLI</h1>
+                <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">Latest Posts from GLI</h1>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
                                     <div class="lg:w-96 w-full lg:max-h-52 2xl:h-52 lg:px-6 xl:py-4 space-y-3 brand-text">
                                         <inertia-link :href="$route('guest.blog.view', {id: post.slug})" class="rvmp-text-main hover:rvmp-brand-color-highlight"> <h4 class="lg:text-xl text-base font-semibold">{{post.title}}</h4></inertia-link>
                                         <div class="space-x-2"><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="fas fa-at"></i> {{post.author}}</span><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="far fa-folder-open"></i> {{post.name}}</span></div>
-                                        <div class="overflow-ellipsis overflow-hidden lg:text-sm text-xs font-light">  {{ post.short_text }} </div>
+                                        <div class="xl:overflow-ellipsis overflow-hidden lg:text-sm text-xs font-light">  {{ post.short_text }} </div>
                                     </div>
                                 </div>
                         
@@ -48,27 +48,31 @@
                         No posts Yet!
                     </div>
                 </div>
-                <div class="w-full xl:px-7 px-4">
+                <div class="w-full xl:px-7 px-4 lg:pb-0 pb-10">
                     <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl">
                         <div class="col-span-6">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">Free Quotation</span></h3>
                         </div>
                         <div class="col-span-6">
-                          <label for="first-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
-                          <input type="text" name="first-name" id="first-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <label for="full-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
+                          <input type="text" name="full-name" id="full-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" />
                         </div>
                         <div class="col-span-6">
                           <label for="email-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Email address</label>
-                          <input type="text" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                        </div>
+                        <div class="col-span-6">
+                          <label for="contact-number" class="text-sm font-medium rvmp-footer-text capitalize hidden">Contact Number</label>
+                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
                         </div>
                         <div class="col-span-6 ">
                           <label for="project" class="text-sm font-medium rvmp-footer-text capitalize hidden">Type of Project</label>
-                              <Listbox v-model="selectedPerson">
+                              <Listbox v-model="selectedService">
                                 <div class="relative mt-1">
                                     <ListboxButton
                                     class="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-md shadow-sm cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm border border-gray-300"
                                     >
-                                    <span class="block truncate">{{ selectedPerson.name }}</span>
+                                    <span class="block truncate">{{ selectedService.name }}</span>
                                     <span
                                         class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
                                     >
@@ -86,15 +90,15 @@
                                     >
                                         <ListboxOption
                                         v-slot="{ active, selected }"
-                                        v-for="person in people"
-                                        :key="person.name"
-                                        :value="person"
-                                        :disabled="person.disabled"
+                                        v-for="service in services"
+                                        :key="service.name"
+                                        :value="service"
+                                        :disabled="service.disabled"
                                         as="template"
                                         >
                                         <li
                                             :class="[
-                                            active ? 'text-amber-900 bg-amber-100' : 'text-gray-900',
+                                            active ?  (service.id===0 ? 'text-gray-400 bg-gray-600':'rvmp-brand-color-darker rvmp-brand-bg-highlight bg-opacity-50') : 'text-gray-900',
                                             'cursor-default select-none relative py-2 pl-10 pr-4',
                                             ]"
                                         >
@@ -103,10 +107,10 @@
                                                 selected ? 'font-medium' : 'font-normal',
                                                 'block truncate',
                                             ]"
-                                            >{{ person.name }}</span
+                                            >{{ service.name }}</span
                                             >
                                             <span
-                                            v-if="selected"
+                                            v-if="selected&& service.id!==0"
                                             class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
                                             >
                                             <i class="fas fa-check w-5 h-5" aria-hidden="true" />
@@ -119,12 +123,12 @@
                                 </Listbox>
                         </div>
                         <div class="col-span-6">
-                          <label for="date" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
-                          <input type="date" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <label for="date_needed" class="text-sm font-medium rvmp-footer-text capitalize block">when</label>
+                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
                         </div>                        
                         <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
-                          <textarea type="text" name="message" id="message" placeholder="Message" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" ></textarea>
+                          <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" ></textarea>
                         </div>
                         <div class="col-span-6">
                           <button class="bg-green-600 text-white px-4 py-1.5  hover:bg-green-700 w-full rounded-md  transition ease-in-out duration-300">Book a Meeting</button>
@@ -133,10 +137,11 @@
                 </div>
             </div>
             
-            
+          
     </div>
+     
     </div>
-    <app-footer-contact-form/>
+    <app-footer-contact-form/> 
 </template>
 
 <script>
@@ -179,30 +184,35 @@ export default {
      
 
         const posts = computed(() => usePage().props.value.posts);
-        console.log(posts.value)
 
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
-        const people = [
+        const services = [
             { id: 0, name: 'Type of Project', disabled: true },
-            { id: 1, name: 'Durward Reynolds', disabled: false },
-            { id: 2, name: 'Kenton Towne', disabled: false },
-            { id: 3, name: 'Therese Wunsch', disabled: false },
-            { id: 4, name: 'Benedict Kessler', disabled: false },
-            { id: 5, name: 'Katelyn Rohan', disabled: false },
-            { id: 6, name: 'Katelyn1 Rohan', disabled: false },
-            { id: 7, name: 'Katelyn2 Rohan', disabled: false },
-            { id: 8, name: 'Katelyn3 Rohan', disabled: false },
-            { id: 9, name: 'Benedict1 Kessler', disabled: false },
-            { id: 10, name: 'Benedict2 Kessler', disabled: false },
-            { id: 11, name: 'Benedict3 Kessler', disabled: false },
-
+            { id: 1, name: 'Clean gutters', disabled: false },
+            { id: 2, name: 'Demolition', disabled: false },
+            { id: 3, name: 'Remodeling', disabled: false },
+            { id: 4, name: 'Install drywall', disabled: false },
+            { id: 5, name: 'Install fan', disabled: false },
+            { id: 6, name: 'Install flooring', disabled: false },
+            { id: 7, name: 'Install tile work', disabled: false },
+            { id: 8, name: 'Install water fixtures', disabled: false },
+            { id: 9, name: 'Mount TV', disabled: false },
+            { id: 10, name: 'Paint indoors', disabled: false },
+            { id: 11, name: 'Paint outdoors', disabled: false },
+            { id: 12, name: 'Refurbishment', disabled: false },
+            { id: 13, name: 'Repair Flooring', disabled: false },
+            { id: 14, name: 'Repair water fixtures', disabled: false },
+            { id: 15, name: 'Repair drywall', disabled: false },
+            { id: 16, name: 'Repair fan', disabled: false },
+            { id: 17, name: 'Repair tile work', disabled: false },
+            { id: 18, name: 'Other', disabled: false },
             ]
-              const selectedPerson = ref(people[0])
+              const selectedService = ref(services[0])
         return {
             posts,
             numberLinks,
-             people,
-        selectedPerson,
+            services,
+            selectedService,
         }
     }
 }

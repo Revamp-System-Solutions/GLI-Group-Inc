@@ -54,11 +54,11 @@
 
 @font-face {
     font-family: "Century Gothic";
-    src: url('/fonts/CenturyGothicRegular');
+    src: url('/fonts/CenturyGothicRegular.ttf');
 }
 
 @font-face {
     font-family: "Century Gothic";
-    src:  url('/fonts/CenturyGothicBold');
+    src:  url('/fonts/CenturyGothicBold.ttf');
     font-weight: 600;
 }
