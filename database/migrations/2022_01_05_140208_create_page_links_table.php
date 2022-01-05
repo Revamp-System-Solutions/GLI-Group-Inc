@@ -22,6 +22,7 @@ class CreatePageLinksTable extends Migration
             $table->boolean("is_parent")->default(true);
             $table->boolean("has_dropdown")->default(false);
             $table->string("parentLink")->nulllable();
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

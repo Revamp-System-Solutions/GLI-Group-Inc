@@ -20,6 +20,7 @@ class CreatePortfoliosTable extends Migration
             $table->string("images")->nullable();
             $table->unsignedBigInteger('subcategory_id');
             $table->foreign('subcategory_id', 'subcategory_fk_455799')->references('id')->on('subcategories');
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

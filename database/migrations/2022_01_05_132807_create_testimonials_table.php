@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->string("image")->nullable();
             $table->string('client_name');
             $table->string('company');
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }
