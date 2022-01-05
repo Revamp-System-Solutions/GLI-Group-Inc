@@ -26,7 +26,7 @@ class CategoriesSeeder extends Seeder
             ],            
             [
                 'id'                => 3,
-                'name'              => 'Blogs',
+                'name'              => 'Posts',
                 'description'       => 'DO NOT CHANGE OR DELETE',
             ],
            

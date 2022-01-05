@@ -17,13 +17,13 @@
           </PopoverButton>
         </div>
         <PopoverGroup as="nav" class="hidden md:flex space-x-10">
-			<template v-for="link in menuLinks" :key="link.name">
+			<template v-for="link in menuLinks" :key="link.title">
 					<inertia-link :href="$route(link.href)" class="text-base font-medium text-white hover:rvmp-brand-color-main" :class="link.order" v-if="!link.has_dropdown">
-						<i :class="link.icon" class="text-sm py-2"></i> {{link.name}}
+						<i :class="link.icon" class="text-sm py-2"></i> {{link.title}}
 					</inertia-link>
 					<Popover class="relative " v-slot="{ open }" :class="link.order" v-else>
 						<PopoverButton :class="[open ? 'rvmp-brand-color-main' : 'text-white', 'group bg-transparent rounded-md inline-flex items-center text-base font-medium hover:rvmp-brand-color-main']">
-						<span><i :class="link.icon" class="text-sm py-2"></i> {{link.name}}</span>
+						<span><i :class="link.icon" class="text-sm py-2"></i> {{link.title}}</span>
 						<span class="fas fa-chevron-down" :class="[open ? 'rvmp-brand-color-main' : 'text-white', 'ml-2 h-5 w-5 group-hover:rvmp-brand-color-main']" aria-hidden="true"></span>
 						</PopoverButton>
 
@@ -31,12 +31,12 @@
 						<PopoverPanel class="absolute z-10 -ml-4 mt-3 transform px-2 w-64 max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
 							<div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
 							<div class="relative grid  grid-cols-1 gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-								<template v-for="submenu in menuSubLinks" :key="submenu.name" >
-									<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.name" class="group -m-3 p-3 flex items-start rounded-lg hover:rvmp-brand-bg-main">
+								<template v-for="submenu in menuSubLinks" :key="submenu.title" >
+									<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.title" class="group -m-3 p-3 flex items-start rounded-lg hover:rvmp-brand-bg-main">
 									<span class="group-hover:text-white" :class="submenu.icon"></span>
 									<div class="ml-4">
 										<p class="text-base font-medium text-gray-900 group-hover:text-white">
-										{{ submenu.name }}
+										{{ submenu.title }}
 										</p>
 									</div>
 									</inertia-link>
@@ -55,7 +55,7 @@
         </PopoverGroup>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 			<span class="whitespace-nowrap text-base font-medium text-white hover:text-gray-900">
-				{{user.name}}
+				{{user.title}}
 			</span>
 			<span>
 				<inertia-link :href="$route('logout')" as="button" method="post" class="w-full flex flex-row items-center h-12 px-4  text-white logout-link hover:bg-red-400 text-left"  type="button">
@@ -83,9 +83,9 @@
             </div>
             <div class="mt-6">
               <nav class="grid grid-cols-1 gap-y-4">
-               <template v-for="link in menuLinks" :key="link.name">
+               <template v-for="link in menuLinks" :key="link.title">
 					<inertia-link :href="$route(link.href)" class="text-base font-medium text-white hover:rvmp-brand-color-main px-4" :class="link.order" v-if="!link.has_dropdown">
-						<i :class="link.icon" class="text-xs my-4"></i> {{link.name}}
+						<i :class="link.icon" class="text-xs my-4"></i> {{link.title}}
 					</inertia-link>
 			   </template>
               </nav>
@@ -93,19 +93,19 @@
           </div>
           <div class="pt-4 px-5 space-y-4 divide-y-2 divide-white">
             <div class="grid grid-cols-1 gap-y-4 gap-x-6">
-				 <template v-for="link in menuLinks" :key="link.name">
+				 <template v-for="link in menuLinks" :key="link.title">
                <Disclosure v-slot="{ open }" v-if="link.has_dropdown">
 					<DisclosureButton class="flex justify-between w-full px-4 py-2 font-medium text-left text-white rounded-lg">
-					<span><i :class="link.icon" class="text-xs my-4"></i> {{link.name}}</span>
+					<span><i :class="link.icon" class="text-xs my-4"></i> {{link.title}}</span>
 					<span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ', 'ml-2 h-5 w-5 ']" aria-hidden="true"></span>
 					</DisclosureButton>
 					<DisclosurePanel class="px-6 pt-4 pb-2 grid grid-cols-2 gap-4 bg-opacity-50 bg-gray-100 text-sm rounded-lg">
-						<template v-for="submenu in menuSubLinks" :key="submenu.name" >
-							<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.name" class="group -m-3 p-3 flex text-white  items-start  hover:rvmp-brand-bg-main">
+						<template v-for="submenu in menuSubLinks" :key="submenu.title" >
+							<inertia-link :href="$route(submenu.href)" v-if="submenu.parentLink===link.title" class="group -m-3 p-3 flex text-white  items-start  hover:rvmp-brand-bg-main">
 								<span :class="submenu.icon"></span>
 								<div class="ml-4">
 									<p class="text-base font-medium ">
-									{{ submenu.name }}
+									{{ submenu.title }}
 									</p>
 								</div>
 							</inertia-link>
@@ -117,7 +117,7 @@
             </div>
             <div class="py-4 flex space-x-4 justify-end">
 				<span class="whitespace-nowrap text-base font-medium text-white hover:text-gray-900">
-					{{user.name}}
+					{{user.title}}
 				</span>
 				<span>
 					<inertia-link :href="$route('logout')" as="button" method="post" class="text-white logout-link hover:text-red-400 text-left"  type="button">
@@ -139,7 +139,7 @@ import {computed} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "AppHeaderSmall",
+    title: "AppHeaderSmall",
 	components: {
 		Popover,
 		PopoverButton,
@@ -162,35 +162,35 @@ export default {
 		menuOpen: false,
 		menuLinks:[
 			{
-				name: 'Dashboard',
+				title: 'Dashboard',
 				href: 'viewDashboard',
 				order: 'order-1',
 				icon:"fas fa-tachometer-alt",
 				has_dropdown: false
 			},
 			{
-				name: 'Pages',
+				title: 'Pages',
 				href: '',
 				order: 'order-2',
 				icon:"fas fa-file-alt",
 				has_dropdown: true
 			},
 			{
-				name: 'Blog',
+				title: 'Blog',
 				href: '',
 				order: 'order-3',
 				icon:"fas fa-blog",
 				has_dropdown: true
 			},
 			{
-				name: 'Media',
+				title: 'Media',
 				href: '',
 				order: 'order-4',
 				icon:"fas fa-photo-video",
 				has_dropdown: true
 			},
 			{
-				name: 'Site',
+				title: 'Site',
 				href: '',
 				order: 'order-5',
 				icon:"fas fa-cogs",
@@ -199,42 +199,42 @@ export default {
 		],
 		menuSubLinks:[
 			{
-				name: 'Posts',
+				title: 'Posts',
 				href: 'adminPost',
 				icon: 'fas fa-sticky-note',
 				order: 'order-1',
 				parentLink: 'Blog'
 			},
 			{
-				name: 'Testimonials',
+				title: 'Testimonials',
 				href: 'adminPost',
 				icon: 'fas fa-comment-dots',
-				order: 'order-1',
-				parentLink: 'Blog'
-			},
-			{
-				name: 'Add New',
-				href: 'post.create',
-				icon: 'fas fa-plus',
 				order: 'order-2',
 				parentLink: 'Blog'
 			},
 			{
-				name: 'Library',
+				title: 'Portfolio',
+				href: 'post.create',
+				icon: 'fas fa-portrait',
+				order: 'order-3',
+				parentLink: 'Blog'
+			},
+			{
+				title: 'Library',
 				href: 'admin.media',
 				icon: 'fas fa-book-open',
 				order: 'order-1',
 				parentLink: 'Media'
 			},
 			{
-				name: 'Users',
+				title: 'Users',
 				href: 'admin.manager',
 				icon: 'fas fa-users',
 				order: 'order-2',
 				parentLink: 'Site'
 			},
 			{
-				name: 'Settings',
+				title: 'Settings',
 				href: 'admin.settings',
 				icon: 'fas  fa-sliders-h',
 				order: 'order-first',
@@ -244,7 +244,7 @@ export default {
   	}),
 
     mounted() {
-		if(window.location.pathname !== "/home"){
+		if(window.location.pathtitle !== "/home"){
 			this.switchInertia = true
 		}
 		
