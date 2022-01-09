@@ -15,21 +15,21 @@
                             <table class="table-fixed w-full border-collapse border border-gray-700 mt-2">
                                   <thead>
                                       <tr>
-                                      <th class="w-1/5 border border-gray-600">Title</th>
-                                      <th class="w-1/5 border border-gray-600">Content</th>
-                                      <th class="w-1/5 border border-gray-600">Author</th>
-                                      <th class="w-1/5 border border-gray-600">Last Update</th>
+                                      <th class="w-1/5 border border-gray-600">Ratings</th>
+                                      <th class="w-1/5 border border-gray-600">Client</th>
+                                      <th class="w-1/5 border border-gray-600">Organization</th>
+                                      <th class="w-1/5 border border-gray-600">Created</th>
                                       <th class="w-1/5 border border-gray-600">Actions</th>
                                       </tr>
                                   </thead>
                                   <tbody v-if="posts.data.length > 0">
                                       <tr v-for="post in posts.data" :key="post.id" class="text-center ">
-                                          <td class="border border-gray-600">{{post.title}}</td>
-                                          <td class="border border-gray-600">{{ post.short_text }}</td>
-                                          <td class="border border-gray-600">{{ post.author }}</td>
-                                          <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>
+                                          <td class="border border-gray-600">{{post.ratings}}</td>
+                                          <td class="border border-gray-600">{{ post.client_name }}</td>
+                                          <td class="border border-gray-600">{{ post.client_org }}</td>
+                                          <td class="border border-gray-600">{{ post.created_at.split("T")[0] }}</td>
                                           <td class="border border-gray-600">
-                                              <inertia-link :href="$route('post.edit', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
+                                              <inertia-link :href="$route('testimonial.edit', {id: post.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
                                               <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.slug)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
                                           </td>
                                       </tr>

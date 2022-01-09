@@ -48,8 +48,9 @@
                             <div class="col-span-6">
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
-                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="form.image==null"></i>
+                                        <i class="fas fa-image mx-auto text-2xl text-gray-400"  v-if="!image_url"></i>
                                         <div class="images-preview-div" v-else>
+                                            <img v-if="image_url" :src="image_url" :alt="form.title+'-image'">
                                         </div>
                                         <div class="flex text-sm text-gray-600 justify-center">  
                                             <p class="pl-1 text-center">
@@ -73,6 +74,7 @@
                                             <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible ">
                                                 <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
                                                 <i class="fas fa-check-circle absolute  top-0 right-0 inline-flex   m-2" :class="(index==form.from_library) ? 'text-green-700' : 'text-gray-400  opacity-75'"></i>
+                                                    {{media}}
                                                     <img v-if="media" class="rounded shadow-md  mt-1 object-contain h-48 w-full" :src="media" :alt="index">
                                                     {{index }}
                                                 </div>
@@ -94,20 +96,18 @@
     </div>
 </template>
 
+
 <script>
 import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive, computed, ref} from "vue";
-import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
+import {inject, reactive, computed} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
 
 export default {
-    name: "Create",
-    props: {
-        errors: Object
-    },
+    name: "Edit",
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
@@ -115,11 +115,12 @@ export default {
         ListboxButton,
         ListboxOptions,
         ListboxOption
-
+    },
+    props: {
+        errors: Object
     },
     setup() {
         
-        const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
             ratings: null,
             client_name: null,
@@ -127,66 +128,70 @@ export default {
             content: null,
             image: null,
             category:null,
+            edited_by:null,
             from_library: null,
-            _token: usePage().props.value.csrf_token
+            _token: usePage().props.value.csrf_token,
+            _method: "POST"
         });
         
-
+        // retrieve post prop
+        const {ratings, content, image, image_url, client_name,client_org,category_id} = usePage().props.value.post;
+        form.ratings = ratings;
+        form.content = content;
+        form.category= category_id;
+        form.client_name=client_name;
+        form.client_org = client_org;
+        form.from_library = image;   
         const route = inject('$route');
 
         function selectFile($event) {
             form.image = $event.target.files[0];
-            form.from_library = null
-            if(form.image.size > 1048576){
-                form.image = null;
-                form.from_library = null
-                $("div.images-preview-div").html("")
-                $("#image").val('')
-
-            }
         }
 
         function submit() {
-            Inertia.post(route('testimonial.store'), form, {
-                forceFormData: true,
+            Inertia.post(route('post.update', {'slug': slug}), form, {
+                forceFormData: true
             });
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        form.category = ref(categories.value[0])
+        const user = computed(() => usePage().props.value.auth.user);
+        const exclusionList = usePage().props.value.makepostexclusionList;
+
         return {
-            form, categories,submit, selectFile,user,medias
+            form, submit, selectFile, image_url,categories,user,medias,exclusionList
         }
     },
     mounted(){
-        this.form.author = this.user.name
-        this.selected = this.form.category
+        this.edited_by = this.user.name
     }, 
-    methods: {
+     methods: {
         openLibrary: function(){
 
            this.chooseLibrary = !this.chooseLibrary
-
            $("#image").val('')
            this.form.from_library =null
         },
-
+        makeSlug: function(){
+            if(this.form.title.includes(" ")==true){
+                    var tmpslug = (this.form.title.split(" ")).join("-")
+            }else{
+                var tmpslug = this.form.title
+            }
+            this.form.slug = tmpslug.toLowerCase()
+        },
         setFrLib(val){
             if(this.form.from_library == val)
                 val = null
              this.form.from_library = val
-             this.form.image =null
-            $("div.images-preview-div").html("")
              $("#image").val('')
         }
     },
     data: () => ({
-            data: null,
+            openModal: false,
             chooseLibrary : false,
             editor: ClassicEditor,
-            
-            editorConfig: {
-           
+            editorConfig: {  
                 toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
                 language: 'en',
                 height: '30%',
@@ -195,43 +200,12 @@ export default {
         
                 }
             }
-
-    }),
- 
-    
+    })
 }
-$(function() {
-        // Multiple images preview with JavaScript
-        var previewImages = function(input, imgPreviewPlaceholder) {
-            if (input.files) {
-                    if(input.files[0].size > 1048576)
-                        return;
-
-                    var file = input.files[0];
-
-                    var reader = new FileReader();
-                    reader.onload = (function(currFile, x) {
-                        
-                        return function(event){
-                            
-                            $($.parseHTML('\
-                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
-                                '))                            
-                            .appendTo(imgPreviewPlaceholder);
-
-                        };
-
-
-                    })(file, 0);
-
-                    reader.readAsDataURL(input.files[0]);
-                
-            }
-        };
-        $('#image').on('change', function() {
-            $("div.images-preview-div").html("")
-            previewImages(this, 'div.images-preview-div');
-        });
-    });
 </script>
 
+<style scoped>
+    form {
+        margin-top: 20px;
+    }
+</style>
