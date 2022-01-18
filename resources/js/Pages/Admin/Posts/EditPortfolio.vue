@@ -151,12 +151,12 @@ export default {
         form.slug=slug;
         form.author=author;
         const urls =images_url;
-        updateImageList();
+        
+        urls.length>0 ? updateImageList():'';
         const route = inject('$route');
 
         function selectFile($event) {
-            if(urls.length==0)
-                $("div.images-preview-div").html("")
+
             //  $("#images").val('')
                 if ($event.target.files) {
                     for (let i = 0; i < $event.target.files.length; i++) {
@@ -166,8 +166,9 @@ export default {
                         reader.onload = (function(currFile, x) {
                             var fileName = currFile.name
                             return function(event){
-                                urls.push({url: event.target.result, name: fileName})
+                                urls.push({url: event.target.result, name: `${fileName}`, type: currFile.type})
                                 updateImageList();
+                                console.log(urls)
                             };
                         })(file, i).bind(this);
                         reader.readAsDataURL($event.target.files[i]);
@@ -194,13 +195,17 @@ export default {
         function updateImageList(){
               $.each(urls, function(i, img){     
                 loadXHR(img.url).then(function(blob) {
-                form.images[i] = new File([blob], img.name);
+                form.images[i] = new File([blob], img.name, {
+  type: img.type,
+});
                 });
             });
+            console.log(form.images)
         }
 
         function submit() {
-            Inertia.post(route('portfolio.update'), form, {
+             urls.length>0 ? updateImageList():'';
+            Inertia.post(route('portfolio.update', {'slug':form.slug}), form, {
                 forceFormData: true,
             });
         }
@@ -228,6 +233,7 @@ export default {
            this.form.from_library =null
         },
         makeSlug: function(){
+            if(this.form.title!==null){
             if(this.form.title.includes(" ")==true){
                     var tmpslug = (this.form.title.split(" ")).join("-")
                    
@@ -235,7 +241,7 @@ export default {
                 var tmpslug = this.form.title
             }
             this.form.slug = tmpslug.toLowerCase()
-
+            }
         },
         removeImage: function(img){
             this.urls.splice(this.urls.indexOf(img),1)

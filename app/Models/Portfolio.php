@@ -15,7 +15,8 @@ class Portfolio extends Model
     {
         $urls = array();
         foreach(json_decode($this->images) as $img){
-            array_push($urls, [ 'url' => '/rvmp-content/rvmp-uploads/' . $img, 'name' => $img]);
+            $type =  explode( '.', $img );
+            array_push($urls, [ 'url' => '/rvmp-content/rvmp-uploads/' . $img, 'name' => $img, 'type'=> 'image/'.$type[1] ]);
         }
         return $this->images ? $urls : "";
     }

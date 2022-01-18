@@ -27830,12 +27830,11 @@ __webpack_require__.r(__webpack_exports__);
     form.slug = slug;
     form.author = author;
     var urls = images_url;
-    updateImageList();
+    urls.length > 0 ? updateImageList() : '';
     var route = (0,vue__WEBPACK_IMPORTED_MODULE_2__.inject)('$route');
 
     function selectFile($event) {
-      if (urls.length == 0) $("div.images-preview-div").html(""); //  $("#images").val('')
-
+      //  $("#images").val('')
       if ($event.target.files) {
         for (var i = 0; i < $event.target.files.length; i++) {
           var file = $event.target.files[i];
@@ -27846,9 +27845,11 @@ __webpack_require__.r(__webpack_exports__);
             return function (event) {
               urls.push({
                 url: event.target.result,
-                name: fileName
+                name: "".concat(fileName),
+                type: currFile.type
               });
               updateImageList();
+              console.log(urls);
             };
           }(file, i).bind(this);
 
@@ -27886,13 +27887,19 @@ __webpack_require__.r(__webpack_exports__);
     function updateImageList() {
       $.each(urls, function (i, img) {
         loadXHR(img.url).then(function (blob) {
-          form.images[i] = new File([blob], img.name);
+          form.images[i] = new File([blob], img.name, {
+            type: img.type
+          });
         });
       });
+      console.log(form.images);
     }
 
     function submit() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post(route('portfolio.update'), form, {
+      urls.length > 0 ? updateImageList() : '';
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post(route('portfolio.update', {
+        'slug': form.slug
+      }), form, {
         forceFormData: true
       });
     }
@@ -27929,13 +27936,15 @@ __webpack_require__.r(__webpack_exports__);
       this.form.from_library = null;
     },
     makeSlug: function makeSlug() {
-      if (this.form.title.includes(" ") == true) {
-        var tmpslug = this.form.title.split(" ").join("-");
-      } else {
-        var tmpslug = this.form.title;
-      }
+      if (this.form.title !== null) {
+        if (this.form.title.includes(" ") == true) {
+          var tmpslug = this.form.title.split(" ").join("-");
+        } else {
+          var tmpslug = this.form.title;
+        }
 
-      this.form.slug = tmpslug.toLowerCase();
+        this.form.slug = tmpslug.toLowerCase();
+      }
     },
     removeImage: function removeImage(img) {
       this.urls.splice(this.urls.indexOf(img), 1);
