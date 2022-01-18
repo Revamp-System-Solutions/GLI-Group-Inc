@@ -58,6 +58,7 @@ Route::get('gli-admin/posts/portfolio/create', [PostsController::class, 'createP
 Route::post('gli-admin/posts/portfolio/create', [PostsController::class, 'storePortfolio'])->name('portfolio.store');
 Route::get('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'editPortfolio'])->name('portfolio.edit');
 Route::post('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'updatePortfolio'])->name('portfolio.update');
+Route::delete('gli-admin/posts/blog/delete/{slug}', [PostsController::class, 'destroyPortfolio'])->name('portfolio.destroy');
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
 Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.store');

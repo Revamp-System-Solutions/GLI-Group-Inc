@@ -167,8 +167,8 @@ class PostsController extends Controller
             'content' => 'required',
             'category' => 'required',
             'slug' => 'required',
-            'images' => 'array',
-            'images.*' => ['nullable', 'image', 'max:1024'],
+            'images' => ['required','array'],
+            'images.*' => [ 'image', 'max:1024'],
         ]);
 
         $post = new Portfolio();
@@ -222,8 +222,8 @@ class PostsController extends Controller
             'author' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'images' => 'array',
-            'images.*' => ['nullable', 'image', 'max:1024'],
+            'images' => ['required','array'],
+            'images.*' => ['image', 'max:1024'],
         ]);
 
         $post = Portfolio::where('slug', $slug)->firstOrFail();
@@ -267,7 +267,19 @@ class PostsController extends Controller
         $request->session()->flash('success', 'Portfolio has been Updated|>><<|Portfolio updated successfully!');
 
         return redirect()->route('adminPortfolio');
-    }    
+    }   
+    
+    public function destroyPortfolio(Request $request, $slug)
+    {
+
+        $post =Portfolio::where('slug', $slug)->firstOrFail();
+        
+        $post->delete();
+        $request->session()->flash('success', 'Portfolio deleted!|>><<|Portfolio deletion complete.');
+
+        return redirect()->route('adminPortfolio');
+    }
+
     public function adminTestimonials()
     {
         return Inertia::render('Admin/Posts/ShowTestimonials', [

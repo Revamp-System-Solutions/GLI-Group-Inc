@@ -52,10 +52,9 @@
                                     <div class="space-y-1 text-center">
                                         <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="urls.length==0"></i>
                                         <div class="images-preview-div w-auto" else>
-                                             <draggable class="dragArea list-group w-full flex flex-row flex-wrap overflow-x-visible" draggable=".draggable"  :list="urls" @change="log">
+                                             <draggable class="dragArea list-group w-full flex flex-row flex-wrap overflow-x-visible" draggable=".draggable"  :list="urls" @change="updateImageList">
                                             <template v-for="(img,index) in urls" :key="img" :index="index">
                                                 <div class="text-right draggable">
-                                                    <!-- {{img.url}} -->
                                                     <i class="fas fa-times-circle text-2xl text-red-400 pointer" @click="removeImage(img)"></i>
                                                  <img :src="img.url" :alt="img.name" class="object-contain h-24 w-24 px-4 mx-auto">
                                                 </div>
@@ -156,21 +155,18 @@ export default {
         const route = inject('$route');
 
         function selectFile($event) {
-
-            //  $("#images").val('')
                 if ($event.target.files) {
                     for (let i = 0; i < $event.target.files.length; i++) {
                         var file = $event.target.files[i];
                                
                         var reader = new FileReader();
-                        reader.onload = (function(currFile, x) {
+                        reader.onload = (function(currFile, x, total) {
                             var fileName = currFile.name
                             return function(event){
                                 urls.push({url: event.target.result, name: `${fileName}`, type: currFile.type})
-                                updateImageList();
-                                console.log(urls)
+                               x === total-1 ? updateImageList():'';
                             };
-                        })(file, i).bind(this);
+                        })(file, i,$event.target.files.length).bind(this);
                         reader.readAsDataURL($event.target.files[i]);
                     }
               }          
@@ -193,20 +189,18 @@ export default {
         }
         
         function updateImageList(){
+            form.images = []
               $.each(urls, function(i, img){     
                 loadXHR(img.url).then(function(blob) {
-                form.images[i] = new File([blob], img.name, {
-  type: img.type,
-});
+                form.images[i] = new File([blob], img.name, { type: img.type, });
                 });
             });
-            console.log(form.images)
         }
 
         function submit() {
-             urls.length>0 ? updateImageList():'';
             Inertia.post(route('portfolio.update', {'slug':form.slug}), form, {
                 forceFormData: true,
+                
             });
         }
         const categories = computed(() => usePage().props.value.categories);
@@ -222,9 +216,6 @@ export default {
         this.selected = this.form.category
     }, 
     methods: {
-        log(event) {
-        console.log(event)
-      },
         openLibrary: function(){
 
            this.chooseLibrary = !this.chooseLibrary
@@ -245,6 +236,7 @@ export default {
         },
         removeImage: function(img){
             this.urls.splice(this.urls.indexOf(img),1)
+            this.updateImageList()
         },
         setFrLib(val){
             

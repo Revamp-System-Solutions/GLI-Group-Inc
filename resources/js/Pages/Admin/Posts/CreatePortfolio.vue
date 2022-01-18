@@ -49,9 +49,16 @@
                             <div class="col-span-6">
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
-                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="form.images==null"></i>
-                                        <div class="images-preview-div" else>
-
+                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="urls.length==0"></i>
+                                        <div class="images-preview-div w-auto" else>
+                                               <draggable class="dragArea list-group w-full flex flex-row flex-wrap overflow-x-visible" draggable=".draggable"  :list="urls" @change="updateImageList">
+                                            <template v-for="(img,index) in urls" :key="img" :index="index">
+                                                <div class="text-right draggable">
+                                                    <i class="fas fa-times-circle text-2xl text-red-400 pointer" @click="removeImage(img)"></i>
+                                                 <img :src="img.url" :alt="img.name" class="object-contain h-24 w-24 px-4 mx-auto">
+                                                </div>
+                                            </template>
+                                             </draggable>
                                         </div>
                                         <div class="flex text-sm text-gray-600 justify-center">  
                                             <p class="pl-1 text-center">
@@ -73,7 +80,7 @@
                                         <div id="library" class="py-8 px-4 w-full h-auto  bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
                                             <span v-if="form.from_library!=null" class="txt-lg font-semibold block"> {{form.from_library}} is selected</span>
                                             <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible ">
-                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
+                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib({'url':media, 'name':index})" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
                                                 <i class="fas fa-check-circle absolute  top-0 right-0 inline-flex   m-2" :class="(index==form.from_library) ? 'text-green-700' : 'text-gray-400  opacity-75'"></i>
                                                     <img v-if="media" class="rounded shadow-md  mt-1 object-contain h-48 w-full" :src="media" :alt="index">
                                                     {{index }}
@@ -104,7 +111,7 @@ import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessu
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import { VueDraggableNext } from 'vue-draggable-next'
 export default {
     name: "Create",
     props: {
@@ -116,7 +123,8 @@ export default {
         Listbox,
         ListboxButton,
         ListboxOptions,
-        ListboxOption
+        ListboxOption,
+        draggable: VueDraggableNext,
 
     },
     setup() {
@@ -126,46 +134,61 @@ export default {
             title: null,
             author: null,
             content: null,
-            images: null,
+            images: [],
             slug:null,
             category:null,
             _token: usePage().props.value.csrf_token
         });
+        const urls = ref(new Array());
         
+        urls.length>0 ? updateImageList():'';
 
         const route = inject('$route');
 
         function selectFile($event) {
-            console.log( $event.target.files)
-            form.images = $event.target.files;
-            $("div.images-preview-div").html("")
-            //  $("#images").val('')
+         
                 if ($event.target.files) {
-            var filesAmount = $event.target.files.length;
-                console.log(form.images.length)
-      
-                   
                     for (let i = 0; i < $event.target.files.length; i++) {
                         var file = $event.target.files[i];
                                
                         var reader = new FileReader();
-                        reader.onload = (function(currFile, x) {
+                        reader.onload = (function(currFile, x, total) {
                             var fileName = currFile.name
                             return function(event){
-                                 $($.parseHTML('\
-                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
-                                '))                            
-                            .appendTo('div.images-preview-div');
+                                urls.value.push({url: event.target.result, name: `${fileName}`, type: currFile.type})
 
+                                x === total-1 ? updateImageList():'';
                             };
-                        })(file, i).bind(this);
+                        })(file, i,$event.target.files.length).bind(this);
                         reader.readAsDataURL($event.target.files[i]);
                     }
-            
-              }
-            
+              }          
         }
-
+        function loadXHR(url) {
+            return new Promise(function(resolve, reject) {
+                try {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.responseType = "blob";
+                    xhr.onerror = function() {reject("Network error.");};
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {resolve(xhr.response);}
+                        else {reject("Loading error:" + xhr.statusText);}
+                    };
+                    xhr.send();
+                }
+                catch(err) {reject(err.message);}
+            });
+        }
+        
+        function updateImageList(){
+             form.images = []
+              $.each(urls.value, function(i, img){     
+                loadXHR(img.url).then(function(blob) {
+                form.images[i] = new File([blob], img.name, { type: img.type, });
+                });
+            });
+        }
         function submit() {
             Inertia.post(route('portfolio.store'), form, {
                 forceFormData: true,
@@ -176,7 +199,7 @@ export default {
         form.category = ref(4)
        
         return {
-            form, categories,submit, selectFile,user,medias
+            form, categories,submit, selectFile,user,medias,urls,updateImageList
         }
     },
     mounted(){
@@ -201,14 +224,15 @@ export default {
             this.form.slug = tmpslug.toLowerCase()
 
         },
+       removeImage: function(img){
+            this.urls.splice(this.urls.indexOf(img),1)
+        },
         setFrLib(val){
-            if(this.form.from_library == val)
-                val = null
-             this.form.from_library = val
-             this.form.image =null
-            $("div.images-preview-div").html("")
-             $("#images").val('')
-        }
+            
+             this.urls.push(val)
+             this.updateImageList()
+           
+        },
     },
     data: () => ({
             data: null,
