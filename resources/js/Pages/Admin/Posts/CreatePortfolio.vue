@@ -8,11 +8,15 @@
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
+                            
                             <div class="col-span-6">
                                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                                 <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" @blur="makeSlug" v-model="form.title">
                             </div>
-
+                            <div class="col-span-6">
+                                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                                <input type="text" name="slug" id="slug" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.slug">
+                            </div>    
                             <div class="col-span-6"> 
                                 <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
                                 <input type="text" disabled id="author" name="author" class="mt-1 block w-full sm:text-sm border-0 text-gray-400" v-model="form.author">   
@@ -45,14 +49,15 @@
                             <div class="col-span-6">
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
-                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="form.image==null"></i>
-                                        <div class="images-preview-div" v-else>
+                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="form.images==null"></i>
+                                        <div class="images-preview-div" else>
+
                                         </div>
                                         <div class="flex text-sm text-gray-600 justify-center">  
                                             <p class="pl-1 text-center">
-                                                <label for="image" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <label for="images" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                     <span>Upload Image </span>
-                                                    <input id="image" name="image" type="file" class="sr-only" @change="selectFile"/>
+                                                    <input id="images" name="images" type="file" class="sr-only" multiple @change="selectFile"/>
                                                 </label>
                                                 or 
                                                 <span class="text-indigo-600 hover:text-indigo-500  cursor-pointer" >
@@ -119,13 +124,11 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
             title: null,
-            slug: null,
-            short_text:null,
             author: null,
             content: null,
-            image: null,
+            images: null,
+            slug:null,
             category:null,
-            from_library: null,
             _token: usePage().props.value.csrf_token
         });
         
@@ -133,25 +136,45 @@ export default {
         const route = inject('$route');
 
         function selectFile($event) {
-            form.image = $event.target.files[0];
-            form.from_library = null
-            if(form.image.size > 1048576){
-                form.image = null;
-                form.from_library = null
-                $("div.images-preview-div").html("")
-                $("#image").val('')
+            console.log( $event.target.files)
+            form.images = $event.target.files;
+            $("div.images-preview-div").html("")
+            //  $("#images").val('')
+                if ($event.target.files) {
+            var filesAmount = $event.target.files.length;
+                console.log(form.images.length)
+      
+                   
+                    for (let i = 0; i < $event.target.files.length; i++) {
+                        var file = $event.target.files[i];
+                               
+                        var reader = new FileReader();
+                        reader.onload = (function(currFile, x) {
+                            var fileName = currFile.name
+                            return function(event){
+                                 $($.parseHTML('\
+                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
+                                '))                            
+                            .appendTo('div.images-preview-div');
 
-            }
+                            };
+                        })(file, i).bind(this);
+                        reader.readAsDataURL($event.target.files[i]);
+                    }
+            
+              }
+            
         }
 
         function submit() {
-            Inertia.post(route('post.store'), form, {
+            Inertia.post(route('portfolio.store'), form, {
                 forceFormData: true,
             });
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        form.category = ref(categories.value[1])
+        form.category = ref(4)
+       
         return {
             form, categories,submit, selectFile,user,medias
         }
@@ -165,7 +188,7 @@ export default {
 
            this.chooseLibrary = !this.chooseLibrary
 
-           $("#image").val('')
+           $("#images").val('')
            this.form.from_library =null
         },
         makeSlug: function(){
@@ -184,7 +207,7 @@ export default {
              this.form.from_library = val
              this.form.image =null
             $("div.images-preview-div").html("")
-             $("#image").val('')
+             $("#images").val('')
         }
     },
     data: () => ({
@@ -207,38 +230,37 @@ export default {
  
     
 }
-$(function() {
-        // Multiple images preview with JavaScript
-        var previewImages = function(input, imgPreviewPlaceholder) {
-            if (input.files) {
-                    if(input.files[0].size > 1048576)
-                        return;
+// $(function() {
+//         // Multiple images preview with JavaScript
+//         var previewImages = function(input, imgPreviewPlaceholder) {
+//               if (input.files) {
+//             var filesAmount = input.files.length;
 
-                    var file = input.files[0];
+//             if(filesAmount <= 5) {
+                   
+//                     for (let i = 0; i < input.files.length; i++) {
+//                         var file = input.files[i];
+                               
+//                         var reader = new FileReader();
+//                         reader.onload = (function(currFile, x) {
+//                             var fileName = currFile.name
+//                             return function(event){
+//                                  $($.parseHTML('\
+//                                 <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
+//                                 '))                            
+//                             .appendTo(imgPreviewPlaceholder);
 
-                    var reader = new FileReader();
-                    reader.onload = (function(currFile, x) {
-                        
-                        return function(event){
-                            
-                            $($.parseHTML('\
-                                <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
-                                '))                            
-                            .appendTo(imgPreviewPlaceholder);
-
-                        };
-
-
-                    })(file, 0);
-
-                    reader.readAsDataURL(input.files[0]);
-                
-            }
-        };
-        $('#image').on('change', function() {
-            $("div.images-preview-div").html("")
-            previewImages(this, 'div.images-preview-div');
-        });
-    });
+//                             };
+//                         })(file, i).bind(this);
+//                         reader.readAsDataURL(input.files[i]);
+//                     }
+//             }
+//               }
+//         };
+//         $('#images').on('change', function() {
+//             $("div.images-preview-div").html("")
+//             previewImages(this, 'div.images-preview-div');
+//         });
+//     });
 </script>
 

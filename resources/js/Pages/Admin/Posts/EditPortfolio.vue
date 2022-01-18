@@ -3,14 +3,24 @@
     <app-header-small></app-header-small> 
     <div id="content-area" class="w-full h-auto bg-gray-50">
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
-            <span class="text-xl inline-block p-3 font-semibold">Create Testimonials</span>
+            <span class="text-xl inline-block p-3 font-semibold">Create Portfolio</span>
             <form method="post" @submit.prevent="submit">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
+                            
                             <div class="col-span-6">
-                                <label for="title" class="block text-sm font-medium text-gray-700">Rating</label>
-                                <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.ratings">
+                                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                                <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" @blur="makeSlug" v-model="form.title">
+                            </div>
+                            <div class="col-span-6">
+                                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                                <input type="text" name="slug" id="slug" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.slug">
+                            </div>
+
+                            <div class="col-span-6"> 
+                                <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
+                                <input type="text" disabled id="author" name="author" class="mt-1 block w-full sm:text-sm border-0 text-gray-400" v-model="form.author">   
                             </div>
                             <div class="col-span-6 ">
                                 <label for="categories" class="block text-sm font-medium text-gray-700">Category</label>
@@ -34,29 +44,29 @@
                                 </Listbox>
                             </div>
                             <div class="col-span-6">
-                                <label for="client_name" class="block text-sm font-medium text-gray-700">Client Name</label>
-                                <input type="text" id="client_name" name="client_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_name">
-                            </div>
-                            <div class="col-span-6">
-                                <label for="client_org" class="block text-sm font-medium text-gray-700">Client Organization</label>
-                                <input type="text" id="client_org" name="client_org" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_org">
-                            </div>
-                            <div class="col-span-6">
                                 <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
                                 <ckeditor :editor="editor" v-model="form.content"  :config="editorConfig"  tag-name="textarea" ></ckeditor>
                             </div>
                             <div class="col-span-6">
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
-                                        <i class="fas fa-image mx-auto text-2xl text-gray-400"  v-if="!image_url"></i>
-                                        <div class="images-preview-div" v-else>
-                                            <img v-if="image_url" :src="image_url" :alt="form.title+'-image'">
+                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="urls.length==0"></i>
+                                        <div class="images-preview-div w-auto" else>
+                                             <draggable class="dragArea list-group w-full flex flex-row flex-wrap overflow-x-visible" draggable=".draggable"  :list="urls" @change="log">
+                                            <template v-for="(img,index) in urls" :key="img" :index="index">
+                                                <div class="text-right draggable">
+                                                    <!-- {{img.url}} -->
+                                                    <i class="fas fa-times-circle text-2xl text-red-400 pointer" @click="removeImage(img)"></i>
+                                                 <img :src="img.url" :alt="img.name" class="object-contain h-24 w-24 px-4 mx-auto">
+                                                </div>
+                                            </template>
+                                             </draggable>
                                         </div>
                                         <div class="flex text-sm text-gray-600 justify-center">  
                                             <p class="pl-1 text-center">
-                                                <label for="image" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <label for="images" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                     <span>Upload Image </span>
-                                                    <input id="image" name="image" type="file" class="sr-only" @change="selectFile"/>
+                                                    <input id="images" name="images" type="file" class="sr-only" multiple @change="selectFile"/>
                                                 </label>
                                                 or 
                                                 <span class="text-indigo-600 hover:text-indigo-500  cursor-pointer" >
@@ -72,7 +82,8 @@
                                         <div id="library" class="py-8 px-4 w-full h-auto  bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
                                             <span v-if="form.from_library!=null" class="txt-lg font-semibold block"> {{form.from_library}} is selected</span>
                                             <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible ">
-                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
+                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib({'url':media, 'name':index})" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
+                                                    
                                                 <i class="fas fa-check-circle absolute  top-0 right-0 inline-flex   m-2" :class="(index==form.from_library) ? 'text-green-700' : 'text-gray-400  opacity-75'"></i>
                                                     <img v-if="media" class="rounded shadow-md  mt-1 object-contain h-48 w-full" :src="media" :alt="index">
                                                     {{index }}
@@ -95,104 +106,155 @@
     </div>
 </template>
 
-
 <script>
 import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive, computed} from "vue";
+import {inject, reactive, computed, ref, defineComponent} from "vue";
+import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
+import { VueDraggableNext } from 'vue-draggable-next'
 
 export default {
-    name: "Edit",
+    name: "Create",
+    props: {
+        errors: Object
+    },
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
         Listbox,
         ListboxButton,
         ListboxOptions,
-        ListboxOption
-    },
-    props: {
-        errors: Object
+        ListboxOption,
+        draggable: VueDraggableNext,
+
     },
     setup() {
         
+        const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
-            id: null,
-            ratings: null,
-            client_name: null,
-            client_org:null,
+            title: null,
+            author: null,
             content: null,
-            image: null,
+            images: [],
+            slug:null,
             category:null,
-            edited_by:null,
-            from_library: null,
-            _token: usePage().props.value.csrf_token,
-            _method: "POST"
+            _token: usePage().props.value.csrf_token
         });
         
-        // retrieve post prop
-        const {id, ratings, content, image, image_url, client_name,client_org,category_id} = usePage().props.value.post;
-        form.id = id;
-        form.ratings = ratings;
+        const {title, content, slug,category_id,author, images_url} = usePage().props.value.post;
+        form.title = title;
         form.content = content;
         form.category= category_id;
-        form.client_name=client_name;
-        form.client_org = client_org;
-        form.from_library = image;   
+        form.slug=slug;
+        form.author=author;
+        const urls =images_url;
+        updateImageList();
         const route = inject('$route');
 
         function selectFile($event) {
-            form.image = $event.target.files[0];
+            if(urls.length==0)
+                $("div.images-preview-div").html("")
+            //  $("#images").val('')
+                if ($event.target.files) {
+                    for (let i = 0; i < $event.target.files.length; i++) {
+                        var file = $event.target.files[i];
+                               
+                        var reader = new FileReader();
+                        reader.onload = (function(currFile, x) {
+                            var fileName = currFile.name
+                            return function(event){
+                                urls.push({url: event.target.result, name: fileName})
+                                updateImageList();
+                            };
+                        })(file, i).bind(this);
+                        reader.readAsDataURL($event.target.files[i]);
+                    }
+              }          
+        }
+        function loadXHR(url) {
+            return new Promise(function(resolve, reject) {
+                try {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.responseType = "blob";
+                    xhr.onerror = function() {reject("Network error.");};
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {resolve(xhr.response);}
+                        else {reject("Loading error:" + xhr.statusText);}
+                    };
+                    xhr.send();
+                }
+                catch(err) {reject(err.message);}
+            });
+        }
+        
+        function updateImageList(){
+              $.each(urls, function(i, img){     
+                loadXHR(img.url).then(function(blob) {
+                form.images[i] = new File([blob], img.name);
+                });
+            });
         }
 
         function submit() {
-            Inertia.post(route('testimonial.update', {'id': form.id}), form, {
-                forceFormData: true
+            Inertia.post(route('portfolio.update'), form, {
+                forceFormData: true,
             });
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        const user = computed(() => usePage().props.value.auth.user);
-        const exclusionList = usePage().props.value.makepostexclusionList;
-
+        form.category = ref(4)
+       
         return {
-            form, submit, selectFile, image_url,categories,user,medias,exclusionList
+            form, categories,submit, selectFile,user,medias,urls,updateImageList
         }
     },
     mounted(){
-        this.edited_by = this.user.name
+        // this.form.author = this.user.name
+        this.selected = this.form.category
     }, 
-     methods: {
+    methods: {
+        log(event) {
+        console.log(event)
+      },
         openLibrary: function(){
 
            this.chooseLibrary = !this.chooseLibrary
-           $("#image").val('')
+
+           $("#images").val('')
            this.form.from_library =null
         },
         makeSlug: function(){
             if(this.form.title.includes(" ")==true){
                     var tmpslug = (this.form.title.split(" ")).join("-")
+                   
             }else{
                 var tmpslug = this.form.title
             }
             this.form.slug = tmpslug.toLowerCase()
+
+        },
+        removeImage: function(img){
+            this.urls.splice(this.urls.indexOf(img),1)
         },
         setFrLib(val){
-            if(this.form.from_library == val)
-                val = null
-             this.form.from_library = val
-             $("#image").val('')
-        }
+            
+             this.urls.push(val)
+             this.updateImageList()
+           
+        },
+       
     },
     data: () => ({
-            openModal: false,
+            data: null,
             chooseLibrary : false,
             editor: ClassicEditor,
-            editorConfig: {  
+            
+            editorConfig: {
+           
                 toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
                 language: 'en',
                 height: '30%',
@@ -201,12 +263,10 @@ export default {
         
                 }
             }
-    })
+
+    }),
+ 
+    
 }
 </script>
 
-<style scoped>
-    form {
-        margin-top: 20px;
-    }
-</style>

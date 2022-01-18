@@ -4,7 +4,7 @@
 
         <div id="content-area" class="w-full h-auto 2xl:px-80 xl:px-56 lg:px-28">
 
-          <span class="text-xl inline-block p-3 font-semibold"> Blog Posts<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-plus"></i> Add New</inertia-link> </span>
+          <span class="text-xl inline-block p-3 font-semibold"> Portfolio<inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('portfolio.create')"><i class="fas fa-plus"></i> Add New</inertia-link> </span>
             
               <div class="flex flex-col justify-center px-4" >
                       <div class="w-full bg-gray-400 flex  border rounded justify-end">
@@ -29,7 +29,7 @@
                                           <td class="border border-gray-600">{{ post.author }}</td>
                                           <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>
                                           <td class="border border-gray-600">
-                                              <inertia-link :href="$route('post.edit', {id: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
+                                              <inertia-link :href="$route('portfolio.edit', {slug: post.slug})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Post</inertia-link>
                                               <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(post.slug)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Post</a>
                                           </td>
                                       </tr>
@@ -38,7 +38,7 @@
                                       <tr class="text-center " >
                                           <td colspan="4" class="text-center py-2 w-full border border-gray-600">
                                             No posts found! 
-                                            <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('post.create')"><i class="fas fa-upload"></i> Add New</inertia-link>
+                                            <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" :href="$route('portfolio.create')"><i class="fas fa-upload"></i> Add New</inertia-link>
                                           </td>
                                       </tr>
                                   </tbody>

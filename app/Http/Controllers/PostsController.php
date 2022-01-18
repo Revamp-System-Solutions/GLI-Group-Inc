@@ -159,6 +159,111 @@ class PostsController extends Controller
         return Inertia::render('Admin/Posts/CreatePortfolio', ['categories' => $categories, "medias" => $medias]);
     }
 
+    public function storePortfolio(Request $request)
+    {
+        $this->validate($request, [
+            'title' => ['required'],
+            'author' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+            'images' => 'array',
+            'images.*' => ['nullable', 'image', 'max:1024'],
+        ]);
+
+        $post = new Portfolio();
+
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->author = $request->input('author');
+        $post->subcategory_id = $request->category;
+ 
+        if($request->file('images')) {
+            
+             
+            $array_img_names= array();
+            $file_count = count($request->file('images'));
+            foreach($request->file('images') as $key => $file)
+            {
+                     $imageName = md5(uniqid()) . "." . $file->getClientOriginalExtension();
+
+                    $file->move(public_path('rvmp-content/rvmp-uploads'), $imageName);
+
+                    // $uploaded = $this->upload($file);
+                    echo "<script>console.log('test')</script>";
+                    $media = new Media();
+                    // $file = $request->file('images')->getClientOriginalName();
+                    $fileName = pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME);
+                    $media->media_name = $fileName;
+                    $media->image = $imageName;
+                    $media->type = 'CLIENT_FILE';
+                    $media->save();
+
+                    array_push($array_img_names,$imageName);
+            }
+            $post->images = json_encode($array_img_names, JSON_FORCE_OBJECT);
+            
+           
+        }else{
+            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            $post->image= $media->image;
+           
+        }
+
+        $post->save();
+
+        $request->session()->flash('success', 'New Testimonial has been added|>><<|Testimonial created successfully!');
+
+        return redirect()->route('adminPortfolio');
+    }
+    public function editPortfolio($slug)
+    {
+        $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
+        $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
+        return Inertia::render('Admin/Posts/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias]);
+    }
+    public function updatePortfolio(Request $request, $id)
+    {
+        $this->validate($request, [
+            'ratings' => ['required','max:5','min:0'],
+            'client_name' => 'required',
+            'client_org' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+            'image' => ['nullable', 'image', 'max:1024'],
+        ]);
+
+        $post = Testimonials::where('id', $id)->firstOrFail();
+
+        $post->ratings = $request->input('ratings');
+        $post->content = $request->input('content');
+        $post->client_name = $request->input('client_name');
+        $post->subcategory_id = $request->category;
+        $post->client_org = $request->input('client_org');
+
+        if($request->file('image')) {
+            $post->image = $this->upload($request);
+            $media = new Media();
+            $file = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($file,PATHINFO_FILENAME);
+            $media->media_name = $fileName;
+            
+            $media->image = $post->image;
+            $media->type = 'CLIENT_FILE';
+ 
+    
+            $media->save();
+        }else if(!is_null($request->from_library)){
+            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            if($media->image != $post->image){
+                $post->image= $media->image;
+            }
+        }
+        $post->save();
+
+        $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$id.' has been updated.');
+
+        return redirect()->route('adminTestimonials');
+    }    
     public function adminTestimonials()
     {
         return Inertia::render('Admin/Posts/ShowTestimonials', [
@@ -222,6 +327,52 @@ class PostsController extends Controller
             'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
         ]);
     }
+
+    public function updateTestimonials(Request $request, $id)
+    {
+        $this->validate($request, [
+            'ratings' => ['required','max:5','min:0'],
+            'client_name' => 'required',
+            'client_org' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+            'image' => ['nullable', 'image', 'max:1024'],
+        ]);
+
+        $post = Testimonials::where('id', $id)->firstOrFail();
+
+        $post->ratings = $request->input('ratings');
+        $post->content = $request->input('content');
+        $post->client_name = $request->input('client_name');
+        $post->subcategory_id = $request->category;
+        $post->client_org = $request->input('client_org');
+
+        if($request->file('image')) {
+            $post->image = $this->upload($request);
+            $media = new Media();
+            $file = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($file,PATHINFO_FILENAME);
+            $media->media_name = $fileName;
+            
+            $media->image = $post->image;
+            $media->type = 'CLIENT_FILE';
+ 
+    
+            $media->save();
+        }else if(!is_null($request->from_library)){
+            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            if($media->image != $post->image){
+                $post->image= $media->image;
+            }
+        }
+        $post->save();
+
+        $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$id.' has been updated.');
+
+        return redirect()->route('adminTestimonials');
+    }
+
+
     /**
      * @param Request $request
      * @throws \Illuminate\Validation\ValidationException
