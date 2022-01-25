@@ -80,12 +80,13 @@
                       <div class="aspect-w-3 aspect-h-2 rounded-md overflow-hidden shadow-md">
                         <img :src="`rvmp-content/rvmp-uploads/${JSON.parse(selectedPost.images)[2]}`" class="w-full h-full object-center object-cover" />
                       </div>
+                       <template v-for="index in Object.keys(JSON.parse(selectedPost.images)).length-1" :key="index" >
+                        <div class="aspect-w-3 aspect-h-2 rounded-md overflow-hidden shadow-md" v-if="index>=3">
+                          <img :src="`rvmp-content/rvmp-uploads/${JSON.parse(selectedPost.images)[index]}`" class="w-full h-full object-center object-cover" />
+                        </div>
+                       </template>
                     </div>
-                    <template v-for="index in Object.keys(JSON.parse(selectedPost.images)).length-1" :key="index" >
-                      <div class="aspect-w-2 aspect-h-3 rounded-md sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 shadow-md" v-if="index>=3">
-                        <img   :src="`rvmp-content/rvmp-uploads/${JSON.parse(selectedPost.images)[index]}`" :alt="index" class="w-full h-full object-center object-cover" />
-                      </div>
-                    </template>
+
                   </div>
                   <div class="lg:col-span-2 col-span-1 mt-6">
                       <div class="w-full lg:space-y-10 space-y-3 lg:px-0">

@@ -35871,9 +35871,9 @@ var _hoisted_23 = {
 var _hoisted_24 = ["src"];
 var _hoisted_25 = {
   key: 0,
-  "class": "aspect-w-2 aspect-h-3 rounded-md sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 shadow-md"
+  "class": "aspect-w-3 aspect-h-2 rounded-md overflow-hidden shadow-md"
 };
-var _hoisted_26 = ["src", "alt"];
+var _hoisted_26 = ["src"];
 var _hoisted_27 = {
   "class": "lg:col-span-2 col-span-1 mt-6"
 };
@@ -36008,12 +36008,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "class": "w-full h-full object-center object-cover"
               }, null, 8
               /* PROPS */
-              , _hoisted_24)])]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(Object.keys(JSON.parse($setup.selectedPost.images)).length - 1, function (index) {
+              , _hoisted_24)]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(Object.keys(JSON.parse($setup.selectedPost.images)).length - 1, function (index) {
                 return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
                   key: index
                 }, [index >= 3 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
                   src: "rvmp-content/rvmp-uploads/".concat(JSON.parse($setup.selectedPost.images)[index]),
-                  alt: index,
                   "class": "w-full h-full object-center object-cover"
                 }, null, 8
                 /* PROPS */
@@ -36022,7 +36021,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 );
               }), 128
               /* KEYED_FRAGMENT */
-              ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.selectedPost.category_name), 1
+              ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.selectedPost.category_name), 1
               /* TEXT */
               )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
                 "class": "lg:text-3xl text-xl uppercase brand-text font-bold text-left",
