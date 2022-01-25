@@ -310,6 +310,7 @@ class PostsController extends Controller
         $post->client_name = $request->input('client_name');
         $post->subcategory_id = $request->category;
         $post->client_org = $request->input('client_org');
+        $post->stars = $request->input('stars');
         if($request->file('image')) {
             $post->image = $this->upload($request);
              
@@ -344,8 +345,9 @@ class PostsController extends Controller
         ]);
     }
 
-    public function updateTestimonials(Request $request, $id)
+    public function updateTestimonials(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'ratings' => ['required','max:5','min:0'],
             'client_name' => 'required',
@@ -355,16 +357,17 @@ class PostsController extends Controller
             'image' => ['nullable', 'image', 'max:1024'],
         ]);
 
-        $post = Testimonials::where('id', $id)->firstOrFail();
-
+        $post = Testimonials::where('id', $request->id)->firstOrFail();
+     
         $post->ratings = $request->input('ratings');
         $post->content = $request->input('content');
         $post->client_name = $request->input('client_name');
         $post->subcategory_id = $request->category;
         $post->client_org = $request->input('client_org');
-
+        $post->stars = $request->stars;
         if($request->file('image')) {
             $post->image = $this->upload($request);
+             
             $media = new Media();
             $file = $request->file('image')->getClientOriginalName();
             $fileName = pathinfo($file,PATHINFO_FILENAME);
@@ -372,23 +375,30 @@ class PostsController extends Controller
             
             $media->image = $post->image;
             $media->type = 'CLIENT_FILE';
- 
-    
             $media->save();
-        }else if(!is_null($request->from_library)){
+           
+        }else{
             $media = Media::where('media_name', $request->from_library)->firstOrFail();
-            if($media->image != $post->image){
-                $post->image= $media->image;
-            }
+            $post->image= $media->image;
+           
         }
         $post->save();
 
-        $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$id.' has been updated.');
+        $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$request->id.' has been updated.');
 
         return redirect()->route('adminTestimonials');
     }
 
+    public function destroyTestimonials(Request $request, $id)
+    {
 
+        $post =Testimonials::where('id', $id)->firstOrFail();
+        
+        $post->delete();
+        $request->session()->flash('success', 'Testimonial deleted!|>><<|Testimonial deletion complete.');
+
+        return redirect()->route('adminTestimonials');
+    }
     /**
      * @param Request $request
      * @throws \Illuminate\Validation\ValidationException

@@ -254,37 +254,5 @@ export default {
  
     
 }
-// $(function() {
-//         // Multiple images preview with JavaScript
-//         var previewImages = function(input, imgPreviewPlaceholder) {
-//               if (input.files) {
-//             var filesAmount = input.files.length;
-
-//             if(filesAmount <= 5) {
-                   
-//                     for (let i = 0; i < input.files.length; i++) {
-//                         var file = input.files[i];
-                               
-//                         var reader = new FileReader();
-//                         reader.onload = (function(currFile, x) {
-//                             var fileName = currFile.name
-//                             return function(event){
-//                                  $($.parseHTML('\
-//                                 <img src="'+event.target.result+'" class="object-contain h-48 w-full">\
-//                                 '))                            
-//                             .appendTo(imgPreviewPlaceholder);
-
-//                             };
-//                         })(file, i).bind(this);
-//                         reader.readAsDataURL(input.files[i]);
-//                     }
-//             }
-//               }
-//         };
-//         $('#images').on('change', function() {
-//             $("div.images-preview-div").html("")
-//             previewImages(this, 'div.images-preview-div');
-//         });
-//     });
 </script>
 

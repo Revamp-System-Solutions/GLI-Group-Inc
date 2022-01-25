@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Testimonials;
 
 class GuestController extends Controller
 {
@@ -15,7 +16,9 @@ class GuestController extends Controller
 
     public function index()
     {
-        return Inertia::render('Index');
+        return Inertia::render('Index',[
+            "posts" => Testimonials::orderBy('created_at', 'DESC')->skip(0)->take(10)->get()
+        ]);
     }
     public function showAboutPage()
     {

@@ -24,4 +24,8 @@ class Subcategories extends Model
     {
         return $this->hasMany(Post::class, 'subcategory_id', 'id');
     }
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonials::class, 'subcategory_id', 'id');
+    }
 }
