@@ -177,6 +177,7 @@ class PostsController extends Controller
         $post->content = $request->input('content');
         $post->author = $request->input('author');
         $post->subcategory_id = $request->category;
+        $post->styled_title = $request->input('styled_title');
         $post->slug = $request->input('slug');
         if($request->file('images')) {    
             $array_img_names= array();
@@ -196,7 +197,7 @@ class PostsController extends Controller
                     $media = Media::where('media_name', $fileName)->firstOrFail();
                     $imageName= $media->image;         
                 }
-                    array_push($array_img_names,$imageName);
+                    array_push($array_img_names, $imageName);
             }
             $post->images = json_encode($array_img_names, JSON_FORCE_OBJECT);
         }else{
@@ -232,6 +233,7 @@ class PostsController extends Controller
         $post->content = $request->input('content');
         $post->author = $request->input('author');
         $post->subcategory_id = $request->category;
+        $post->styled_title = $request->input('styled_title');
         $post->slug = $request->input('slug');
  
         if($request->file('images')) {

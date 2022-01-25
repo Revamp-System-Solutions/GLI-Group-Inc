@@ -135,6 +135,7 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
             title: null,
+            styled_title:null,
             author: null,
             content: null,
             images: [],
@@ -198,6 +199,13 @@ export default {
         }
 
         function submit() {
+              let tmp = form.title.split(" ")
+            var tmp0 = ""
+            tmp.forEach(function (txt, index) {
+                if(index>0)
+                    tmp0 += " "+txt;
+            })
+            form.styled_title = '<span>'+ tmp[0] + '</span><span class="rvmp-brand-color-highlight">' + tmp0 + '</span>'
             Inertia.post(route('portfolio.update', {'slug':form.slug}), form, {
                 forceFormData: true,
                 

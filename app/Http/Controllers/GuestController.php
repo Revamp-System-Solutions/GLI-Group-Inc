@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Testimonials;
+use App\Models\Portfolio;
 
 class GuestController extends Controller
 {
@@ -26,7 +27,9 @@ class GuestController extends Controller
     }
     public function showPortfolioPage()
     {
-        return Inertia::render('Portfolio');
+        return Inertia::render('Portfolio',[
+            "posts" => Portfolio::orderBy('title', 'ASC')->paginate(6)
+        ]);
     }
     public function showContactPage()
     {

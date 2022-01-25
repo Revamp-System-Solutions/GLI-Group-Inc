@@ -24,7 +24,7 @@
                                   </thead>
                                   <tbody v-if="posts.data.length > 0">
                                       <tr v-for="post in posts.data" :key="post.id" class="text-center ">
-                                          <td class="border border-gray-600">{{post.title}}</td>
+                                          <td class="border border-gray-600" v-html="post.title"></td>
                                           <td class="border border-gray-600">{{ post.images_url.length  }}</td>
                                           <td class="border border-gray-600">{{ post.author }}</td>
                                           <td class="border border-gray-600">{{ post.updated_at.split("T")[0] }}</td>

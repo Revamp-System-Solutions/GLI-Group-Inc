@@ -9,7 +9,7 @@ class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $appends = ['images_url'];
+    protected $appends = ['images_url', 'category_name'];
     protected $hidden = ['id',];
     function getImagesUrlAttribute()
     {
@@ -19,6 +19,17 @@ class Portfolio extends Model
             array_push($urls, [ 'url' => '/rvmp-content/rvmp-uploads/' . $img, 'name' => $img, 'type'=> 'image/'.$type[1] ]);
         }
         return $this->images ? $urls : "";
+    }
+
+    function getCategoryNameAttribute()
+    {
+        $catname = Subcategories::where('id', '=', $this->subcategory_id)->first();
+        return $this->subcategory_id ?  $catname->name: "";
+    }
+
+    public function subcategories()
+    {
+        return $this->belongsTo(Subcategories::class, 'subcategory_id');
     }
 
 }
