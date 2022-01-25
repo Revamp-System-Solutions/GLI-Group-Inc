@@ -21,6 +21,25 @@
                               </span>
                             </template>
                           </div>
+                          <!-- Pagination links-->
+                          <nav class="w-20" aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">
+                              <ul class="pagination flex flex-row justify-between space-x-2">
+                                  <!-- Previous link -->                                
+                                  <li v-if="posts.links[1].active != true" :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
+                                      <inertia-link :href="posts.links[0].url == null ? '#' : posts.links[0].url" class="page-link" v-html="posts.links[0].label"></inertia-link>
+                                  </li>
+                                  
+                                  <!-- Numbers -->
+                                  <li v-for="item in numberLinks"  :class="'page-item ' + (item.active ? 'rvmp-brand-color-main font-bold text-lg' : 'rvmp-brand-color-darker font-semibold text-base')" :key="item">
+                                      <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
+                                  </li>
+
+                                  <!-- Next link -->
+                                  <li v-if="posts.current_page != posts.last_page"  :class="'page-item' + (posts.links[posts.links.length - 1].url == null ? ' disabled' : '')">
+                                      <inertia-link :href="posts.links[posts.links.length - 1].url == null ? '#' : posts.links[posts.links.length - 1].url" class="page-link" v-html="posts.links[posts.links.length - 1].label"></inertia-link>
+                                  </li>
+                              </ul>
+                          </nav>
                       </div>
     </div>
     <app-footer-contact-form />
@@ -70,16 +89,12 @@
                   </div>
                   <div class="lg:col-span-2 col-span-1 mt-6">
                       <div class="w-full lg:space-y-10 space-y-3 lg:px-0">
-                                    <ul class="border-l-4 rvmp-brand-border-highlight brand-logo-text text-xl text-left pl-2.5 font-semibold">
-                                        <li>{{selectedPost.category_name}}</li>
-                                    </ul>
-                                    <div class="lg:text-3xl text-xl uppercase brand-text font-bold text-left" v-html="selectedPost.styled_title">
-
-                                    </div>
-                                    <div class="text-left px-8" v-html="selectedPost.content">
-                                       
-                                    </div>
-                            </div>
+                            <ul class="border-l-4 rvmp-brand-border-highlight brand-logo-text text-xl text-left pl-2.5 font-semibold">
+                                <li>{{selectedPost.category_name}}</li>
+                            </ul>
+                            <div class="lg:text-3xl text-xl uppercase brand-text font-bold text-left" v-html="selectedPost.styled_title"></div>
+                            <div class="text-left px-8" v-html="selectedPost.content"></div>
+                      </div>
                   </div>
               </div>
             </div>
@@ -101,7 +116,6 @@ import {computed, ref} from "vue";
 export default {
     name: "Home",
     components: {
-        ErrorsAndMessages,
         AppHeader,
         TransitionRoot,
         TransitionChild,
