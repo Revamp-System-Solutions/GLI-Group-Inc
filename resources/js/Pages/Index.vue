@@ -178,23 +178,19 @@
             </div>
             <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8" id="rvmp-testimonial-content">    
                 <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
-                    <Slide v-for="slide in 10" :key="slide" >
+                    <Slide v-for="(post,index) in posts" :key="post" :index="index">
                         <div class="carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
-                            <img src="/images/pages/mission.jpg" class="rounded-t-md"/>            
+                            <img :src="post.image_url" class="rounded-t-md"/>            
                             <div class="p-4 testimonial-content space-y-3">
-                                <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0" v-html="post.stars">
+                                   
                                 </p>
-                                <p class="brand-text italic text-xs text-center mb-0 font-light">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </p>
+                                <div class="brand-text italic text-xs text-center mb-0 font-light" v-html="post.content">
+                                 
+                                </div>
                                 <p>
-                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">Elonzo Musk</strong>
-                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">Tesla</span>
+                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">{{post.client_name}}</strong>
+                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">{{post.client_org}}</span>
                                 </p>
                             </div>  
                         </div>
@@ -239,7 +235,10 @@ export default {
         errors: Object
     },
     setup() {
+
+         const posts = computed(() => usePage().props.value.posts);
 		return {
+            posts,
 			// carousel settings
 			settings: {
 				itemsToShow: 1,

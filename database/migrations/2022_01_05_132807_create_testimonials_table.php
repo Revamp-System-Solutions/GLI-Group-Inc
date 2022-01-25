@@ -15,12 +15,14 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->integer('ratings');
+            $table->float('ratings');
             $table->mediumText("content");
             $table->string("image")->nullable();
             $table->string('client_name');
-            $table->string('company');
+            $table->string('client_org');
             $table->string('status')->default('draft');
+            $table->unsignedBigInteger('subcategory_id');
+            $table->foreign('subcategory_id', 'subcategory_fk_455769')->references('id')->on('subcategories');
             $table->timestamps();
         });
     }
