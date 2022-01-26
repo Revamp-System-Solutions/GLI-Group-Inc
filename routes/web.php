@@ -50,10 +50,16 @@ Route::delete('gli-admin/posts/blog/delete/{slug}', [PostsController::class, 'de
 Route::get('gli-admin/posts/testimonials', [PostsController::class, 'adminTestimonials'])->name('adminTestimonials');
 Route::get('gli-admin/posts/testimonials/create', [PostsController::class, 'createTestimonials'])->name('testimonial.create');
 Route::post('gli-admin/posts/testimonials/create', [PostsController::class, 'storeTestimonials'])->name('testimonial.store');
+Route::get('gli-admin/posts/testimonials/edit/{id}', [PostsController::class, 'editTestimonials'])->name('testimonial.edit');
+Route::post('gli-admin/posts/testimonials/edit', [PostsController::class, 'updateTestimonials'])->name('testimonial.update');
+Route::delete('gli-admin/posts/testimonials/delete/{id}', [PostsController::class, 'destroyTestimonials'])->name('testimonial.destroy');
 
 Route::get('gli-admin/posts/portfolio', [PostsController::class, 'adminPortfolio'])->name('adminPortfolio');
 Route::get('gli-admin/posts/portfolio/create', [PostsController::class, 'createPortfolio'])->name('portfolio.create');
-// Route::post('gli-admin/posts/portfolio/create', [PostsController::class, 'store'])->name('post.store');
+Route::post('gli-admin/posts/portfolio/create', [PostsController::class, 'storePortfolio'])->name('portfolio.store');
+Route::get('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'editPortfolio'])->name('portfolio.edit');
+Route::post('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'updatePortfolio'])->name('portfolio.update');
+Route::delete('gli-admin/posts/portfolio/delete/{slug}', [PostsController::class, 'destroyPortfolio'])->name('portfolio.destroy');
 
 Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
 Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.store');

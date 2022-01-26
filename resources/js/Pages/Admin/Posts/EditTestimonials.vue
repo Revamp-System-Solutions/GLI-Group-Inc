@@ -3,29 +3,20 @@
     <app-header-small></app-header-small> 
     <div id="content-area" class="w-full h-auto bg-gray-50">
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
-            <span class="text-xl inline-block p-3 font-semibold">Create Portfolio</span>
+            <span class="text-xl inline-block p-3 font-semibold">Edit Testimonials</span>
             <form method="post" @submit.prevent="submit">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
-                            
                             <div class="col-span-6">
-                                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                                <input type="text"  name="title" id="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" @blur="makeSlug" v-model="form.title">
-                            </div>
-                            <div class="col-span-6">
-                                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-                                <input type="text" name="slug" id="slug" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.slug">
-                            </div>    
-                            <div class="col-span-6"> 
-                                <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
-                                <input type="text" disabled id="author" name="author" class="mt-1 block w-full sm:text-sm border-0 text-gray-400" v-model="form.author">   
+                                <label for="rating" class="block text-sm font-medium text-gray-700">Customer Rating</label>
+                                <input  type="number"  name="rating" id="rating" min="0" max="5" step="0.5" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="form.ratings" @change="showStars">
                             </div>
                             <div class="col-span-6 ">
                                 <label for="categories" class="block text-sm font-medium text-gray-700">Category</label>
                                 <Listbox v-model="form.category" >
                                     <div class="relative">
-                                        <ListboxButton v-slot="{open}" class="flex items-center justify-between relative w-full mt-1 p-3  text-left  border border-gray-300 bg-white rounded-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-green-500 sm:text-sm">
+                                        <ListboxButton disabled v-slot="{open}" class="flex items-center justify-between relative w-full mt-1 p-3  text-left  border border-gray-300 bg-white rounded-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-green-500 sm:text-sm">
                                             <span class="block truncate">{{ categories[form.category] }}</span>
                                             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-gray-500 ', 'h-5 w-5 justify-self-end']" aria-hidden="true"></span>   
                                         </ListboxButton>
@@ -43,28 +34,29 @@
                                 </Listbox>
                             </div>
                             <div class="col-span-6">
+                                <label for="client_name" class="block text-sm font-medium text-gray-700">Client Name</label>
+                                <input type="text" id="client_name" name="client_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_name">
+                            </div>
+                            <div class="col-span-6">
+                                <label for="client_org" class="block text-sm font-medium text-gray-700">Client Organization</label>
+                                <input type="text" id="client_org" name="client_org" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" v-model="form.client_org">
+                            </div>
+                            <div class="col-span-6">
                                 <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
                                 <ckeditor :editor="editor" v-model="form.content"  :config="editorConfig"  tag-name="textarea" ></ckeditor>
                             </div>
                             <div class="col-span-6">
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                     <div class="space-y-1 text-center">
-                                        <i class="fas fa-image mx-auto text-2xl text-gray-400" v-if="urls.length==0"></i>
-                                        <div class="images-preview-div w-auto" else>
-                                               <draggable class="dragArea list-group w-full flex flex-row flex-wrap overflow-x-visible" draggable=".draggable"  :list="urls" @change="updateImageList">
-                                            <template v-for="(img,index) in urls" :key="img" :index="index">
-                                                <div class="text-right draggable">
-                                                    <i class="fas fa-times-circle text-2xl text-red-400 pointer" @click="removeImage(img)"></i>
-                                                 <img :src="img.url" :alt="img.name" class="object-contain h-24 w-24 px-4 mx-auto">
-                                                </div>
-                                            </template>
-                                             </draggable>
+                                        <i class="fas fa-image mx-auto text-2xl text-gray-400"  v-if="!image_url"></i>
+                                        <div class="images-preview-div" v-else>
+                                            <img v-if="image_url" :src="image_url" :alt="form.title+'-image'" class="object-contain h-48 w-full">
                                         </div>
                                         <div class="flex text-sm text-gray-600 justify-center">  
                                             <p class="pl-1 text-center">
-                                                <label for="images" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <label for="image" class="px-5 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                     <span>Upload Image </span>
-                                                    <input id="images" name="images" type="file" class="sr-only" multiple @change="selectFile"/>
+                                                    <input id="image" name="image" type="file" class="sr-only" @change="selectFile"/>
                                                 </label>
                                                 or 
                                                 <span class="text-indigo-600 hover:text-indigo-500  cursor-pointer" >
@@ -80,7 +72,7 @@
                                         <div id="library" class="py-8 px-4 w-full h-auto  bg-gray-100 overflow-x-auto" v-if="chooseLibrary">
                                             <span v-if="form.from_library!=null" class="txt-lg font-semibold block"> {{form.from_library}} is selected</span>
                                             <div class="flex flex-wrap flex-row -mx-4 py-8 overflow-x-visible ">
-                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib({'url':media, 'name':index})" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
+                                                <div v-for="(media, index) in medias" :key="index" :index="index"  @click="setFrLib(index,media)" class="lg:w-1/4 m-w-1/4   m-4 p-4  bg-white relative">
                                                 <i class="fas fa-check-circle absolute  top-0 right-0 inline-flex   m-2" :class="(index==form.from_library) ? 'text-green-700' : 'text-gray-400  opacity-75'"></i>
                                                     <img v-if="media" class="rounded shadow-md  mt-1 object-contain h-48 w-full" :src="media" :alt="index">
                                                     {{index }}
@@ -103,52 +95,60 @@
     </div>
 </template>
 
+
 <script>
 import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
-import {inject, reactive, computed, ref} from "vue";
-import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
+import {inject, reactive, computed,ref} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { VueDraggableNext } from 'vue-draggable-next'
+import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
+
 export default {
-    name: "Create",
-    props: {
-        errors: Object
-    },
+    name: "Edit",
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
         Listbox,
         ListboxButton,
         ListboxOptions,
-        ListboxOption,
-        draggable: VueDraggableNext,
-
+        ListboxOption
+    },
+    props: {
+        errors: Object
     },
     setup() {
         
-        const user = computed(() => usePage().props.value.auth.user);
         const form = reactive({
-            title: null,
-            styled_title: null,
-            author: null,
+            id: null,
+            ratings: null,
+            stars:null,
+            client_name: null,
+            client_org:null,
             content: null,
-            images: [],
-            slug:null,
+            image: null,
             category:null,
-            _token: usePage().props.value.csrf_token
+            edited_by:null,
+            from_library: null,
+            _token: usePage().props.value.csrf_token,
+            _method: "POST"
         });
-        const urls = ref(new Array());
         
-        urls.length>0 ? updateImageList():'';
-
+        // retrieve post prop
+        const {id, ratings, content, image, image_url, client_name,client_org,category_id,stars} = usePage().props.value.post;
+        form.id = id;
+        form.ratings = ratings;
+         form.stars = stars;
+        form.content = content;
+        form.category= category_id;
+        form.client_name=client_name;
+        form.client_org = client_org;
+        form.from_library = image;   
         const route = inject('$route');
 
         function selectFile($event) {
-         
-                if ($event.target.files) {
+             if ($event.target.files) {
                     for (let i = 0; i < $event.target.files.length; i++) {
                         var file = $event.target.files[i];
                                
@@ -156,99 +156,71 @@ export default {
                         reader.onload = (function(currFile, x, total) {
                             var fileName = currFile.name
                             return function(event){
-                                urls.value.push({url: event.target.result, name: `${fileName}`, type: currFile.type})
-
-                                x === total-1 ? updateImageList():'';
+                                 $("div.images-preview-div").html("")
+                                  $($.parseHTML(`
+                                        <img src="${event.target.result}" class="object-contain h-48 w-full" alt="${fileName}">
+                                        `))                            
+                                    .appendTo("div.images-preview-div");
                             };
                         })(file, i,$event.target.files.length).bind(this);
                         reader.readAsDataURL($event.target.files[i]);
                     }
-              }          
+              }
+            form.image = $event.target.files[0];
+            form.from_library = null
         }
-        function loadXHR(url) {
-            return new Promise(function(resolve, reject) {
-                try {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", url);
-                    xhr.responseType = "blob";
-                    xhr.onerror = function() {reject("Network error.");};
-                    xhr.onload = function() {
-                        if (xhr.status === 200) {resolve(xhr.response);}
-                        else {reject("Loading error:" + xhr.statusText);}
-                    };
-                    xhr.send();
-                }
-                catch(err) {reject(err.message);}
-            });
-        }
-        
-        function updateImageList(){
-             form.images = []
-              $.each(urls.value, function(i, img){     
-                loadXHR(img.url).then(function(blob) {
-                form.images[i] = new File([blob], img.name, { type: img.type, });
-                });
-            });
-        }
+
         function submit() {
-            let tmp = form.title.split(" ")
-            var tmp0 = ""
-            tmp.forEach(function (txt, index) {
-                if(index>0)
-                    tmp0 += " "+txt;
-            })
-             form.styled_title = '<span>'+ tmp[0] + '</span><span class="rvmp-brand-color-highlight">' + tmp0 + '</span>'
-            Inertia.post(route('portfolio.store'), form, {
-                forceFormData: true,
+            Inertia.post(route('testimonial.update'), form, {
+                forceFormData: true
             });
         }
         const categories = computed(() => usePage().props.value.categories);
         const medias = computed(() => usePage().props.value.medias);
-        form.category = ref(4)
-       
+        const user = computed(() => usePage().props.value.auth.user);
+
+        form.category = ref(2)
         return {
-            form, categories,submit, selectFile,user,medias,urls,updateImageList
+            form, submit, selectFile, image_url,categories,user,medias
         }
     },
     mounted(){
-        this.form.author = this.user.name
-        this.selected = this.form.category
+        this.edited_by = this.user.name
     }, 
-    methods: {
+     methods: {
         openLibrary: function(){
 
            this.chooseLibrary = !this.chooseLibrary
-
-           $("#images").val('')
+           $("#image").val('')
            this.form.from_library =null
         },
-        makeSlug: function(){
-            if(this.form.title.includes(" ")==true){
-                    var tmpslug = (this.form.title.split(" ")).join("-")
-                   
-            }else{
-                var tmpslug = this.form.title
-            }
-            this.form.slug = tmpslug.toLowerCase()
+       setFrLib(val,img){
+            if(this.form.from_library == val)
+                val = null
 
-        },
-       removeImage: function(img){
-            this.urls.splice(this.urls.indexOf(img),1)
-        },
-        setFrLib(val){
+             $("div.images-preview-div").html($.parseHTML(`<img src="${img}" class="object-contain h-48 w-full">`))                            
             
-             this.urls.push(val)
-             this.updateImageList()
-           
+             this.form.from_library = val
+             this.form.image =null
+        },
+        showStars: function(){
+            var ratings = parseInt(this.form.ratings.toString().split('.')[0]);
+
+            let tmpStar = ''
+            for(let s=0; s <= (ratings===0&&(this.form.ratings * 2)===1 ? ratings:ratings-1); s++){
+                (ratings===0)? '' : tmpStar += '<i class="fas fa-star" aria-hidden="true"></i>';
+            }
+            if(this.form.ratings-ratings === 0.5){
+                tmpStar += '<i class="fas fa-star-half" aria-hidden="true"></i>'
+            }
+            this.form.stars = tmpStar
         },
     },
     data: () => ({
-            data: null,
+            openModal: false,
             chooseLibrary : false,
             editor: ClassicEditor,
-            
-            editorConfig: {
-           
+            editorConfig: {  
                 toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
                 language: 'en',
                 height: '30%',
@@ -257,10 +229,7 @@ export default {
         
                 }
             }
-
-    }),
- 
-    
+    })
 }
 </script>
 
