@@ -70,11 +70,14 @@ class PostsController extends Controller
             $media->image = $post->image;
             $media->type = 'CLIENT_FILE';
             $media->save();
-            $post->image_id = $media->id;
-        }else{
+            
+        }else if($request->from_library){
             $media = Media::where('media_name', $request->from_library)->firstOrFail();
             $post->image= $media->image;
-            $post->image_id = $media->id;
+            
+        }else{
+            $post->image= null;
+         
         }
 
         $post->save();
@@ -119,12 +122,12 @@ class PostsController extends Controller
  
     
             $media->save();
-            $post->image_id = $media->id;
+           
         }else if(!is_null($request->from_library)){
             $media = Media::where('media_name', $request->from_library)->firstOrFail();
             if($media->image != $post->image){
                 $post->image= $media->image;
-                $post->image_id = $media->id;
+                
             }
         }
         $post->save();
@@ -413,7 +416,9 @@ class PostsController extends Controller
             'short_text' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'author' => 'required'
+            'author' => 'required',
+            'image' => ['nullable', 'image', 'max:1024']
+
         ];
 
         $this->validate($request, $data);
