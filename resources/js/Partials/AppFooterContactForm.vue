@@ -83,23 +83,23 @@
                     
                 </div>
                 <div class="lg:col-span-2 col-span-1 lg:mx-2 px-3">
-                    <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent">
-                        <div class="col-span-6">
+                    <form action="#" method="POST" class="grid grid-cols-1 gap-y-3 overflow-hidden bg-transparent">
+                        <div class="col-span-1">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold lg:text-left text-center">Get in touch</h3>
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-1">
                           <label for="first-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
                           <input type="text" name="first-name" id="first-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300 " />
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-1">
                           <label for="email-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Email address</label>
                           <input type="text" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md  shadow-sm sm:text-sm border-gray-300 " />
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-1">
                           <label for="street-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
                           <textarea type="text" name="street-address" id="street-address" placeholder="Message" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" ></textarea>
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-1">
                           <button class="bg-green-600 text-white px-4 py-1.5  hover:bg-green-700 w-full rounded-md  transition ease-in-out duration-300">Sumbit</button>
                         </div>
                     </form>
