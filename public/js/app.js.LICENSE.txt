@@ -8,6 +8,12 @@
   */
 
 /*!
+  * vue-draggable-next v2.1.0
+  * (c) 2021 Anish George
+  * @license MIT
+  */
+
+/*!
  * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md.
  */
@@ -28,4 +34,17 @@
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/**
+ * Vue 3 Carousel 0.1.35
+ * (c) 2021
+ * @license MIT
+ */
+
+/**!
+ * Sortable 1.14.0
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @author	owenm    <owen23355@gmail.com>
+ * @license MIT
  */
