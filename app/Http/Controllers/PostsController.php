@@ -24,7 +24,7 @@ class PostsController extends Controller
     {
         return Inertia::render('BlogPost', [
             "posts" => Post::join('subcategories', 'posts.subcategory_id', '=', 'subcategories.id')->orderBy('posts.created_at', 'DESC')->paginate(4),
-            "forms" => Form::where('id','=','1')->get()
+            // "forms" => Form::where('id','=','1')->get()
         ]);
     }
     public function show($slug)
