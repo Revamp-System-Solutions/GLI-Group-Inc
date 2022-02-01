@@ -5,7 +5,7 @@
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
             <span class="text-xl inline-block p-3 font-semibold">Create Blog Posts</span>
             <form method="post" @submit.prevent="submit">
-                <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="shadow sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6">

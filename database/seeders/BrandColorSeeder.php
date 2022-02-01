@@ -59,28 +59,28 @@ class BrandColorSeeder extends Seeder
             [
                 'id'            => 7,
                 'var_name'      => '--rvmp-bg-main',
-                'alias'         => 'Content Background Color',
+                'alias'         => 'Main Content Background Color',
                 'value'         => '255, 255, 255',
                 'group'         => '_SITE_MAIN_CONTENT'
             ],
             [
                 'id'            => 8,
                 'var_name'      => '--rvmp-text-main',
-                'alias'         => 'Content Font Color',
+                'alias'         => 'Main Content Font Color',
                 'value'         => '112, 112, 112',
                 'group'         => '_SITE_MAIN_CONTENT'
             ],
             [
                 'id'            => 9,
                 'var_name'      => '--rvmp-bg-alt',
-                'alias'         => 'Content Background Color',
+                'alias'         => 'Alt Content Background Color',
                 'value'         => '237, 237, 237',
                 'group'         => '_SITE_ALT_CONTENT'
             ],
             [
                 'id'            => 10,
                 'var_name'      => '--rvmp-text-alt',
-                'alias'         => 'Content Font Color',
+                'alias'         => 'Alt Content Font Color',
                 'value'         => '255, 255, 255',
                 'group'         => '_SITE_ALT_CONTENT'
             ],
@@ -88,28 +88,28 @@ class BrandColorSeeder extends Seeder
             [
                 'id'            => 11,
                 'var_name'      => '--rvmp-header-bg',
-                'alias'         => 'Background color',
+                'alias'         => 'Header Background color',
                 'value'         => '237, 237, 237',
                 'group'         => '_SITE_HEADER'
             ],
             [
                 'id'            => 12,
                 'var_name'      => '--rvmp-header-text',
-                'alias'         => 'Font Color',
+                'alias'         => 'Header Font Color',
                 'value'         => '0, 0, 0',
                 'group'         => '_SITE_HEADER'
             ],  
             [
                 'id'            => 13,
                 'var_name'      => '--rvmp-footer-bg',
-                'alias'         => 'Background color',
+                'alias'         => 'Footer Background color',
                 'value'         => '237, 237, 237',
                 'group'         => '_SITE_FOOTER'
             ],
             [
                 'id'            => 14,
                 'var_name'      => '--rvmp-footer-text',
-                'alias'         => 'Font Color',
+                'alias'         => 'Footer Font Color',
                 'value'         => '0, 0, 0',
                 'group'         => '_SITE_FOOTER'
             ],

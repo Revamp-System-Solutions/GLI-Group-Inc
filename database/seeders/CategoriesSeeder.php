@@ -29,7 +29,16 @@ class CategoriesSeeder extends Seeder
                 'name'              => 'Blogs',
                 'description'       => 'DO NOT CHANGE OR DELETE',
             ],
-           
+            [
+                'id'                => 4,
+                'name'              => 'Testimonials',
+                'description'       => 'DO NOT CHANGE OR DELETE',
+            ],
+            [
+                'id'                => 5,
+                'name'              => 'Portfolio',
+                'description'       => 'DO NOT CHANGE OR DELETE',
+            ],
         ];
         $saved_cats = Categories::all();
         foreach ($saved_cats as $index => $saved_cat)

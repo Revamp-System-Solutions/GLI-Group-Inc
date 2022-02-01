@@ -7,12 +7,9 @@
                     <div class="lg:py-36 lg:my-12 lg:static">
                         <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">
                         <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2" id="rvmp-lead-heading">
-                                <ul class="px-5 uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
-                                    <li>simple</li>
-                                    <li>modern</li>
-                                    <li>innovative</li>
-                                    <li>residential architecture</li>
-                                </ul>
+                                <h1 class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
+                                    Building A Better Built Environment Together
+                                </h1>
                             </blockquote>
                             <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text">
                                 Our team of professionals will help you turn your dream house into reality fast.
@@ -181,23 +178,19 @@
             </div>
             <div class="overflow-x-hidden 2xl:px-40 xl:px-20 lg:px-10 px-5" id="rvmp-testimonial-content">
                 <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
-                    <Slide v-for="slide in 10" :key="slide" >
+                    <Slide v-for="(post,index) in posts" :key="post" :index="index">
                         <div class="carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
-                            <img src="/images/pages/mission.jpg" class="rounded-t-md"/>
+                            <img :src="post.image_url" class="rounded-t-md"/>
                             <div class="p-4 testimonial-content space-y-3">
-                                <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0" v-html="post.stars">
+
                                 </p>
-                                <p class="brand-text italic text-xs text-center mb-0 font-light">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </p>
+                                <div class="brand-text italic text-xs text-center mb-0 font-light" v-html="post.content">
+
+                                </div>
                                 <p>
-                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">Elonzo Musk</strong>
-                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">Tesla</span>
+                                    <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">{{post.client_name}}</strong>
+                                    <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">{{post.client_org}}</span>
                                 </p>
                             </div>
                         </div>
@@ -242,7 +235,10 @@ export default {
         errors: Object
     },
     setup() {
+
+         const posts = computed(() => usePage().props.value.posts);
 		return {
+            posts,
 			// carousel settings
 			settings: {
 				itemsToShow: 1,

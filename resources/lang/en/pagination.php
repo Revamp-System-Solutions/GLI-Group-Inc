@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'previous' => '<i class="fas fa-chevron-left rvmp-brand-color-darker hover:rvmp-brand-color-main"></i>',
+    'next' => '<i class="fas fa-chevron-right rvmp-brand-color-darker hover:rvmp-brand-color-main"></i>',
 
 ];

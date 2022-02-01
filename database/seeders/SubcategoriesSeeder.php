@@ -16,16 +16,16 @@ class SubcategoriesSeeder extends Seeder
         $subcats = [
             [
                 'id'                => 1,
-                'name'              => 'Post',
+                'name'              => 'Uncategorized',
                 'description'       => 'DO NOT CHANGE OR DELETE',
                 'category_id'       => 3,
                 'permission'       => '-r'
             ],
             [
                 'id'                => 2,
-                'name'              => 'Testimonials',
+                'name'              => 'Customer Review',
                 'description'       => 'DO NOT CHANGE OR DELETE',
-                'category_id'       => 3,
+                'category_id'       => 4,
                 'permission'       => '-r'
             ],            
             [
@@ -33,6 +33,13 @@ class SubcategoriesSeeder extends Seeder
                 'name'              => 'Comments',
                 'description'       => 'DO NOT CHANGE OR DELETE',
                 'category_id'       => 3,
+                'permission'       => '-r'
+            ],
+            [
+                'id'                => 4,
+                'name'              => 'Default',
+                'description'       => 'DO NOT CHANGE OR DELETE',
+                'category_id'       => 5,
                 'permission'       => '-r'
             ],
            

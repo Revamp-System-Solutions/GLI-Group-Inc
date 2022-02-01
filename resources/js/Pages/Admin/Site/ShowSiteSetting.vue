@@ -1,7 +1,8 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
-<app-header-small></app-header-small>
-  <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
+<div class="flex">
+    <app-header-small></app-header-small>
+    <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
       <h2 class="font-semibold text-3xl my-4">Site Settings</h2>
       <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
         <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
@@ -12,14 +13,14 @@
 
               <template v-for="(category,index) in categories" :key="category" :index="index">
                 <div class="p-6 lg:col-span-1">
-                  <span class="text-base text-gray-900">{{ index }}</span> 
+                  <span class="text-base text-gray-900">{{ index }}</span>
                    <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white cursor-pointer" @click="stageCat=index; openModal('category')" ><i class="fas fa-plus-circle"></i> Add New </span>
                 </div>
                 <div class="p-6  lg:col-span-2 ">
                   <div class="grid gap-0 grid-cols-2 divide-y divide-gray-200">
                   <template v-for="subcategory in category.data" :key="subcategory" :index="subcategory.name">
                     <div class="p-6 ">
-                      <span class="text-base text-gray-900">{{subcategory.name}}</span> 
+                      <span class="text-base text-gray-900">{{subcategory.name}}</span>
                       <div class="text-sm text-gray-500">{{ subcategory.description }}</div>
                     </div>
                     <div class="p-6 grid gap-4 grid-cols-2 place-items-center" >
@@ -34,7 +35,7 @@
                       <li :class="'page-item' + (category.links[0].url == null ? ' disabled' : '')">
                           <inertia-link :href="category.links[0].url == null ? '#' : category.links[0].url" class="page-link" v-html="category.links[0].label" preserve-state preserve-scroll></inertia-link>
                       </li>
-                      
+
                       <!-- Numbers
                       <li v-for="item in colorLinks" :class="'page-item' + (item.active ? ' disabled' : '')" :key="item">
                           <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
@@ -60,10 +61,10 @@
             <div class=" grid grid-cols-2 gap-y-2">
               <div v-for="(system_color_group,index) in system_colors" :index="index" :key="system_color_group" :class="index=='CLIENT BRANDING' ? 'col-span-2':'col-span-1'" class="border-b border-gray-500 border-dotted">
                 <div class="px-6 lg:bg-transparent bg-gray-300">
-                  <span class="text-base font-semibold text-gray-900 normal-case">{{ index }}</span>   
+                  <span class="text-base font-semibold text-gray-900 normal-case">{{ index }}</span>
                 </div>
                 <div class="flex lg:p-6 py-4 pl-8 space-x-8" >
-                  <div class="flex flex-col"  v-for="(system_color,index) in system_color_group" :index="index" :key="system_color">             
+                  <div class="flex flex-col"  v-for="(system_color,index) in system_color_group" :index="index" :key="system_color">
                       <div class="flex-shrink-0 rounded-full h-11 w-11 border border-black self-center" :style="rgba2hex('rgba('+system_color.value+')', 'style')"></div>
                       <div class="text-sm text-black">{{ system_color.alias }}</div>
                       <div class="text-sm font-medium text-gray-900 capitalize">
@@ -89,7 +90,7 @@
 
                 <template v-for="static_image in static_images" :key="static_image">
                   <div class="p-6">
-                    <span class="text-base text-gray-900">{{ static_image.media_name }} 
+                    <span class="text-base text-gray-900">{{ static_image.media_name }}
                      </span>
                     <p>{{ static_image.description }}</p>
                   </div>
@@ -105,11 +106,11 @@
 				</Disclosure>
     </div>
 
-  <TransitionRoot appear :show="isOpen">
+    <TransitionRoot appear :show="isOpen">
     <Dialog as="div" @close="closeModal">
       <div class="fixed inset-0 z-30 overflow-y-auto bg-gray-600 bg-opacity-30 ">
         <div class="min-h-screen px-4 text-center">
-          <TransitionChild  
+          <TransitionChild
             enter="duration-300 ease-out"
             enter-from="opacity-0"
             enter-to="opacity-100"
@@ -128,7 +129,7 @@
             leave="duration-200 ease-in"
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95">
-   
+
             <div  class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
                 {{caller==='brand'? 'Change '+stageImg.media_name:caller==='category' ?  (typeof this.stageCat === 'object') ? 'Update Sub-Category: '+stageCat.name: stageCat+': Add new Sub-Category' :stageColor.alias}}
@@ -140,12 +141,13 @@
               </div>
 
             </div>
-     
+
           </TransitionChild>
         </div>
       </div>
     </Dialog>
-  </TransitionRoot>
+    </TransitionRoot>
+</div>
 </template>
 
 <script>
@@ -162,7 +164,7 @@ import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Di
 export default {
     name: "SiteSetting",
     components: {
-        ErrorsAndMessages,     
+        ErrorsAndMessages,
         AppHeaderSmall,
         UploadMedia,
         CreateCategory,
@@ -193,7 +195,7 @@ export default {
           default: null
         },
     },
-    data: () => ({      
+    data: () => ({
         stageColor: [],
         stageImg: [],
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
@@ -201,7 +203,7 @@ export default {
   	}),
     methods: {
 
-     
+
     },
     setup() {
         const newcolor = reactive({
@@ -228,13 +230,13 @@ export default {
         const stageCat= ref(null)
 
         const route = inject('$route');
-        
+
         const system_colors = computed(() => usePage().props.value.system_colors);
         console.log(system_colors.value)
         const colorLinks = null;
 
         const static_images = computed(() => usePage().props.value.static_images);
-        
+
         const categories = computed(() => usePage().props.value.categories);
 
         const user = computed(() => usePage().props.value.auth.user);
@@ -249,7 +251,7 @@ export default {
                 }
             });
         }
-        function submitBrandImg() {    
+        function submitBrandImg() {
             Inertia.post(route('settings.branding.change'), newBrandImage, {
                   forceFormData: true,
                   preserveState:true,
@@ -257,9 +259,9 @@ export default {
                   onSuccess: () =>{
                     isOpen.value = false
                   }
-            });         
+            });
         }
-         function submitCat() {  
+         function submitCat() {
             if(newCategory.action=='new'){
               Inertia.post(route('settings.subcat.new'), newCategory, {
                   forceFormData: true,
@@ -268,7 +270,7 @@ export default {
                   onError: (event) =>{console.log(event)},
                   onSuccess: () =>{
                     isOpen.value = false
-                  }                 
+                  }
               });
             }else{
               Inertia.post(route('settings.subcat.update', {'action':newCategory.action}), newCategory, {
@@ -278,13 +280,13 @@ export default {
                   onError: (event) =>{console.log(event)},
                   onSuccess: () =>{
                     isOpen.value = false
-                  }                 
+                  }
                 });
             }
-             
+
          }
           const deleteCat = (subcat) => {
-           
+
             Inertia.delete(route('settings.subcat.destroy', {subcat}));
         }
         const isHashSiteColor = location.hash === '#SiteColors'
@@ -323,7 +325,7 @@ export default {
               newcolor.alias = ncolor.alias
               newcolor.color = ncolor.color
               submitColor()
-              
+
             },
             setNewBrandImage(value){
               newBrandImage.media_name = value.media_name;
@@ -342,10 +344,10 @@ export default {
                     ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
                     ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
                 : "";
-            }, 
-            
+            },
+
           }
     },
-  
+
 }
 </script>

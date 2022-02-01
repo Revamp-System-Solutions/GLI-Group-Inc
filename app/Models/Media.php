@@ -18,8 +18,5 @@ class Media extends Model
     // {
     //     return $this->media_name && $this->type=='CLIENT_FILE' ? $this->media_name : '---' . $this->media_name;
     // }
-    public function post()
-    {
-        return $this->hasMany(Post::class, 'image_id', 'id');
-    }
+  
 }
