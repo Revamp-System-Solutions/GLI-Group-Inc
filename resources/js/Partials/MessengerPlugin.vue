@@ -12,7 +12,7 @@ export default {
 
     },
     setup() {
-        const page_id = "103402264966215"
+        const page_id = "110623211526439"
         const app_id = "468041464709531"
         return {
             page_id, app_id

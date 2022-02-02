@@ -78,4 +78,5 @@ Route::get('gli-admin/site/users/create', [RegisterController::class, 'showRegis
 Route::post('gli-admin/site/users/create', [RegisterController::class, 'register'])->name('register');
 
 
-
+Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('guest.privacy');
+Route::get('terms-conditions', [GuestController::class, 'toc'])->name('guest.toc');
