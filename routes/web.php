@@ -27,7 +27,10 @@ Route::redirect('/', 'home');
 // Route::resource('home', GuestController::class);
 Route::get('home', [GuestController::class, 'index'])->name('guest.index');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
+
 Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
+Route::post('contact-us/submit-form', [GuestController::class, 'sendMessage'])->name('guest.sendMessage');
+
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
 Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');

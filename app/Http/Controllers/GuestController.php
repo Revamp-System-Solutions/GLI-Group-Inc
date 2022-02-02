@@ -12,7 +12,7 @@ class GuestController extends Controller
 
     public function __construct()
     {
-        $this->middleware("auth")->except('index','showAboutPage','showPortfolioPage','showContactPage');
+        $this->middleware("auth")->except('index','showAboutPage','showPortfolioPage','showContactPage','sendMessage');
     }
 
     public function index()
@@ -34,5 +34,9 @@ class GuestController extends Controller
     public function showContactPage()
     {
         return Inertia::render('Contact');
+    }
+    public function sendMessage(Request $request)
+    {
+        dd($request);
     }
 }
