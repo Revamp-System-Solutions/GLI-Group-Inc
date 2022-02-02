@@ -218,7 +218,7 @@ export default {
             data.append("email", this.form.email);
             data.append("message", this.form.message);
 
-            Inertia.post(route("guest.sendMessage"), data, {
+            Inertia.post(route("formResponse.sendMessage"), data, {
                 forceFormData: true,
             });
         }

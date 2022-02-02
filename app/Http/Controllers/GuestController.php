@@ -35,8 +35,4 @@ class GuestController extends Controller
     {
         return Inertia::render('Contact');
     }
-    public function sendMessage(Request $request)
-    {
-        dd($request);
-    }
 }

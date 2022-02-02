@@ -29079,7 +29079,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append("fullName", this.form.fullName);
       data.append("email", this.form.email);
       data.append("message", this.form.message);
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route("guest.sendMessage"), data, {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route("formResponse.sendMessage"), data, {
         forceFormData: true
       });
     }
