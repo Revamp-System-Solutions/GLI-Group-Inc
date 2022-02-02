@@ -19,6 +19,14 @@
  */
 
 /*!
+ * Pusher JavaScript Library v7.0.4
+ * https://pusher.com/
+ *
+ * Copyright 2020, Pusher
+ * Released under the MIT licence.
+ */
+
+/*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <http://feross.org>
@@ -37,8 +45,8 @@
  */
 
 /**
- * Vue 3 Carousel 0.1.35
- * (c) 2021
+ * Vue 3 Carousel 0.1.36
+ * (c) 2022
  * @license MIT
  */
 
