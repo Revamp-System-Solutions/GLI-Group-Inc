@@ -1,15 +1,17 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
-<div class="flex">
+<div class="flex bg-gray-100">
     <app-header-small></app-header-small>
-    <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
-        <h2 class="font-semibold text-3xl my-4">
-          User Management
-            <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white cursor-pointer" @click="openModal()">
-                <i class="fas fa-user-plus"></i>
-                Create User
-            </span>
-        </h2>
+    <!-- content -->
+    <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
+        <span class="text-xl inline-block p-3 font-semibold text-gray-700">
+                    Add Users
+                    <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
+                            transition ease-out duration-400 hover:bg-green-700 hover:text-white"
+                            :href="$route('post.create')">
+                        <i class="fas fa-plus"></i> Add New
+                    </inertia-link>
+        </span>
     </div>
 
     <TransitionRoot appear :show="isOpen">

@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen flex flex-row bg-gray-100">
-        <div class="flex flex-col w-56 bg-white overflow-hidden relative">
+    <div class="h-screen flex flex-row bg-gray-100 sticky top-0">
+        <div class="flex flex-col w-56 bg-white overflow-hidden relative sticky shadow-md">
             <div class="flex items-center justify-center h-20 shadow-md py-2">
                 <img class="h-16 w-16" src="/images/brand-logo.png">
             </div>

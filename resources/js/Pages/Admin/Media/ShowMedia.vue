@@ -1,25 +1,48 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
-<div class="flex">
+<div class="flex bg-gray-100">
     <app-header-small></app-header-small>
-
-    <div id="content-area" class="w-full h-auto 2xl:px-80 xl:px-56 lg:px-28">
-
-        <span class="text-3xl inline-block p-3 font-semibold">  Media Library <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="openDialog()"><i class="fas fa-upload"></i> Add New</span> </span>
+    <!-- content -->
+    <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
             <div class="flex flex-col justify-center px-4" >
-                <div class="w-full bg-gray-400 flex  border rounded justify-end">
-                  <label for="mediasearch " class="my-3 mr-2 align-middle"><i class="fas fa-search mr-1"></i> Search Media: </label>
-                  <input type="text" id="mediasearch" v-model="fn" @keyup="search" class="m-3 px-2 py-1 txt-sm rounded">
+                <!-- search box -->
+                <div class="flex justify-between">
+                    <span class="text-xl inline-block p-3 font-semibold text-gray-700">
+                        Media Library
+                        <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white"
+                        @click="openDialog()">
+                            <i class="fas fa-upload"></i>
+                            Add New
+                        </span>
+                    </span>
+                    <div class="pt-2 relative text-gray-600">
+                            <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                            type="search" name="search" placeholder="Search">
+                            <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                                    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                                    width="512px" height="512px">
+                                    <path
+                                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                                </svg>
+                            </button>
+                    </div>
                 </div>
                  <template v-if="medias.data.length > 0">
 
                   <div class="py-8 px-4 w-full h-auto">
                       <div class="flex flex-wrap -mx-4 -mb-8">
-                        <div v-for="media in medias.data" :key="media.id" class="lg:w-1/4 m-w-1/4 px-4 mb-8">
-                          {{media.media_name }}
-                          <img v-if="media.image_url" class="rounded shadow-md object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
-                          <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
-                          <a href="javascript:void(0);" class="btn btn-warning pull-right action-btn" @click.prevent="openModal(media.media_name)" v-if="user"><i class="fas fa-trash-alt"></i> Delete Image</a>
+                        <div v-for="media in medias.data" :key="media.id" class="flex flex-col justify-center lg:w-1/4 m-w-1/4 px-4 mb-8">
+                            <div class="bg-white rounded-sm shadow-md p-2">
+                                <div class="mb-2 text-center">{{media.media_name }}</div>
+                                <img v-if="media.image_url" class="rounded object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
+                            </div>
+                                <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
+                            <a href="javascript:void(0);" class="mt-1 text-sm text-white bg-red-400 px-3 py-1 "
+                                @click.prevent="openModal(media.media_name)" v-if="user">
+                                <i class="fas fa-trash-alt"></i> Delete Image
+                            </a>
                         </div>
                       </div>
                   </div>

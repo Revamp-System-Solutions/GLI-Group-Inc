@@ -1,9 +1,12 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
-<div class="flex">
+<div class="flex bg-gray-100">
     <app-header-small></app-header-small>
-    <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
-      <h2 class="font-semibold text-3xl my-4">Site Settings</h2>
+    <!-- content -->
+    <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
+      <span class="text-xl inline-block p-3 font-semibold text-gray-700">
+                    Site Settings
+      </span>
       <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
         <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
           <span class="text-xl"><i class="fas fa-bookmark mx-2"></i> Category</span>

@@ -203,6 +203,7 @@
             </div>
         </div>
     </div>
+    <messenger-plugin/>
     <app-footer-default/>
 </template>
 
@@ -211,15 +212,20 @@ import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import AppHeader from "../Partials/AppHeader";
 import AppFooterDefault from "../Partials/AppFooterDefault";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
+import MessengerPlugin from "../Partials/MessengerPlugin";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+
+
+
 export default {
     name: "Home",
     components: {
         ErrorsAndMessages,
         AppHeader,
+        MessengerPlugin,
         TabGroup,
         TabList,
         Tab,
