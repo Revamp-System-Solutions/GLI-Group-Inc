@@ -19,14 +19,6 @@
  */
 
 /*!
- * Pusher JavaScript Library v7.0.4
- * https://pusher.com/
- *
- * Copyright 2020, Pusher
- * Released under the MIT licence.
- */
-
-/*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <http://feross.org>
