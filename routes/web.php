@@ -8,6 +8,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SiteSettingsController;
+use App\Http\Controllers\FormResponseController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,10 @@ Route::redirect('/', 'home');
 // Route::resource('home', GuestController::class);
 Route::get('home', [GuestController::class, 'index'])->name('guest.index');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
+
 Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
+Route::post('contact-us/submit-form', [FormResponseController::class, 'sendMessage'])->name('formResponse.sendMessage');
+
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
 Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');

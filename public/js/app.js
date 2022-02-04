@@ -29126,7 +29126,35 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     errors: Object
-  }
+  },
+  data: function data() {
+    return {};
+  },
+  setup: function setup() {
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_5__.reactive)({
+      fullName: null,
+      email: null,
+      message: null,
+      _token: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.value.csrf_token
+    });
+    var route = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("$route");
+
+    function sendMessage() {
+      var data = new FormData();
+      data.append("fullName", this.form.fullName);
+      data.append("email", this.form.email);
+      data.append("message", this.form.message);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route("formResponse.sendMessage"), data, {
+        forceFormData: true
+      });
+    }
+
+    return {
+      form: form,
+      sendMessage: sendMessage
+    };
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -35552,59 +35580,117 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "rvmp-container h-full bg-gray-100"
+};
+var _hoisted_2 = {
+  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 py-4 px-4"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-full flex\"><div class=\"w-3/5 px-10 py-20 shadow-lg z-10 bg-white\"><div class=\"h-auto\"><form action=\"#\" class=\"grid grid-cols-6 gap-y-5 overflow-hidden bg-transparent\"><div class=\"col-span-6\"><h2 class=\"text-2xl font-semibold leading-6 mb-5 brand-text rvmp-footer-text capitalize\">Get in touch</h2><p class=\"brand-text text-lg mb-5 font-light\"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus magna, rutrum nec arcu nec, fringilla scelerisque nisl. </p></div><div class=\"col-span-6\"><label for=\"first-name\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\"> Full name </label><input type=\"text\" name=\"first-name\" id=\"first-name\" placeholder=\"Full name\" autocomplete=\"off\" class=\"rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300\"></div><div class=\"col-span-6\"><label for=\"email-address\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\"> Email address </label><input type=\"text\" name=\"email-address\" id=\"email-address\" placeholder=\"Email Address\" autocomplete=\"off\" class=\"rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300\"></div><div class=\"col-span-6\"><label for=\"street-address\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\"> Message </label><textarea type=\"text\" rows=\"7\" name=\"street-address\" id=\"street-address\" placeholder=\"Message\" autocomplete=\"off\" class=\"rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 resize-none\"></textarea></div><div class=\"col-span-6\"><button class=\"bg-green-600 text-white px-4 py-1.5 rounded-md hover:bg-green-700 w-full transition ease-in-out duration-300\">Sumbit</button></div></form></div></div><div class=\"w-2/5 h-full\"><div class=\"w-full h-screen bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/map.png&#39;);\">   </div></div></div>", 1);
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto w-3/5 mx-auto flex lg:flex-row flex-col py-10 space-x-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/3 w-full bg-gray-100 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl mb-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-xl ml-2 font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-}, "our location")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "brand-text italic 2xl:text-base text-xs text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "Unit 3, Uypitching Building"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  lass: "block"
-}, "Km. 8, Jose Romero Road"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "6215 Valencia, Negros Oriental"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "Philippines")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/3 w-full bg-gray-100 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-phone-alt transform rvmp-brand-color-main 2xl:text-3xl text-2xl mb-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-xl ml-2 font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-}, "let's talk")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "brand-text italic 2xl:text-base text-xs text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "0905-000-0000")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/3 w-full bg-gray-100 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl mb-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-xl ml-2 font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-}, "email us")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "brand-text italic 2xl:text-base text-xs text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "block"
-}, "support@gligroupinc.com")])])], -1
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "text-3xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text capitalize text-center"
+}, " Get in touch "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "brand-text text-center text-lg px-10"
+}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus magna, rutrum nec arcu nec, fringilla scelerisque nisl. ")], -1
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto\"><div class=\"uppercase text-center\" id=\"rvmp-testimonial-heading\"><span class=\"border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5\">More of Us Here!</span></div><div class=\"w-full my-10 flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span> <span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 1);
+var _hoisted_4 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "first-name",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Full name", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Email address", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "street-address",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Message", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "bg-green-600 text-white px-4 py-1.5 rounded-md hover:bg-green-700 w-full transition ease-in-out duration-300",
+  type: "submit"
+}, " Sumbit ")], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6\"><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> our location </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Unit 3, Uypitching Building</span><span class=\"block\">Km. 8, Jose Romero Road</span><span class=\"block\">6215 Valencia, Negros Oriental</span><span class=\"block\">Philippines</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> let&#39;s talk </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Phone: 0905-000-0000</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> email us </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">support@gligroupinc.com</span></p></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4\"><div class=\"w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div><div class=\"w-full h-auto pt-4\"><div class=\"w-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/map.png&#39;);\">   </div></div>", 3);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
 
   var _component_app_footer_small = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer-small");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), _hoisted_1, _hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer_small)], 64
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    "class": "grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent 2xl:px-40 xl:px-16 lg:px-8",
+    method: "post",
+    onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $setup.sendMessage();
+    }, ["prevent"]))
+  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "first-name",
+    id: "first-name",
+    placeholder: "Full name",
+    autocomplete: "off",
+    "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.fullName = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.fullName]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "email-address",
+    id: "email-address",
+    placeholder: "Email Address",
+    autocomplete: "off",
+    "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.form.email = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    type: "text",
+    name: "street-address",
+    id: "street-address",
+    placeholder: "Message",
+    autocomplete: "off",
+    "class": "rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 resize-none",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.form.message = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.message]])]), _hoisted_10], 32
+  /* HYDRATE_EVENTS */
+  )]), _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer_small)], 64
   /* STABLE_FRAGMENT */
   );
 }
