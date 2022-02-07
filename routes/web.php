@@ -84,3 +84,4 @@ Route::post('gli-admin/site/users/create', [RegisterController::class, 'register
 
 Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('guest.privacy');
 Route::get('terms-conditions', [GuestController::class, 'toc'])->name('guest.toc');
+Route::get('thank-you', [GuestController::class, 'thankYou'])->name('guest.thankYou');
