@@ -17,6 +17,6 @@ class FormResponseController extends Controller
 
         $formResponse->save();
 
-        $request->session()->flash('success', 'New form has been added|>><<|Form successfully saved!');
+        return Inertia::location('/thank-you');
     }
 }
