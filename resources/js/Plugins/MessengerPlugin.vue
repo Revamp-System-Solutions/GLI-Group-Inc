@@ -14,6 +14,10 @@ export default {
     setup() {
         const page_id = "110535994631911"
         const app_id = "468041464709531"
+
+        return{
+            page_id,app_id
+        }
     },
     mounted() {
          var chatbox = document.getElementById('fb-customer-chat');
