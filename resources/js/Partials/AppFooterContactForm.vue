@@ -229,6 +229,7 @@
                     <form
                         class="grid grid-cols-1 gap-y-3 overflow-hidden bg-transparent"
                         method="post"
+                         @submit.prevent="sendMessage()"
                     >
                         <div class="col-span-1">
                             <h3
