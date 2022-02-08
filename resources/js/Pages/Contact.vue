@@ -42,7 +42,7 @@
                         >Email address</label
                     >
                     <input
-                        type="text"
+                        type="email"
                         name="email-address"
                         id="email-address"
                         placeholder="Email Address"
@@ -218,7 +218,7 @@ export default {
             data.append("email", this.form.email);
             data.append("message", this.form.message);
 
-            Inertia.post(route("formResponse.sendMessage"), data, {
+            Inertia.post(route("submitForm.sendMessage"), data, {
                 forceFormData: true,
             });
         }

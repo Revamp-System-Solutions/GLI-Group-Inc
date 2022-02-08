@@ -8,8 +8,15 @@ use Inertia\Inertia;
 
 class FormResponseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth")->except(["sendMessage"]);
+    }
+
     public function sendMessage(Request $request)
     {
+        
+
         $formResponse = new FormResponse();
 
         $formResponse->title = "New form submission";
