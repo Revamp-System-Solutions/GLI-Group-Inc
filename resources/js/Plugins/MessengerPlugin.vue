@@ -11,14 +11,12 @@ export default {
     components:{
 
     },
-    setup() {
-        const page_id = "110535994631911"
-        const app_id = "468041464709531"
+    data:() => ({
 
-        return{
-            page_id,app_id
-        }
-    },
+        page_id: '110535994631911',
+        app_id: "468041464709531",
+      
+    }),
     mounted() {
          var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", this.page_id);
@@ -40,9 +38,7 @@ export default {
             js.crossorigin = "anonymous";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-        return {
-            page_id, app_id
-        }
+       
     }
 }
 </script>
