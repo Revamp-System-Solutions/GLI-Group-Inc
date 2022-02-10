@@ -1,5 +1,6 @@
 <template>
     <errors-and-messages :errors="errors"></errors-and-messages>
+    <div class="flex">
     <app-header-small></app-header-small> 
     <div id="content-area" class="w-full h-auto bg-gray-50">
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
@@ -95,6 +96,7 @@
                 </div>
             </form>
         </div> 
+    </div>
     </div>
 </template>
 

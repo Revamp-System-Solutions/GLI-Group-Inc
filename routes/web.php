@@ -8,6 +8,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SiteSettingsController;
+use App\Http\Controllers\FormResponseController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,10 @@ Route::redirect('/', 'home');
 // Route::resource('home', GuestController::class);
 Route::get('home', [GuestController::class, 'index'])->name('guest.index');
 Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
+
 Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
+Route::post('contact-us/submit-form', [FormResponseController::class, 'sendMessage'])->name('formResponse.sendMessage');
+
 Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
 Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
 Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');
@@ -78,4 +82,8 @@ Route::get('gli-admin/site/users/create', [RegisterController::class, 'showRegis
 Route::post('gli-admin/site/users/create', [RegisterController::class, 'register'])->name('register');
 
 
+Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('guest.privacy');
+Route::get('terms-conditions', [GuestController::class, 'toc'])->name('guest.toc');
+Route::get('thank-you', [GuestController::class, 'thankYou'])->name('guest.thankYou');
 
+Route::post('submit-form', [FormResponseController::class, 'sendMessage'])->name('submitForm.sendMessage');

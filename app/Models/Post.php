@@ -20,8 +20,5 @@ class Post extends Model
     {
         return $this->belongsTo(Subcategories::class, 'subcategory_id');
     }
-    public function media()
-    {
-        return $this->belongsTo(Media::class, 'image_id');
-    }
+   
 }

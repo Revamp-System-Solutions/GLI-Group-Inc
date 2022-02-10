@@ -5,10 +5,10 @@
             <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
                 <div class="lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80">
                     <div class="lg:py-36 lg:my-12 lg:static">
-                        <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">  
+                        <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">
                         <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2" id="rvmp-lead-heading">
                                 <h1 class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
-                                    Building A Better Built Environment Together      
+                                    Building A Better Built Environment Together
                                 </h1>
                             </blockquote>
                             <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text">
@@ -18,8 +18,8 @@
                                 <button class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Give us a Call!</button>
                                 <button class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</button>
                             </div>
-                        </div>            
-                    </div>               
+                        </div>
+                    </div>
                 </div>
                 <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" id="rvmp-lead-image" style="background-image: url('/images/pages/section-1.jpg')" >&nbsp;</div>
             </div>
@@ -176,23 +176,23 @@
             <div class="uppercase text-center" id="rvmp-testimonial-heading">
                 <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Our Client's Testimonial</span>
             </div>
-            <div class="overflow-x-hidden 2xl:px-80 xl:px-56 lg:px-28 px-8" id="rvmp-testimonial-content">    
+            <div class="overflow-x-hidden 2xl:px-40 xl:px-20 lg:px-10 px-5" id="rvmp-testimonial-content">
                 <Carousel :settings="settings" :breakpoints="breakpoints" :wrapAround="true" :mouseDrag="true">
                     <Slide v-for="(post,index) in posts" :key="post" :index="index">
                         <div class="carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3 ">
-                            <img :src="post.image_url" class="rounded-t-md"/>            
+                            <img :src="post.image_url" class="rounded-t-md"/>
                             <div class="p-4 testimonial-content space-y-3">
                                 <p class="w-full text-center ratings text-yellow-400 space-x-2 mb-0" v-html="post.stars">
-                                   
+
                                 </p>
                                 <div class="brand-text italic text-xs text-center mb-0 font-light" v-html="post.content">
-                                 
+
                                 </div>
                                 <p>
                                     <strong class="text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block">{{post.client_name}}</strong>
                                     <span class="text-xs font-light leading-3 brand-text rvmp-footer-text capitalize">{{post.client_org}}</span>
                                 </p>
-                            </div>  
+                            </div>
                         </div>
                     </Slide>
                     <template #addons>
@@ -215,11 +215,15 @@ import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+
+
+
 export default {
     name: "Home",
     components: {
         ErrorsAndMessages,
         AppHeader,
+
         TabGroup,
         TabList,
         Tab,

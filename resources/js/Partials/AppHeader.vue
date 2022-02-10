@@ -65,21 +65,22 @@
 			</ul>
 		</div>
 	</nav>
-
+    <messenger-plugin/>
 </template>
 
 <script>
 import { createPopper } from "@popperjs/core";
 import { directive } from "vue3-click-away";
+import MessengerPlugin from "../Plugins/MessengerPlugin";
 
 export default {
     name: "AppHeader",
 	directives: {
     	ClickAway: directive
   	},
-	  components: {
-  
-  },
+	components: {
+		MessengerPlugin,
+ 	 },
 	 data: () => ({
     	dropdownPopoverShow: false,
 		switchInertia: false,

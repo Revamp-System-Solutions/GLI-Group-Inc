@@ -18,6 +18,7 @@
             @inertia
         </div>
         <script>
+            
             var lastScrollTop = 0;
             function detectScroll(event) {
                 var st = window.pageYOffset || document.documentElement.scrollTop;

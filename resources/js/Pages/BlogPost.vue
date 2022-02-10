@@ -154,8 +154,6 @@ import {computed, inject,ref} from "vue";
     ListboxOptions,
     ListboxOption,
   } from '@headlessui/vue'
-
-
 export default {
     name: "Home",
     components: {
@@ -177,11 +175,8 @@ export default {
     },
     setup() {
         const route = inject('$route');
-
      
-
         const posts = computed(() => usePage().props.value.posts);
-
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
         const services = [
             { id: 0, name: 'Type of Project', disabled: true },
@@ -214,20 +209,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    .action-btn {
-        margin-left: 12px;
-        font-size: 13px;
-    }
-
-    .article {
-        margin-top: 20px;
-        
-    }
-    .d-flex{
-        display: flex !important;
-        justify-content: flex-start;
-    }
-
-</style>

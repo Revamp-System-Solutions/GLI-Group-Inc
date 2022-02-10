@@ -6,6 +6,9 @@ import { InertiaProgress } from '@inertiajs/progress'
 import VueClickAway from "vue3-click-away";
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
+//prime vue 3
+
+
 
 const el = document.getElementById('app');
 
@@ -23,9 +26,10 @@ InertiaProgress.init();
     app.config.devtools = true
     app.config.debug = true
     app.config.silent = true
-    
+
     app.provide('$route', window.route);
     app.use(VueClickAway)
     app.use(CKEditor)
     app.use(plugin).mount(el);
 
+    // prime vue 3
