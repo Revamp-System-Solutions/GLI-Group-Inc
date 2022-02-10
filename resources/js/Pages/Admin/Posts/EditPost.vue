@@ -1,5 +1,6 @@
 <template>
   <errors-and-messages :errors="errors"></errors-and-messages>
+      <div class="flex">
 <app-header-small></app-header-small>
    <div class="flex flex-row">
          
@@ -107,6 +108,7 @@
      
     </div>
   </div>
+</div>
 </div>
 </template>
 

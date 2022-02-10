@@ -1,6 +1,13 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container h-full bg-gray-100">
+        <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
+            <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
+                <div class="lg:w-full lg:self-start self-center">
+                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">Contact us</h1>
+                </div>
+            </div>
+        </div>
         <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 py-4 px-4">
             <form
                 class="grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent 2xl:px-40 xl:px-16 lg:px-8"
