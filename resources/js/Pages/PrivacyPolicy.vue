@@ -31,7 +31,7 @@
 
                                 <span class="block">We use the information we collect or receive:</span> 
 
-                                <ul class="block">
+                                <ul class="block list-disc">
                                 <li>To deliver and facilitate delivery of services to the user. We may use your information to provide you with the requested service.</li>
 
                                 <li> To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.</li>
