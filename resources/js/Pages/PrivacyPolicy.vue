@@ -13,7 +13,7 @@
             <div class="flex flex-col h-auto ">
                 <div class="w-full  h-auto lg:py-20 lg:pl-10 lg:pr-0 p-6 ">            
                         <div class="w-full h-full grid grid-cols-1 place-content-center gap-y-4">  
-                            <div class="col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center">
+                            <div class="col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center">
                                 <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2> 
                             </div>               
                             <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2">

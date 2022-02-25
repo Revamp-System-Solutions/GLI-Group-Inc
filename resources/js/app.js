@@ -5,10 +5,7 @@ import { App, plugin } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress'
 import VueClickAway from "vue3-click-away";
 import CKEditor from '@ckeditor/ckeditor5-vue';
-
-//prime vue 3
-
-
+import  VueGoogleMaps from '@fawmi/vue-google-maps'
 
 const el = document.getElementById('app');
 
@@ -28,8 +25,14 @@ InertiaProgress.init();
     app.config.silent = true
 
     app.provide('$route', window.route);
+
     app.use(VueClickAway)
     app.use(CKEditor)
+    app.use(VueGoogleMaps, {
+        load: {
+            key: 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE',
+        },
+    })
     app.use(plugin).mount(el);
 
     // prime vue 3

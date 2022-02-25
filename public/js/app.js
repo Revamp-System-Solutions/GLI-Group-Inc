@@ -31,6 +31,2707 @@
 
 /***/ }),
 
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/build-component.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "mappedPropsToVueProps": () => (/* binding */ mappedPropsToVueProps)
+/* harmony export */ });
+/* harmony import */ var _utils_bindEvents_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/bindEvents.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/bindEvents.js");
+/* harmony import */ var _utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/bindProps.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/bindProps.js");
+/* harmony import */ var _mapElementMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mapElementMixin */ "./node_modules/@fawmi/vue-google-maps/src/components/mapElementMixin.js");
+
+
+
+
+/**
+ *
+ * @param {Object} options
+ * @param {Object} options.mappedProps - Definitions of props
+ * @param {Object} options.mappedProps.PROP.type - Value type
+ * @param {Boolean} options.mappedProps.PROP.twoWay
+ *  - Whether the prop has a corresponding PROP_changed
+ *   event
+ * @param {Boolean} options.mappedProps.PROP.noBind
+ *  - If true, do not apply the default bindProps / bindEvents.
+ * However it will still be added to the list of component props
+ * @param {Object} options.props - Regular Vue-style props.
+ *  Note: must be in the Object form because it will be
+ *  merged with the `mappedProps`
+ *
+ * @param {Object} options.events - Google Maps API events
+ *  that are not bound to a corresponding prop
+ * @param {String} options.name - e.g. `polyline`
+ * @param {=> String} options.ctr - constructor, e.g.
+ *  `google.maps.Polyline`. However, since this is not
+ *  generally available during library load, this becomes
+ *  a function instead, e.g. () => google.maps.Polyline
+ *  which will be called only after the API has been loaded
+ * @param {(MappedProps, OtherVueProps) => Array} options.ctrArgs -
+ *   If the constructor in `ctr` needs to be called with
+ *   arguments other than a single `options` object, e.g. for
+ *   GroundOverlay, we call `new GroundOverlay(url, bounds, options)`
+ *   then pass in a function that returns the argument list as an array
+ *
+ * Otherwise, the constructor will be called with an `options` object,
+ *   with property and values merged from:
+ *
+ *   1. the `options` property, if any
+ *   2. a `map` property with the Google Maps
+ *   3. all the properties passed to the component in `mappedProps`
+ * @param {Object => Any} options.beforeCreate -
+ *  Hook to modify the options passed to the initializer
+ * @param {(options.ctr, Object) => Any} options.afterCreate -
+ *  Hook called when
+ *
+ */
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(options) {
+  const {
+    mappedProps,
+    name,
+    ctr,
+    ctrArgs,
+    events,
+    beforeCreate,
+    afterCreate,
+    props,
+    ...rest
+  } = options
+
+  const promiseName = `$${name}Promise`
+  const instanceName = `$${name}Object`
+
+  assert(!(rest.props instanceof Array), '`props` should be an object, not Array')
+
+  return {
+    ...(typeof GENERATE_DOC !== 'undefined' ? { $vgmOptions: options } : {}),
+    mixins: [_mapElementMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
+    props: {
+      ...props,
+      ...mappedPropsToVueProps(mappedProps),
+    },
+    render() {
+      return ''
+    },
+    provide() {
+      const promise = this.$mapPromise
+        .then((map) => {
+          // Infowindow needs this to be immediately available
+          this.$map = map
+
+          // Initialize the maps with the given options
+          const options = {
+            ...this.options,
+            map,
+            ...(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__.getPropsValues)(this, mappedProps),
+          }
+          delete options.options // delete the extra options
+
+          if (beforeCreate) {
+            const result = beforeCreate.bind(this)(options)
+
+            if (result instanceof Promise) {
+              return result.then(() => ({ options }))
+            }
+          }
+          return { options }
+        })
+        .then(({ options }) => {
+          const ConstructorObject = ctr()
+          // https://stackoverflow.com/questions/1606797/use-of-apply-with-new-operator-is-this-possible
+          this[instanceName] = ctrArgs
+            ? new (Function.prototype.bind.call(
+                ConstructorObject,
+                null,
+                ...ctrArgs(options, (0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__.getPropsValues)(this, props || {}))
+              ))()
+            : new ConstructorObject(options)
+
+          ;(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__.bindProps)(this, this[instanceName], mappedProps)
+          ;(0,_utils_bindEvents_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, this[instanceName], events)
+
+          if (afterCreate) {
+            afterCreate.bind(this)(this[instanceName])
+          }
+          return this[instanceName]
+        })
+      this[promiseName] = promise
+      return { [promiseName]: promise }
+    },
+    unmounted() {
+      // Note: not all Google Maps components support maps
+      if (this[instanceName] && this[instanceName].setMap) {
+        this[instanceName].setMap(null)
+      }
+    },
+    ...rest,
+  }
+}
+
+function assert(v, message) {
+  if (!v) throw new Error(message)
+}
+
+/**
+ * Strips out the extraneous properties we have in our
+ * props definitions
+ * @param {Object} props
+ */
+function mappedPropsToVueProps(mappedProps) {
+  return Object.entries(mappedProps)
+    .map(([key, prop]) => {
+      const value = {}
+
+      if ('type' in prop) value.type = prop.type
+      if ('default' in prop) value.default = prop.default
+      if ('required' in prop) value.required = prop.required
+
+      return [key, value]
+    })
+    .reduce((acc, [key, val]) => {
+      acc[key] = val
+      return acc
+    }, {})
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/circle.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/circle.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+const props = {
+  center: {
+    type: Object,
+    twoWay: true,
+    required: true,
+  },
+  radius: {
+    type: Number,
+    twoWay: true,
+  },
+  draggable: {
+    type: Boolean,
+    default: false,
+  },
+  editable: {
+    type: Boolean,
+    default: false,
+  },
+  options: {
+    type: Object,
+    twoWay: false,
+  },
+}
+
+const events = [
+  'click',
+  'dblclick',
+  'drag',
+  'dragend',
+  'dragstart',
+  'mousedown',
+  'mousemove',
+  'mouseout',
+  'mouseover',
+  'mouseup',
+  'rightclick',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  name: 'circle',
+  ctr: () => google.maps.Circle,
+  events,
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/heatmap.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/heatmap.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+const props = {
+  options: {
+    type: Object,
+    twoWay: false,
+    default: () => {
+    },
+  },
+  data: {
+    type: Array,
+    twoWay: true
+  },
+}
+
+const events = [];
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  name: 'heatmap',
+  ctr: () => google.maps.visualization.HeatmapLayer,
+  events,
+}));
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/mapElementMixin.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/mapElementMixin.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * @class MapElementMixin
+ *
+ * Extends components to include the following fields:
+ *
+ * @property $map        The Google map (valid only after the promise returns)
+ *
+ *
+ * */
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  inject: {
+    $mapPromise: { default: 'abcdef' },
+  },
+
+  provide() {
+    // Note: although this mixin is not "providing" anything,
+    // components' expect the `$map` property to be present on the component.
+    // In order for that to happen, this mixin must intercept the $mapPromise
+    // .then(() =>) first before its component does so.
+    //
+    // Since a provide() on a mixin is executed before a provide() on the
+    // component, putting this code in provide() ensures that the $map is
+    // already set by the time the
+    // component's provide() is called.
+    this.$mapPromise.then((map) => {
+      this.$map = map
+    })
+
+    return {}
+  },
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/polygon.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/polygon.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+const props = {
+  draggable: {
+    type: Boolean,
+  },
+  editable: {
+    type: Boolean,
+  },
+  options: {
+    type: Object,
+  },
+  path: {
+    type: Array,
+    twoWay: true,
+    noBind: true,
+  },
+  paths: {
+    type: Array,
+    twoWay: true,
+    noBind: true,
+  },
+}
+
+const events = [
+  'click',
+  'dblclick',
+  'drag',
+  'dragend',
+  'dragstart',
+  'mousedown',
+  'mousemove',
+  'mouseout',
+  'mouseover',
+  'mouseup',
+  'rightclick',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  props: {
+    deepWatch: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  events,
+  mappedProps: props,
+  name: 'polygon',
+  ctr: () => google.maps.Polygon,
+
+  beforeCreate(options) {
+    if (!options.path) delete options.path
+    if (!options.paths) delete options.paths
+  },
+
+  afterCreate(inst) {
+    let clearEvents = () => {}
+
+    // Watch paths, on our own, because we do not want to set either when it is
+    // empty
+    this.$watch(
+      'paths',
+      (paths) => {
+        if (paths) {
+          clearEvents()
+
+          inst.setPaths(paths)
+
+          const updatePaths = () => {
+            this.$emit('paths_changed', inst.getPaths())
+          }
+          const eventListeners = []
+
+          const mvcArray = inst.getPaths()
+          for (let i = 0; i < mvcArray.getLength(); i++) {
+            let mvcPath = mvcArray.getAt(i)
+            eventListeners.push([mvcPath, mvcPath.addListener('insert_at', updatePaths)])
+            eventListeners.push([mvcPath, mvcPath.addListener('remove_at', updatePaths)])
+            eventListeners.push([mvcPath, mvcPath.addListener('set_at', updatePaths)])
+          }
+          eventListeners.push([mvcArray, mvcArray.addListener('insert_at', updatePaths)])
+          eventListeners.push([mvcArray, mvcArray.addListener('remove_at', updatePaths)])
+          eventListeners.push([mvcArray, mvcArray.addListener('set_at', updatePaths)])
+
+          clearEvents = () => {
+            eventListeners.map((
+              [obj, listenerHandle] // eslint-disable-line no-unused-vars
+            ) => google.maps.event.removeListener(listenerHandle))
+          }
+        }
+      },
+      {
+        deep: this.deepWatch,
+        immediate: true,
+      }
+    )
+
+    this.$watch(
+      'path',
+      (path) => {
+        if (path) {
+          clearEvents()
+
+          inst.setPaths(path)
+
+          const mvcPath = inst.getPath()
+          const eventListeners = []
+
+          const updatePaths = () => {
+            this.$emit('path_changed', inst.getPath())
+          }
+
+          eventListeners.push([mvcPath, mvcPath.addListener('insert_at', updatePaths)])
+          eventListeners.push([mvcPath, mvcPath.addListener('remove_at', updatePaths)])
+          eventListeners.push([mvcPath, mvcPath.addListener('set_at', updatePaths)])
+
+          clearEvents = () => {
+            eventListeners.map((
+              [obj, listenerHandle] // eslint-disable-line no-unused-vars
+            ) => google.maps.event.removeListener(listenerHandle))
+          }
+        }
+      },
+      {
+        deep: this.deepWatch,
+        immediate: true,
+      }
+    )
+  },
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/polyline.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/polyline.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+const props = {
+  draggable: {
+    type: Boolean,
+  },
+  editable: {
+    type: Boolean,
+  },
+  options: {
+    twoWay: false,
+    type: Object,
+  },
+  path: {
+    type: Array,
+    twoWay: true,
+  },
+}
+
+const events = [
+  'click',
+  'dblclick',
+  'drag',
+  'dragend',
+  'dragstart',
+  'mousedown',
+  'mousemove',
+  'mouseout',
+  'mouseover',
+  'mouseup',
+  'rightclick',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  props: {
+    deepWatch: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  events,
+
+  name: 'polyline',
+  ctr: () => google.maps.Polyline,
+
+  afterCreate() {
+    let clearEvents = () => {}
+
+    this.$watch(
+      'path',
+      (path) => {
+        if (path) {
+          clearEvents()
+
+          this.$polylineObject.setPath(path)
+
+          const mvcPath = this.$polylineObject.getPath()
+          const eventListeners = []
+
+          const updatePaths = () => {
+            this.$emit('path_changed', this.$polylineObject.getPath())
+          }
+
+          eventListeners.push([mvcPath, mvcPath.addListener('insert_at', updatePaths)])
+          eventListeners.push([mvcPath, mvcPath.addListener('remove_at', updatePaths)])
+          eventListeners.push([mvcPath, mvcPath.addListener('set_at', updatePaths)])
+
+          clearEvents = () => {
+            eventListeners.map((
+              [obj, listenerHandle] // eslint-disable-line no-unused-vars
+            ) => google.maps.event.removeListener(listenerHandle))
+          }
+        }
+      },
+      {
+        deep: this.deepWatch,
+        immediate: true,
+      }
+    )
+  },
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/rectangle.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/rectangle.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+const props = {
+  bounds: {
+    type: Object,
+    twoWay: true,
+  },
+  draggable: {
+    type: Boolean,
+    default: false,
+  },
+  editable: {
+    type: Boolean,
+    default: false,
+  },
+  options: {
+    type: Object,
+    twoWay: false,
+  },
+}
+
+const events = [
+  'click',
+  'dblclick',
+  'drag',
+  'dragend',
+  'dragstart',
+  'mousedown',
+  'mousemove',
+  'mouseout',
+  'mouseover',
+  'mouseup',
+  'rightclick',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  name: 'rectangle',
+  ctr: () => google.maps.Rectangle,
+  events,
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/load-google-maps.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/load-google-maps.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadGMapApi": () => (/* binding */ loadGMapApi)
+/* harmony export */ });
+/* harmony import */ var _utils_env__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/env */ "./node_modules/@fawmi/vue-google-maps/src/utils/env.js");
+/* harmony import */ var _utils_create_map_script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/create-map-script */ "./node_modules/@fawmi/vue-google-maps/src/utils/create-map-script.js");
+
+
+
+let isApiSetUp = false
+function loadGMapApi (options) {
+
+  if (_utils_env__WEBPACK_IMPORTED_MODULE_0__.Env.isServer()) {
+    return;
+  }
+
+  if (!isApiSetUp) {
+    isApiSetUp = true
+    const googleMapScript = (0,_utils_create_map_script__WEBPACK_IMPORTED_MODULE_1__.createMapScript)(options);
+    document.head.appendChild(googleMapScript)
+  } else {
+    throw new Error('You already started the loading of google maps')
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/main.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/main.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadGMapApi": () => (/* reexport safe */ _load_google_maps__WEBPACK_IMPORTED_MODULE_1__.loadGMapApi),
+/* harmony export */   "Marker": () => (/* reexport safe */ _components_marker_vue__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "Polyline": () => (/* reexport safe */ _components_polyline__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "Polygon": () => (/* reexport safe */ _components_polygon__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "Circle": () => (/* reexport safe */ _components_circle__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "GMapCluster": () => (/* reexport safe */ _components_cluster_vue__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   "Rectangle": () => (/* reexport safe */ _components_rectangle__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   "InfoWindow": () => (/* reexport safe */ _components_infoWindow_vue__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "Map": () => (/* reexport safe */ _components_map_vue__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "MapElementMixin": () => (/* reexport safe */ _components_mapElementMixin__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "Heatmap": () => (/* reexport safe */ _components_heatmap__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "buildComponent": () => (/* reexport safe */ _components_build_component__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "Autocomplete": () => (/* reexport safe */ _components_autocomplete_vue__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "MountableMixin": () => (/* reexport safe */ _utils_mountableMixin__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "default": () => (/* binding */ install)
+/* harmony export */ });
+/* harmony import */ var _utils_lazyValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/lazyValue */ "./node_modules/@fawmi/vue-google-maps/src/utils/lazyValue.js");
+/* harmony import */ var _utils_lazyValue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_lazyValue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _load_google_maps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./load-google-maps */ "./node_modules/@fawmi/vue-google-maps/src/load-google-maps.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _components_polyline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/polyline */ "./node_modules/@fawmi/vue-google-maps/src/components/polyline.js");
+/* harmony import */ var _components_polygon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/polygon */ "./node_modules/@fawmi/vue-google-maps/src/components/polygon.js");
+/* harmony import */ var _components_circle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/circle */ "./node_modules/@fawmi/vue-google-maps/src/components/circle.js");
+/* harmony import */ var _components_rectangle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/rectangle */ "./node_modules/@fawmi/vue-google-maps/src/components/rectangle.js");
+/* harmony import */ var _components_marker_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/marker.vue */ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue");
+/* harmony import */ var _components_cluster_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/cluster.vue */ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue");
+/* harmony import */ var _components_infoWindow_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/infoWindow.vue */ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue");
+/* harmony import */ var _components_map_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/map.vue */ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue");
+/* harmony import */ var _components_heatmap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/heatmap */ "./node_modules/@fawmi/vue-google-maps/src/components/heatmap.js");
+/* harmony import */ var _components_autocomplete_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/autocomplete.vue */ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue");
+/* harmony import */ var _components_mapElementMixin__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/mapElementMixin */ "./node_modules/@fawmi/vue-google-maps/src/components/mapElementMixin.js");
+/* harmony import */ var _components_build_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/build-component */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+/* harmony import */ var _utils_mountableMixin__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./utils/mountableMixin */ "./node_modules/@fawmi/vue-google-maps/src/utils/mountableMixin.js");
+/* harmony import */ var _utils_env__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./utils/env */ "./node_modules/@fawmi/vue-google-maps/src/utils/env.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let GMapApi = null;
+
+
+
+function install(Vue, options) {
+  options = {
+    installComponents: true,
+    autobindAllEvents: false,
+    ...options,
+  }
+
+  GMapApi = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)({
+    data: function () {
+      return { gmapApi: null }
+    },
+  })
+
+  const defaultResizeBus = (0,vue__WEBPACK_IMPORTED_MODULE_2__.createApp)()
+
+  // Use a lazy to only load the API when
+  // a VGM component is loaded
+  let gmapApiPromiseLazy = makeGMapApiPromiseLazy(options)
+
+  Vue.mixin({
+    created() {
+      this.$gmapDefaultResizeBus = defaultResizeBus
+      this.$gmapOptions = options
+      this.$gmapApiPromiseLazy = gmapApiPromiseLazy
+    },
+  })
+  Vue.$gmapDefaultResizeBus = defaultResizeBus
+  Vue.$gmapApiPromiseLazy = gmapApiPromiseLazy
+
+  if (options.installComponents) {
+    Vue.component('GMapMap', _components_map_vue__WEBPACK_IMPORTED_MODULE_10__["default"])
+    Vue.component('GMapMarker', _components_marker_vue__WEBPACK_IMPORTED_MODULE_7__["default"])
+    Vue.component('GMapInfoWindow', _components_infoWindow_vue__WEBPACK_IMPORTED_MODULE_9__["default"])
+    Vue.component('GMapCluster', _components_cluster_vue__WEBPACK_IMPORTED_MODULE_8__["default"])
+    Vue.component('GMapPolyline', _components_polyline__WEBPACK_IMPORTED_MODULE_3__["default"])
+    Vue.component('GMapPolygon', _components_polygon__WEBPACK_IMPORTED_MODULE_4__["default"])
+    Vue.component('GMapCircle', _components_circle__WEBPACK_IMPORTED_MODULE_5__["default"])
+    Vue.component('GMapRectangle', _components_rectangle__WEBPACK_IMPORTED_MODULE_6__["default"])
+    Vue.component('GMapAutocomplete', _components_autocomplete_vue__WEBPACK_IMPORTED_MODULE_12__["default"])
+    Vue.component('GMapHeatmap', _components_heatmap__WEBPACK_IMPORTED_MODULE_11__["default"])
+  }
+}
+
+function makeGMapApiPromiseLazy(options) {
+  // Things to do once the API is loaded
+  function onApiLoaded() {
+    GMapApi.gmapApi = {}
+    return window.google
+  }
+
+  if (options.load) {
+    // If library should load the API
+    return _utils_lazyValue__WEBPACK_IMPORTED_MODULE_0___default()(() => {
+      // Load the
+      // This will only be evaluated once
+      if (_utils_env__WEBPACK_IMPORTED_MODULE_16__.Env.isServer()) {
+        return new Promise(() => {}).then(onApiLoaded)
+      } else {
+        return new Promise((resolve, reject) => {
+          try {
+            window['vueGoogleMapsInit'] = resolve
+            ;(0,_load_google_maps__WEBPACK_IMPORTED_MODULE_1__.loadGMapApi)(options.load)
+          } catch (err) {
+            reject(err)
+          }
+        }).then(onApiLoaded)
+      }
+    })
+  } else {
+    // If library should not handle API, provide
+    // end-users with the global `vueGoogleMapsInit: () => undefined`
+    // when the Google Maps API has been loaded
+    const promise = new Promise((resolve) => {
+      if (_utils_env__WEBPACK_IMPORTED_MODULE_16__.Env.isServer()) {
+        return
+      }
+      window['vueGoogleMapsInit'] = resolve
+    }).then(onApiLoaded)
+
+    return _utils_lazyValue__WEBPACK_IMPORTED_MODULE_0___default()(() => promise)
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/TwoWayBindingWrapper.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/TwoWayBindingWrapper.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TwoWayBindingWrapper)
+/* harmony export */ });
+/**
+ * When you have two-way bindings, but the actual bound value will not equal
+ * the value you initially passed in, then to avoid an infinite loop you
+ * need to increment a counter every time you pass in a value, decrement the
+ * same counter every time the bound value changed, but only bubble up
+ * the event when the counter is zero.
+ *
+Example:
+
+Let's say DrawingRecognitionCanvas is a deep-learning backed canvas
+that, when given the name of an object (e.g. 'dog'), draws a dog.
+But whenever the drawing on it changes, it also sends back its interpretation
+of the image by way of the @newObjectRecognized event.
+
+<input
+  type="text"
+  placeholder="an object, e.g. Dog, Cat, Frog"
+  v-model="identifiedObject" />
+<DrawingRecognitionCanvas
+  :object="identifiedObject"
+  @newObjectRecognized="identifiedObject = $event"
+  />
+
+new TwoWayBindingWrapper((increment, decrement, shouldUpdate) => {
+  this.$watch('identifiedObject', () => {
+    // new object passed in
+    increment()
+  })
+  this.$deepLearningBackend.on('drawingChanged', () => {
+    recognizeObject(this.$deepLearningBackend)
+      .then((object) => {
+        decrement()
+        if (shouldUpdate()) {
+          this.$emit('newObjectRecognized', object.name)
+        }
+      })
+  })
+})
+ */
+function TwoWayBindingWrapper(fn) {
+  let counter = 0
+
+  fn(
+    () => {
+      counter += 1
+    },
+    () => {
+      counter = Math.max(0, counter - 1)
+    },
+    () => counter === 0
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/WatchPrimitiveProperties.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/WatchPrimitiveProperties.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ WatchPrimitiveProperties)
+/* harmony export */ });
+/**
+ * Watch the individual properties of a PoD object, instead of the object
+ * per se. This is different from a deep watch where both the reference
+ * and the individual values are watched.
+ *
+ * In effect, it throttles the multiple $watch to execute at most once per tick.
+ */
+function WatchPrimitiveProperties(
+  vueInst,
+  propertiesToTrack,
+  handler,
+  immediate = false
+) {
+  let isHandled = false
+
+  function requestHandle() {
+    if (!isHandled) {
+      isHandled = true
+      vueInst.$nextTick(() => {
+        isHandled = false
+        handler()
+      })
+    }
+  }
+
+  for (let prop of propertiesToTrack) {
+    vueInst.$watch(prop, requestHandle, { immediate })
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/bindEvents.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/bindEvents.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((vueInst, googleMapsInst, events) => {
+  for (let eventName of events) {
+    const propName = `on${eventName.charAt(0).toUpperCase()}${eventName.slice(1)}`.replace(/[-_]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
+
+    if (vueInst.$props[propName] || vueInst.$attrs[propName]) {
+      googleMapsInst.addListener(eventName, (ev) => {
+        vueInst.$emit(eventName, ev)
+      })
+    } else if (vueInst.$gmapOptions.autobindAllEvents || vueInst.$attrs[eventName]) {
+      googleMapsInst.addListener(eventName, (ev) => {
+        vueInst.$emit(eventName, ev)
+      })
+    }
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/bindProps.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/bindProps.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getPropsValues": () => (/* binding */ getPropsValues),
+/* harmony export */   "bindProps": () => (/* binding */ bindProps)
+/* harmony export */ });
+/* harmony import */ var _utils_WatchPrimitiveProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/WatchPrimitiveProperties */ "./node_modules/@fawmi/vue-google-maps/src/utils/WatchPrimitiveProperties.js");
+/* harmony import */ var _string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./string */ "./node_modules/@fawmi/vue-google-maps/src/utils/string.js");
+
+
+
+function getPropsValues(vueInst, props) {
+  return Object.keys(props).reduce((acc, prop) => {
+    if (vueInst[prop] !== undefined) {
+      acc[prop] = vueInst[prop]
+    }
+    return acc
+  }, {})
+}
+
+/**
+ * Binds the properties defined in props to the google maps instance.
+ * If the prop is an Object type, and we wish to track the properties
+ * of the object (e.g. the lat and lng of a LatLng), then we do a deep
+ * watch. For deep watch, we also prevent the _changed event from being
+ * $emitted if the data source was external.
+ */
+function bindProps(vueInst, googleMapsInst, props) {
+  for (let attribute in props) {
+    let { twoWay, type, trackProperties, noBind } = props[attribute]
+
+    if (noBind) continue
+
+    const setMethodName = 'set' + _string__WEBPACK_IMPORTED_MODULE_1__.Str.capitalizeFirstLetter(attribute)
+    const getMethodName = 'get' + _string__WEBPACK_IMPORTED_MODULE_1__.Str.capitalizeFirstLetter(attribute)
+    const eventName = attribute.toLowerCase() + '_changed'
+    const initialValue = vueInst[attribute]
+
+    if (typeof googleMapsInst[setMethodName] === 'undefined') {
+      throw new Error(
+        `${setMethodName} is not a method of (the Maps object corresponding to) ${vueInst.$options._componentTag}`
+      )
+    }
+
+    // We need to avoid an endless
+    // propChanged -> event $emitted -> propChanged -> event $emitted loop
+    // although this may really be the user's responsibility
+    if (type !== Object || !trackProperties) {
+      // Track the object deeply
+      vueInst.$watch(attribute,
+        () => {
+          const attributeValue = vueInst[attribute]
+
+          googleMapsInst[setMethodName](attributeValue)
+        },
+        {
+          immediate: typeof initialValue !== 'undefined',
+          deep: type === Object,
+        }
+      )
+    } else {
+      (0,_utils_WatchPrimitiveProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(
+        vueInst,
+        trackProperties.map((prop) => `${attribute}.${prop}`),
+        () => {
+          googleMapsInst[setMethodName](vueInst[attribute])
+        },
+        vueInst[attribute] !== undefined
+      )
+    }
+
+    if (twoWay && (vueInst.$gmapOptions.autobindAllEvents || vueInst.$attrs[eventName])) {
+      googleMapsInst.addListener(eventName, () => {
+        // eslint-disable-line no-unused-vars
+        vueInst.$emit(eventName, googleMapsInst[getMethodName]())
+      })
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/create-map-script.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/create-map-script.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createMapScript": () => (/* binding */ createMapScript)
+/* harmony export */ });
+function createMapScript(options) {
+  const googleMapScript = document.createElement('SCRIPT')
+  if (typeof options !== 'object') {
+    throw new Error('options should  be an object')
+  }
+
+  // libraries
+  /* eslint-disable no-prototype-builtins */
+  if (Array.prototype.isPrototypeOf(options.libraries)) {
+    options.libraries = options.libraries.join(',')
+  }
+  options['callback'] = 'vueGoogleMapsInit'
+  let baseUrl = 'https://maps.googleapis.com/maps/api/js?'
+
+  let url =
+    baseUrl +
+    Object.keys(options)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(options[key])).join('&')
+
+  googleMapScript.setAttribute('src', url)
+  googleMapScript.setAttribute('async', '')
+  googleMapScript.setAttribute('defer', '')
+
+  return googleMapScript;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/env.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/env.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Env": () => (/* binding */ Env)
+/* harmony export */ });
+class Env {
+  static isServer() {
+    return typeof document === 'undefined';
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/lazyValue.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/lazyValue.js ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+// lazy-value by sindresorhus
+
+module.exports = fn => {
+  let called = false;
+  let result;
+
+  return () => {
+    if (!called) {
+      called = true;
+      result = fn();
+    }
+
+    return result;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/mountableMixin.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/mountableMixin.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/*
+Mixin for objects that are mounted by Google Maps
+Javascript API.
+
+These are objects that are sensitive to element resize
+operations so it exposes a property which accepts a bus
+
+*/
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['resizeBus'],
+
+  data() {
+    return {
+      _actualResizeBus: null,
+    }
+  },
+
+  created() {
+    if (typeof this.resizeBus === 'undefined') {
+      this.$data._actualResizeBus = this.$gmapDefaultResizeBus
+    } else {
+      this.$data._actualResizeBus = this.resizeBus
+    }
+  },
+
+  methods: {
+    _resizeCallback() {
+      this.resize()
+    },
+    isFunction(functionToCheck) {
+      return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+    },
+    _delayedResizeCallback() {
+      this.$nextTick(() => this._resizeCallback())
+    },
+  },
+
+  watch: {
+    resizeBus(newVal) {
+      // eslint-disable-line no-unused-vars
+      this.$data._actualResizeBus = newVal
+    },
+    '$data._actualResizeBus'(newVal, oldVal) {
+      if (oldVal) {
+        oldVal.$off('resize', this._delayedResizeCallback)
+      }
+      if (newVal) {
+        //  newVal.$on('resize', this._delayedResizeCallback)
+      }
+    },
+  },
+
+  unmounted() {
+    if (this.$data._actualResizeBus && this.isFunction(this.$data._actualResizeBus.$off)) {
+      this.$data._actualResizeBus.$off('resize', this._delayedResizeCallback)
+    }
+  },
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/simulateArrowDown.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/simulateArrowDown.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This piece of code was orignally written by amirnissim and can be seen here
+// http://stackoverflow.com/a/11703018/2694653
+// This has been ported to Vanilla.js by GuillaumeLeclerc
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((input) => {
+  const _addEventListener = input.addEventListener ? input.addEventListener : input.attachEvent
+
+  function addEventListenerWrapper(type, listener) {
+    // Simulate a 'down arrow' keypress on hitting 'return' when no pac suggestion is selected,
+    // and then trigger the original listener.
+    if (type === 'keydown') {
+      const origListener = listener
+      listener = function (event) {
+        const suggestionSelected = document.getElementsByClassName('pac-item-selected').length > 0
+        if (event.which === 13 && !suggestionSelected) {
+          const simulatedEvent = document.createEvent('Event')
+          simulatedEvent.keyCode = 40
+          simulatedEvent.which = 40
+          origListener.apply(input, [simulatedEvent])
+        }
+        origListener.apply(input, [event])
+      }
+    }
+    _addEventListener.apply(input, [type, listener])
+  }
+
+  input.addEventListener = addEventListenerWrapper
+  input.attachEvent = addEventListenerWrapper
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/utils/string.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/utils/string.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Str": () => (/* binding */ Str)
+/* harmony export */ });
+class Str {
+  static capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@googlemaps/markerclustererplus/dist/index.esm.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@googlemaps/markerclustererplus/dist/index.esm.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MarkerClusterer)
+/* harmony export */ });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+/**
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Extends an object's prototype by another's.
+ *
+ * @param type1 The Type to be extended.
+ * @param type2 The Type to extend with.
+ * @ignore
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function extend(type1, type2) {
+    // eslint-disable-next-line prefer-const
+    for (var property in type2.prototype) {
+        type1.prototype[property] = type2.prototype[property];
+    }
+}
+/**
+ * @ignore
+ */
+var OverlayViewSafe = /** @class */ (function () {
+    function OverlayViewSafe() {
+        // MarkerClusterer implements google.maps.OverlayView interface. We use the
+        // extend function to extend MarkerClusterer with google.maps.OverlayView
+        // because it might not always be available when the code is defined so we
+        // look for it at the last possible moment. If it doesn't exist now then
+        // there is no point going ahead :)
+        extend(OverlayViewSafe, google.maps.OverlayView);
+    }
+    return OverlayViewSafe;
+}());
+
+/**
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ *
+ * @hidden
+ */
+function toCssText(styles) {
+    return Object.keys(styles)
+        .reduce(function (acc, key) {
+        if (styles[key]) {
+            acc.push(key + ":" + styles[key]);
+        }
+        return acc;
+    }, [])
+        .join(";");
+}
+/**
+ *
+ * @hidden
+ */
+function coercePixels(pixels) {
+    return pixels ? pixels + "px" : undefined;
+}
+/**
+ * A cluster icon.
+ */
+var ClusterIcon = /** @class */ (function (_super) {
+    __extends(ClusterIcon, _super);
+    /**
+     * @param cluster_ The cluster with which the icon is to be associated.
+     * @param styles_ An array of {@link ClusterIconStyle} defining the cluster icons
+     *  to use for various cluster sizes.
+     */
+    function ClusterIcon(cluster_, styles_) {
+        var _this = _super.call(this) || this;
+        _this.cluster_ = cluster_;
+        _this.styles_ = styles_;
+        _this.center_ = null;
+        _this.div_ = null;
+        _this.sums_ = null;
+        _this.visible_ = false;
+        _this.style = null;
+        _this.setMap(cluster_.getMap()); // Note: this causes onAdd to be called
+        return _this;
+    }
+    /**
+     * Adds the icon to the DOM.
+     */
+    ClusterIcon.prototype.onAdd = function () {
+        var _this = this;
+        var cMouseDownInCluster;
+        var cDraggingMapByCluster;
+        var mc = this.cluster_.getMarkerClusterer();
+        var _a = google.maps.version.split("."), major = _a[0], minor = _a[1];
+        var gmVersion = parseInt(major, 10) * 100 + parseInt(minor, 10);
+        this.div_ = document.createElement("div");
+        if (this.visible_) {
+            this.show();
+        }
+        this.getPanes().overlayMouseTarget.appendChild(this.div_);
+        // Fix for Issue 157
+        this.boundsChangedListener_ = google.maps.event.addListener(this.getMap(), "bounds_changed", function () {
+            cDraggingMapByCluster = cMouseDownInCluster;
+        });
+        google.maps.event.addDomListener(this.div_, "mousedown", function () {
+            cMouseDownInCluster = true;
+            cDraggingMapByCluster = false;
+        });
+        google.maps.event.addDomListener(this.div_, "contextmenu", function () {
+            /**
+             * This event is fired when a cluster marker contextmenu is requested.
+             * @name MarkerClusterer#mouseover
+             * @param {Cluster} c The cluster that the contextmenu is requested.
+             * @event
+             */
+            google.maps.event.trigger(mc, "contextmenu", _this.cluster_);
+        });
+        // March 1, 2018: Fix for this 3.32 exp bug, https://issuetracker.google.com/issues/73571522
+        // But it doesn't work with earlier releases so do a version check.
+        if (gmVersion >= 332) {
+            // Ugly version-dependent code
+            google.maps.event.addDomListener(this.div_, "touchstart", function (e) {
+                e.stopPropagation();
+            });
+        }
+        google.maps.event.addDomListener(this.div_, "click", function (e) {
+            cMouseDownInCluster = false;
+            if (!cDraggingMapByCluster) {
+                /**
+                 * This event is fired when a cluster marker is clicked.
+                 * @name MarkerClusterer#click
+                 * @param {Cluster} c The cluster that was clicked.
+                 * @event
+                 */
+                google.maps.event.trigger(mc, "click", _this.cluster_);
+                google.maps.event.trigger(mc, "clusterclick", _this.cluster_); // deprecated name
+                // The default click handler follows. Disable it by setting
+                // the zoomOnClick property to false.
+                if (mc.getZoomOnClick()) {
+                    // Zoom into the cluster.
+                    var mz_1 = mc.getMaxZoom();
+                    var theBounds_1 = _this.cluster_.getBounds();
+                    mc.getMap().fitBounds(theBounds_1);
+                    // There is a fix for Issue 170 here:
+                    setTimeout(function () {
+                        mc.getMap().fitBounds(theBounds_1);
+                        // Don't zoom beyond the max zoom level
+                        if (mz_1 !== null && mc.getMap().getZoom() > mz_1) {
+                            mc.getMap().setZoom(mz_1 + 1);
+                        }
+                    }, 100);
+                }
+                // Prevent event propagation to the map:
+                e.cancelBubble = true;
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                }
+            }
+        });
+        google.maps.event.addDomListener(this.div_, "mouseover", function () {
+            /**
+             * This event is fired when the mouse moves over a cluster marker.
+             * @name MarkerClusterer#mouseover
+             * @param {Cluster} c The cluster that the mouse moved over.
+             * @event
+             */
+            google.maps.event.trigger(mc, "mouseover", _this.cluster_);
+        });
+        google.maps.event.addDomListener(this.div_, "mouseout", function () {
+            /**
+             * This event is fired when the mouse moves out of a cluster marker.
+             * @name MarkerClusterer#mouseout
+             * @param {Cluster} c The cluster that the mouse moved out of.
+             * @event
+             */
+            google.maps.event.trigger(mc, "mouseout", _this.cluster_);
+        });
+    };
+    /**
+     * Removes the icon from the DOM.
+     */
+    ClusterIcon.prototype.onRemove = function () {
+        if (this.div_ && this.div_.parentNode) {
+            this.hide();
+            google.maps.event.removeListener(this.boundsChangedListener_);
+            google.maps.event.clearInstanceListeners(this.div_);
+            this.div_.parentNode.removeChild(this.div_);
+            this.div_ = null;
+        }
+    };
+    /**
+     * Draws the icon.
+     */
+    ClusterIcon.prototype.draw = function () {
+        if (this.visible_) {
+            var pos = this.getPosFromLatLng_(this.center_);
+            this.div_.style.top = pos.y + "px";
+            this.div_.style.left = pos.x + "px";
+        }
+    };
+    /**
+     * Hides the icon.
+     */
+    ClusterIcon.prototype.hide = function () {
+        if (this.div_) {
+            this.div_.style.display = "none";
+        }
+        this.visible_ = false;
+    };
+    /**
+     * Positions and shows the icon.
+     */
+    ClusterIcon.prototype.show = function () {
+        if (this.div_) {
+            this.div_.className = this.className_;
+            this.div_.style.cssText = this.createCss_(this.getPosFromLatLng_(this.center_));
+            this.div_.innerHTML =
+                (this.style.url ? this.getImageElementHtml() : "") +
+                    this.getLabelDivHtml();
+            if (typeof this.sums_.title === "undefined" || this.sums_.title === "") {
+                this.div_.title = this.cluster_.getMarkerClusterer().getTitle();
+            }
+            else {
+                this.div_.title = this.sums_.title;
+            }
+            this.div_.style.display = "";
+        }
+        this.visible_ = true;
+    };
+    ClusterIcon.prototype.getLabelDivHtml = function () {
+        var mc = this.cluster_.getMarkerClusterer();
+        var ariaLabel = mc.ariaLabelFn(this.sums_.text);
+        var divStyle = {
+            position: "absolute",
+            top: coercePixels(this.anchorText_[0]),
+            left: coercePixels(this.anchorText_[1]),
+            color: this.style.textColor,
+            "font-size": coercePixels(this.style.textSize),
+            "font-family": this.style.fontFamily,
+            "font-weight": this.style.fontWeight,
+            "font-style": this.style.fontStyle,
+            "text-decoration": this.style.textDecoration,
+            "text-align": "center",
+            width: coercePixels(this.style.width),
+            "line-height": coercePixels(this.style.textLineHeight)
+        };
+        return "\n<div aria-label=\"".concat(ariaLabel, "\" style=\"").concat(toCssText(divStyle), "\" tabindex=\"0\">\n  <span aria-hidden=\"true\">").concat(this.sums_.text, "</span>\n</div>\n");
+    };
+    ClusterIcon.prototype.getImageElementHtml = function () {
+        // NOTE: values must be specified in px units
+        var bp = (this.style.backgroundPosition || "0 0").split(" ");
+        var spriteH = parseInt(bp[0].replace(/^\s+|\s+$/g, ""), 10);
+        var spriteV = parseInt(bp[1].replace(/^\s+|\s+$/g, ""), 10);
+        var dimensions = {};
+        if (this.cluster_.getMarkerClusterer().getEnableRetinaIcons()) {
+            dimensions = {
+                width: coercePixels(this.style.width),
+                height: coercePixels(this.style.height)
+            };
+        }
+        else {
+            var _a = [
+                -1 * spriteV,
+                -1 * spriteH + this.style.width,
+                -1 * spriteV + this.style.height,
+                -1 * spriteH,
+            ], Y1 = _a[0], X1 = _a[1], Y2 = _a[2], X2 = _a[3];
+            dimensions = {
+                clip: "rect(".concat(Y1, "px, ").concat(X1, "px, ").concat(Y2, "px, ").concat(X2, "px)")
+            };
+        }
+        var overrideDimensionsDynamicIcon = this.sums_.url
+            ? { width: "100%", height: "100%" }
+            : {};
+        var cssText = toCssText(__assign(__assign({ position: "absolute", top: coercePixels(spriteV), left: coercePixels(spriteH) }, dimensions), overrideDimensionsDynamicIcon));
+        return "<img alt=\"".concat(this.sums_.text, "\" aria-hidden=\"true\" src=\"").concat(this.style.url, "\" style=\"").concat(cssText, "\"/>");
+    };
+    /**
+     * Sets the icon styles to the appropriate element in the styles array.
+     *
+     * @ignore
+     * @param sums The icon label text and styles index.
+     */
+    ClusterIcon.prototype.useStyle = function (sums) {
+        this.sums_ = sums;
+        var index = Math.max(0, sums.index - 1);
+        index = Math.min(this.styles_.length - 1, index);
+        this.style = this.sums_.url
+            ? __assign(__assign({}, this.styles_[index]), { url: this.sums_.url }) : this.styles_[index];
+        this.anchorText_ = this.style.anchorText || [0, 0];
+        this.anchorIcon_ = this.style.anchorIcon || [
+            Math.floor(this.style.height / 2),
+            Math.floor(this.style.width / 2),
+        ];
+        this.className_ =
+            this.cluster_.getMarkerClusterer().getClusterClass() +
+                " " +
+                (this.style.className || "cluster-" + index);
+    };
+    /**
+     * Sets the position at which to center the icon.
+     *
+     * @param center The latlng to set as the center.
+     */
+    ClusterIcon.prototype.setCenter = function (center) {
+        this.center_ = center;
+    };
+    /**
+     * Creates the `cssText` style parameter based on the position of the icon.
+     *
+     * @param pos The position of the icon.
+     * @return The CSS style text.
+     */
+    ClusterIcon.prototype.createCss_ = function (pos) {
+        return toCssText({
+            "z-index": "".concat(this.cluster_.getMarkerClusterer().getZIndex()),
+            top: coercePixels(pos.y),
+            left: coercePixels(pos.x),
+            width: coercePixels(this.style.width),
+            height: coercePixels(this.style.height),
+            cursor: "pointer",
+            position: "absolute",
+            "-webkit-user-select": "none",
+            "-khtml-user-select": "none",
+            "-moz-user-select": "none",
+            "-o-user-select": "none",
+            "user-select": "none"
+        });
+    };
+    /**
+     * Returns the position at which to place the DIV depending on the latlng.
+     *
+     * @param latlng The position in latlng.
+     * @return The position in pixels.
+     */
+    ClusterIcon.prototype.getPosFromLatLng_ = function (latlng) {
+        var pos = this.getProjection().fromLatLngToDivPixel(latlng);
+        pos.x = Math.floor(pos.x - this.anchorIcon_[1]);
+        pos.y = Math.floor(pos.y - this.anchorIcon_[0]);
+        return pos;
+    };
+    return ClusterIcon;
+}(OverlayViewSafe));
+
+/**
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Creates a single cluster that manages a group of proximate markers.
+ *  Used internally, do not call this constructor directly.
+ */
+var Cluster = /** @class */ (function () {
+    /**
+     *
+     * @param markerClusterer_ The `MarkerClusterer` object with which this
+     *  cluster is associated.
+     */
+    function Cluster(markerClusterer_) {
+        this.markerClusterer_ = markerClusterer_;
+        this.map_ = this.markerClusterer_.getMap();
+        this.minClusterSize_ = this.markerClusterer_.getMinimumClusterSize();
+        this.averageCenter_ = this.markerClusterer_.getAverageCenter();
+        this.markers_ = []; // TODO: type;
+        this.center_ = null;
+        this.bounds_ = null;
+        this.clusterIcon_ = new ClusterIcon(this, this.markerClusterer_.getStyles());
+    }
+    /**
+     * Returns the number of markers managed by the cluster. You can call this from
+     * a `click`, `mouseover`, or `mouseout` event handler for the `MarkerClusterer` object.
+     *
+     * @return The number of markers in the cluster.
+     */
+    Cluster.prototype.getSize = function () {
+        return this.markers_.length;
+    };
+    /**
+     * Returns the array of markers managed by the cluster. You can call this from
+     * a `click`, `mouseover`, or `mouseout` event handler for the `MarkerClusterer` object.
+     *
+     * @return The array of markers in the cluster.
+     */
+    Cluster.prototype.getMarkers = function () {
+        return this.markers_;
+    };
+    /**
+     * Returns the center of the cluster. You can call this from
+     * a `click`, `mouseover`, or `mouseout` event handler
+     * for the `MarkerClusterer` object.
+     *
+     * @return The center of the cluster.
+     */
+    Cluster.prototype.getCenter = function () {
+        return this.center_;
+    };
+    /**
+     * Returns the map with which the cluster is associated.
+     *
+     * @return The map.
+     * @ignore
+     */
+    Cluster.prototype.getMap = function () {
+        return this.map_;
+    };
+    /**
+     * Returns the `MarkerClusterer` object with which the cluster is associated.
+     *
+     * @return The associated marker clusterer.
+     * @ignore
+     */
+    Cluster.prototype.getMarkerClusterer = function () {
+        return this.markerClusterer_;
+    };
+    /**
+     * Returns the bounds of the cluster.
+     *
+     * @return the cluster bounds.
+     * @ignore
+     */
+    Cluster.prototype.getBounds = function () {
+        var bounds = new google.maps.LatLngBounds(this.center_, this.center_);
+        var markers = this.getMarkers();
+        for (var i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].getPosition());
+        }
+        return bounds;
+    };
+    /**
+     * Removes the cluster from the map.
+     *
+     * @ignore
+     */
+    Cluster.prototype.remove = function () {
+        this.clusterIcon_.setMap(null);
+        this.markers_ = [];
+        delete this.markers_;
+    };
+    /**
+     * Adds a marker to the cluster.
+     *
+     * @param marker The marker to be added.
+     * @return True if the marker was added.
+     * @ignore
+     */
+    Cluster.prototype.addMarker = function (marker) {
+        if (this.isMarkerAlreadyAdded_(marker)) {
+            return false;
+        }
+        if (!this.center_) {
+            this.center_ = marker.getPosition();
+            this.calculateBounds_();
+        }
+        else {
+            if (this.averageCenter_) {
+                var l = this.markers_.length + 1;
+                var lat = (this.center_.lat() * (l - 1) + marker.getPosition().lat()) / l;
+                var lng = (this.center_.lng() * (l - 1) + marker.getPosition().lng()) / l;
+                this.center_ = new google.maps.LatLng(lat, lng);
+                this.calculateBounds_();
+            }
+        }
+        marker.isAdded = true;
+        this.markers_.push(marker);
+        var mCount = this.markers_.length;
+        var mz = this.markerClusterer_.getMaxZoom();
+        if (mz !== null && this.map_.getZoom() > mz) {
+            // Zoomed in past max zoom, so show the marker.
+            if (marker.getMap() !== this.map_) {
+                marker.setMap(this.map_);
+            }
+        }
+        else if (mCount < this.minClusterSize_) {
+            // Min cluster size not reached so show the marker.
+            if (marker.getMap() !== this.map_) {
+                marker.setMap(this.map_);
+            }
+        }
+        else if (mCount === this.minClusterSize_) {
+            // Hide the markers that were showing.
+            for (var i = 0; i < mCount; i++) {
+                this.markers_[i].setMap(null);
+            }
+        }
+        else {
+            marker.setMap(null);
+        }
+        return true;
+    };
+    /**
+     * Determines if a marker lies within the cluster's bounds.
+     *
+     * @param marker The marker to check.
+     * @return True if the marker lies in the bounds.
+     * @ignore
+     */
+    Cluster.prototype.isMarkerInClusterBounds = function (marker) {
+        return this.bounds_.contains(marker.getPosition());
+    };
+    /**
+     * Calculates the extended bounds of the cluster with the grid.
+     */
+    Cluster.prototype.calculateBounds_ = function () {
+        var bounds = new google.maps.LatLngBounds(this.center_, this.center_);
+        this.bounds_ = this.markerClusterer_.getExtendedBounds(bounds);
+    };
+    /**
+     * Updates the cluster icon.
+     */
+    Cluster.prototype.updateIcon = function () {
+        var mCount = this.markers_.length;
+        var mz = this.markerClusterer_.getMaxZoom();
+        if (mz !== null && this.map_.getZoom() > mz) {
+            this.clusterIcon_.hide();
+            return;
+        }
+        if (mCount < this.minClusterSize_) {
+            // Min cluster size not yet reached.
+            this.clusterIcon_.hide();
+            return;
+        }
+        var numStyles = this.markerClusterer_.getStyles().length;
+        var sums = this.markerClusterer_.getCalculator()(this.markers_, numStyles);
+        this.clusterIcon_.setCenter(this.center_);
+        this.clusterIcon_.useStyle(sums);
+        this.clusterIcon_.show();
+    };
+    /**
+     * Determines if a marker has already been added to the cluster.
+     *
+     * @param marker The marker to check.
+     * @return True if the marker has already been added.
+     */
+    Cluster.prototype.isMarkerAlreadyAdded_ = function (marker) {
+        if (this.markers_.indexOf) {
+            return this.markers_.indexOf(marker) !== -1;
+        }
+        else {
+            for (var i = 0; i < this.markers_.length; i++) {
+                if (marker === this.markers_[i]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+    return Cluster;
+}());
+
+/**
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @ignore
+ */
+var getOption = function (options, prop, def) {
+    if (options[prop] !== undefined) {
+        return options[prop];
+    }
+    else {
+        return def;
+    }
+};
+var MarkerClusterer = /** @class */ (function (_super) {
+    __extends(MarkerClusterer, _super);
+    /**
+     * Creates a MarkerClusterer object with the options specified in {@link MarkerClustererOptions}.
+     * @param map The Google map to attach to.
+     * @param markers The markers to be added to the cluster.
+     * @param options The optional parameters.
+     */
+    function MarkerClusterer(map, markers, options) {
+        if (markers === void 0) { markers = []; }
+        if (options === void 0) { options = {}; }
+        var _this = _super.call(this) || this;
+        _this.options = options;
+        _this.markers_ = [];
+        _this.clusters_ = [];
+        _this.listeners_ = [];
+        _this.activeMap_ = null;
+        _this.ready_ = false;
+        _this.ariaLabelFn = _this.options.ariaLabelFn || (function () { return ""; });
+        _this.zIndex_ = _this.options.zIndex || Number(google.maps.Marker.MAX_ZINDEX) + 1;
+        _this.gridSize_ = _this.options.gridSize || 60;
+        _this.minClusterSize_ = _this.options.minimumClusterSize || 2;
+        _this.maxZoom_ = _this.options.maxZoom || null;
+        _this.styles_ = _this.options.styles || [];
+        _this.title_ = _this.options.title || "";
+        _this.zoomOnClick_ = getOption(_this.options, "zoomOnClick", true);
+        _this.averageCenter_ = getOption(_this.options, "averageCenter", false);
+        _this.ignoreHidden_ = getOption(_this.options, "ignoreHidden", false);
+        _this.enableRetinaIcons_ = getOption(_this.options, "enableRetinaIcons", false);
+        _this.imagePath_ = _this.options.imagePath || MarkerClusterer.IMAGE_PATH;
+        _this.imageExtension_ = _this.options.imageExtension || MarkerClusterer.IMAGE_EXTENSION;
+        _this.imageSizes_ = _this.options.imageSizes || MarkerClusterer.IMAGE_SIZES;
+        _this.calculator_ = _this.options.calculator || MarkerClusterer.CALCULATOR;
+        _this.batchSize_ = _this.options.batchSize || MarkerClusterer.BATCH_SIZE;
+        _this.batchSizeIE_ = _this.options.batchSizeIE || MarkerClusterer.BATCH_SIZE_IE;
+        _this.clusterClass_ = _this.options.clusterClass || "cluster";
+        if (navigator.userAgent.toLowerCase().indexOf("msie") !== -1) {
+            // Try to avoid IE timeout when processing a huge number of markers:
+            _this.batchSize_ = _this.batchSizeIE_;
+        }
+        _this.setupStyles_();
+        _this.addMarkers(markers, true);
+        _this.setMap(map); // Note: this causes onAdd to be called
+        return _this;
+    }
+    /**
+     * Implementation of the onAdd interface method.
+     * @ignore
+     */
+    MarkerClusterer.prototype.onAdd = function () {
+        var _this = this;
+        this.activeMap_ = this.getMap();
+        this.ready_ = true;
+        this.repaint();
+        this.prevZoom_ = this.getMap().getZoom();
+        // Add the map event listeners
+        this.listeners_ = [
+            google.maps.event.addListener(this.getMap(), "zoom_changed", function () {
+                var map = _this.getMap(); // eslint-disable-line @typescript-eslint/no-explicit-any
+                // Fix for bug #407
+                // Determines map type and prevents illegal zoom levels
+                var minZoom = map.minZoom || 0;
+                var maxZoom = Math.min(map.maxZoom || 100, map.mapTypes[map.getMapTypeId()].maxZoom);
+                var zoom = Math.min(Math.max(_this.getMap().getZoom(), minZoom), maxZoom);
+                if (_this.prevZoom_ != zoom) {
+                    _this.prevZoom_ = zoom;
+                    _this.resetViewport_(false);
+                }
+            }),
+            google.maps.event.addListener(this.getMap(), "idle", function () {
+                _this.redraw_();
+            }),
+        ];
+    };
+    /**
+     * Implementation of the onRemove interface method.
+     * Removes map event listeners and all cluster icons from the DOM.
+     * All managed markers are also put back on the map.
+     * @ignore
+     */
+    MarkerClusterer.prototype.onRemove = function () {
+        // Put all the managed markers back on the map:
+        for (var i = 0; i < this.markers_.length; i++) {
+            if (this.markers_[i].getMap() !== this.activeMap_) {
+                this.markers_[i].setMap(this.activeMap_);
+            }
+        }
+        // Remove all clusters:
+        for (var i = 0; i < this.clusters_.length; i++) {
+            this.clusters_[i].remove();
+        }
+        this.clusters_ = [];
+        // Remove map event listeners:
+        for (var i = 0; i < this.listeners_.length; i++) {
+            google.maps.event.removeListener(this.listeners_[i]);
+        }
+        this.listeners_ = [];
+        this.activeMap_ = null;
+        this.ready_ = false;
+    };
+    /**
+     * Implementation of the draw interface method.
+     * @ignore
+     */
+    MarkerClusterer.prototype.draw = function () { };
+    /**
+     * Sets up the styles object.
+     */
+    MarkerClusterer.prototype.setupStyles_ = function () {
+        if (this.styles_.length > 0) {
+            return;
+        }
+        for (var i = 0; i < this.imageSizes_.length; i++) {
+            var size = this.imageSizes_[i];
+            this.styles_.push(MarkerClusterer.withDefaultStyle({
+                url: this.imagePath_ + (i + 1) + "." + this.imageExtension_,
+                height: size,
+                width: size
+            }));
+        }
+    };
+    /**
+     *  Fits the map to the bounds of the markers managed by the clusterer.
+     */
+    MarkerClusterer.prototype.fitMapToMarkers = function (padding) {
+        var markers = this.getMarkers();
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+            // March 3, 2018: Bug fix -- honor the ignoreHidden property
+            if (markers[i].getVisible() || !this.getIgnoreHidden()) {
+                bounds.extend(markers[i].getPosition());
+            }
+        }
+        this.getMap().fitBounds(bounds, padding);
+    };
+    /**
+     * Returns the value of the `gridSize` property.
+     *
+     * @return The grid size.
+     */
+    MarkerClusterer.prototype.getGridSize = function () {
+        return this.gridSize_;
+    };
+    /**
+     * Sets the value of the `gridSize` property.
+     *
+     * @param gridSize The grid size.
+     */
+    MarkerClusterer.prototype.setGridSize = function (gridSize) {
+        this.gridSize_ = gridSize;
+    };
+    /**
+     * Returns the value of the `minimumClusterSize` property.
+     *
+     * @return The minimum cluster size.
+     */
+    MarkerClusterer.prototype.getMinimumClusterSize = function () {
+        return this.minClusterSize_;
+    };
+    /**
+     * Sets the value of the `minimumClusterSize` property.
+     *
+     * @param minimumClusterSize The minimum cluster size.
+     */
+    MarkerClusterer.prototype.setMinimumClusterSize = function (minimumClusterSize) {
+        this.minClusterSize_ = minimumClusterSize;
+    };
+    /**
+     *  Returns the value of the `maxZoom` property.
+     *
+     *  @return The maximum zoom level.
+     */
+    MarkerClusterer.prototype.getMaxZoom = function () {
+        return this.maxZoom_;
+    };
+    /**
+     *  Sets the value of the `maxZoom` property.
+     *
+     *  @param maxZoom The maximum zoom level.
+     */
+    MarkerClusterer.prototype.setMaxZoom = function (maxZoom) {
+        this.maxZoom_ = maxZoom;
+    };
+    MarkerClusterer.prototype.getZIndex = function () {
+        return this.zIndex_;
+    };
+    MarkerClusterer.prototype.setZIndex = function (zIndex) {
+        this.zIndex_ = zIndex;
+    };
+    /**
+     *  Returns the value of the `styles` property.
+     *
+     *  @return The array of styles defining the cluster markers to be used.
+     */
+    MarkerClusterer.prototype.getStyles = function () {
+        return this.styles_;
+    };
+    /**
+     *  Sets the value of the `styles` property.
+     *
+     *  @param styles The array of styles to use.
+     */
+    MarkerClusterer.prototype.setStyles = function (styles) {
+        this.styles_ = styles;
+    };
+    /**
+     * Returns the value of the `title` property.
+     *
+     * @return The content of the title text.
+     */
+    MarkerClusterer.prototype.getTitle = function () {
+        return this.title_;
+    };
+    /**
+     *  Sets the value of the `title` property.
+     *
+     *  @param title The value of the title property.
+     */
+    MarkerClusterer.prototype.setTitle = function (title) {
+        this.title_ = title;
+    };
+    /**
+     * Returns the value of the `zoomOnClick` property.
+     *
+     * @return True if zoomOnClick property is set.
+     */
+    MarkerClusterer.prototype.getZoomOnClick = function () {
+        return this.zoomOnClick_;
+    };
+    /**
+     *  Sets the value of the `zoomOnClick` property.
+     *
+     *  @param zoomOnClick The value of the zoomOnClick property.
+     */
+    MarkerClusterer.prototype.setZoomOnClick = function (zoomOnClick) {
+        this.zoomOnClick_ = zoomOnClick;
+    };
+    /**
+     * Returns the value of the `averageCenter` property.
+     *
+     * @return True if averageCenter property is set.
+     */
+    MarkerClusterer.prototype.getAverageCenter = function () {
+        return this.averageCenter_;
+    };
+    /**
+     *  Sets the value of the `averageCenter` property.
+     *
+     *  @param averageCenter The value of the averageCenter property.
+     */
+    MarkerClusterer.prototype.setAverageCenter = function (averageCenter) {
+        this.averageCenter_ = averageCenter;
+    };
+    /**
+     * Returns the value of the `ignoreHidden` property.
+     *
+     * @return True if ignoreHidden property is set.
+     */
+    MarkerClusterer.prototype.getIgnoreHidden = function () {
+        return this.ignoreHidden_;
+    };
+    /**
+     *  Sets the value of the `ignoreHidden` property.
+     *
+     *  @param ignoreHidden The value of the ignoreHidden property.
+     */
+    MarkerClusterer.prototype.setIgnoreHidden = function (ignoreHidden) {
+        this.ignoreHidden_ = ignoreHidden;
+    };
+    /**
+     * Returns the value of the `enableRetinaIcons` property.
+     *
+     * @return True if enableRetinaIcons property is set.
+     */
+    MarkerClusterer.prototype.getEnableRetinaIcons = function () {
+        return this.enableRetinaIcons_;
+    };
+    /**
+     *  Sets the value of the `enableRetinaIcons` property.
+     *
+     *  @param enableRetinaIcons The value of the enableRetinaIcons property.
+     */
+    MarkerClusterer.prototype.setEnableRetinaIcons = function (enableRetinaIcons) {
+        this.enableRetinaIcons_ = enableRetinaIcons;
+    };
+    /**
+     * Returns the value of the `imageExtension` property.
+     *
+     * @return The value of the imageExtension property.
+     */
+    MarkerClusterer.prototype.getImageExtension = function () {
+        return this.imageExtension_;
+    };
+    /**
+     *  Sets the value of the `imageExtension` property.
+     *
+     *  @param imageExtension The value of the imageExtension property.
+     */
+    MarkerClusterer.prototype.setImageExtension = function (imageExtension) {
+        this.imageExtension_ = imageExtension;
+    };
+    /**
+     * Returns the value of the `imagePath` property.
+     *
+     * @return The value of the imagePath property.
+     */
+    MarkerClusterer.prototype.getImagePath = function () {
+        return this.imagePath_;
+    };
+    /**
+     *  Sets the value of the `imagePath` property.
+     *
+     *  @param imagePath The value of the imagePath property.
+     */
+    MarkerClusterer.prototype.setImagePath = function (imagePath) {
+        this.imagePath_ = imagePath;
+    };
+    /**
+     * Returns the value of the `imageSizes` property.
+     *
+     * @return The value of the imageSizes property.
+     */
+    MarkerClusterer.prototype.getImageSizes = function () {
+        return this.imageSizes_;
+    };
+    /**
+     *  Sets the value of the `imageSizes` property.
+     *
+     *  @param imageSizes The value of the imageSizes property.
+     */
+    MarkerClusterer.prototype.setImageSizes = function (imageSizes) {
+        this.imageSizes_ = imageSizes;
+    };
+    /**
+     * Returns the value of the `calculator` property.
+     *
+     * @return the value of the calculator property.
+     */
+    MarkerClusterer.prototype.getCalculator = function () {
+        return this.calculator_;
+    };
+    /**
+     * Sets the value of the `calculator` property.
+     *
+     * @param calculator The value of the calculator property.
+     */
+    MarkerClusterer.prototype.setCalculator = function (calculator) {
+        this.calculator_ = calculator;
+    };
+    /**
+     * Returns the value of the `batchSizeIE` property.
+     *
+     * @return the value of the batchSizeIE property.
+     */
+    MarkerClusterer.prototype.getBatchSizeIE = function () {
+        return this.batchSizeIE_;
+    };
+    /**
+     * Sets the value of the `batchSizeIE` property.
+     *
+     *  @param batchSizeIE The value of the batchSizeIE property.
+     */
+    MarkerClusterer.prototype.setBatchSizeIE = function (batchSizeIE) {
+        this.batchSizeIE_ = batchSizeIE;
+    };
+    /**
+     * Returns the value of the `clusterClass` property.
+     *
+     * @return the value of the clusterClass property.
+     */
+    MarkerClusterer.prototype.getClusterClass = function () {
+        return this.clusterClass_;
+    };
+    /**
+     * Sets the value of the `clusterClass` property.
+     *
+     *  @param clusterClass The value of the clusterClass property.
+     */
+    MarkerClusterer.prototype.setClusterClass = function (clusterClass) {
+        this.clusterClass_ = clusterClass;
+    };
+    /**
+     *  Returns the array of markers managed by the clusterer.
+     *
+     *  @return The array of markers managed by the clusterer.
+     */
+    MarkerClusterer.prototype.getMarkers = function () {
+        return this.markers_;
+    };
+    /**
+     *  Returns the number of markers managed by the clusterer.
+     *
+     *  @return The number of markers.
+     */
+    MarkerClusterer.prototype.getTotalMarkers = function () {
+        return this.markers_.length;
+    };
+    /**
+     * Returns the current array of clusters formed by the clusterer.
+     *
+     * @return The array of clusters formed by the clusterer.
+     */
+    MarkerClusterer.prototype.getClusters = function () {
+        return this.clusters_;
+    };
+    /**
+     * Returns the number of clusters formed by the clusterer.
+     *
+     * @return The number of clusters formed by the clusterer.
+     */
+    MarkerClusterer.prototype.getTotalClusters = function () {
+        return this.clusters_.length;
+    };
+    /**
+     * Adds a marker to the clusterer. The clusters are redrawn unless
+     *  `nodraw` is set to `true`.
+     *
+     * @param marker The marker to add.
+     * @param nodraw Set to `true` to prevent redrawing.
+     */
+    MarkerClusterer.prototype.addMarker = function (marker, nodraw) {
+        this.pushMarkerTo_(marker);
+        if (!nodraw) {
+            this.redraw_();
+        }
+    };
+    /**
+     * Adds an array of markers to the clusterer. The clusters are redrawn unless
+     *  `nodraw` is set to `true`.
+     *
+     * @param markers The markers to add.
+     * @param nodraw Set to `true` to prevent redrawing.
+     */
+    MarkerClusterer.prototype.addMarkers = function (markers, nodraw) {
+        for (var key in markers) {
+            if (Object.prototype.hasOwnProperty.call(markers, key)) {
+                this.pushMarkerTo_(markers[key]);
+            }
+        }
+        if (!nodraw) {
+            this.redraw_();
+        }
+    };
+    /**
+     * Pushes a marker to the clusterer.
+     *
+     * @param marker The marker to add.
+     */
+    MarkerClusterer.prototype.pushMarkerTo_ = function (marker) {
+        var _this = this;
+        // If the marker is draggable add a listener so we can update the clusters on the dragend:
+        if (marker.getDraggable()) {
+            google.maps.event.addListener(marker, "dragend", function () {
+                if (_this.ready_) {
+                    marker.isAdded = false;
+                    _this.repaint();
+                }
+            });
+        }
+        marker.isAdded = false;
+        this.markers_.push(marker);
+    };
+    /**
+     * Removes a marker from the cluster.  The clusters are redrawn unless
+     *  `nodraw` is set to `true`. Returns `true` if the
+     *  marker was removed from the clusterer.
+     *
+     * @param marker The marker to remove.
+     * @param nodraw Set to `true` to prevent redrawing.
+     * @return True if the marker was removed from the clusterer.
+     */
+    MarkerClusterer.prototype.removeMarker = function (marker, nodraw) {
+        var removed = this.removeMarker_(marker);
+        if (!nodraw && removed) {
+            this.repaint();
+        }
+        return removed;
+    };
+    /**
+     * Removes an array of markers from the cluster. The clusters are redrawn unless
+     *  `nodraw` is set to `true`. Returns `true` if markers were removed from the clusterer.
+     *
+     * @param markers The markers to remove.
+     * @param nodraw Set to `true` to prevent redrawing.
+     * @return True if markers were removed from the clusterer.
+     */
+    MarkerClusterer.prototype.removeMarkers = function (markers, nodraw) {
+        var removed = false;
+        for (var i = 0; i < markers.length; i++) {
+            var r = this.removeMarker_(markers[i]);
+            removed = removed || r;
+        }
+        if (!nodraw && removed) {
+            this.repaint();
+        }
+        return removed;
+    };
+    /**
+     * Removes a marker and returns true if removed, false if not.
+     *
+     * @param marker The marker to remove
+     * @return Whether the marker was removed or not
+     */
+    MarkerClusterer.prototype.removeMarker_ = function (marker) {
+        var index = -1;
+        if (this.markers_.indexOf) {
+            index = this.markers_.indexOf(marker);
+        }
+        else {
+            for (var i = 0; i < this.markers_.length; i++) {
+                if (marker === this.markers_[i]) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        if (index === -1) {
+            // Marker is not in our list of markers, so do nothing:
+            return false;
+        }
+        marker.setMap(null);
+        this.markers_.splice(index, 1); // Remove the marker from the list of managed markers
+        return true;
+    };
+    /**
+     * Removes all clusters and markers from the map and also removes all markers
+     *  managed by the clusterer.
+     */
+    MarkerClusterer.prototype.clearMarkers = function () {
+        this.resetViewport_(true);
+        this.markers_ = [];
+    };
+    /**
+     * Recalculates and redraws all the marker clusters from scratch.
+     *  Call this after changing any properties.
+     */
+    MarkerClusterer.prototype.repaint = function () {
+        var oldClusters = this.clusters_.slice();
+        this.clusters_ = [];
+        this.resetViewport_(false);
+        this.redraw_();
+        // Remove the old clusters.
+        // Do it in a timeout to prevent blinking effect.
+        setTimeout(function () {
+            for (var i = 0; i < oldClusters.length; i++) {
+                oldClusters[i].remove();
+            }
+        }, 0);
+    };
+    /**
+     * Returns the current bounds extended by the grid size.
+     *
+     * @param bounds The bounds to extend.
+     * @return The extended bounds.
+     * @ignore
+     */
+    MarkerClusterer.prototype.getExtendedBounds = function (bounds) {
+        var projection = this.getProjection();
+        // Turn the bounds into latlng.
+        var tr = new google.maps.LatLng(bounds.getNorthEast().lat(), bounds.getNorthEast().lng());
+        var bl = new google.maps.LatLng(bounds.getSouthWest().lat(), bounds.getSouthWest().lng());
+        // Convert the points to pixels and the extend out by the grid size.
+        var trPix = projection.fromLatLngToDivPixel(tr);
+        trPix.x += this.gridSize_;
+        trPix.y -= this.gridSize_;
+        var blPix = projection.fromLatLngToDivPixel(bl);
+        blPix.x -= this.gridSize_;
+        blPix.y += this.gridSize_;
+        // Convert the pixel points back to LatLng
+        var ne = projection.fromDivPixelToLatLng(trPix);
+        var sw = projection.fromDivPixelToLatLng(blPix);
+        // Extend the bounds to contain the new bounds.
+        bounds.extend(ne);
+        bounds.extend(sw);
+        return bounds;
+    };
+    /**
+     * Redraws all the clusters.
+     */
+    MarkerClusterer.prototype.redraw_ = function () {
+        this.createClusters_(0);
+    };
+    /**
+     * Removes all clusters from the map. The markers are also removed from the map
+     *  if `hide` is set to `true`.
+     *
+     * @param hide Set to `true` to also remove the markers from the map.
+     */
+    MarkerClusterer.prototype.resetViewport_ = function (hide) {
+        // Remove all the clusters
+        for (var i = 0; i < this.clusters_.length; i++) {
+            this.clusters_[i].remove();
+        }
+        this.clusters_ = [];
+        // Reset the markers to not be added and to be removed from the map.
+        for (var i = 0; i < this.markers_.length; i++) {
+            var marker = this.markers_[i];
+            marker.isAdded = false;
+            if (hide) {
+                marker.setMap(null);
+            }
+        }
+    };
+    /**
+     * Calculates the distance between two latlng locations in km.
+     *
+     * @param p1 The first lat lng point.
+     * @param p2 The second lat lng point.
+     * @return The distance between the two points in km.
+     * @link http://www.movable-type.co.uk/scripts/latlong.html
+     */
+    MarkerClusterer.prototype.distanceBetweenPoints_ = function (p1, p2) {
+        var R = 6371; // Radius of the Earth in km
+        var dLat = ((p2.lat() - p1.lat()) * Math.PI) / 180;
+        var dLon = ((p2.lng() - p1.lng()) * Math.PI) / 180;
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos((p1.lat() * Math.PI) / 180) *
+                Math.cos((p2.lat() * Math.PI) / 180) *
+                Math.sin(dLon / 2) *
+                Math.sin(dLon / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    };
+    /**
+     * Determines if a marker is contained in a bounds.
+     *
+     * @param marker The marker to check.
+     * @param bounds The bounds to check against.
+     * @return True if the marker is in the bounds.
+     */
+    MarkerClusterer.prototype.isMarkerInBounds_ = function (marker, bounds) {
+        return bounds.contains(marker.getPosition());
+    };
+    /**
+     * Adds a marker to a cluster, or creates a new cluster.
+     *
+     * @param marker The marker to add.
+     */
+    MarkerClusterer.prototype.addToClosestCluster_ = function (marker) {
+        var distance = 40000; // Some large number
+        var clusterToAddTo = null;
+        for (var i = 0; i < this.clusters_.length; i++) {
+            var cluster = this.clusters_[i];
+            var center = cluster.getCenter();
+            if (center) {
+                var d = this.distanceBetweenPoints_(center, marker.getPosition());
+                if (d < distance) {
+                    distance = d;
+                    clusterToAddTo = cluster;
+                }
+            }
+        }
+        if (clusterToAddTo && clusterToAddTo.isMarkerInClusterBounds(marker)) {
+            clusterToAddTo.addMarker(marker);
+        }
+        else {
+            var cluster = new Cluster(this);
+            cluster.addMarker(marker);
+            this.clusters_.push(cluster);
+        }
+    };
+    /**
+     * Creates the clusters. This is done in batches to avoid timeout errors
+     *  in some browsers when there is a huge number of markers.
+     *
+     * @param iFirst The index of the first marker in the batch of
+     *  markers to be added to clusters.
+     */
+    MarkerClusterer.prototype.createClusters_ = function (iFirst) {
+        var _this = this;
+        if (!this.ready_) {
+            return;
+        }
+        // Cancel previous batch processing if we're working on the first batch:
+        if (iFirst === 0) {
+            google.maps.event.trigger(this, "clusteringbegin", this);
+            if (typeof this.timerRefStatic !== "undefined") {
+                clearTimeout(this.timerRefStatic);
+                delete this.timerRefStatic;
+            }
+        }
+        // Get our current map view bounds.
+        // Create a new bounds object so we don't affect the map.
+        //
+        // See Comments 9 & 11 on Issue 3651 relating to this workaround for a Google Maps bug:
+        var mapBounds = new google.maps.LatLngBounds(this.getMap().getBounds().getSouthWest(), this.getMap().getBounds().getNorthEast());
+        var bounds = this.getExtendedBounds(mapBounds);
+        var iLast = Math.min(iFirst + this.batchSize_, this.markers_.length);
+        for (var i = iFirst; i < iLast; i++) {
+            var marker = this.markers_[i];
+            if (!marker.isAdded && this.isMarkerInBounds_(marker, bounds)) {
+                if (!this.ignoreHidden_ ||
+                    (this.ignoreHidden_ && marker.getVisible())) {
+                    this.addToClosestCluster_(marker);
+                }
+            }
+        }
+        if (iLast < this.markers_.length) {
+            this.timerRefStatic = window.setTimeout(function () {
+                _this.createClusters_(iLast);
+            }, 0);
+        }
+        else {
+            delete this.timerRefStatic;
+            google.maps.event.trigger(this, "clusteringend", this);
+            for (var i = 0; i < this.clusters_.length; i++) {
+                this.clusters_[i].updateIcon();
+            }
+        }
+    };
+    /**
+     * The default function for determining the label text and style
+     * for a cluster icon.
+     *
+     * @param markers The array of markers represented by the cluster.
+     * @param numStyles The number of marker styles available.
+     * @return The information resource for the cluster.
+     */
+    MarkerClusterer.CALCULATOR = function (markers, numStyles) {
+        var index = 0;
+        var count = markers.length;
+        var dv = count;
+        while (dv !== 0) {
+            dv = Math.floor(dv / 10);
+            index++;
+        }
+        index = Math.min(index, numStyles);
+        return {
+            text: count.toString(),
+            index: index,
+            title: ""
+        };
+    };
+    /**
+     * Generates default styles augmented with user passed values.
+     * Useful when you want to override some default values but keep untouched
+     *
+     * @param overrides override default values
+     */
+    MarkerClusterer.withDefaultStyle = function (overrides) {
+        return __assign({ textColor: "black", textSize: 11, textDecoration: "none", textLineHeight: overrides.height, fontWeight: "bold", fontStyle: "normal", fontFamily: "Arial,sans-serif", backgroundPosition: "0 0" }, overrides);
+    };
+    /**
+     * The number of markers to process in one batch.
+     */
+    MarkerClusterer.BATCH_SIZE = 2000;
+    /**
+     * The number of markers to process in one batch (IE only).
+     */
+    MarkerClusterer.BATCH_SIZE_IE = 500;
+    /**
+     * The default root name for the marker cluster images.
+     */
+    MarkerClusterer.IMAGE_PATH = "../images/m";
+    /**
+     * The default extension name for the marker cluster images.
+     */
+    MarkerClusterer.IMAGE_EXTENSION = "png";
+    /**
+     * The default array of sizes for the marker cluster images.
+     */
+    MarkerClusterer.IMAGE_SIZES = [53, 56, 66, 78, 90];
+    return MarkerClusterer;
+}(OverlayViewSafe));
+
+/**
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/vue/dist/_virtual/_rollupPluginBabelHelpers.js":
 /*!*********************************************************************************!*\
   !*** ./node_modules/@headlessui/vue/dist/_virtual/_rollupPluginBabelHelpers.js ***!
@@ -29108,9 +31809,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Partials/AppHeader */ "./resources/js/Partials/AppHeader.vue");
 /* harmony import */ var _Partials_AppFooterSmall__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Partials/AppFooterSmall */ "./resources/js/Partials/AppFooterSmall.vue");
 /* harmony import */ var _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Partials/ErrorsAndMessages */ "./resources/js/Partials/ErrorsAndMessages.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Plugins_GoogleMapPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Plugins/GoogleMapPlugin */ "./resources/js/Plugins/GoogleMapPlugin.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 
 
 
@@ -29122,7 +31825,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     ErrorsAndMessages: _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_2__["default"],
     AppHeader: _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
-    AppFooterSmall: _Partials_AppFooterSmall__WEBPACK_IMPORTED_MODULE_1__["default"]
+    AppFooterSmall: _Partials_AppFooterSmall__WEBPACK_IMPORTED_MODULE_1__["default"],
+    GoogleMapPlugin: _Plugins_GoogleMapPlugin__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     errors: Object
@@ -29131,20 +31835,20 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   setup: function setup() {
-    var form = (0,vue__WEBPACK_IMPORTED_MODULE_5__.reactive)({
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_6__.reactive)({
       fullName: null,
       email: null,
       message: null,
-      _token: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.value.csrf_token
+      _token: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.value.csrf_token
     });
-    var route = (0,vue__WEBPACK_IMPORTED_MODULE_5__.inject)("$route");
+    var route = (0,vue__WEBPACK_IMPORTED_MODULE_6__.inject)("$route");
 
     function sendMessage() {
       var data = new FormData();
       data.append("fullName", this.form.fullName);
       data.append("email", this.form.email);
       data.append("message", this.form.message);
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia.post(route("submitForm.sendMessage"), data, {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.post(route("submitForm.sendMessage"), data, {
         forceFormData: true
       });
     }
@@ -29893,6 +32597,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "GoogleMapPlugin",
+  components: {},
+  setup: function setup() {
+    var apiKey = "AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE";
+    var center = {
+      lat: 9.2865474,
+      lng: 123.2556617
+    };
+    var zoom = 16.79;
+    var markers = [{
+      id: 'dfsldjl3r',
+      title: 'We are here',
+      position: center
+    }];
+    return {
+      apiKey: apiKey,
+      center: center,
+      zoom: zoom,
+      markers: markers
+    };
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -35767,10 +38509,15 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6\"><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> our location </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Unit 3, Uypitching Building</span><span class=\"block\">Km. 8, Jose Romero Road</span><span class=\"block\">6215 Valencia, Negros Oriental</span><span class=\"block\">Philippines</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> let&#39;s talk </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Phone: 0905-000-0000</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> email us </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">support@gligroupinc.com</span></p></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4\"><div class=\"w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div><div class=\"w-full h-auto pt-4\"><div class=\"w-full h-96 bg-cover bg-top bg-local\" style=\"background-image:url(&#39;/images/pages/map.png&#39;);\">   </div></div>", 3);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6\"><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> our location </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Unit 3, Uypitching Building</span><span class=\"block\">Km. 8, Jose Romero Road</span><span class=\"block\">6215 Valencia, Negros Oriental</span><span class=\"block\">Philippines</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> let&#39;s talk </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Phone: 0905-000-0000</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> email us </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">support@gligroupinc.com</span></p></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4\"><div class=\"w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 2);
 
+var _hoisted_14 = {
+  "class": "w-full h-auto pt-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
+
+  var _component_google_map_plugin = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("google-map-plugin");
 
   var _component_app_footer_small = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer-small");
 
@@ -35818,7 +38565,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.message]])]), _hoisted_11], 32
   /* HYDRATE_EVENTS */
-  )]), _hoisted_12]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer_small)], 64
+  )]), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\r\n                class=\"w-full h-96 bg-cover bg-top bg-local\"\r\n                style=\"background-image: url('/images/pages/map.png')\"\r\n            >\r\n                &nbsp;\r\n            </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_google_map_plugin)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer_small)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -36800,7 +39547,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Privacy Policy</h1></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-auto lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, when you participate in activities on the Website or otherwise when you contact us.</span><span class=\"block\"> The personal information that we collect depends on the contect of your interactions with us and the Website, the choices you make and the products and features you use. The personal information we collect may include the following:</span><span class=\"block\"><span class=\"font-semibold\">Personal Information Provided by You.</span> We collect names; email addresses; contact or authentication data; company names; and other similar information.</span><span class=\"block\"> All personal information that you provide to us must be true, complete and accuratem and you must notify us of any changes to such personal information.</span></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – HOW DO WE USE YOUR INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">We use personal information collected via our Website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.</span><span class=\"block\">We use the information we collect or receive:</span><ul class=\"block list-disc font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>To deliver and facilitate delivery of services to the user. We may use your information to provide you with the requested service.</li><li> To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.</li><li> To send you marketing and promotional communications. We and/or our third-party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. For example, when expressing an interest in obtaining information about us or our Website, subscribing to marketing or otherwise contacting us, we will collect personal information from you. You can opt-out of our marketing emails at any time.</li><li>For other business purposes. We may use your information for other business purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Website, products, marketing and your experience. We may use and store this information in aggregated and anonymized form so that it is not associated with individual end users and does not include personal info</li></ul></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – DISCLOSURE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – SECURITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security, and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Website is at your own risk. You should only access the Website within a secure environment. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – AGE OF CONSENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – CHANGES TO THIS PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it. If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">QUESTIONS AND CONTACT INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website </p></div></div></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Privacy Policy</h1></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-auto lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, when you participate in activities on the Website or otherwise when you contact us.</span><span class=\"block\"> The personal information that we collect depends on the contect of your interactions with us and the Website, the choices you make and the products and features you use. The personal information we collect may include the following:</span><span class=\"block\"><span class=\"font-semibold\">Personal Information Provided by You.</span> We collect names; email addresses; contact or authentication data; company names; and other similar information.</span><span class=\"block\"> All personal information that you provide to us must be true, complete and accuratem and you must notify us of any changes to such personal information.</span></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – HOW DO WE USE YOUR INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">We use personal information collected via our Website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.</span><span class=\"block\">We use the information we collect or receive:</span><ul class=\"block list-disc font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>To deliver and facilitate delivery of services to the user. We may use your information to provide you with the requested service.</li><li> To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.</li><li> To send you marketing and promotional communications. We and/or our third-party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. For example, when expressing an interest in obtaining information about us or our Website, subscribing to marketing or otherwise contacting us, we will collect personal information from you. You can opt-out of our marketing emails at any time.</li><li>For other business purposes. We may use your information for other business purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Website, products, marketing and your experience. We may use and store this information in aggregated and anonymized form so that it is not associated with individual end users and does not include personal info</li></ul></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – DISCLOSURE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – SECURITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security, and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Website is at your own risk. You should only access the Website within a secure environment. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – AGE OF CONSENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – CHANGES TO THIS PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it. If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">QUESTIONS AND CONTACT INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website </p></div></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
@@ -36828,7 +39575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto space-y-6 mb-8\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Terms and Conditions</h1></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main\"><div class=\"flex lg:flex-row-reverse flex-col h-auto relative\"><div class=\"w-full h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full h-full lg:static grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – AGREEMENT TO TERMS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and GLI Group Inc. (&quot;Company,&quot; “we,&quot; “us,&quot; or “our”), concerning your access to and use of the <a href=\"www.gligroupinc.com\">GLI Group Inc.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span><span class=\"block\"> Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.</span><span class=\"block\">The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</span><span class=\"block\">All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – INTELLECTUAL PROPERTY RIGHTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</span><span class=\"block\">Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – USER REPRESENTATIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"> By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use; (2) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.<br> If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof). </p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – PROHIBITED ACTIVITIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</span><span class=\"block\">As a user of the Site, you agree not to:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light lg:pl-8\"><li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li><li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li><li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li><li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li><li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li><li>Make improper use of our support services or submit false reports of abuse or misconduct.</li><li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li><li>Engage in unauthorized framing of or linking to the Site.</li><li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li><li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li><li>Delete the copyright or other proprietary rights notice from any Content.</li><li>Attempt to impersonate another user or person or use the username of another user.</li><li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li><li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li><li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li><li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li><li>Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li><li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li><li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.</li><li>Use a buying agent or purchasing agent to make purchases on the Site.</li><li>Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li><li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li><li>Use the Site to advertise or offer to sell goods and services.</li><li>Sell or otherwise transfer your profile.</li></ul></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – USER GENERATED CONTRIBUTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">The Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li><li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>Your Contributions are not false, inaccurate, or misleading.</li><li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li><li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li><li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li><li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li><li>Your Contributions do not violate any applicable law, regulation, or rule.</li><li>Your Contributions do not violate the privacy or publicity rights of any third party.</li><li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li><li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li><li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li></ul><span class=\"block text-gray-500 text-justify lg:text-sm text-xs brand-text\">Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – CONTRIBUTION LICENSE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">By posting your Contributions to any part of the Site, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.</span><span class=\"block\">This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.</span><span class=\"block\">We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.</span><span class=\"block\">We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – GUIDELINES FOR REVIEWS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.</span><span class=\"block\">We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 8 – SUBMISSIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site (&quot;Submissions&quot;) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 9 – SITE MANAGEMENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 10 – PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We care about data privacy and security. Please review our <a href=\"www.gligroupinc.com\">Privacy Policy</a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use. Please be advised the Site is hosted in the Philippines. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the Philippines, then through your continued use of the Site, you are transferring your data to the Philippines, and you agree to have your data transferred to and processed in the Philippines.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 11 – COPYRIGHT INFRINGEMENTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes your copyright, you should consider first contacting an attorney.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 12 – TERM AND TERMINATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.</span><span class=\"block\">If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 13 – MODIFICATIONS AND INTERRUPTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.</span><span class=\"block\">We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 14 – GOVERNING LAW </h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms shall be governed by and defined following the laws of the Philippines. GLI Group Inc. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 15 – DISPUTE RESOLUTION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. GLI Group Inc. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 16 – CORRECTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">There may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 17 – DISCLAIMER</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 18 – LIMITATIONS OF LIABILITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 19 – INDEMNIFICATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 20 – USER DATA</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 21 – ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 22 – MISCELLANEOUS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.</span></p><div class=\"col-span-1 text-3xl uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 23 – CONTACT US</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</span><ul class=\"block list-none text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>GLI Group Inc</li><li>Unit 3, Uypitching Building</li><li>Km. 8 Jose Romero Road</li><li>Valencia, Negros Oriental 6215</li><li>Philippines</li><li>Phone: (035) 400 3610</li><li><a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a></li></ul></p></div></div></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto space-y-6 mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Terms and Conditions</h1></div></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:bg-transparent\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – AGREEMENT TO TERMS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and GLI Group Inc. (&quot;Company,&quot; “we,&quot; “us,&quot; or “our”), concerning your access to and use of the <a href=\"www.gligroupinc.com\">GLI Group Inc.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span><span class=\"block\"> Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.</span><span class=\"block\">The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</span><span class=\"block\">All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – INTELLECTUAL PROPERTY RIGHTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</span><span class=\"block\">Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – USER REPRESENTATIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"> By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use; (2) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.<br> If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof). </p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – PROHIBITED ACTIVITIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</span><span class=\"block\">As a user of the Site, you agree not to:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li><li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li><li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li><li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li><li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li><li>Make improper use of our support services or submit false reports of abuse or misconduct.</li><li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li><li>Engage in unauthorized framing of or linking to the Site.</li><li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li><li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li><li>Delete the copyright or other proprietary rights notice from any Content.</li><li>Attempt to impersonate another user or person or use the username of another user.</li><li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li><li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li><li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li><li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li><li>Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li><li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li><li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.</li><li>Use a buying agent or purchasing agent to make purchases on the Site.</li><li>Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li><li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li><li>Use the Site to advertise or offer to sell goods and services.</li><li>Sell or otherwise transfer your profile.</li></ul></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – USER GENERATED CONTRIBUTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">The Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li><li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>Your Contributions are not false, inaccurate, or misleading.</li><li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li><li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li><li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li><li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li><li>Your Contributions do not violate any applicable law, regulation, or rule.</li><li>Your Contributions do not violate the privacy or publicity rights of any third party.</li><li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li><li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li><li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li></ul><span class=\"block text-gray-500 text-justify lg:text-sm text-xs brand-text\">Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – CONTRIBUTION LICENSE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">By posting your Contributions to any part of the Site, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.</span><span class=\"block\">This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.</span><span class=\"block\">We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.</span><span class=\"block\">We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – GUIDELINES FOR REVIEWS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.</span><span class=\"block\">We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 8 – SUBMISSIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site (&quot;Submissions&quot;) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 9 – SITE MANAGEMENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 10 – PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We care about data privacy and security. Please review our <a href=\"www.gligroupinc.com\">Privacy Policy</a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use. Please be advised the Site is hosted in the Philippines. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the Philippines, then through your continued use of the Site, you are transferring your data to the Philippines, and you agree to have your data transferred to and processed in the Philippines.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 11 – COPYRIGHT INFRINGEMENTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes your copyright, you should consider first contacting an attorney.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 12 – TERM AND TERMINATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.</span><span class=\"block\">If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 13 – MODIFICATIONS AND INTERRUPTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.</span><span class=\"block\">We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 14 – GOVERNING LAW </h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms shall be governed by and defined following the laws of the Philippines. GLI Group Inc. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 15 – DISPUTE RESOLUTION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. GLI Group Inc. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 16 – CORRECTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">There may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 17 – DISCLAIMER</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 18 – LIMITATIONS OF LIABILITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 19 – INDEMNIFICATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 20 – USER DATA</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 21 – ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 22 – MISCELLANEOUS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 23 – CONTACT US</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</span><ul class=\"block list-none text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>GLI Group Inc</li><li>Unit 3, Uypitching Building</li><li>Km. 8 Jose Romero Road</li><li>Valencia, Negros Oriental 6215</li><li>Philippines</li><li>Phone: (035) 400 3610</li><li><a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a></li></ul></p></div></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
@@ -37807,6 +40554,75 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_GMapInfoWindow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapInfoWindow");
+
+  var _component_GMapMarker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapMarker");
+
+  var _component_GMapMap = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapMap");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_GMapMap, {
+    "api-key": $setup.apiKey,
+    center: $setup.center,
+    zoom: $setup.zoom,
+    "map-type-id": "roadmap",
+    "class": "w-full h-96 bg-cover bg-top bg-local"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.markers, function (marker) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_GMapMarker, {
+          key: marker.id,
+          position: marker.position
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_GMapInfoWindow, {
+              "class": "!bg-gray-200"
+            }, {
+              "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(marker.title), 1
+                /* TEXT */
+                )];
+              }),
+              _: 2
+              /* DYNAMIC */
+
+            }, 1024
+            /* DYNAMIC_SLOTS */
+            )];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["position"]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["api-key", "center", "zoom"]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/MessengerPlugin.vue?vue&type=template&id=69454de9":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/MessengerPlugin.vue?vue&type=template&id=69454de9 ***!
@@ -37856,13 +40672,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue3_click_away__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue3-click-away */ "./node_modules/vue3-click-away/dist/module.js");
 /* harmony import */ var _ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ckeditor/ckeditor5-vue */ "./node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _fawmi_vue_google_maps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fawmi/vue-google-maps */ "./node_modules/@fawmi/vue-google-maps/src/main.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
 
- //prime vue 3
+
 
 var el = document.getElementById('app');
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init();
@@ -37883,6 +40700,11 @@ app.config.silent = true;
 app.provide('$route', window.route);
 app.use(vue3_click_away__WEBPACK_IMPORTED_MODULE_3__["default"]);
 app.use((_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4___default()));
+app.use(_fawmi_vue_google_maps__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  load: {
+    key: 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE'
+  }
+});
 app.use(_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.plugin).mount(el); // prime vue 3
 
 /***/ }),
@@ -40726,6 +43548,30 @@ var toString = {}.toString;
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.vue-map {\n  width: 100%;\n  height: 100%;\n  min-height: 2rem;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -63957,6 +66803,36 @@ module.exports = function getSideChannel() {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_vue_loader_dist_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_style_index_0_id_0c1aca79_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../vue-loader/dist/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./map.vue?vue&type=style&index=0&id=0c1aca79&lang=css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_vue_loader_dist_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_style_index_0_id_0c1aca79_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_vue_loader_dist_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_style_index_0_id_0c1aca79_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Auth/Login.vue?vue&type=style&index=0&id=608728aa&scoped=true&lang=css":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Admin/Auth/Login.vue?vue&type=style&index=0&id=608728aa&scoped=true&lang=css ***!
@@ -68910,6 +71786,809 @@ exports["default"] = (sfc, props) => {
 
 /***/ }),
 
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _autocomplete_vue_vue_type_template_id_5b7498ca__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=template&id=5b7498ca */ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca");
+/* harmony import */ var _autocomplete_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=script&lang=js */ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_autocomplete_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_autocomplete_vue_vue_type_template_id_5b7498ca__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_bindProps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/bindProps.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/bindProps.js");
+/* harmony import */ var _utils_simulateArrowDown_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/simulateArrowDown.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/simulateArrowDown.js");
+/* harmony import */ var _build_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./build-component */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+
+
+
+const mappedProps = {
+  bounds: {
+    type: Object,
+  },
+  componentRestrictions: {
+    type: Object,
+    // Do not bind -- must check for undefined
+    // in the property
+    noBind: true,
+  },
+  types: {
+    type: Array,
+    default: function () {
+      return []
+    },
+  },
+}
+
+const props = {
+  selectFirstOnEnter: {
+    required: false,
+    type: Boolean,
+    default: false,
+  },
+  options: {
+    type: Object,
+  },
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted() {
+    this.$gmapApiPromiseLazy().then(() => {
+      if (this.selectFirstOnEnter) {
+        (0,_utils_simulateArrowDown_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this.$refs.input)
+      }
+
+      if (typeof google.maps.places.Autocomplete !== 'function') {
+        throw new Error(
+          "google.maps.places.Autocomplete is undefined. Did you add 'places' to libraries when loading Google Maps?"
+        )
+      }
+
+      /* eslint-disable no-unused-vars */
+      const finalOptions = {
+        ...(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_0__.getPropsValues)(this, mappedProps),
+        ...this.options,
+      }
+
+      this.$autocomplete = new google.maps.places.Autocomplete(this.$refs.input, finalOptions)
+      ;(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_0__.bindProps)(this, this.$autocomplete, mappedProps)
+
+      this.$watch('componentRestrictions', (v) => {
+        if (v !== undefined) {
+          this.$autocomplete.setComponentRestrictions(v)
+        }
+      })
+
+      // Not using `bindEvents` because we also want
+      // to return the result of `getPlace()`
+      this.$autocomplete.addListener('place_changed', () => {
+        this.$emit('place_changed', this.$autocomplete.getPlace())
+      })
+    })
+  },
+  props: {
+    ...(0,_build_component__WEBPACK_IMPORTED_MODULE_2__.mappedPropsToVueProps)(mappedProps),
+    ...props,
+  },
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue":
+/*!************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _cluster_vue_vue_type_template_id_b97a24d2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cluster.vue?vue&type=template&id=b97a24d2 */ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2");
+/* harmony import */ var _cluster_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cluster.vue?vue&type=script&lang=js */ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_cluster_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_cluster_vue_vue_type_template_id_b97a24d2__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"node_modules/@fawmi/vue-google-maps/src/components/cluster.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _googlemaps_markerclustererplus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @googlemaps/markerclustererplus */ "./node_modules/@googlemaps/markerclustererplus/dist/index.esm.js");
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+
+
+const props = {
+  maxZoom: {
+    type: Number,
+    twoWay: false,
+  },
+  batchSizeIE: {
+    type: Number,
+    twoWay: false,
+  },
+  calculator: {
+    type: Function,
+    twoWay: false,
+  },
+  enableRetinaIcons: {
+    type: Boolean,
+    twoWay: false,
+  },
+  gridSize: {
+    type: Number,
+    twoWay: false,
+  },
+  ignoreHidden: {
+    type: Boolean,
+    twoWay: false,
+  },
+  imageExtension: {
+    type: String,
+    twoWay: false,
+  },
+  imagePath: {
+    type: String,
+    twoWay: false,
+  },
+  imageSizes: {
+    type: Array,
+    twoWay: false,
+  },
+  minimumClusterSize: {
+    type: Number,
+    twoWay: false,
+  },
+  styles: {
+    type: Array,
+    twoWay: false,
+  },
+  zoomOnClick: {
+    type: Boolean,
+    twoWay: false,
+  },
+}
+
+const events = [
+  'click',
+  'rightclick',
+  'dblclick',
+  'drag',
+  'dragstart',
+  'dragend',
+  'mouseup',
+  'mousedown',
+  'mouseover',
+  'mouseout',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+  mappedProps: props,
+  events,
+  name: 'cluster',
+  ctr: () => {
+    if (typeof _googlemaps_markerclustererplus__WEBPACK_IMPORTED_MODULE_0__["default"] === 'undefined') {
+      const errorMessage = 'MarkerClusterer is not installed!';
+      console.error(errorMessage);
+      throw new Error(errorMessage)
+    }
+    return _googlemaps_markerclustererplus__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  ctrArgs: ({ map, ...otherOptions }) => [map, [], otherOptions],
+  afterCreate(inst) {
+    const reinsertMarkers = () => {
+      const oldMarkers = inst.getMarkers()
+      inst.clearMarkers()
+      inst.addMarkers(oldMarkers)
+    }
+    for (let prop in props) {
+      if (props[prop].twoWay) {
+        this.$on(prop.toLowerCase() + '_changed', reinsertMarkers)
+      }
+    }
+  },
+  updated() {
+    if (this.$clusterObject) {
+      this.$clusterObject.repaint()
+    }
+  },
+  beforeUnmount() {
+    /* Performance optimization when destroying a large number of markers */
+    if (this.$children && this.$children.length) {
+      this.$children.forEach((marker) => {
+        if (marker.$clusterObject === this.$clusterObject) {
+          marker.$clusterObject = null
+        }
+      })
+    }
+
+
+    if (this.$clusterObject) {
+      this.$clusterObject.clearMarkers()
+    }
+  },
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _infoWindow_vue_vue_type_template_id_6c9aa5b1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./infoWindow.vue?vue&type=template&id=6c9aa5b1 */ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1");
+/* harmony import */ var _infoWindow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./infoWindow.vue?vue&type=script&lang=js */ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_infoWindow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_infoWindow_vue_vue_type_template_id_6c9aa5b1__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+
+const props = {
+  options: {
+    type: Object,
+    required: false,
+    default() {
+      return {}
+    },
+  },
+  position: {
+    type: Object,
+    twoWay: true,
+  },
+  zIndex: {
+    type: Number,
+    twoWay: true,
+  },
+}
+
+const events = ['domready', 'click', 'closeclick', 'content_changed']
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  events,
+  name: 'infoWindow',
+  ctr: () => google.maps.InfoWindow,
+  props: {
+    opened: {
+      type: Boolean,
+      default: true,
+    },
+  },
+
+  inject: {
+    $markerPromise: {
+      default: null,
+    },
+  },
+
+  mounted() {
+    const el = this.$refs.infoWindow
+    el.parentNode.removeChild(el)
+  },
+
+  beforeCreate(options) {
+    options.content = this.$refs.infoWindow
+
+    if (this.$markerPromise) {
+      delete options.position
+      return this.$markerPromise.then((mo) => {
+        this.$markerObject = mo
+        return mo
+      })
+    }
+  },
+  emits: ['closeclick'],
+  methods: {
+    _openInfoWindow() {
+      this.$infoWindowObject.close()
+      if (this.opened) {
+        this.$infoWindowObject.open(this.$map, this.$markerObject)
+      } else {
+        this.$emit('closeclick')
+      }
+    },
+  },
+
+  afterCreate() {
+    this._openInfoWindow()
+    this.$watch('opened', () => {
+      this._openInfoWindow()
+    })
+  },
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue":
+/*!********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/map.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _map_vue_vue_type_template_id_0c1aca79__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map.vue?vue&type=template&id=0c1aca79 */ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79");
+/* harmony import */ var _map_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map.vue?vue&type=script&lang=js */ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js");
+/* harmony import */ var _map_vue_vue_type_style_index_0_id_0c1aca79_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./map.vue?vue&type=style&index=0&id=0c1aca79&lang=css */ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_map_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_map_vue_vue_type_template_id_0c1aca79__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"node_modules/@fawmi/vue-google-maps/src/components/map.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_bindEvents_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/bindEvents.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/bindEvents.js");
+/* harmony import */ var _utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/bindProps.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/bindProps.js");
+/* harmony import */ var _utils_mountableMixin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/mountableMixin.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/mountableMixin.js");
+/* harmony import */ var _utils_TwoWayBindingWrapper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/TwoWayBindingWrapper.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/TwoWayBindingWrapper.js");
+/* harmony import */ var _utils_WatchPrimitiveProperties_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/WatchPrimitiveProperties.js */ "./node_modules/@fawmi/vue-google-maps/src/utils/WatchPrimitiveProperties.js");
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+
+
+
+
+
+
+
+const props = {
+  center: {
+    required: true,
+    twoWay: true,
+    type: Object,
+    noBind: true,
+  },
+  zoom: {
+    required: false,
+    twoWay: true,
+    type: Number,
+    noBind: true,
+  },
+  heading: {
+    type: Number,
+    twoWay: true,
+  },
+  mapTypeId: {
+    twoWay: true,
+    type: String,
+  },
+  tilt: {
+    twoWay: true,
+    type: Number,
+  },
+  options: {
+    type: Object,
+    default() {
+      return {}
+    },
+  },
+}
+
+const events = [
+  'bounds_changed',
+  'click',
+  'dblclick',
+  'drag',
+  'dragend',
+  'dragstart',
+  'idle',
+  'mousemove',
+  'mouseout',
+  'mouseover',
+  'resize',
+  'rightclick',
+  'tilesloaded',
+]
+
+// Plain Google Maps methods exposed here for convenience
+const linkedMethods = ['panBy', 'panTo', 'panToBounds', 'fitBounds'].reduce((all, methodName) => {
+  all[methodName] = function () {
+    if (this.$mapObject) {
+      this.$mapObject[methodName].apply(this.$mapObject, arguments)
+    }
+  }
+  return all
+}, {})
+
+// Other convenience methods exposed by Vue Google Maps
+const customMethods = {
+  resize() {
+    if (this.$mapObject) {
+      google.maps.event.trigger(this.$mapObject, 'resize')
+    }
+  },
+  resizePreserveCenter() {
+    if (!this.$mapObject) {
+      return
+    }
+
+    const oldCenter = this.$mapObject.getCenter()
+    google.maps.event.trigger(this.$mapObject, 'resize')
+    this.$mapObject.setCenter(oldCenter)
+  },
+
+  /// Override mountableMixin::_resizeCallback
+  /// because resizePreserveCenter is usually the
+  /// expected behaviour
+  _resizeCallback() {
+    this.resizePreserveCenter()
+  },
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_utils_mountableMixin_js__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  props: (0,_build_component_js__WEBPACK_IMPORTED_MODULE_5__.mappedPropsToVueProps)({...props, ...events.reduce((obj, eventName) => ({...obj, [`on${eventName.charAt(0).toUpperCase()}${eventName.slice(1)}`.replace(/[-_]+(.)?/g, (_, c) => c ? c.toUpperCase() : '')]: Function}), {}) } ),
+  inheritAttrs: false,
+
+  provide() {
+    this.$mapPromise = new Promise((resolve, reject) => {
+      this.$mapPromiseDeferred = { resolve, reject }
+    })
+    return {
+      $mapPromise: this.$mapPromise,
+    }
+  },
+  emits: ['center_changed', 'zoom_changed', 'bounds_changed'],
+  computed: {
+    finalLat() {
+      return this.center && typeof this.center.lat === 'function'
+        ? this.center.lat()
+        : this.center.lat
+    },
+    finalLng() {
+      return this.center && typeof this.center.lng === 'function'
+        ? this.center.lng()
+        : this.center.lng
+    },
+    finalLatLng() {
+      return { lat: this.finalLat, lng: this.finalLng }
+    },
+  },
+
+  watch: {
+    zoom(zoom) {
+      if (this.$mapObject) {
+        this.$mapObject.setZoom(zoom)
+      }
+    },
+  },
+
+  mounted() {
+    return this.$gmapApiPromiseLazy()
+      .then(() => {
+        // getting the DOM element where to create the map
+        const element = this.$refs['vue-map']
+
+        // creating the map
+        const options = {
+          ...this.options,
+          ...(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__.getPropsValues)(this, props),
+        }
+        delete options.options
+        this.$mapObject = new google.maps.Map(element, options)
+
+        // binding properties (two and one way)
+        ;(0,_utils_bindProps_js__WEBPACK_IMPORTED_MODULE_1__.bindProps)(this, this.$mapObject, props)
+        // binding events
+        ;(0,_utils_bindEvents_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, this.$mapObject, events)
+
+        // manually trigger center and zoom
+        ;(0,_utils_TwoWayBindingWrapper_js__WEBPACK_IMPORTED_MODULE_3__["default"])((increment, decrement, shouldUpdate) => {
+          this.$mapObject.addListener('center_changed', () => {
+            if (shouldUpdate()) {
+              this.$emit('center_changed', this.$mapObject.getCenter())
+            }
+            decrement()
+          })
+
+          const updateCenter = () => {
+            increment()
+            this.$mapObject.setCenter(this.finalLatLng)
+          }
+
+          ;(0,_utils_WatchPrimitiveProperties_js__WEBPACK_IMPORTED_MODULE_4__["default"])(this, ['finalLat', 'finalLng'], updateCenter)
+        })
+        this.$mapObject.addListener('zoom_changed', () => {
+          this.$emit('zoom_changed', this.$mapObject.getZoom())
+        })
+        this.$mapObject.addListener('bounds_changed', () => {
+          this.$emit('bounds_changed', this.$mapObject.getBounds())
+        })
+
+        this.$mapPromiseDeferred.resolve(this.$mapObject)
+
+        return this.$mapObject
+      })
+      .catch((error) => {
+        throw error
+      })
+  },
+  methods: {
+    ...customMethods,
+    ...linkedMethods,
+  },
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/marker.vue ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _marker_vue_vue_type_template_id_21eae1a6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./marker.vue?vue&type=template&id=21eae1a6 */ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6");
+/* harmony import */ var _marker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./marker.vue?vue&type=script&lang=js */ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_marker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_marker_vue_vue_type_template_id_21eae1a6__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"node_modules/@fawmi/vue-google-maps/src/components/marker.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _build_component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build-component.js */ "./node_modules/@fawmi/vue-google-maps/src/components/build-component.js");
+
+
+
+
+const props = {
+  animation: {
+    twoWay: true,
+    type: Number,
+  },
+  attribution: {
+    type: Object,
+  },
+  clickable: {
+    type: Boolean,
+    twoWay: true,
+    default: true,
+  },
+  cursor: {
+    type: String,
+    twoWay: true,
+  },
+  draggable: {
+    type: Boolean,
+    twoWay: true,
+    default: false,
+  },
+  icon: {
+    twoWay: true,
+  },
+  label: {},
+  opacity: {
+    type: Number,
+    default: 1,
+  },
+  options: {
+    type: Object,
+  },
+  place: {
+    type: Object,
+  },
+  position: {
+    type: Object,
+    twoWay: true,
+  },
+  shape: {
+    type: Object,
+    twoWay: true,
+  },
+  title: {
+    type: String,
+    twoWay: true,
+  },
+  zIndex: {
+    type: Number,
+    twoWay: true,
+  },
+  visible: {
+    twoWay: true,
+    default: true,
+  },
+}
+
+const events = [
+  'click',
+  'rightclick',
+  'dblclick',
+  'drag',
+  'dragstart',
+  'dragend',
+  'mouseup',
+  'mousedown',
+  'mouseover',
+  'mouseout',
+]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_build_component_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  mappedProps: props,
+  events,
+  name: 'marker',
+  ctr: () => google.maps.Marker,
+
+  inject: {
+    $clusterPromise: {
+      default: null,
+    },
+  },
+  emits: events,
+  unmounted() {
+    if (!this.$markerObject) {
+      return
+    }
+
+    if (this.$clusterObject) {
+      // Repaint will be performed in `updated()` of cluster
+      this.$clusterObject.removeMarker(this.$markerObject, true)
+    } else {
+      this.$markerObject.setMap(null)
+    }
+  },
+
+  beforeCreate(options) {
+    if (this.$clusterPromise) {
+      options.map = null
+    }
+
+    return this.$clusterPromise
+  },
+
+  afterCreate(inst) {
+    events.forEach((event)=> {
+      inst.addListener(event, (payload)=> {
+        this.$emit(event, payload)
+      });
+    })
+    if (this.$clusterPromise) {
+      this.$clusterPromise.then((co) => {
+        this.$clusterObject = co
+        co.addMarker(inst)
+      })
+    }
+  },
+}));
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/About.vue":
 /*!**************************************!*\
   !*** ./resources/js/Pages/About.vue ***!
@@ -69874,6 +73553,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Plugins/GoogleMapPlugin.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Plugins/GoogleMapPlugin.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GoogleMapPlugin_vue_vue_type_template_id_71d12739__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoogleMapPlugin.vue?vue&type=template&id=71d12739 */ "./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739");
+/* harmony import */ var _GoogleMapPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoogleMapPlugin.vue?vue&type=script&lang=js */ "./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js");
+/* harmony import */ var D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_revamp_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoogleMapPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoogleMapPlugin_vue_vue_type_template_id_71d12739__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Plugins/GoogleMapPlugin.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Plugins/MessengerPlugin.vue":
 /*!**************************************************!*\
   !*** ./resources/js/Plugins/MessengerPlugin.vue ***!
@@ -70446,6 +74153,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GoogleMapPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GoogleMapPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GoogleMapPlugin.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Plugins/MessengerPlugin.vue?vue&type=script&lang=js":
 /*!**************************************************************************!*\
   !*** ./resources/js/Plugins/MessengerPlugin.vue?vue&type=script&lang=js ***!
@@ -71006,6 +74729,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739 ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GoogleMapPlugin_vue_vue_type_template_id_71d12739__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_GoogleMapPlugin_vue_vue_type_template_id_71d12739__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./GoogleMapPlugin.vue?vue&type=template&id=71d12739 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/GoogleMapPlugin.vue?vue&type=template&id=71d12739");
+
+
+/***/ }),
+
 /***/ "./resources/js/Plugins/MessengerPlugin.vue?vue&type=template&id=69454de9":
 /*!********************************************************************************!*\
   !*** ./resources/js/Plugins/MessengerPlugin.vue?vue&type=template&id=69454de9 ***!
@@ -71018,6 +74757,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MessengerPlugin_vue_vue_type_template_id_69454de9__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MessengerPlugin_vue_vue_type_template_id_69454de9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MessengerPlugin.vue?vue&type=template&id=69454de9 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Plugins/MessengerPlugin.vue?vue&type=template&id=69454de9");
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css ***!
+  \****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_vue_loader_dist_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_style_index_0_id_0c1aca79_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../vue-loader/dist/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./map.vue?vue&type=style&index=0&id=0c1aca79&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=style&index=0&id=0c1aca79&lang=css");
 
 
 /***/ }),
@@ -71071,6 +74823,290 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PostView_vue_vue_type_style_index_0_id_2ddb838e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PostView.vue?vue&type=style&index=0&id=2ddb838e&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/PostView.vue?vue&type=style&index=0&id=2ddb838e&scoped=true&lang=css");
 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _vue_loader_dist_index_js_ruleSet_0_use_0_autocomplete_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_index_js_ruleSet_0_use_0_autocomplete_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./autocomplete.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _vue_loader_dist_index_js_ruleSet_0_use_0_cluster_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_index_js_ruleSet_0_use_0_cluster_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./cluster.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _vue_loader_dist_index_js_ruleSet_0_use_0_infoWindow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_index_js_ruleSet_0_use_0_infoWindow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./infoWindow.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./map.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _vue_loader_dist_index_js_ruleSet_0_use_0_marker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_index_js_ruleSet_0_use_0_marker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./marker.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_autocomplete_vue_vue_type_template_id_5b7498ca__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_autocomplete_vue_vue_type_template_id_5b7498ca__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./autocomplete.vue?vue&type=template&id=5b7498ca */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca");
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2 ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_cluster_vue_vue_type_template_id_b97a24d2__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_cluster_vue_vue_type_template_id_b97a24d2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./cluster.vue?vue&type=template&id=b97a24d2 */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2");
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1 ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_infoWindow_vue_vue_type_template_id_6c9aa5b1__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_infoWindow_vue_vue_type_template_id_6c9aa5b1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./infoWindow.vue?vue&type=template&id=6c9aa5b1 */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1");
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79 ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_template_id_0c1aca79__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_map_vue_vue_type_template_id_0c1aca79__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./map.vue?vue&type=template&id=0c1aca79 */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79");
+
+
+/***/ }),
+
+/***/ "./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6 ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_marker_vue_vue_type_template_id_21eae1a6__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_vue_loader_dist_index_js_ruleSet_0_use_0_marker_vue_vue_type_template_id_21eae1a6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../vue-loader/dist/index.js??ruleSet[0].use[0]!./marker.vue?vue&type=template&id=21eae1a6 */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/autocomplete.vue?vue&type=template&id=5b7498ca ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({ ref: "input" }, _ctx.$attrs, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toHandlers)(_ctx.$attrs)), null, 16 /* FULL_PROPS */))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/cluster.vue?vue&type=template&id=b97a24d2 ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/infoWindow.vue?vue&type=template&id=6c9aa5b1 ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+const _hoisted_1 = { ref: "infoWindow" }
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
+  ], 512 /* NEED_PATCH */))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/map.vue?vue&type=template&id=0c1aca79 ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+const _hoisted_1 = {
+  ref: "vue-map",
+  class: "vue-map"
+}
+const _hoisted_2 = { class: "vue-map-hidden" }
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["vue-map-container", _ctx.$attrs.class])
+  }, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, null, 512 /* NEED_PATCH */),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
+    ]),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "visible")
+  ], 2 /* CLASS */))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./node_modules/@fawmi/vue-google-maps/src/components/marker.vue?vue&type=template&id=21eae1a6 ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    onClick: _cache[0] || (_cache[0] = ()=> {_ctx.console.log('sdfsd')})
+  }, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
+  ]))
+}
 
 /***/ }),
 
