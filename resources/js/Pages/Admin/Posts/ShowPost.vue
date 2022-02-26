@@ -11,7 +11,7 @@
                     Blog Posts
                     <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
                             transition ease-out duration-400 hover:bg-green-700 hover:text-white"
-                            :href="$route('post.create')">
+                            :href="$route('blog.create')">
                         <i class="fas fa-plus"></i> Add New
                     </inertia-link>
                 </span>
@@ -60,7 +60,7 @@
                                     <div class="text-sm font-bold text-gray-700">{{ post.author }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap space-x-1 ">
-                                    <inertia-link :href="$route('post.edit', {id: post.slug})"
+                                    <inertia-link :href="$route('blog.edit', {id: post.slug})"
                                         class="text-sm text-white bg-blue-400 px-3 py-1 rounded-sm"
                                                         v-if="user" >
                                             <i class="fas fa-edit"></i> Edit
@@ -81,7 +81,7 @@
                                     <div class="mb-2">No posts found!</div>
                                     <inertia-link  class="inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
                                                           hover:bg-green-700 hover:text-white transition ease-out duration-400"
-                                                    :href="$route('post.create')">
+                                                    :href="$route('blog.create')">
                                         <i class="fas fa-plus"></i> Add New
                                     </inertia-link>
                                 </td>
@@ -181,7 +181,7 @@ export default {
 
         const deletePost = (id) => {
 
-            Inertia.delete(route('post.destroy', {id}));
+            Inertia.delete(route('blog.destroy', {id}));
         }
 
         const posts = computed(() => usePage().props.value.posts);

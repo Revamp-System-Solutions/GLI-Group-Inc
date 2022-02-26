@@ -8,7 +8,7 @@
                     Add Users
                     <inertia-link  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
                             transition ease-out duration-400 hover:bg-green-700 hover:text-white"
-                            :href="$route('post.create')">
+                            :href="$route('blog.create')">
                         <i class="fas fa-plus"></i> Add New
                     </inertia-link>
         </span>

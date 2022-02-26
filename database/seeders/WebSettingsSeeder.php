@@ -32,6 +32,18 @@ class BrandColorSeeder extends Seeder
                 'value'         => '468041464709531',
 
             ],
+            [
+                'id'            => 4,
+                'attribute'      => 'Google Map API',
+                'value'         => 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE',
+
+            ],
+            [
+                'id'            => 5,
+                'attribute'      => 'Map Pin Position (Latitude, Longitude)',
+                'value'         => '{lat:9.2865474, lng:123.2556617}',
+
+            ],
             
         ];
         $saved_defs = BrandColor::all();

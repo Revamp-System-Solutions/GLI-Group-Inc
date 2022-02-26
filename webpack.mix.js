@@ -17,9 +17,13 @@ mix
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/font-family.css', 'public/css')
     .postCss('resources/css/rvmp.css', 'public/css');
-
+    
     mix.options({
         postCss: [
             require('tailwindcss')
-        ]
+        ],
+        hmrOptions: {
+            host: '127.0.0.1',
+            port: 8085
+        }
     });

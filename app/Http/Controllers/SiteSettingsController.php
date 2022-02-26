@@ -125,7 +125,7 @@ class SiteSettingsController extends Controller
         $subcategory =  Subcategories::where('name', $subcat)->firstOrFail();
         $subcategory->delete();
         $request->session()->flash('success', $subcat.' has been removed!|>><<|No posts had been harmed');
-        return redirect()->route('admin.settings');
+        return redirect()->route('settings.admin');
     }
      /**
      * @param Request $request

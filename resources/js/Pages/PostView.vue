@@ -183,7 +183,7 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('post.update', {'id': id}), form, {
+            Inertia.post(route('blog.update', {'id': id}), form, {
                 forceFormData: true
             });
         }

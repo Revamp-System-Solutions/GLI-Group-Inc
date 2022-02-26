@@ -74,19 +74,18 @@ class PostsController extends Controller
             $media->save();
             
         }else if($request->from_library){
-            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            $media = Media::where('image', $request->from_library)->firstOrFail();
             $post->image= $media->image;
             
         }else{
             $post->image= null;
-         
         }
 
         $post->save();
 
         $request->session()->flash('success', 'New post has been added|>><<|Post created successfully!');
 
-        return redirect()->route('adminPost');
+        return redirect()->route('blog.admin');
     }
   
     public function edit($slug)
@@ -126,7 +125,7 @@ class PostsController extends Controller
             $media->save();
            
         }else if(!is_null($request->from_library)){
-            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            $media = Media::where('image', $request->from_library)->firstOrFail();
             if($media->image != $post->image){
                 $post->image= $media->image;
                 
@@ -136,7 +135,7 @@ class PostsController extends Controller
 
         $request->session()->flash('success', 'Post updated successfully!|>><<|'.$request->title.' has been updated.');
 
-        return redirect()->route('adminPost');
+        return redirect()->route('blog.admin');
     }
 
     public function destroy(Request $request, $slug)
@@ -147,7 +146,7 @@ class PostsController extends Controller
         $post->delete();
         $request->session()->flash('success', 'Post deleted!|>><<|Post deletion complete.');
 
-        return redirect()->route('adminPost');
+        return redirect()->route('blog.admin');
     }
 
     public function adminPortfolio()
@@ -172,7 +171,7 @@ class PostsController extends Controller
             'content' => 'required',
             'category' => 'required',
             'slug' => 'required',
-            'images' => ['required','array'],
+            'images' => ['required','array', 'min:3'],
             'images.*' => [ 'image', 'max:1024'],
         ]);
 
@@ -211,9 +210,10 @@ class PostsController extends Controller
 
         $post->save();
 
-        $request->session()->flash('success', 'New Portfolio has been added|>><<|Portfolio created successfully!');
+        // $request->session()->flash('success', 'New Portfolio has been added|>><<|Portfolio created successfully!');
 
-        return redirect()->route('adminPortfolio');
+        return redirect()->route('portfolio.admin')
+                         ->with('success', 'New Portfolio has been added|>><<|Portfolio created successfully!');
     }
     public function editPortfolio($slug)
     {
@@ -228,7 +228,7 @@ class PostsController extends Controller
             'author' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'images' => ['required','array'],
+            'images' => ['required','array', 'min:3'],
             'images.*' => ['image', 'max:1024'],
         ]);
 
@@ -273,7 +273,8 @@ class PostsController extends Controller
 
         $request->session()->flash('success', 'Portfolio has been Updated|>><<|Portfolio updated successfully!');
 
-        return redirect()->route('adminPortfolio');
+        return redirect()->route('portfolio.admin')
+                         ->with('success', 'Portfolio has been Updated|>><<|Portfolio updated successfully!');
     }   
     
     public function destroyPortfolio(Request $request, $slug)
@@ -284,7 +285,8 @@ class PostsController extends Controller
         $post->delete();
         $request->session()->flash('success', 'Portfolio deleted!|>><<|Portfolio deletion complete.');
 
-        return redirect()->route('adminPortfolio');
+        return redirect()->route('portfolio.admin')
+                         ->with('success', 'Portfolio deleted!|>><<|Portfolio deletion complete.');
     }
 
     public function adminTestimonials()
@@ -331,28 +333,28 @@ class PostsController extends Controller
             $media->save();
            
         }else{
-            $media = Media::where('media_name', $request->from_library)->firstOrFail();
+            $media = Media::where('image', $request->from_library)->firstOrFail();
             $post->image= $media->image;
            
         }
 
         $post->save();
 
-        $request->session()->flash('success', 'New Testimonial has been added|>><<|Testimonial created successfully!');
-
-        return redirect()->route('adminTestimonials');
+        return redirect()->route('testimonial.admin')
+                         ->with('success', 'New Testimonial has been added|>><<|Testimonial created successfully!');
     }
     public function editTestimonials($id)
     {
-        // $post = Post::where('slug', $slug)->firstOrFail();
-        return Inertia::render('Admin/Posts/EditTestimonials', [
-            'post' => Testimonials::where('id', $id)->firstOrFail(),
-            'categories' => Subcategories::whereCategoryId(4)->pluck('name', 'id'),
-            'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
-        ]);
+        $post = Testimonials::where('id', $id)->firstOrFail();
+        $subcat = Subcategories::whereCategoryId(4)->pluck('name', 'id');
+        $media =  Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
+        return Inertia::render('Admin/Posts/EditTestimonials')
+                        ->with('post', $post)
+                        ->with('categories', $subcat)
+                        ->with('medias',  $media);
     }
 
-    public function updateTestimonials(Request $request)
+    public function updateTestimonials(Request $request, $id)
     {
         // dd($request);
         $this->validate($request, [
@@ -361,17 +363,18 @@ class PostsController extends Controller
             'client_org' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'image' => ['nullable', 'image', 'max:1024'],
+            'image' => ['nullable', 'image', 'max:1024']
         ]);
-
+        
         $post = Testimonials::where('id', $request->id)->firstOrFail();
-     
+         
         $post->ratings = $request->input('ratings');
         $post->content = $request->input('content');
         $post->client_name = $request->input('client_name');
         $post->subcategory_id = $request->category;
         $post->client_org = $request->input('client_org');
         $post->stars = $request->stars;
+ 
         if($request->file('image')) {
             $post->image = $this->upload($request);
              
@@ -384,16 +387,17 @@ class PostsController extends Controller
             $media->type = 'CLIENT_FILE';
             $media->save();
            
-        }else{
-            $media = Media::where('media_name', $request->from_library)->firstOrFail();
-            $post->image= $media->image;
+        }else if(is_null($request->from_library)==false){
+            $media = Media::where('image', $request->from_library)->firstOrFail();
+            $post->image = $media->image !== $request->from_library ? $media->image : $request->from_library;
            
         }
         $post->save();
+       
+        // $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$request->id.' has been updated.');
 
-        $request->session()->flash('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$request->id.' has been updated.');
-
-        return redirect()->route('adminTestimonials');
+        return redirect()->route('testimonial.admin')
+                ->with('success', 'Testimonial updated successfully!|>><<|Testimonial #'.$request->id.' has been updated.');
     }
 
     public function destroyTestimonials(Request $request, $id)
@@ -404,7 +408,7 @@ class PostsController extends Controller
         $post->delete();
         $request->session()->flash('success', 'Testimonial deleted!|>><<|Testimonial deletion complete.');
 
-        return redirect()->route('adminTestimonials');
+        return redirect()->route('testimonial.admin');
     }
     /**
      * @param Request $request

@@ -1,5 +1,14 @@
 <template>
   <GMapMap
+      :options="{
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: true,
+                disableDefaultUi: false
+              }"
       :api-key="apiKey"
       :center="center"
       :zoom="zoom"

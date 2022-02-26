@@ -38,7 +38,7 @@
                                 <div class="mb-2 text-center">{{media.media_name }}</div>
                                 <img v-if="media.image_url" class="rounded object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                             </div>
-                                <!-- <inertia-link :href="$route('post.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
+                                <!-- <inertia-link :href="$route('blog.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->
                             <a href="javascript:void(0);" class="mt-1 text-sm text-white bg-red-400 px-3 py-1 "
                                 @click.prevent="openModal(media.media_name)" v-if="user">
                                 <i class="fas fa-trash-alt"></i> Delete Image
@@ -196,7 +196,7 @@ export default {
             this.modalOpen = true
         },
         search: _.throttle(function(){
-              Inertia.get(route('admin.media'), {fn: this.fn}, { preserveState: true })
+              Inertia.get(route('media.admin'), {fn: this.fn}, { preserveState: true })
         }, 200)
     },
     setup() {

@@ -154,7 +154,7 @@ export default {
         }
 
         function submit() {
-            Inertia.post(route('post.store'), form, {
+            Inertia.post(route('blog.store'), form, {
                 forceFormData: true,
             });
         }

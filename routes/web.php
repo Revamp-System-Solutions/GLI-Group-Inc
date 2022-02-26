@@ -25,65 +25,81 @@ use App\Models\Post;
 */
 Route::redirect('/', 'home');
 
-// Route::resource('home', GuestController::class);
-Route::get('home', [GuestController::class, 'index'])->name('guest.index');
-Route::get('about', [GuestController::class, 'showAboutPage'])->name('guest.about');
-
-Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('guest.contact');
-Route::post('contact-us/submit-form', [FormResponseController::class, 'sendMessage'])->name('formResponse.sendMessage');
-
-Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('guest.portfolio');
-Route::get('blog/posts', [PostsController::class, 'index'])->name('guest.blog');
-Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('guest.blog.view');
+Route::name('guest.')->group(function () {
+    Route::get('home', [GuestController::class, 'index'])->name('index');
+    Route::get('about', [GuestController::class, 'showAboutPage'])->name('about');
+    Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('contact');
+    Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('portfolio');
+    Route::get('blog/posts', [PostsController::class, 'index'])->name('blog');
+    Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('blog.view');
+    Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('privacy');
+    Route::get('terms-conditions', [GuestController::class, 'toc'])->name('toc');
+    Route::get('thank-you', [GuestController::class, 'thankYou'])->name('thankYou');
+});
+// Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::redirect('gli-admin', 'gli-admin/dashboard');
 
-Route::get('gli-admin/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm')->middleware('guest');
-Route::post('gli-admin/login', [LoginController::class, 'authenticate'])->name('login');
+Route::prefix('gli-admin')->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm')->middleware('guest');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
+    
+    Route::prefix('posts')->group(function () {       
+        Route::name('blog.')->group(function () {
+            Route::get('/blog', [PostsController::class, 'adminPost'])->name('admin');
+            Route::get('/blog/create', [PostsController::class, 'create'])->name('create');
+            Route::post('/blog/create', [PostsController::class, 'store'])->name('store');
+            Route::get('/blog/{slug}/edit', [PostsController::class, 'edit'])->name('edit');
+            Route::post('/blog/{slug}/edit', [PostsController::class, 'update'])->name('update');
+            Route::delete('/blog/delete/{slug}', [PostsController::class, 'destroy'])->name('destroy');
+        });
+        
+        Route::name('testimonial.')->group(function () {
+            Route::get('/testimonials', [PostsController::class, 'adminTestimonials'])->name('admin');
+            Route::get('/testimonials/create', [PostsController::class, 'createTestimonials'])->name('create');
+            Route::post('/testimonials/create', [PostsController::class, 'storeTestimonials'])->name('store');
+            Route::get('/testimonials/{id}/edit', [PostsController::class, 'editTestimonials'])->name('edit');
+            Route::post('/testimonials/{id}/edit', [PostsController::class, 'updateTestimonials'])->name('update');
+            Route::delete('/testimonials/delete/{id}', [PostsController::class, 'destroyTestimonials'])->name('destroy');
+        });
+        Route::name('portfolio.')->group(function () {
+            Route::get('/portfolio', [PostsController::class, 'adminPortfolio'])->name('admin');
+            Route::get('/portfolio/create', [PostsController::class, 'createPortfolio'])->name('create');
+            Route::post('/portfolio/create', [PostsController::class, 'storePortfolio'])->name('store');
+            Route::get('/portfolio/{slug}/edit', [PostsController::class, 'editPortfolio'])->name('edit');
+            Route::post('/portfolio/{slug}/edit', [PostsController::class, 'updatePortfolio'])->name('update');
+            Route::delete('/portfolio/delete/{slug}', [PostsController::class, 'destroyPortfolio'])->name('destroy');
+        });
+    });
 
-Route::get('gli-admin/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
-Route::get('gli-admin/posts/blog', [PostsController::class, 'adminPost'])->name('adminPost');
-Route::get('gli-admin/posts/blog/create', [PostsController::class, 'create'])->name('post.create');
-Route::post('gli-admin/posts/blog/create', [PostsController::class, 'store'])->name('post.store');
-Route::get('gli-admin/posts/blog/edit/{slug}', [PostsController::class, 'edit'])->name('post.edit');
-Route::post('gli-admin/posts/blog/edit/{slug}', [PostsController::class, 'update'])->name('post.update');
-Route::delete('gli-admin/posts/blog/delete/{slug}', [PostsController::class, 'destroy'])->name('post.destroy');
-
-Route::get('gli-admin/posts/testimonials', [PostsController::class, 'adminTestimonials'])->name('adminTestimonials');
-Route::get('gli-admin/posts/testimonials/create', [PostsController::class, 'createTestimonials'])->name('testimonial.create');
-Route::post('gli-admin/posts/testimonials/create', [PostsController::class, 'storeTestimonials'])->name('testimonial.store');
-Route::get('gli-admin/posts/testimonials/edit/{id}', [PostsController::class, 'editTestimonials'])->name('testimonial.edit');
-Route::post('gli-admin/posts/testimonials/edit', [PostsController::class, 'updateTestimonials'])->name('testimonial.update');
-Route::delete('gli-admin/posts/testimonials/delete/{id}', [PostsController::class, 'destroyTestimonials'])->name('testimonial.destroy');
-
-Route::get('gli-admin/posts/portfolio', [PostsController::class, 'adminPortfolio'])->name('adminPortfolio');
-Route::get('gli-admin/posts/portfolio/create', [PostsController::class, 'createPortfolio'])->name('portfolio.create');
-Route::post('gli-admin/posts/portfolio/create', [PostsController::class, 'storePortfolio'])->name('portfolio.store');
-Route::get('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'editPortfolio'])->name('portfolio.edit');
-Route::post('gli-admin/posts/portfolio/edit/{slug}', [PostsController::class, 'updatePortfolio'])->name('portfolio.update');
-Route::delete('gli-admin/posts/portfolio/delete/{slug}', [PostsController::class, 'destroyPortfolio'])->name('portfolio.destroy');
-
-Route::get('gli-admin/media', [MediaController::class, 'index'])->name('admin.media');
-Route::post('gli-admin/media/', [MediaController::class, 'store'])->name('media.store');
-Route::delete('gli-admin/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('media.destroy');
-
-Route::get('gli-admin/site/settings', [SiteSettingsController::class, 'index'])->name('admin.settings');
-Route::post('gli-admin/site/settings/branding', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
-Route::post('gli-admin/site/settings', [SiteSettingsController::class, 'updateSiteColor'])->name('settings.color.change');
-
-Route::post('gli-admin/site/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
-Route::post('gli-admin/site/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
-Route::delete('gli-admin/site/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
-
-Route::get('gli-admin/site/users', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
-Route::get('gli-admin/site/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
-Route::post('gli-admin/site/users/create', [RegisterController::class, 'register'])->name('register');
+    Route::name('media.')->group(function () {
+        Route::get('/media', [MediaController::class, 'index'])->name('admin');
+        Route::post('/media', [MediaController::class, 'store'])->name('store');
+        Route::delete('/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('destroy');
+    });
+   
+    Route::prefix('site')->group(function () {
+        Route::get('/settings', [SiteSettingsController::class, 'index'])->name('settings.admin');
+        Route::post('/settings/branding', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
+        Route::post('/settings/color', [SiteSettingsController::class, 'updateSiteColor'])->name('settings.color.change');
+        
+        Route::post('/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
+        Route::post('/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
+        Route::delete('/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
+        
+        Route::get('/users', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
+        Route::get('/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
+        Route::post('/users/create', [RegisterController::class, 'register'])->name('register');
+    });
+    
+    
+});
 
 
-Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('guest.privacy');
-Route::get('terms-conditions', [GuestController::class, 'toc'])->name('guest.toc');
-Route::get('thank-you', [GuestController::class, 'thankYou'])->name('guest.thankYou');
 
+
+Route::post('contact-us/submit-form', [FormResponseController::class, 'sendMessage'])->name('formResponse.sendMessage');
 Route::post('submit-form', [FormResponseController::class, 'sendMessage'])->name('submitForm.sendMessage');

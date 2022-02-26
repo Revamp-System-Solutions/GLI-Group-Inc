@@ -204,10 +204,6 @@ export default {
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
         success:false,
   	}),
-    methods: {
-
-
-    },
     setup() {
         const newcolor = reactive({
             alias: null,

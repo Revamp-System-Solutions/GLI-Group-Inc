@@ -41,7 +41,7 @@ class MediaController extends Controller
 
      
 
-        return redirect()->route('admin.media');
+        return redirect()->route('media.admin');
     }
 
     public function destroyMedia(Request $request, $media_name)
@@ -51,7 +51,7 @@ class MediaController extends Controller
         $media->delete();
         $request->session()->flash('success', $media_name.' has been removed!|>><<|All done');
         }
-        return redirect()->route('admin.media');
+        return redirect()->route('media.admin');
     }
     /**
      * @param Request $request

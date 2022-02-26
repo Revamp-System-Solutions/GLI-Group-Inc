@@ -1,9 +1,8 @@
 <template>
-<errors-and-messages :errors="errors"></errors-and-messages>
-<div class="flex bg-gray-100">
-    <app-header-small></app-header-small>
-
-    <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
+    <errors-and-messages :errors="errors"></errors-and-messages>
+    <div class="flex bg-gray-100">
+        <app-header-small></app-header-small>
+        <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
             <div class="flex flex-col justify-center px-4" >
                 <!-- search box -->
                 <div class="flex justify-between">
@@ -50,7 +49,7 @@
                                 <tr v-for="post in posts.data" :key="post.id">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-bold text-gray-700">{{post.title}}</div>
-                                        <div class="text-xs italic text-gray-500">{{ post.updated_at.split("T")[0] }}</div>
+                                        <div class="text-xs italic text-gray-500">{{ post.created_at.split("T")[0] }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap w-2/5">
                                         <div class="text-sm text-gray-700">{{ post.images_url.length }}</div>
@@ -99,7 +98,7 @@
 
             </div>
         </div>
-
+    </div>
     <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal" >
       <div class="fixed inset-0 z-10 overflow-y-auto bg-gray-900 bg-opacity-70">
@@ -159,7 +158,6 @@
       </div>
     </Dialog>
     </TransitionRoot>
-</div>
 </template>
 
 <script>
