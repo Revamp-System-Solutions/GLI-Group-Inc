@@ -181,12 +181,13 @@
             </div>
         </div>
         <div class="w-full h-auto pt-4">
-            <div
+            <!-- <div
                 class="w-full h-96 bg-cover bg-top bg-local"
                 style="background-image: url('/images/pages/map.png')"
             >
                 &nbsp;
-            </div>
+            </div> -->
+            <google-map-plugin/>
         </div>
     </div>
     <app-footer-small></app-footer-small>
@@ -196,15 +197,18 @@
 import AppHeader from "../Partials/AppHeader";
 import AppFooterSmall from "../Partials/AppFooterSmall";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
+import GoogleMapPlugin from "../Plugins/GoogleMapPlugin";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import { computed, inject, reactive, ref } from "vue";
+
 export default {
     name: "Home",
     components: {
         ErrorsAndMessages,
         AppHeader,
         AppFooterSmall,
+        GoogleMapPlugin,
     },
     props: {
         errors: Object,

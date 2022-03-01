@@ -13,13 +13,13 @@ const mix = require('laravel-mix');
 mix
     .js('resources/js/app.js', 'public/js')
     .vue()
-    .postCss('resources/css/app.css', 'public/css', [
-        require("tailwindcss"),
-    ])
-    .postCss('resources/css/font-family.css', 'public/css', [
-        require("tailwindcss"),
-    ])
-    .postCss('resources/css/rvmp.css', 'public/css', [
-        require("tailwindcss"),
-    ]);
+    .js('resources/js/header.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css')
+    .postCss('resources/css/font-family.css', 'public/css')
+    .postCss('resources/css/rvmp.css', 'public/css');
 
+    mix.options({
+        postCss: [
+            require('tailwindcss')
+        ]
+    });

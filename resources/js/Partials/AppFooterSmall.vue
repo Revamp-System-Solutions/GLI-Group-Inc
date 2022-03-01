@@ -7,8 +7,8 @@
                 </p>
             </div>
             <div class="lg:col-span-3 col-span-1 w-full brand-text font-light lg:text-right text-center lg:py-6 relative bg-transparent text-sm">
-                <a href="#" class="px-3 lg:inline-block block">Privacy Policy</a>
-                <a href="#" class="px-3 lg:inline-block block">Terms And Condition</a>
+                 <inertia-link :href="$route('guest.privacy')" class="nav-link hover:rvmp-brand-color-main px-3 lg:inline-block block">Privacy Policy</inertia-link>
+                <inertia-link :href="$route('guest.toc')" class="nav-link hover:rvmp-brand-color-main px-3 lg:inline-block block">Terms And Condition</inertia-link>
             </div>
         </div>
     </div>
