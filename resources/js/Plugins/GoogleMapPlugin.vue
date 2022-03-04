@@ -32,7 +32,7 @@
     name: "GoogleMapPlugin",
     components:{    },
     setup() {
-        const apiKey = "AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE"
+        const apiKey = "AIzaSyA7fIoN1YCPH02jcPZuH4veHgs63Rb8mco"
         const center = {lat:9.2865474, lng:123.2556617}
         const zoom = 16.79
         const markers = [
