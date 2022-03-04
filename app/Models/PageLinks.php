@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PageLinks extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    public $incrementing = true;
 
     protected $dates = [
         'created_at',

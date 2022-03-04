@@ -12,7 +12,7 @@ class GuestController extends Controller
 
     public function __construct()
     {
-        $this->middleware("auth")->except('index','showAboutPage','showPortfolioPage','showContactPage','privacy','toc','thankYou');
+        $this->middleware("web");
     }
 
     public function index()

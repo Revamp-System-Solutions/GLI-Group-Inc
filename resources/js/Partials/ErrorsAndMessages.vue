@@ -67,7 +67,6 @@ export default {
         },
         onerror(){
             setTimeout(function () { this.errorOpen = false }.bind(this), 10000)
-            console.log('000')
             this.errorOpen = true
             return Object.keys(this.errors).length > 0 ? true:false;
         }

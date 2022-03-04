@@ -37,7 +37,7 @@ class PostsController extends Controller
     }
     public function adminPost()
     {
-        return Inertia::render('Admin/Posts/ShowPost', [
+        return Inertia::render('Admin/Posts/Blog/ShowPost', [
             "posts" => Post::orderBy('id', 'DESC')->paginate(15)
         ]);
     }
@@ -46,7 +46,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(3)->where('name',"!=", "Comments")->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/CreatePost', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias]);
     }
 
     public function store(Request $request)
@@ -91,7 +91,7 @@ class PostsController extends Controller
     public function edit($slug)
     {
         // $post = Post::where('slug', $slug)->firstOrFail();
-        return Inertia::render('Admin/Posts/EditPost', [
+        return Inertia::render('Admin/Posts/Blog/EditPost', [
             'post' => Post::where('slug', $slug)->firstOrFail(),
             'categories' => Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id'),
             'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
@@ -151,7 +151,7 @@ class PostsController extends Controller
 
     public function adminPortfolio()
     {
-        return Inertia::render('Admin/Posts/ShowPortfolio', [
+        return Inertia::render('Admin/Posts/Portfolio/ShowPortfolio', [
             "posts" => Portfolio::orderBy('id', 'DESC')->paginate(15)
         ]);
     }
@@ -160,7 +160,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/CreatePortfolio', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias]);
     }
 
     public function storePortfolio(Request $request)
@@ -219,7 +219,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Portfolio/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias]);
     }
     public function updatePortfolio(Request $request, $slug)
     {
@@ -291,7 +291,7 @@ class PostsController extends Controller
 
     public function adminTestimonials()
     {
-        return Inertia::render('Admin/Posts/ShowTestimonials', [
+        return Inertia::render('Admin/Posts/Testimonials/ShowTestimonials', [
             "posts" => Testimonials::orderBy('id', 'DESC')->paginate(15)
         ]);
     }
@@ -299,7 +299,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(4)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/CreateTestimonials', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias]);
     }
     public function storeTestimonials(Request $request)
     {
@@ -348,7 +348,7 @@ class PostsController extends Controller
         $post = Testimonials::where('id', $id)->firstOrFail();
         $subcat = Subcategories::whereCategoryId(4)->pluck('name', 'id');
         $media =  Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
-        return Inertia::render('Admin/Posts/EditTestimonials')
+        return Inertia::render('Admin/Posts/Testimonials/EditTestimonials')
                         ->with('post', $post)
                         ->with('categories', $subcat)
                         ->with('medias',  $media);
