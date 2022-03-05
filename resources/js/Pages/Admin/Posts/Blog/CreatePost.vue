@@ -101,8 +101,8 @@
 </template>
 
 <script>
-import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
-import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import AppHeaderSmall from "./../../../../Partials/AppHeaderSmall";
+import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
 import {inject, reactive, computed, ref} from "vue";
 import {Listbox, ListboxButton, ListboxOptions, ListboxOption,} from '@headlessui/vue';
 import {Inertia} from "@inertiajs/inertia";

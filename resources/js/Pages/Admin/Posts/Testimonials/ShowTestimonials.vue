@@ -162,8 +162,8 @@
 </template>
 
 <script>
-import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
-import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import AppHeaderSmall from './../../../../Partials/AppHeaderSmall';
+import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject,ref} from "vue";

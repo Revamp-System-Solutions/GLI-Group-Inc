@@ -37,7 +37,7 @@
                                     Title
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Content
+                                    Short Text
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Author
@@ -53,8 +53,8 @@
                                     <div class="text-sm font-bold text-gray-700">{{post.title}}</div>
                                     <div class="text-xs italic text-gray-500">{{ post.updated_at.split("T")[0] }}</div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap w-2/5">
-                                    <div class="text-sm text-gray-700">{{ post.short_text }}</div>
+                                <td class="px-6 py-4 whitespace-nowrap ">
+                                    <div class="text-sm text-gray-700 max-w-full "><p class="truncate w-96">{{ post.short_text }}</p></div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-bold text-gray-700">{{ post.author }}</div>
@@ -151,8 +151,8 @@
 </template>
 
 <script>
-import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
-import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import AppHeaderSmall from './../../../../Partials/AppHeaderSmall';
+import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import {computed, inject} from "vue";

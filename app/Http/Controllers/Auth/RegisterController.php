@@ -41,6 +41,6 @@ class RegisterController extends Controller
 
         $request->session()->flash('success', 'User Creation successful!|>><<|User may now sign in');
 
-        return Redirect::route('showLoginForm');
+        return back();
     }
 }

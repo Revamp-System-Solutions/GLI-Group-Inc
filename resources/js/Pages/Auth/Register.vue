@@ -3,23 +3,21 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form method="post" @submit.prevent="submit">
-                    <h2 class="text-center">Create New Account</h2>
-
-                    <errors-and-messages :errors="errors"></errors-and-messages>
+                    <h2 class="text-center hidden">Create New Account</h2>
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" id="name" v-model="form.name" />
+                        <input type="text" class="form-control" name="name" id="name" v-model="userData.name" />
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" id="email" v-model="form.email" />
+                        <input type="text" class="form-control" name="email" id="email" v-model="userData.email" />
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" v-model="form.password" />
+                        <input type="password" class="form-control" name="password" id="password" v-model="userData.password" />
                     </div>
 
                     <input type="submit" class="btn btn-primary btn-block" value="Register" />
@@ -31,43 +29,18 @@
 
 <script>
 
-
-
-import {inject, reactive} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
-import {Inertia} from "@inertiajs/inertia";
-
 export default {
     name: "Register",
     components: {
-   
     },
-    // props: {
-    //     errors: Object
-    // },
-    setup() {
-        const form = reactive({
-            name: null,
-            email: null,
-            password: null,
-            _token: usePage().props.value.csrf_token
-        });
-
-        const route = inject('$route');
-
+    props: ["userData","userRole"],
+    setup(props,{ emit }) {
         function submit() {
-            Inertia.post(route('register'), form);
+            emit('submitCreate', props.userData)
         }
-
         return {
-            form, submit
+            submit
         }
     }
 }
 </script>
-
-<style scoped>
-    form {
-        margin-top: 20px;
-    }
-</style>

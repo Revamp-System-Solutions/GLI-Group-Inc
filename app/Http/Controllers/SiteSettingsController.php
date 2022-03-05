@@ -6,6 +6,8 @@ use App\Models\BrandColor;
 use App\Models\Media;
 use App\Models\Categories;
 use App\Models\Subcategories;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -39,10 +41,24 @@ class SiteSettingsController extends Controller
             "static_images" => $static_img,
         ]);
     }
+    public function userUpdate()
+    {
+
+        $users = User::with()->get()->orderBy('id', 'ASC')->paginate(
+            $perPage = 12, $columns = ['*'], $pageName = 'uup'
+        ); 
+        return Inertia::render('Admin/Site/UserManager')
+                        ->with('users', $users);
+    }
     public function userManager()
     {
-    
-        return Inertia::render('Admin/Site/UserManager');
+        $roles = Role::get()->all();
+        $users = User::with('roles')->orderBy('id', 'ASC')->paginate(
+            $perPage = 12, $columns = ['*'], $pageName = 'uup'
+        ); 
+        return Inertia::render('Admin/Site/UserManager')
+                        ->with('users', $users)
+                        ->with('roles', $roles);
     }
     public function storeSubcat(Request $request)
     {

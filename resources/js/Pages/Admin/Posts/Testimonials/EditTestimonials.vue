@@ -99,8 +99,8 @@
 
 
 <script>
-import AppHeaderSmall from "./../../../Partials/AppHeaderSmall";
-import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import AppHeaderSmall from "./../../../../Partials/AppHeaderSmall";
+import ErrorsAndMessages from "./../../../../Partials/ErrorsAndMessages";
 import {inject, reactive, computed,ref} from "vue";
 import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";

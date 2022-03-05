@@ -11,18 +11,22 @@ class RoleSeeder extends Seeder
             [
                 'id'        => 1,
                 'title'     => 'Super Admin',
+                'slug'     => 'super-admin'
             ],
             [
                 'id'         => 2,
                 'title'      => 'Administrator',
+                'slug'     => 'admin'
             ],
             [
                 'id'         => 3,
                 'title'      => 'Editor',
+                'slug'     => 'editor'
             ],
             [
                 'id'          => 4,
                 'title'       => 'Author',
+                'slug'     => 'author'
             ],
             
         ];
