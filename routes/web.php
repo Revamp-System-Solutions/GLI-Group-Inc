@@ -93,7 +93,7 @@ Route::prefix('gli-admin')->group(function () {
         Route::get('/users', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
         Route::get('/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
         Route::post('/users/create', [RegisterController::class, 'register'])->name('user.register');
-        Route::post('/users/edit/{id}', [SiteSettingsController::class, 'userUpdate'])->name('user.update');
+        Route::post('/users/edit', [SiteSettingsController::class, 'userUpdate'])->name('user.update');
     });
     
     

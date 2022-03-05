@@ -10,7 +10,7 @@
                             Add Users
                             <a  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
                                     transition ease-out duration-400 hover:bg-green-700 hover:text-white"
-                                    @click.prevent="openModal">
+                                    @click.prevent="register">
                                 <i class="fas fa-plus"></i> Add New
                             </a>
                     </span>
@@ -72,11 +72,11 @@
                                 <tr class="text-center">
                                     <td colspan="4" class="text-center px-6 py-4 whitespace-nowrap">
                                         <div class="mb-2">No users found!</div>
-                                        <inertia-link  class="inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
-                                                            hover:bg-green-700 hover:text-white transition ease-out duration-400"
-                                                        :href="$route('portfolio.create')">
+                                        <a  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal
+                                                transition ease-out duration-400 hover:bg-green-700 hover:text-white"
+                                                @click.prevent="openModal;action='register'">
                                             <i class="fas fa-plus"></i> Add New
-                                        </inertia-link>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -131,11 +131,11 @@
                 leave-to="opacity-0 scale-95">
 
                 <div  class="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                    <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700">
-                            Create New User
+                    <DialogTitle as="h3" class="text-lg font-medium  p-6 leading-6 text-white bg-gray-700 ">                    
+                            {{ action == 'register' ? 'Create New': 'Update'}} User
                     </DialogTitle>
                     <div class="mt-2 p-6">
-                            <register :user-data="form" :user-roles="roles" @submit-create="submit"/>
+                            <register :user-data="form" :user-roles="roles" :button="action" @submit-create="submit"/>
                     </div>
 
                 </div>
@@ -191,6 +191,7 @@ export default {
             name: null,
             email: null,
             password: null,
+            role: null,
             _token: usePage().props.value.csrf_token
         });
         const isOpen = ref(false);
@@ -224,14 +225,19 @@ export default {
             openModal() {
                 isOpen.value = true
             },
+            register(){
+                action.value = "register"
+                this.openModal()
+            },
             updateUsr(data){
                 action.value = "update"
                 form.id = data.id
                 form.name = data.name
                 form.email = data.email
-                console.log(data)
+                form.role = data.roles[0].id
                 this.openModal()
-            }
+            },
+
         }
     }
 
