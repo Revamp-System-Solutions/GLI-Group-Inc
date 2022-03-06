@@ -39,6 +39,8 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input("password"));
         $user->save();
 
+        $user->roles()->sync([$request->input("role")]);
+
         $request->session()->flash('success', 'User Creation successful!|>><<|User may now sign in');
 
         return back();

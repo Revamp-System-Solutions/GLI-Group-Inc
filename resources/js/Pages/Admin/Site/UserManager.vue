@@ -62,8 +62,8 @@
                                             </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap space-x-1 ">
-                                        <span  class="text-sm text-white bg-blue-400 px-3 py-1 rounded-sm" v-if="user" @click.prevent="updateUsr(user)"><i class="fas fa-edit"></i> Edit user</span>
-                                        <a href="javascript:void(0);" class="text-sm text-white bg-red-400 px-3 py-1 rounded-sm" @click.prevent="openModal(user.slug)" v-if="user"><i class="fas fa-trash-alt"></i> Delete user</a>
+                                        <span  class="text-sm text-white bg-blue-400 px-3 py-1 rounded-sm" v-if="user" @click.prevent="updateUsr(user)"><i class="fas fa-edit"></i> Update user</span>
+                                        <a href="javascript:void(0);" class="text-sm text-white bg-red-400 px-3 py-1 rounded-sm" @click.prevent="setIsOpen(true, user)" v-if="user"><i class="fas fa-trash-alt"></i> Disable user</a>
                                     </td>
                                    
                                 </tr>
@@ -105,8 +105,7 @@
         </div>
     </div>
 
-
- <TransitionRoot appear :show="isOpen">
+<TransitionRoot appear :show="isOpen">
         <Dialog as="div" @close="closeModal">
         <div class="fixed inset-0 z-30 overflow-y-auto bg-gray-600 bg-opacity-30 ">
             <div class="min-h-screen px-4 text-center">
@@ -145,29 +144,35 @@
         </div>
         </Dialog>
     </TransitionRoot>
+
+<warning-modal :is-dialog-open="isDialogOpen" :w-modal-content="WarningModalContent" @submit-event="setAction"/>
+
 </template>
 
 <script>
 import AppHeaderSmall from './../../../Partials/AppHeaderSmall';
 import ErrorsAndMessages from "./../../../Partials/ErrorsAndMessages";
+import WarningModal from "./../../../Components/Modals/WarningModal";
 import {computed, ref, inject, reactive} from 'vue'
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
+import { TransitionRoot, TransitionChild, Dialog, DialogOverlay, DialogTitle, DialogDescription, Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 import CreateUser from './CreateUser';
 import Register from '../../Auth/Register';
 
 
 export default {
-    name: "Admin",
+    name: "UserManager",
     components: {
         ErrorsAndMessages,
         AppHeaderSmall,
+        WarningModal,
         TransitionRoot,
         TransitionChild,
         Dialog,
         DialogOverlay,
         DialogTitle,
+        DialogDescription,
         Disclosure,
         DisclosureButton,
         DisclosurePanel,
@@ -184,7 +189,16 @@ export default {
                 Type: Object,
                 default: null
             },
+            wModalContent: {
+                Type: Object,
+                default: null
+            },
         },
+    data(){
+        return{
+        
+        }
+    },
     setup(){
         const form = reactive({
             id: null,
@@ -194,36 +208,64 @@ export default {
             role: null,
             _token: usePage().props.value.csrf_token
         });
+
+         const action = ref('register')
+
         const isOpen = ref(false);
+
+        const isDialogOpen = ref(false);
+
+        const WarningModalContent = {
+                title: 'Disable User ',
+                description : 'This action will disable the account',
+                'message': ' <p class=""> Are you sure you want to disable this user&#63;  Account data will be archived</p>',
+                buttonText: 'disable'
+            }
+
         const users = computed(() => usePage().props.value.users);
+
         const usersLinks = users.value.links.filter((v, i) => i > 0 && i < users.value.links.length - 1);
+
         const roles = computed(() => usePage().props.value.roles);
-        const action = ref('register')
+       
+        function setIsOpen(value,data) {
+            action.value = "disable"
+            form.id = data.id
+            isDialogOpen.value = value;
+        }
+
         function submit() {
             Inertia.post(route('user.'+action.value), form,{
                 forceFormData: true,
                 preserveState:true,
                 replace:false,
-                // onError: (event) =>{console.log(event)},
+                onError: (event) =>{console.log(event)},
                 onSuccess: () =>{
-                    isOpen.value = false
+                    action.value != 'disable' ? isOpen.value = false : isDialogOpen.value = false
                 }
             });
         }
-
+       
         return{
             users,
             usersLinks,
             roles,
             form,
             isOpen,
+            isDialogOpen,
             action,
+            WarningModalContent,
             submit,
             closeModal() {
                 isOpen.value = false
             },
             openModal() {
                 isOpen.value = true
+            },
+            setIsOpen,
+            setAction(value) {
+                action.value = "disable"
+                value ? submit() : '';
             },
             register(){
                 action.value = "register"

@@ -9,7 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\FormResponseController;
-
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
@@ -90,10 +90,11 @@ Route::prefix('gli-admin')->group(function () {
         Route::post('/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
         Route::delete('/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
         
-        Route::get('/users', [SiteSettingsController::class, 'userManager'])->name('admin.manager');
+        Route::get('/users', [UserController::class, 'index'])->name('admin.manager');
         Route::get('/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
         Route::post('/users/create', [RegisterController::class, 'register'])->name('user.register');
-        Route::post('/users/edit', [SiteSettingsController::class, 'userUpdate'])->name('user.update');
+        Route::post('/users/edit', [UserController::class, 'update'])->name('user.update');
+        Route::post('/users/disable', [UserController::class, 'disable'])->name('user.disable');
     });
     
     

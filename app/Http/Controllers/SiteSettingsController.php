@@ -41,33 +41,7 @@ class SiteSettingsController extends Controller
             "static_images" => $static_img,
         ]);
     }
-    public function userManager()
-    {
-        $roles = Role::get()->all();
-        $users = User::with('roles')->orderBy('id', 'ASC')->paginate(
-            $perPage = 12, $columns = ['*'], $pageName = 'uup'
-        ); 
-        return Inertia::render('Admin/Site/UserManager')
-                        ->with('users', $users)
-                        ->with('roles', $roles);
-    }
-    public function userUpdate(Request $request)
-    {
-        $this->validate($request, [
-            'name' => ['required'],
-            'email' => ['required'],
-            'role' => ['required']
-              ]);
-            $user = User::where('id', $request->id)->firstOrFail();;
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->save();
-    
-            $user->roles()->sync([$request->role]);
-
-            $request->session()->flash('success',' User Data Updated!|>><<|User Info changed successfully');
-            return back();
-    }
+   
 
     public function storeSubcat(Request $request)
     {
