@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MediaSeeder::class,
             CategoriesSeeder::class,
             SubcategoriesSeeder::class,
+            WebSettingsSeeder::class,
         ]);
     }
 }

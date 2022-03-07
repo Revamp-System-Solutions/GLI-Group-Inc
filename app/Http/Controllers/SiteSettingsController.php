@@ -8,6 +8,7 @@ use App\Models\Categories;
 use App\Models\Subcategories;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -35,10 +36,13 @@ class SiteSettingsController extends Controller
 
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
 
+        $settings= WebSetting::get()->all();
+        // dd($settings);
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories"    => $catssubcats,
             "system_colors" =>  $system_colors,
             "static_images" => $static_img,
+            "settings" => $settings,
         ]);
     }
    

@@ -197,7 +197,7 @@
 import AppHeader from "../Partials/AppHeader";
 import AppFooterSmall from "../Partials/AppFooterSmall";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
-import GoogleMapPlugin from "../Plugins/GoogleMapPlugin";
+import GoogleMapPlugin from "../Components/Plugins/GoogleMapPlugin";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import { computed, inject, reactive, ref } from "vue";

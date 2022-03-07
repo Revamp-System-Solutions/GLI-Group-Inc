@@ -1,10 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\BrandColor;
+use App\Models\WebSetting;
 use Illuminate\Database\Seeder;
 
-class BrandColorSeeder extends Seeder
+class WebSettingsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,49 +16,38 @@ class BrandColorSeeder extends Seeder
         $defaults = [
             [
                 'id'            => 1,
-                'attribute'      => 'Enable Customer Chat',
-                'value'         => 'true',
+                'attribute'     => 'Facebook Page ID',
+                'value'         => '110623211526439',
+                'short_name'    => 'fb_page_id',
+                'is_activated'    => true,
 
             ],
             [
                 'id'            => 2,
-                'attribute'      => 'Facebook Page ID',
-                'value'         => '110623211526439',
+                'attribute'      => 'Developer App ID',
+                'value'         => '468041464709531',
+                'short_name'    => 'fb_app_id',
+                'is_activated'    => true,
 
             ],
             [
                 'id'            => 3,
-                'attribute'      => 'Developer App ID',
-                'value'         => '468041464709531',
+                'attribute'      => 'Google Map API',
+                'value'         => 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE',
+                'short_name'    => 'gmap_key',
+                'is_activated'    => true,
 
             ],
             [
                 'id'            => 4,
-                'attribute'      => 'Google Map API',
-                'value'         => 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE',
-
-            ],
-            [
-                'id'            => 5,
-                'attribute'      => 'Map Pin Position (Latitude, Longitude)',
+                'attribute'      => 'Map Pin Position',
                 'value'         => '{lat:9.2865474, lng:123.2556617}',
+                'short_name'    => 'gmap_pin',
+                'is_activated'    => true,
 
             ],
             
         ];
-        $saved_defs = BrandColor::all();
-        foreach ($saved_defs as $index => $saved_def)
-        {
-            foreach ($defaults as $default)
-            {
-                if (strtolower($default['var_name']) === strtolower($saved_def['var_name']))
-                {
-                    unset($defaults[$default['id']-1]);
-                }
-
-            }
-        }
-
-        BrandColor::insert($defaults);
+        WebSetting::insert($defaults);
     }
 }

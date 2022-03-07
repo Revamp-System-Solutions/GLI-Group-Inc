@@ -71,7 +71,7 @@
 <script>
 import { createPopper } from "@popperjs/core";
 import { directive } from "vue3-click-away";
-import MessengerPlugin from "../Plugins/MessengerPlugin";
+import MessengerPlugin from "../Components/Plugins/MessengerPlugin";
 
 export default {
     name: "AppHeader",

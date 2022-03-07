@@ -7,6 +7,48 @@
       <span class="text-xl inline-block p-3 font-semibold text-gray-700">
                     Site Settings
       </span>
+      <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
+          <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+            <span class="text-xl"><i class="fa-solid fa-sliders mx-2"></i> General Settings</span>
+            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+          </DisclosureButton>
+          <div v-show="open">
+          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 grid-cols-1 divide-y divide-gray-400 bg-opacity-50 bg-gray-700 text-sm rounded-lg" static>
+
+             
+                        
+                                <template v-for="setting in settings" :key="setting.id">
+                                  <form method="post" :id="setting.short_name+'frm'" @forminput="checker()">
+                                    <div class="flex flex-row space-x-4">
+                                     
+                                        <div class="col-span-1 text-sm font-bold text-gray-700 p-2 w-40 flex flex-col justify-center items-center">{{setting.attribute}}</div>
+                                        
+                                        <div class="col-span-2 text-sm font-bold text-gray-700 flex flex-row space-x-3">
+                                          <span class="flex flex-col justify-center items-center" v-if="setting.short_name != 'gmap_pin'">
+                                            <input type="text"  v-model.lazy="formSettings.value" :value="setting.value">
+                                          </span>
+                                          <span class="flex flex-row justify-center items-center space-x-3" v-else>
+                                            <span class="flex flex-col justify-center items-center ">
+                                              <label :for="setting.short_name" class="font-thin">Latitude</label> 
+                                              <input type="number" class="text-center" v-model="setting.is_active" :value="getPosition(setting.value,'lat')">
+                                            </span>
+                                            <span class="flex flex-col justify-center items-center">
+                                              <label :for="setting.short_name" class="font-thin">Longitude</label> 
+                                              <input type="number" class="text-center" :value="getPosition(setting.value,'lng')">
+                                            </span>
+                                          </span>
+                                          <span class="flex flex-col justify-center items-center">
+                                            <label :for="setting.short_name" class="font-thin">Enable</label> 
+                                            <input type="checkbox" :name="setting.short_name" :id="setting.short_name" v-model="setting.is_active" value="checked">
+                                          </span>
+                                        </div>
+                                    </div>
+                                  </form>
+                                </template>
+             
+            </DisclosurePanel>
+          </div>
+      </Disclosure>
       <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
         <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
           <span class="text-xl"><i class="fas fa-bookmark mx-2"></i> Category</span>
@@ -106,7 +148,8 @@
                 </template>
             </DisclosurePanel>
           </div>
-				</Disclosure>
+      </Disclosure>
+      
     </div>
 
     <TransitionRoot appear :show="isOpen">
@@ -210,7 +253,19 @@ export default {
             color: null,
             _token: usePage().props.value.csrf_token
         });
-
+        const formSettings = reactive({
+            id: null,
+            value: null,
+            _token: usePage().props.value.csrf_token,
+            _method: "POST"
+        });
+        const mapPosition = reactive({
+            id: null,
+            lat: null,
+            long: null,
+            _token: usePage().props.value.csrf_token,
+            _method: "POST"
+        });
         const newBrandImage = reactive({
             media_name  : null,
             type: null,
@@ -231,7 +286,7 @@ export default {
         const route = inject('$route');
 
         const system_colors = computed(() => usePage().props.value.system_colors);
-        console.log(system_colors.value)
+        
         const colorLinks = null;
 
         const static_images = computed(() => usePage().props.value.static_images);
@@ -239,6 +294,8 @@ export default {
         const categories = computed(() => usePage().props.value.categories);
 
         const user = computed(() => usePage().props.value.auth.user);
+
+        const settings = computed(() => usePage().props.value.settings);
 
         function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
@@ -260,7 +317,7 @@ export default {
                   }
             });
         }
-         function submitCat() {
+        function submitCat() {
             if(newCategory.action=='new'){
               Inertia.post(route('settings.subcat.new'), newCategory, {
                   forceFormData: true,
@@ -284,8 +341,7 @@ export default {
             }
 
          }
-          const deleteCat = (subcat) => {
-
+        const deleteCat = (subcat) => {
             Inertia.delete(route('settings.subcat.destroy', {subcat}));
         }
         const isHashSiteColor = location.hash === '#SiteColors'
@@ -294,9 +350,12 @@ export default {
             caller,
             stageCat,
             newBrandImage,
-            colorLinks,
+            formSettings,
+            formSettings
+            mapPosition,
             system_colors,
             newCategory,
+            settings,
             submitColor,
             submitBrandImg,
             submitCat,
@@ -347,6 +406,17 @@ export default {
 
           }
     },
+    methods:{
+      getPosition(coords, pos){
+        var plot = coords.split(',')
+        var getIndexOf = plot[0].includes(pos) ? 0 : 1
+
+        return plot[getIndexOf].split(':')[1]
+      },
+      checker(){
+        alert('form change')
+      }
+    }
 
 }
 </script>

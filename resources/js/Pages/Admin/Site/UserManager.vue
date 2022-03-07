@@ -229,7 +229,6 @@ export default {
         const roles = computed(() => usePage().props.value.roles);
        
         function setIsOpen(value,data) {
-            action.value = "disable"
             form.id = data.id
             isDialogOpen.value = value;
         }
@@ -265,7 +264,7 @@ export default {
             setIsOpen,
             setAction(value) {
                 action.value = "disable"
-                value ? submit() : '';
+                value ? submit(): isDialogOpen.value = false;
             },
             register(){
                 action.value = "register"

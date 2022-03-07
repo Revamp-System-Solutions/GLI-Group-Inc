@@ -24,11 +24,10 @@
                    
                         </div>
                 </div> 
-                <div class=" flex inline-block w-full max-w-xl overflow-hidden align-middle text-right transition-all transform bg-white shadow-lg rounded-b-lg p-6 pt-1 space-x-4">
-                    <form method="post" @submit.prevent="submit">
-                    <button type="submit" class="bg-red-700 text-white py-2 px-4 rounded" >{{wModalContent.buttonText}}</button>
-                   
-                    </form>
+                <div class="inline-block w-full max-w-xl overflow-hidden align-middle text-right transition-all transform bg-white shadow-lg rounded-b-lg p-6 pt-1 space-x-4">
+                  
+                    <button type="submit" class="bg-red-700 text-white py-2 px-4 rounded" @click="setIsOpen(true)">{{wModalContent.buttonText}}</button>
+
                      <button class="bg-gray-400 text-white py-2 px-4 rounded" @click="setIsOpen(false)">Cancel</button>
                 </div>
             </div>
