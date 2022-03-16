@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
-
 class HandleInertiaRequests extends Middleware
 {
     /**
@@ -40,6 +39,10 @@ class HandleInertiaRequests extends Middleware
             'csrf_token' => csrf_token(),    
             'flash' => [
                 'success' => fn () => $request->session()->get('success')
+            ],
+            'gli_guest_tools' => [
+                'maps' => \App\Models\WebSetting::where('short_name','like','gmap_%')->get(['short_name', 'value']),
+                'meta' => \App\Models\WebSetting::where('short_name','like','fb_%')->get(['short_name', 'value'])
             ],
             'auth.user' => fn () => $request->user() ? $request->user()->only('name', 'email', 'roles') : null
         ]);

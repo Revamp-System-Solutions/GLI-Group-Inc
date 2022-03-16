@@ -83,8 +83,12 @@ Route::prefix('gli-admin')->group(function () {
    
     Route::prefix('site')->group(function () {
         Route::get('/settings', [SiteSettingsController::class, 'index'])->name('settings.admin');
+
         Route::post('/settings/branding', [SiteSettingsController::class, 'updateBrandImg'])->name('settings.branding.change');
+
         Route::post('/settings/color', [SiteSettingsController::class, 'updateSiteColor'])->name('settings.color.change');
+
+        Route::post('/settings/general', [SiteSettingsController::class, 'updateGeneralSettings'])->name('settings.general.update');
         
         Route::post('/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
         Route::post('/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');

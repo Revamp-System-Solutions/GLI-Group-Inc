@@ -13,10 +13,15 @@ export default {
     },
     data:() => ({
 
-        page_id: '110535994631911',
-        app_id: "468041464709531",
+        page_id: null,
+        app_id: null,
       
     }),
+    created(){
+        for(var mTool of this.$parent.$page.props.gli_guest_tools.meta){
+       mTool.short_name === 'fb_page_id' ? this.page_id =  mTool.value : this.app_id =  mTool.value
+     }
+    },
     mounted() {
          var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", this.page_id);

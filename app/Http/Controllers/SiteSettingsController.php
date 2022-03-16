@@ -22,6 +22,9 @@ class SiteSettingsController extends Controller
 
     public function index()
     {
+        $catssubcats = array();
+        $system_colors = array();
+        $settings = array();
         foreach(Categories::where('name', '!=' ,'Pages')->where('name', '!=' ,'Templates')->get() as $category){
             $catssubcats[$category->name] = Subcategories::whereCategoryId($category->id)->where('name', '!=' ,'Comments')->orderBy('id', 'ASC')->paginate(
                 $perPage = 3, $columns = ['*'], $pageName = $category->name
@@ -35,9 +38,9 @@ class SiteSettingsController extends Controller
         }
 
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
-
-        $settings= WebSetting::get()->all();
-        // dd($settings);
+        foreach(WebSetting::get() as $key=>$setting){
+            $settings[$setting->short_name] = ['attr' => $setting->attribute, 'data' => strcmp($setting->short_name ,'gmap_pin') == 0 ? json_decode($setting->value, true) : $setting->value];
+        }
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories"    => $catssubcats,
             "system_colors" =>  $system_colors,
@@ -122,6 +125,17 @@ class SiteSettingsController extends Controller
             $request->session()->flash('success', $media->media_name.' Update successful!|>><<|Refresh the site to view the changes');
         }
         return redirect()->route('settings.branding');
+    }
+    public function updateGeneralSettings(Request $request)
+    {
+        $this->validate($request, [
+            'short_name' => ['required', 'exists:web_settings'],
+            'value' => ['required']
+        ]);
+        $web_setting = WebSetting::whereShortName($request->short_name)->first();
+        $web_setting->update($request->all());
+        $request->session()->flash('success', $web_setting->attribute.' has been updated!|>><<|Please check the site/pges affected to see changes');
+        return back();
     }
     public function destroySubcat(Request $request, $subcat)
     {    

@@ -41,7 +41,7 @@ class WebSettingsSeeder extends Seeder
             [
                 'id'            => 4,
                 'attribute'      => 'Map Pin Position',
-                'value'         => '{lat:9.2865474, lng:123.2556617}',
+                'value'         => '{"lat":9.2865474, "lng":123.2556617}',
                 'short_name'    => 'gmap_pin',
                 'is_activated'    => true,
 
