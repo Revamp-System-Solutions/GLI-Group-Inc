@@ -9,9 +9,12 @@ use App\Models\Subcategories;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\WebSetting;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
+use App\Http\Controllers\WebSettingController;
 
 class SiteSettingsController extends Controller
 {
@@ -38,9 +41,12 @@ class SiteSettingsController extends Controller
         }
 
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
-        foreach(WebSetting::get() as $key=>$setting){
-            $settings[$setting->short_name] = ['attr' => $setting->attribute, 'data' => strcmp($setting->short_name ,'gmap_pin') == 0 ? json_decode($setting->value, true) : $setting->value];
-        }
+
+        $websettings = new WebSettingController;
+        $settings = $websettings->getWebSettings()->all();
+
+        dd($settings);
+
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories"    => $catssubcats,
             "system_colors" =>  $system_colors,

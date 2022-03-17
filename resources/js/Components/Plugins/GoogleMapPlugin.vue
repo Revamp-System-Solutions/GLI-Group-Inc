@@ -1,7 +1,6 @@
 <template>
   <GMapMap
-      :options="{
-                zoomControl: true,
+      :options="{zoomControl: true,
                 mapTypeControl: false,
                 scaleControl: false,
                 streetViewControl: false,

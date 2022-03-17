@@ -20,4 +20,12 @@ class WebSettingController extends Controller
     {
         
     }
+
+    public function getWebSettings(){
+        return collect(WebSetting::orderBy('settings_group', 'asc')->get())->mapToGroups(function ($item, $key) {
+            $item['value'] = json_decode($item['value'], true);
+            return [$item['settings_group'] => $item->toArray()];
+        });
+
+    }
 }
