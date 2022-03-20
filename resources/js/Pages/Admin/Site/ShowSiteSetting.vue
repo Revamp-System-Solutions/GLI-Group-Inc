@@ -13,10 +13,49 @@
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
           </DisclosureButton>
           <div v-show="open">
-          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-y-4 grid-cols-1 text-sm rounded-lg" static>
+          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-y-4 grid-cols-1 text-sm rounded-lg text-black" static>
 
-             
-                        
+             <template v-for="(setting,index) of settings" :key="index">
+                      <form method="post" v-for="(s,i) of setting"  :key="i" :id="index+'frm'" @submit.prevent="submitGenSetting(index)">
+                                  <div class="flex flex-row space-x-4">
+                                        <div class="col-span-1 text-sm font-bold text-gray-700 p-2 w-40 flex flex-col justify-center items-start">{{s.attribute}}</div>
+                                       
+                                        <div class="col-span-2 text-sm font-bold text-gray-700 grid grid-cols-4">
+                                           <template v-for="(value,i2) in s.value" :key="i2">
+                                          
+                                          <span class="flex flex-col justify-center items-center min-w-min" v-if="i2 != 'gmap_pin'">
+                                            {{i2}}
+                                            <input type="text" :name="i2" :id="i2"  class="min-w-min w-full" :value="value"  @input="setFormData($event.target.value, i2)">
+                                          </span>
+                                       
+                                        </template>
+                                       </div>
+                                        </div>
+                                       <!--  <div class="col-span-2 text-sm font-bold text-gray-700 flex flex-row space-x-3">
+                                          <span class="flex flex-col justify-center items-center" v-if="index != 'gmap_pin'">
+                                            <input type="text" :name="index" :id="index"   :value="setting.data"  @input="setFormData($event.target.value, index)">
+                                          </span>
+                                          <span class="flex flex-row justify-center items-center space-x-3" v-else-if="index === 'gmap_pin'">
+                                            <span class="flex flex-col justify-center items-center ">
+                                              <label for="lat" class="font-thin">Latitude</label> 
+                                              <input type="number" id="lat" name="lat" step="any" class="text-center" v-model="mapPosition.lat">
+                                            </span>
+                                            <span class="flex flex-col justify-center items-center">
+                                              <label for="lng" class="font-thin">Longitude</label> 
+                                              <input type="number" id="lng" name="lng" step="any" class="text-center" v-model="mapPosition.lng">
+                                            </span>
+                                          </span>
+                                          <span class="flex flex-col justify-center items-center">
+                                            <button type="submit" class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 uppercase" v-if="currentlyChanging === index || index==='gmap_pin'">
+                                                Save  
+                                            </button>
+                                          </span>
+                                        </div>
+                                     -->
+                                 
+                                  </form>
+               </template>
+<!--                         
                                 <template v-for="(setting,index) of settings" :key="index" >
                                   <form method="post" :id="index+'frm'" @submit.prevent="submitGenSetting(index)">
                                     <div class="flex flex-row space-x-4">
@@ -44,7 +83,7 @@
                                         </div>
                                     </div>
                                   </form>
-                                </template>
+                                </template> -->
              
             </DisclosurePanel>
           </div>
@@ -293,9 +332,9 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
 
         const settings = computed(() => usePage().props.value.settings);
-        mapPosition.lat = settings.value.gmap_pin.data.lat
-        mapPosition.lng = settings.value.gmap_pin.data.lng
-        console.log(mapPosition)
+        // mapPosition.lat = settings.value.gmap_pin.data.lat
+        // mapPosition.lng = settings.value.gmap_pin.data.lng
+        console.log(settings.value)
         function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
@@ -365,8 +404,7 @@ export default {
             stageCat,
             newBrandImage,
             formSettings,
-            formSettings,
-            mapPosition,
+            // mapPosition,
             system_colors,
             newCategory,
             settings,

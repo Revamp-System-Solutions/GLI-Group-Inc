@@ -43,9 +43,9 @@ class SiteSettingsController extends Controller
         $static_img= Media::where('type', '=' ,'RVMP_CLIENT_FILE')->get();
 
         $websettings = new WebSettingController;
-        $settings = $websettings->getWebSettings()->all();
+        $settings = $websettings->getWebSettings();
 
-        dd($settings);
+        // dd($settings);
 
         return Inertia::render('Admin/Site/ShowSiteSetting', [
             "categories"    => $catssubcats,
