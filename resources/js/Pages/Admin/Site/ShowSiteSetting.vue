@@ -7,85 +7,32 @@
       <span class="text-xl inline-block p-3 font-semibold text-gray-700">
                     Site Settings
       </span>
-      <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
+      <Disclosure v-slot="{ open }" >  <!-- GENERAL -->
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
-            <span class="text-xl"><i class="fa-solid fa-sliders mx-2"></i> General Settings</span>
+            <span class="text-xl"><i class="fa-solid fa-sliders mx-2"></i> General</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
           </DisclosureButton>
           <div v-show="open">
-          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-y-4 grid-cols-1 text-sm rounded-lg text-black" static>
+          <DisclosurePanel class="lg:px-6 lg:pt-2 lg:pb-2 text-sm rounded-lg text-black space-y-2" static>
 
              <template v-for="(setting,index) of settings" :key="index">
-                      <form method="post" v-for="(s,i) of setting"  :key="i" :id="index+'frm'" @submit.prevent="submitGenSetting(index)">
-                                  <div class="flex flex-row space-x-4">
-                                        <div class="col-span-1 text-sm font-bold text-gray-700 p-2 w-40 flex flex-col justify-center items-start">{{s.attribute}}</div>
-                                       
-                                        <div class="col-span-2 text-sm font-bold text-gray-700 grid grid-cols-4">
-                                           <template v-for="(value,i2) in s.value" :key="i2">
-                                          
-                                          <span class="flex flex-col justify-center items-center min-w-min" v-if="i2 != 'gmap_pin'">
-                                            {{i2}}
-                                            <input type="text" :name="i2" :id="i2"  class="min-w-min w-full" :value="value"  @input="setFormData($event.target.value, i2)">
-                                          </span>
-                                       
-                                        </template>
-                                       </div>
-                                        </div>
-                                       <!--  <div class="col-span-2 text-sm font-bold text-gray-700 flex flex-row space-x-3">
-                                          <span class="flex flex-col justify-center items-center" v-if="index != 'gmap_pin'">
-                                            <input type="text" :name="index" :id="index"   :value="setting.data"  @input="setFormData($event.target.value, index)">
-                                          </span>
-                                          <span class="flex flex-row justify-center items-center space-x-3" v-else-if="index === 'gmap_pin'">
-                                            <span class="flex flex-col justify-center items-center ">
-                                              <label for="lat" class="font-thin">Latitude</label> 
-                                              <input type="number" id="lat" name="lat" step="any" class="text-center" v-model="mapPosition.lat">
-                                            </span>
-                                            <span class="flex flex-col justify-center items-center">
-                                              <label for="lng" class="font-thin">Longitude</label> 
-                                              <input type="number" id="lng" name="lng" step="any" class="text-center" v-model="mapPosition.lng">
-                                            </span>
-                                          </span>
-                                          <span class="flex flex-col justify-center items-center">
-                                            <button type="submit" class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 uppercase" v-if="currentlyChanging === index || index==='gmap_pin'">
-                                                Save  
-                                            </button>
-                                          </span>
-                                        </div>
-                                     -->
-                                 
-                                  </form>
+                  <div  class="flex flex-col pb-2 border-b border-gray-700 space-y-2" v-for="(s,i) of setting"  :key="i">                                 
+                      <div class="text-lg font-bold text-gray-900 py-2 px-4 w-full border-b-2 rounded rvmp-brand-border-highlight bg-gray-700 bg-opacity-40">{{s.attribute}}</div>
+                      <form  method="post" :id="index+'frm'" @submit.prevent="submitGenSetting(i2)" class="text-sm font-bold text-gray-700 grid grid-cols-2 w-full gap-2">
+                          <template v-for="(value,i2) in s.value" :key="i2" >
+                          
+                            <span class="flex flex-col justify-center items-start w-full" :class="i2.startsWith('0_')? 'col-span-2':'col-span-1'" v-if="i2 != 'gmap_pin'">
+                                <label :for="i2" class="block uppercase font-normal text-xs">{{formatLabel(i2)}}</label>
+                                
+                                <input type="text" v-if="i2 !== 'pin_position_latitude' && i2 !== 'pin_position_longitude' && i2 !== 'zoom'" :name="i2" :id="i2"  class="min-w-max w-full" :value="value"  @input="setFormData($event.target.value, i2)">
+                                <input type="number" step="any" v-else :name="i2" :id="i2"  class="min-w-max w-full" :value="parseFloat(value)"  @input="setFormData($event.target.value, i2)">
+                            </span>
+                            
+                          </template>
+                      </form>
+                  </div>                                
                </template>
-<!--                         
-                                <template v-for="(setting,index) of settings" :key="index" >
-                                  <form method="post" :id="index+'frm'" @submit.prevent="submitGenSetting(index)">
-                                    <div class="flex flex-row space-x-4">
-                                        <div class="col-span-1 text-sm font-bold text-gray-700 p-2 w-40 flex flex-col justify-center items-center">{{setting.attr}}</div>
-                                        
-                                        <div class="col-span-2 text-sm font-bold text-gray-700 flex flex-row space-x-3">
-                                          <span class="flex flex-col justify-center items-center" v-if="index != 'gmap_pin'">
-                                            <input type="text" :name="index" :id="index"   :value="setting.data"  @input="setFormData($event.target.value, index)">
-                                          </span>
-                                          <span class="flex flex-row justify-center items-center space-x-3" v-else-if="index === 'gmap_pin'">
-                                            <span class="flex flex-col justify-center items-center ">
-                                              <label for="lat" class="font-thin">Latitude</label> 
-                                              <input type="number" id="lat" name="lat" step="any" class="text-center" v-model="mapPosition.lat">
-                                            </span>
-                                            <span class="flex flex-col justify-center items-center">
-                                              <label for="lng" class="font-thin">Longitude</label> 
-                                              <input type="number" id="lng" name="lng" step="any" class="text-center" v-model="mapPosition.lng">
-                                            </span>
-                                          </span>
-                                          <span class="flex flex-col justify-center items-center">
-                                            <button type="submit" class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 uppercase" v-if="currentlyChanging === index || index==='gmap_pin'">
-                                                Save  
-                                            </button>
-                                          </span>
-                                        </div>
-                                    </div>
-                                  </form>
-                                </template> -->
-             
-            </DisclosurePanel>
+      </DisclosurePanel>
           </div>
       </Disclosure>
       <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
@@ -285,6 +232,12 @@ export default {
         stageImg: [],
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
         success:false,
+        socialN:{
+          '0_fb' : 'facebook',
+          '0_ig' : 'instagram',
+          '0_yt' : 'youtube',
+          '0_twttr' : 'twitter'
+        }
   	}),
     setup() {
         const newcolor = reactive({
@@ -464,6 +417,9 @@ export default {
       setFormData(e,i){
         this.formSettings.value = e
         this.currentlyChanging = i
+      },
+      formatLabel(lbl){
+        return ['0_fb','0_ig','0_yt','0_twttr'].includes(lbl) ? this.socialN[lbl] : (lbl.includes('_') ? (lbl.startsWith('0_')? (lbl.substring(2)).split('_').join(' '):lbl.split('_').join(' ')):lbl)
       }
     }
 
