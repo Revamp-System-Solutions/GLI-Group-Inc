@@ -6,21 +6,27 @@
 <div id="fb-customer-chat" class="fb-customerchat"></div>
 </template>
 <script>
+import {ref} from "vue";
+import {usePage} from "@inertiajs/inertia-vue3";
 export default {
     name: "MessengerPlugin",
     components:{
 
     },
     data:() => ({
-
-        page_id: null,
-        app_id: null,
+            
       
     }),
+    setup() {
+       let meta = JSON.parse(usePage().props.value.gli_guest_tools.meta[0].value)
+        const page_id = meta['0_fb_page_id']
+        const app_id =  meta['0_dev_app_id']
+        return {
+          page_id,app_id
+        }
+    },
     created(){
-        for(var mTool of this.$parent.$page.props.gli_guest_tools.meta){
-       mTool.short_name === 'fb_page_id' ? this.page_id =  mTool.value : this.app_id =  mTool.value
-     }
+
     },
     mounted() {
          var chatbox = document.getElementById('fb-customer-chat');

@@ -17,6 +17,9 @@ module.exports = {
       gridTemplateRows: {
         '[auto,auto,1fr]': 'auto auto 1fr',
       },
+      height: {
+        '112': '40rem',
+       }
     },
     backgroundSize: {
       'auto': 'auto',
@@ -24,7 +27,8 @@ module.exports = {
       'contain': 'contain',
       'bg-size-1/4': '25%',
       '16': '4rem',
-    }
+    },
+   
   },
   variants: {
     extend: {

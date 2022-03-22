@@ -41,8 +41,8 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success')
             ],
             'gli_guest_tools' => [
-                'maps' => \App\Models\WebSetting::where('short_name','like','gmap_%')->get(['short_name', 'value']),
-                'meta' => \App\Models\WebSetting::where('short_name','like','fb_%')->get(['short_name', 'value'])
+                'maps' => \App\Models\WebSetting::where('short_name','gmap_api')->get(['short_name', 'value']),
+                'meta' => \App\Models\WebSetting::where('short_name','meta_pltf')->get(['short_name', 'value'])
             ],
             'auth.user' => fn () => $request->user() ? $request->user()->only('name', 'email', 'roles') : null
         ]);

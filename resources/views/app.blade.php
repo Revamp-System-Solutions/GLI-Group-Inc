@@ -9,7 +9,6 @@
     <link href="{{ asset('/css/client.css') }}" rel="stylesheet"/>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ asset('/js/jquery-3.3.1.slim.min.js') }}"></script>
-
     <script src="https://kit.fontawesome.com/625ea5a249.js" crossorigin="anonymous"></script>
     @routes
     <script src="{{ asset('/js/app.js') }}" defer></script>

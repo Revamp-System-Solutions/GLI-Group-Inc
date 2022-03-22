@@ -18,17 +18,38 @@
              <template v-for="(setting,index) of settings" :key="index">
                   <div  class="flex flex-col pb-2 border-b border-gray-700 space-y-2" v-for="(s,i) of setting"  :key="i">                                 
                       <div class="text-lg font-bold text-gray-900 py-2 px-4 w-full border-b-2 rounded rvmp-brand-border-highlight bg-gray-700 bg-opacity-40">{{s.attribute}}</div>
-                      <form  method="post" :id="index+'frm'" @submit.prevent="submitGenSetting(i2)" class="text-sm font-bold text-gray-700 grid grid-cols-2 w-full gap-2">
+                      <form  method="post" :id="index+'frm'" @submit.prevent="submitGenSetting(s)" class="text-sm font-bold text-gray-700 grid grid-cols-2 w-full gap-2">
                           <template v-for="(value,i2) in s.value" :key="i2" >
                           
-                            <span class="flex flex-col justify-center items-start w-full" :class="i2.startsWith('0_')? 'col-span-2':'col-span-1'" v-if="i2 != 'gmap_pin'">
+                            <span class="flex flex-col justify-center items-start w-full" :class="i2.startsWith('0_')? 'col-span-2':'col-span-1'" >
+                              <iframe v-if="s.short_name==='gmap_noapi'" class="w-full h-112 bg-cover bg-top bg-local" id="gmap_canvas" src="https://google-map-generator.com/" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                 <label :for="i2" class="block uppercase font-normal text-xs">{{formatLabel(i2)}}</label>
                                 
-                                <input type="text" v-if="i2 !== 'pin_position_latitude' && i2 !== 'pin_position_longitude' && i2 !== 'zoom'" :name="i2" :id="i2"  class="min-w-max w-full" :value="value"  @input="setFormData($event.target.value, i2)">
-                                <input type="number" step="any" v-else :name="i2" :id="i2"  class="min-w-max w-full" :value="parseFloat(value)"  @input="setFormData($event.target.value, i2)">
+                                <input type="text" v-if="i2 !== 'pin_position_latitude' && i2 !== 'pin_position_longitude' && i2 !== 'zoom' && s.short_name!=='social_links' " :name="i2" :id="i2"  class="min-w-max w-full rounded-md" :value="value"  @input="setFormData($event.target.value, s.value,i2)">
+                                <input type="number" step="any" v-else-if="(i2 === 'pin_position_latitude' || i2 == 'pin_position_longitude' || i2 == 'zoom') && s.short_name!=='social_links'" :name="i2" :id="i2"  class="min-w-max w-full rounded-md" :value="parseFloat(value)"  @input="setFormData($event.target.value, s.value,i2)">
+
+                                <div v-else-if="s.short_name==='social_links'" class="w-full flex flex-col space-y-2">
+                                  <div class="flex flex-wrap space-x-2 gap-y-2">
+                                    <div v-for="(tag, index) in value"  :key="tag" class="flex bg-gray-700 bg-opacity-30 font-normal text-xs max-w-max rounded-md text-blue-700">
+                                      <div class="p-2 cursor-pointer text-white  bg-black bg-opacity-70 hover:bg-red-700 text-center rounded-l-md border-r-2 rvmp-brand-border-highlight" @click="removeLink(value,index)">x</div>
+                                      <div class="p-2">{{ tag }}</div>
+                                    </div>
+                                  </div>
+                                    
+                                    <input type="text" placeholder="Enter link" class="rounded-md" @keydown.enter.prevent="addLink(value,$event)"/>
+                                </div>
+                                 
+                            
                             </span>
                             
                           </template>
+                          <span>
+
+                          </span>
+                          <span class="flex justify-end">
+                            <button type="submit" class="px-4 py-2 rounded w-36 text-white text-lg bg-green-600 hover:bg-green-200 hover:text-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">Save</button>
+                          </span>
+                          
                       </form>
                   </div>                                
                </template>
@@ -135,7 +156,8 @@
             </DisclosurePanel>
           </div>
       </Disclosure>
-      
+     
+
     </div>
 
     <TransitionRoot appear :show="isOpen">
@@ -246,14 +268,12 @@ export default {
             _token: usePage().props.value.csrf_token
         });
         const formSettings = reactive({
+            id:null,
+            attribute:null,
             short_name: null,
             value: null,
             _token: usePage().props.value.csrf_token,
             _method: "POST"
-        });
-        const mapPosition = reactive({
-            lat: null,
-            lng: null,
         });
         const newBrandImage = reactive({
             media_name  : null,
@@ -285,9 +305,7 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
 
         const settings = computed(() => usePage().props.value.settings);
-        // mapPosition.lat = settings.value.gmap_pin.data.lat
-        // mapPosition.lng = settings.value.gmap_pin.data.lng
-        console.log(settings.value)
+
         function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
@@ -333,8 +351,10 @@ export default {
 
         }
         function submitGenSetting(sn) {
-              formSettings.short_name = sn
-              formSettings.value = sn === 'gmap_pin' ? mapPosition : formSettings.value;
+              formSettings.id = sn.id
+              formSettings.attribute = sn.attribute
+              formSettings.short_name =  sn.short_name
+              formSettings.value = JSON.stringify(sn.value)
               Inertia.post(route('settings.general.update'), formSettings, {
                   forceFormData: true,
                   preserveState:true,
@@ -343,9 +363,7 @@ export default {
                   onSuccess: () =>{
                     //
                   }
-                });
-            
-
+                });   
         }
         const deleteCat = (subcat) => {
             Inertia.delete(route('settings.subcat.destroy', {subcat}));
@@ -357,7 +375,6 @@ export default {
             stageCat,
             newBrandImage,
             formSettings,
-            // mapPosition,
             system_colors,
             newCategory,
             settings,
@@ -414,14 +431,56 @@ export default {
           }
     },
     methods:{
-      setFormData(e,i){
-        this.formSettings.value = e
-        this.currentlyChanging = i
+      setFormData(value,arr, index){
+        arr[index]=value
       },
       formatLabel(lbl){
         return ['0_fb','0_ig','0_yt','0_twttr'].includes(lbl) ? this.socialN[lbl] : (lbl.includes('_') ? (lbl.startsWith('0_')? (lbl.substring(2)).split('_').join(' '):lbl.split('_').join(' ')):lbl)
-      }
+      },
+      addLink(arr,ev){
+        arr.push(ev.target.value)
+        console.log(ev)
+        ev.currentTarget.value = ""
+      },
+      removeLink(arr,index){
+        arr.splice(index,1)
+      },
+
     }
 
 }
 </script>
+<style scoped>
+  /* .tag-input {
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 0.9em;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
+  .tag-input__tag {
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+    background-color: #eee;
+    margin-top: 10px;
+    line-height: 30px;
+    padding: 0 5px;
+    border-radius: 5px;
+  }
+
+  .tag-input__tag > span {
+    cursor: pointer;
+    opacity: 0.75;
+  }
+
+  .tag-input__text {
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    line-height: 50px;
+    background: none;
+  } */
+</style>
