@@ -11,10 +11,14 @@ use App\Models\Form;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
  use Auth;
 
 class PostsController extends Controller
 {
+   
+
     public function __construct()
     {
         $this->middleware("auth")->except(["index", "show"]);
@@ -38,10 +42,16 @@ class PostsController extends Controller
         ]);
     }
     public function adminPost()
+    
     {
+   
         return Inertia::render('Admin/Posts/Blog/ShowPost', [
             "posts" => Post::orderBy('id', 'DESC')->paginate(15)
-        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
+        ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     
     public function create()
@@ -49,6 +59,9 @@ class PostsController extends Controller
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(3)->where('name',"!=", "Comments")->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
@@ -99,6 +112,9 @@ class PostsController extends Controller
             'categories' => Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id'),
             'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
         ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
@@ -158,7 +174,11 @@ class PostsController extends Controller
        
         return Inertia::render('Admin/Posts/Portfolio/ShowPortfolio', [
             "posts" => Portfolio::orderBy('id', 'DESC')->paginate(15)
-        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
+        ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function createPortfolio()
@@ -166,6 +186,9 @@ class PostsController extends Controller
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
@@ -226,6 +249,9 @@ class PostsController extends Controller
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Portfolio/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function updatePortfolio(Request $request, $slug)
@@ -301,6 +327,9 @@ class PostsController extends Controller
         return Inertia::render('Admin/Posts/Testimonials/ShowTestimonials', [
             "posts" => Testimonials::orderBy('id', 'DESC')->paginate(15)
         ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function createTestimonials()
@@ -308,6 +337,9 @@ class PostsController extends Controller
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(4)->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function storeTestimonials(Request $request)
@@ -361,6 +393,9 @@ class PostsController extends Controller
                         ->with('post', $post)
                         ->with('categories', $subcat)
                         ->with('medias',  $media)
+                        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+                            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+                        }))
                         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 

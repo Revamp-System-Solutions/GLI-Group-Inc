@@ -1,7 +1,7 @@
 <template>
     <errors-and-messages :errors="errors"></errors-and-messages>
     <div class="flex bg-gray-100">
-        <app-header-small></app-header-small> 
+        <app-header-small :user="user" :menu-links="menuLinks" :menu-sub-links="menuSubLinks" /> 
         <div id="content-area" class="w-full h-auto bg-gray-50">
             <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
                 <span class="text-xl inline-block p-3 font-semibold">Create Portfolio</span>
@@ -217,7 +217,12 @@ export default {
         const medias = computed(() => usePage().props.value.medias);
         form.category = ref(4)
        
+       const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
+		const menuSubLinks = computed(() => usePage().props.value.page_links.subLinks);
+		
         return {
+            menuLinks,
+			menuSubLinks,
             form, categories,submit, selectFile,user,medias,urls,updateImageList
         }
     },

@@ -1,7 +1,7 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <div class="flex bg-gray-100">
-    <app-header-small></app-header-small>
+    <app-header-small :user="user" :menu-links="menuLinks" :menu-sub-links="menuSubLinks" />
     <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
         <div class="flex flex-col justify-center px-4" >
                 <!-- search box -->
@@ -214,7 +214,12 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
          const isOpen = ref(false)
          const targetPort = ref(null)
+       const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
+		const menuSubLinks = computed(() => usePage().props.value.page_links.subLinks);
+		
         return {
+            menuLinks,
+			menuSubLinks,
             posts,
             deletePost,
             numberLinks,

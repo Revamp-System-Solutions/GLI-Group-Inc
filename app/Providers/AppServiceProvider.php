@@ -8,6 +8,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
+use App\Models\PageLinks;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         //     $this->app['request']->server->set('HTTPS', true);
         //     URL::forceScheme('https');
         // }
-
+            
         Inertia::share([
             'app' => [
                 'name' => config('app.name'),
@@ -48,7 +52,12 @@ class AppServiceProvider extends ServiceProvider
                 'success' => Session::get('success'),
             ];
         });
-         Schema::defaultStringLength(191);
+        $cpage_links = collect(PageLinks::get()->all())->mapToGroups(function($item, $key){
+            return [boolval($item['is_admin']) ? 'admin_links':'guest_links' => $item];
+        });
+        $admin_page_links = Cache::put('admin_page_links', $cpage_links->get('admin_links'));
+        $guest_page_links = Cache::put('guest_page_links', $cpage_links->get('guest_links'));
+        Schema::defaultStringLength(191);
     }
 
 }

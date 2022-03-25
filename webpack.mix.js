@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -9,11 +10,22 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+ mix.webpackConfig({
+    output: {
+        chunkFilename: "js/[name].js?id=[chunkhash]",
+    },
+    resolve: {
+        alias:{
+        '@helpers' : path.resolve('resources/js/helpers.js'),
+        '@': path.resolve('resources/js'),
+        }
+    },
+      
+});
 
 mix
     .js('resources/js/app.js', 'public/js')
     .vue()
-    .js('resources/js/header.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css')
     .postCss('resources/css/font-family.css', 'public/css')
     .postCss('resources/css/rvmp.css', 'public/css');
@@ -22,9 +34,4 @@ mix
         postCss: [
             require('tailwindcss')
         ],
-    });
-    mix.webpackConfig({
-        output: {
-            chunkFilename: "js/[name].js?id=[chunkhash]",
-        },
     });

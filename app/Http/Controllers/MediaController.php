@@ -6,6 +6,8 @@ use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
 
 use Auth;
 class MediaController extends Controller
@@ -21,7 +23,11 @@ class MediaController extends Controller
             "medias" => Media::when($request->fn, function($query, $filename){
                 $query->where('media_name', 'LIKE', '%'.$filename.'%');
             })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
-        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
+        ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function store(Request $request)

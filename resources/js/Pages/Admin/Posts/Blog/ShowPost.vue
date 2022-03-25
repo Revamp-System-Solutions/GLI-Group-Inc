@@ -1,7 +1,7 @@
 <template>
 <errors-and-messages :errors="errors"></errors-and-messages>
 <div class="flex bg-gray-100">
-    <app-header-small></app-header-small>
+      <app-header-small :user="user" :menu-links="menuLinks" :menu-sub-links="menuSubLinks" />
     <!-- content -->
     <div id="content-area" class="max-w-7xl md:w-9/12 mx-auto ">
         <div class="flex flex-col justify-center px-4" >
@@ -183,18 +183,22 @@ export default {
 
             Inertia.delete(route('blog.destroy', {id}));
         }
-
+        const user = computed(() => usePage().props.value.auth.user);
+		const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
+		const menuSubLinks = computed(() => usePage().props.value.page_links.subLinks);
         const posts = computed(() => usePage().props.value.posts);
 
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
+    console.log(menuLinks)
 
-        const user = computed(() => usePage().props.value.auth.user);
 
         return {
             posts,
             deletePost,
             numberLinks,
-            user
+             user,
+			menuLinks,
+			menuSubLinks
         }
     }
 }

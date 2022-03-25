@@ -7,7 +7,7 @@
             <ul class="flex flex-col py-4 bg-gray-300 h-full">
             <li v-for="link in menuLinks" :key="link.title">
 	
-                <inertia-link :href="$route(link.href)" v-if="!link.has_dropdown" 
+                <inertia-link :href="$route(link.href)" v-if="!link.has_dropdown"   :data="{ 'page_links':{'parentLinks': menuLinks, 'subLinks': menuSubLinks}  }"
                 class="flex flex-row items-center h-9 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-900 group hover:text-gray-300 hover:bg-gray-900" preserve-state>
                 <span class="inline-flex items-center justify-center h-9 w-9 text-lg text-gray-800 group-hover:text-gray-300">
                     <i :class="link.icon" class="text-sm py-2"></i>
@@ -55,7 +55,7 @@
 <script>
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel, Disclosure, DisclosureButton, DisclosurePanel, } from '@headlessui/vue'
 import {computed} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
+// import {usePage} from "@inertiajs/inertia-vue3";
 
 export default {
     title: "AppHeaderSmall",
@@ -68,11 +68,15 @@ export default {
 		DisclosureButton,
 		DisclosurePanel,
 	},
-	 setup() {
-        const user = computed(() => usePage().props.value.auth.user);
-
+	props:['user','menuLinks','menuSubLinks'],
+	 setup(props) {
+        const user = props.user;
+		const menuLinks = props.menuLinks;
+		const menuSubLinks = props.menuSubLinks;
         return {
             user,
+			menuLinks,
+			menuSubLinks
         }
     },
 	 data: () => ({
@@ -80,89 +84,8 @@ export default {
 		dropdownPopoverTarget: null,
 		switchInertia: false,
 		menuOpen: false,
-		menuLinks:[
-			{
-				title: 'Dashboard',
-				href: 'viewDashboard',
-				order: 'order-1',
-				icon:"fas fa-tachometer-alt",
-				has_dropdown: false
-			},
-			{
-				title: 'Pages',
-				href: '',
-				order: 'order-2',
-				icon:"fas fa-file-alt",
-				has_dropdown: true
-			},
-			{
-				title: 'Posts',
-				href: '',
-				order: 'order-3',
-				icon:"fas fa-blog",
-				has_dropdown: true
-			},
-			{
-				title: 'Media',
-				href: '',
-				order: 'order-4',
-				icon:"fas fa-photo-video",
-				has_dropdown: true
-			},
-			{
-				title: 'Site',
-				href: '',
-				order: 'order-5',
-				icon:"fas fa-cogs",
-				has_dropdown: true
-			},
-		],
-		menuSubLinks:[
-			{
-				title: 'Blog',
-				href: 'blog.admin',
-				icon: 'fas fa-sticky-note',
-				order: 'order-1',
-				parentLink: 'Posts'
-			},
-			{
-				title: 'Testimonials',
-				href: 'testimonial.admin',
-				icon: 'fas fa-comment-dots',
-				order: 'order-2',
-				parentLink: 'Posts'
-			},
-			{
-				title: 'Portfolio',
-				href: 'portfolio.admin',
-				icon: 'fas fa-portrait',
-				order: 'order-3',
-				parentLink: 'Posts'
-			},
-			{
-				title: 'Library',
-				href: 'media.admin',
-				icon: 'fas fa-book-open',
-				order: 'order-1',
-				parentLink: 'Media'
-			},
-			{
-				title: 'Users',
-				href: 'admin.manager',
-				icon: 'fas fa-users',
-				order: 'order-2',
-				parentLink: 'Site'
-			},
-			{
-				title: 'Settings',
-				href: 'settings.admin',
-				icon: 'fas  fa-sliders-h',
-				order: 'order-first',
-				parentLink: 'Site'
-			},
-		]
+	
   	}),
-
     mounted() {
 		if(window.location.pathtitle !== "/home"){
 			this.switchInertia = true

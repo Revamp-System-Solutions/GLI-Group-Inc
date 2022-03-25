@@ -10,7 +10,7 @@ import  VueGoogleMaps from '@fawmi/vue-google-maps'
 
 InertiaProgress.init();
 
-
+require('@helpers');
 
 createInertiaApp({
   resolve:  name => {

@@ -41447,37 +41447,46 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-var el = document.getElementById('app');
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init();
+
+__webpack_require__(/*! @helpers */ "./resources/js/helpers.js");
+
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   resolve: function resolve(name) {
-    return __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*$")("./".concat(name));
+    var page = __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*$")("./".concat(name))["default"];
+
+    return page;
   },
   setup: function setup(_ref) {
     var el = _ref.el,
         App = _ref.App,
         props = _ref.props,
         plugin = _ref.plugin;
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
+    var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(App, props);
       }
-    }).provide('$route', window.route).use(_fawmi_vue_google_maps__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    });
+    app.config.globalProperties.$route = window.route;
+    app.config.devtools = false;
+    app.config.debug = true;
+    app.config.silent = true;
+    app.provide('$route', window.route);
+    app.use(_fawmi_vue_google_maps__WEBPACK_IMPORTED_MODULE_5__["default"], {
       load: {
         key: 'AIzaSyB5SiSMKLwgubZJHNWFH92onf3HX2p3pNE'
       }
-    }).use((_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4___default())).use(vue3_click_away__WEBPACK_IMPORTED_MODULE_3__["default"]).use(plugin).mount(el);
+    });
+    app.use((_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4___default()));
+    app.use(vue3_click_away__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    app.use(plugin).component('InertiaHead', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head).component('InertiaLink', _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link).mixin({
+      methods: {
+        route: route
+      }
+    });
+    app.mount(el);
   }
-}).bind(el); // app.config.globalProperties.$route = window.route;
-// app.config.devtools = true
-// app.config.debug = true
-// app.config.silent = true
-// app.
-// app
-// app
-// app
-// app.use(plugin).mount(el);
-// prime vue 3
+});
 
 /***/ }),
 
@@ -41509,6 +41518,32 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/helpers.js":
+/*!*********************************!*\
+  !*** ./resources/js/helpers.js ***!
+  \*********************************/
+/***/ (() => {
+
+var lastScrollTop = 0;
+
+window.detectScroll = function (event) {
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (st > 200) {
+    $('#appheader').removeClass('py-6').addClass('py-2');
+    $("#logo-link").children('img').removeClass('w-12').addClass('w-6');
+    $("#logo-link").children('span').removeClass('lg:text-2xl text-base').addClass('lg:text-base text-sm');
+  } else if (st == 0) {
+    $('#appheader').removeClass('py-2').addClass('py-6');
+    $("#logo-link").children('img').removeClass('w-6').addClass('w-12');
+    $("#logo-link").children('span').removeClass('lg:text-base text-sm').addClass('lg:text-2xl text-base');
+  }
+
+  lastScrollTop = st <= 0 ? 0 : st;
+};
 
 /***/ }),
 

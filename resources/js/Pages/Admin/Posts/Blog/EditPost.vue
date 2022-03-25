@@ -1,7 +1,7 @@
 <template>
     <errors-and-messages :errors="errors"></errors-and-messages>
     <div class="flex">
-        <app-header-small></app-header-small>
+         <app-header-small :user="user" :menu-links="menuLinks" :menu-sub-links="menuSubLinks" />
         <div id="content-area" class="w-full h-auto bg-gray-50">
             <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28"> 
                 <span class="text-xl inline-block p-3 font-semibold">Edit Posts</span>                
@@ -168,8 +168,14 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
         const exclusionList = usePage().props.value.makepostexclusionList;
 
+       const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
+		const menuSubLinks = computed(() => usePage().props.value.page_links.subLinks);
+		
         return {
-            form, submit, selectFile, image_url,categories,user,medias,exclusionList
+            menuLinks,
+			menuSubLinks,
+            user,			
+            form, categories,submit, selectFile,medias,image_url,exclusionList
         }
     },
     mounted(){
