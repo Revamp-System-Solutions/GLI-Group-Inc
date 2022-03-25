@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+use Auth;
 class MediaController extends Controller
 {
     public function __construct()
@@ -20,7 +21,7 @@ class MediaController extends Controller
             "medias" => Media::when($request->fn, function($query, $filename){
                 $query->where('media_name', 'LIKE', '%'.$filename.'%');
             })->where('type', '=' ,'CLIENT_FILE')->orderBy('id', 'ASC')->paginate(8)
-        ]);
+        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function store(Request $request)

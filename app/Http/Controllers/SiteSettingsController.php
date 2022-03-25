@@ -16,6 +16,9 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\WebSettingController;
 
+use Auth;
+
+
 class SiteSettingsController extends Controller
 {
     public function __construct()
@@ -52,7 +55,7 @@ class SiteSettingsController extends Controller
             "system_colors" =>  $system_colors,
             "static_images" => $static_img,
             "settings" => $settings,
-        ]);
+        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
    
 

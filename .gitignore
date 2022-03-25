@@ -13,3 +13,8 @@ npm-debug.log
 yarn-error.log
 /public/rvmp-content/rvmp-uploads/
 .vscode
+.vagrant/rgloader/loader.rb
+.vagrant/machines/gli-group-inc/virtualbox/vagrant_cwd
+Vagrantfile
+aliases
+after.sh

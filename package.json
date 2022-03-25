@@ -27,9 +27,9 @@
         "@fawmi/vue-google-maps": "^0.9.4",
         "@headlessui/vue": "^1.4.2",
         "@heroicons/vue": "^1.0.5",
-        "@inertiajs/inertia": "^0.9.0",
-        "@inertiajs/inertia-vue3": "^0.4.0",
-        "@inertiajs/progress": "^0.2.5",
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
         "@popperjs/core": "2.9.1",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/forms": "^0.3.4",
@@ -43,6 +43,6 @@
         "vue-loader": "^16.2.0",
         "vue3-carousel": "^0.1.35",
         "vue3-click-away": "^1.2.1",
-        "ziggy-js": "^1.4.2"
+        "ziggy-js": "^1.4.4"
     }
 }

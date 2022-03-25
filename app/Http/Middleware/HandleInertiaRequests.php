@@ -36,15 +36,12 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            'csrf_token' => csrf_token(),    
-            'flash' => [
-                'success' => fn () => $request->session()->get('success')
-            ],
-            'gli_guest_tools' => [
-                'maps' => \App\Models\WebSetting::where('short_name','gmap_api')->get(['short_name', 'value']),
-                'meta' => \App\Models\WebSetting::where('short_name','meta_pltf')->get(['short_name', 'value'])
-            ],
-            'auth.user' => fn () => $request->user() ? $request->user()->only('name', 'email', 'roles') : null
+            // 'csrf_token' => csrf_token(),    
+            // 'flash' => [
+            //     'success' => fn () => $request->session()->get('success')
+            // ],
+           //
+            // 'auth.user' => fn () => $request->user() ? $request->user()->only('name', 'email', 'roles') : null
         ]);
     }
 }

@@ -23,3 +23,8 @@ mix
             require('tailwindcss')
         ],
     });
+    mix.webpackConfig({
+        output: {
+            chunkFilename: "js/[name].js?id=[chunkhash]",
+        },
+    });

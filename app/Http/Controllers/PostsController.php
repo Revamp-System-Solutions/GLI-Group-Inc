@@ -11,7 +11,7 @@ use App\Models\Form;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-
+ use Auth;
 
 class PostsController extends Controller
 {
@@ -22,9 +22,11 @@ class PostsController extends Controller
 
     public function index()
     {
+       
+      
         return Inertia::render('BlogPost', [
             "posts" => Post::join('subcategories', 'posts.subcategory_id', '=', 'subcategories.id')->orderBy('posts.created_at', 'DESC')->paginate(4),
-            "forms" => Form::where('id','=','1')->get()
+            "forms" => Form::where('id','=','1')->get(),
         ]);
     }
     public function show($slug)
@@ -39,14 +41,15 @@ class PostsController extends Controller
     {
         return Inertia::render('Admin/Posts/Blog/ShowPost', [
             "posts" => Post::orderBy('id', 'DESC')->paginate(15)
-        ]);
+        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     
     public function create()
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(3)->where('name',"!=", "Comments")->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function store(Request $request)
@@ -95,7 +98,8 @@ class PostsController extends Controller
             'post' => Post::where('slug', $slug)->firstOrFail(),
             'categories' => Subcategories::where('name', '!=' ,'Testimonials')->where('name', '!=' ,'Comments')->pluck('name', 'id'),
             'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
-        ]);
+        ])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function update(Request $request, $slug)
@@ -151,16 +155,18 @@ class PostsController extends Controller
 
     public function adminPortfolio()
     {
+       
         return Inertia::render('Admin/Posts/Portfolio/ShowPortfolio', [
             "posts" => Portfolio::orderBy('id', 'DESC')->paginate(15)
-        ]);
+        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function createPortfolio()
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function storePortfolio(Request $request)
@@ -219,7 +225,8 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/Portfolio/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Portfolio/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function updatePortfolio(Request $request, $slug)
     {
@@ -293,13 +300,15 @@ class PostsController extends Controller
     {
         return Inertia::render('Admin/Posts/Testimonials/ShowTestimonials', [
             "posts" => Testimonials::orderBy('id', 'DESC')->paginate(15)
-        ]);
+        ])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function createTestimonials()
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(4)->get()->pluck('name', 'id');
-        return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias]);
+        return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias])
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function storeTestimonials(Request $request)
     {
@@ -351,7 +360,8 @@ class PostsController extends Controller
         return Inertia::render('Admin/Posts/Testimonials/EditTestimonials')
                         ->with('post', $post)
                         ->with('categories', $subcat)
-                        ->with('medias',  $media);
+                        ->with('medias',  $media)
+                        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
 
     public function updateTestimonials(Request $request, $id)

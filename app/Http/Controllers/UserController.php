@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Auth;
 
 class UserController extends Controller
 {
@@ -25,7 +26,8 @@ class UserController extends Controller
         ); 
         return Inertia::render('Admin/Site/UserManager')
                         ->with('users', $users)
-                        ->with('roles', $roles);
+                        ->with('roles', $roles)
+                        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function update(Request $request)
     {
