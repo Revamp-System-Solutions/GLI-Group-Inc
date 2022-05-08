@@ -200,6 +200,8 @@ export default {
         }
     },
     setup(){
+ const user = computed(() => usePage().props.value.auth.user);
+
         const form = reactive({
             id: null,
             name: null,
@@ -209,7 +211,7 @@ export default {
             _token: usePage().props.value.csrf_token
         });
 
-         const action = ref('register')
+        const action = ref('register')
 
         const isOpen = ref(false);
 
@@ -245,12 +247,13 @@ export default {
             });
         }
        
-      const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
+        const menuLinks = computed(() => usePage().props.value.page_links.parentLinks);
 		const menuSubLinks = computed(() => usePage().props.value.page_links.subLinks);
 		
         return {
             menuLinks,
 			menuSubLinks,
+            user,
             users,
             usersLinks,
             roles,

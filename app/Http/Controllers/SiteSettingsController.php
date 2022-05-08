@@ -15,7 +15,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 use App\Http\Controllers\WebSettingController;
-
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
 use Auth;
 
 
@@ -55,7 +56,11 @@ class SiteSettingsController extends Controller
             "system_colors" =>  $system_colors,
             "static_images" => $static_img,
             "settings" => $settings,
-        ])->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
+        ])
+        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+        }))
+        ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
    
 

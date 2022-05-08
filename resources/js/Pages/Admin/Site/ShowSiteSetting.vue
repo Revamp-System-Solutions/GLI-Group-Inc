@@ -56,6 +56,30 @@
       </DisclosurePanel>
           </div>
       </Disclosure>
+       <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
+          <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+            <span class="text-xl"><i class="fas fa-images mx-2"></i> Site Branding</span>
+            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+          </DisclosureButton>
+          <div v-show="open">
+          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
+
+                <template v-for="static_image in static_images" :key="static_image">
+                  <div class="p-6">
+                    <span class="text-base text-gray-900">{{ static_image.media_name }}
+                     </span>
+                    <p>{{ static_image.description }}</p>
+                  </div>
+                  <div class="p-6">
+                      <img v-if="static_image.image_url" class="rounded shadow-md object-contain h-48 w-full mb-4" :src="static_image.image_url" :alt="static_image.media_name">
+                       <span @click="
+                      openModal('brand');
+                      stageImg=static_image" class="cursor-pointer"><i class="fas fa-sync text-green-600"> </i> Update Current Image</span>
+                  </div>
+                </template>
+            </DisclosurePanel>
+          </div>
+      </Disclosure>
       <Disclosure v-slot="{ open }" > <!-- CATEGORY SECTION -->
         <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
           <span class="text-xl"><i class="fas fa-bookmark mx-2"></i> Category</span>
@@ -132,27 +156,27 @@
         </DisclosurePanel>
          </div>
       </Disclosure>
-      <Disclosure v-slot="{ open }" >  <!-- BRANDING SECTION -->
+       <Disclosure v-slot="{ open }" >  <!-- SERVICES SECTION -->
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
-            <span class="text-xl"><i class="fas fa-images mx-2"></i> Site Branding</span>
+            <span class="text-xl"><i class="fas fa-hand-holding-heart mx-2"></i> Services</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
           </DisclosureButton>
           <div v-show="open">
-          <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
+            <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
 
-                <template v-for="static_image in static_images" :key="static_image">
-                  <div class="p-6">
-                    <span class="text-base text-gray-900">{{ static_image.media_name }}
-                     </span>
-                    <p>{{ static_image.description }}</p>
-                  </div>
-                  <div class="p-6">
-                      <img v-if="static_image.image_url" class="rounded shadow-md object-contain h-48 w-full mb-4" :src="static_image.image_url" :alt="static_image.media_name">
-                       <span @click="
-                      openModal('brand');
-                      stageImg=static_image" class="cursor-pointer"><i class="fas fa-sync text-green-600"> </i> Update Current Image</span>
-                  </div>
-                </template>
+          
+            </DisclosurePanel>
+          </div>
+      </Disclosure>
+      <Disclosure v-slot="{ open }" >  <!-- MENU LINKS SECTION -->
+          <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
+            <span class="text-xl"><i class="fas fa-link mx-2"></i> Menu Links</span>
+            <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
+          </DisclosureButton>
+          <div v-show="open">
+            <DisclosurePanel class="lg:px-6 lg:pt-4 lg:pb-2 grid gap-0 lg:grid-cols-2 grid-cols-1 divide-y divide-gray-200 bg-opacity-50 bg-gray-100 text-sm rounded-lg" static>
+
+          
             </DisclosurePanel>
           </div>
       </Disclosure>
@@ -305,8 +329,15 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
 
         const settings = computed(() => usePage().props.value.settings);
+        
 
-        function submitColor() {
+        var site_profile = settings.value['00_client_inf'][0]['value']
+       
+      var full_address = (site_profile['0_site_name'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_1'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_2'].split(" ")).join('%20') + ',%20' + (site_profile['town'].split(" ")).join('%20') + ',%20' + (site_profile['postal_code'].split(" ")).join('%20')+ '%20' + (site_profile['state'].split(" ")).join('%20')
+      const embed_url = `https://maps.google.it/maps?q=${full_address}&t=&z=19&ie=UTF8&iwloc=&output=embed`
+      console.log(embed_url)
+       
+      function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
                 replace:false,
@@ -374,7 +405,7 @@ export default {
 		
         return {
             menuLinks,
-			menuSubLinks,
+			    menuSubLinks,
             newcolor,
             caller,
             stageCat,

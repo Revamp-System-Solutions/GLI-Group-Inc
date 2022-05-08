@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
 use Auth;
 
 class UserController extends Controller
@@ -27,6 +29,9 @@ class UserController extends Controller
         return Inertia::render('Admin/Site/UserManager')
                         ->with('users', $users)
                         ->with('roles', $roles)
+                        ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
+                            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+                        }))
                         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
     public function update(Request $request)
