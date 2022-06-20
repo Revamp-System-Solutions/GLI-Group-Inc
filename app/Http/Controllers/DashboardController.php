@@ -24,8 +24,6 @@ class DashboardController extends Controller
 
     public function viewDashboard()
     {
-       
- 
         return Inertia::render('Admin/Dashboard')
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];

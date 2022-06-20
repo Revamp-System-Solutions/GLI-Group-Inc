@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\FormResponseController;
 use App\Http\Controllers\UserController;
@@ -81,6 +82,10 @@ Route::prefix('gli-admin')->group(function () {
         Route::delete('/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('destroy');
     });
    
+    Route::name('page.')->group(function () {
+        Route::get('/pages', [PagesController::class, 'index'])->name('admin');
+    });
+
     Route::prefix('site')->group(function () {
         Route::get('/settings', [SiteSettingsController::class, 'index'])->name('settings.admin');
 
