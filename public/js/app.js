@@ -32917,13 +32917,15 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(props) {
     var user = props.user;
     var menuLinks = props.menuLinks;
-    var menuSubLinks = props.menuSubLinks;
-    menuLinks.forEach(function (link, id, arr) {
-      return arr[id] = JSON.parse(link);
-    });
-    menuSubLinks.forEach(function (link, id, arr) {
-      arr[id] = JSON.parse(link);
-    });
+    var menuSubLinks = props.menuSubLinks; // menuLinks.forEach(function(link, id, arr) {
+    //       return arr[id] = JSON.parse(link)
+    //     }
+    // )
+    // menuSubLinks.forEach(function(link, id, arr) {
+    //         arr[id] = JSON.parse(link)
+    //     }
+    // )
+
     console.log(menuLinks);
     return {
       user: user,

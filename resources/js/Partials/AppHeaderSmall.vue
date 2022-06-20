@@ -74,16 +74,16 @@ export default {
 		const menuLinks = props.menuLinks;
 		const menuSubLinks = props.menuSubLinks;
 
-        menuLinks.forEach(function(link, id, arr) {
+        // menuLinks.forEach(function(link, id, arr) {
               
-              return arr[id] = JSON.parse(link)
-            }
-        )
-        menuSubLinks.forEach(function(link, id, arr) {
+        //       return arr[id] = JSON.parse(link)
+        //     }
+        // )
+        // menuSubLinks.forEach(function(link, id, arr) {
                
-                arr[id] = JSON.parse(link)
-            }
-        )
+        //         arr[id] = JSON.parse(link)
+        //     }
+        // )
         console.log(menuLinks)
         return {
             user,
