@@ -71,8 +71,13 @@ export default {
 	props:['user','menuLinks','menuSubLinks'],
 	 setup(props) {
         const user = props.user;
-		const menuLinks = JSON.parse(props.menuLinks);
-		const menuSubLinks = JSON.parse(props.menuSubLinks);
+		const menuLinks = props.menuLinks;
+		const menuSubLinks = props.menuSubLinks;
+
+        menuLinks.forEach(function(link, id, arr) {
+	console.log(link, id, arr)
+        }
+        )
         return {
             user,
 			menuLinks,

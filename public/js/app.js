@@ -32916,8 +32916,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['user', 'menuLinks', 'menuSubLinks'],
   setup: function setup(props) {
     var user = props.user;
-    var menuLinks = JSON.parse(props.menuLinks);
-    var menuSubLinks = JSON.parse(props.menuSubLinks);
+    var menuLinks = props.menuLinks;
+    var menuSubLinks = props.menuSubLinks;
+    menuLinks.forEach(function (link, id, arr) {
+      console.log(link, id, arr);
+    });
     return {
       user: user,
       menuLinks: menuLinks,
