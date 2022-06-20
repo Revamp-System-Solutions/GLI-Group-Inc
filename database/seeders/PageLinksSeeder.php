@@ -30,7 +30,7 @@ class PageLinksSeeder extends Seeder
 				"order"             =>         'order-2',
 				"icon"              =>        "fas fa-file-alt",
                 "is_parent"      =>         true,
-				"has_dropdown"      =>         true,
+				"has_dropdown"      =>         false,
                 "parentLink"        =>       '',
                 "is_admin"          =>       true
             ],
