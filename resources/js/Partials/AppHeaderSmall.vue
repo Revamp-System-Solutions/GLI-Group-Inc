@@ -71,8 +71,8 @@ export default {
 	props:['user','menuLinks','menuSubLinks'],
 	 setup(props) {
         const user = props.user;
-		const menuLinks = props.menuLinks;
-		const menuSubLinks = props.menuSubLinks;
+		const menuLinks = JSON.parse(props.menuLinks);
+		const menuSubLinks = JSON.parse(props.menuSubLinks);
         return {
             user,
 			menuLinks,
