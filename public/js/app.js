@@ -32919,7 +32919,7 @@ __webpack_require__.r(__webpack_exports__);
     var menuLinks = props.menuLinks;
     var menuSubLinks = props.menuSubLinks;
     menuLinks.forEach(function (link, id, arr) {
-      console.log(link, id, arr);
+      console.log(arr);
     });
     return {
       user: user,

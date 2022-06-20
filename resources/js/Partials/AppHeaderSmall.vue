@@ -75,8 +75,8 @@ export default {
 		const menuSubLinks = props.menuSubLinks;
 
         menuLinks.forEach(function(link, id, arr) {
-	console.log(link, id, arr)
-        }
+                console.log(arr)
+            }
         )
         return {
             user,
