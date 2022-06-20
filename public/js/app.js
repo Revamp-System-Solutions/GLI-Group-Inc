@@ -32921,6 +32921,12 @@ __webpack_require__.r(__webpack_exports__);
     menuLinks.forEach(function (link, id, arr) {
       console.log(id);
       console.log(link);
+      arr[id] = JSON.parse(link);
+    });
+    menuSubLinks.forEach(function (link, id, arr) {
+      console.log(id);
+      console.log(link);
+      arr[id] = JSON.parse(link);
     });
     return {
       user: user,
