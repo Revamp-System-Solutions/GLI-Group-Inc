@@ -8,7 +8,7 @@
             <li v-for="link in menuLinks" :key="link.title">
 	
                 <inertia-link :href="$route(link.href)" v-if="link.has_dropdown === '0'"   :data="{ 'page_links':{'parentLinks': menuLinks, 'subLinks': menuSubLinks}  }"
-                class="flex flex-row items-center h-9 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-900 group hover:text-gray-300 hover:bg-gray-900" method="post" as="button" type="button" preserve-state>
+                class="w-full flex flex-row items-center h-9 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-900 group hover:text-gray-300 hover:bg-gray-900" method="get" as="button" type="button" preserve-state>
                 <span class="inline-flex items-center justify-center h-9 w-9 text-lg text-gray-800 group-hover:text-gray-300">
                     <i :class="link.icon" class="text-sm py-2"></i>
                 </span>
