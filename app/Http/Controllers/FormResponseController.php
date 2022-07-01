@@ -28,13 +28,12 @@ class FormResponseController extends Controller
 
         $formResponse->save();
 
-        // Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
-
-        // if (Mail::failures()) {
-        //     return response()->Fail('Sorry! Please try again latter');
-        // } else {
-
-        // }
-        return Inertia::location('/thank-you');
+        Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
+        if (Mail::failures()) {            
+            return response()->json(['errors' => 'Failed to Sumbit Response! Try Again!']);
+            // return response()->Fail('Sorry! Please try again latter');
+        } else {
+            return Inertia::location('/thank-you');
+        }
     }
 }
