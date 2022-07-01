@@ -23,17 +23,18 @@ class FormResponseController extends Controller
 
         $formResponse = new FormResponse();
 
-        $formResponse->title = "New form submission";
+        $formResponse->title = $request->formTitle;
         $formResponse->response = json_encode($request->all());
 
         $formResponse->save();
 
-        Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
+        // Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
 
-        if (Mail::failures()) {
-            return response()->Fail('Sorry! Please try again latter');
-        } else {
-            return Inertia::location('/thank-you');
-        }
+        // if (Mail::failures()) {
+        //     return response()->Fail('Sorry! Please try again latter');
+        // } else {
+
+        // }
+        return Inertia::location('/thank-you');
     }
 }
