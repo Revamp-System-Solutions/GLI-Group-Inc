@@ -6,6 +6,10 @@ use App\Models\FormResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+use Mail;
+
+use App\Mail\NotifyMail;
+
 class FormResponseController extends Controller
 {
     public function __construct()
@@ -15,7 +19,7 @@ class FormResponseController extends Controller
 
     public function sendMessage(Request $request)
     {
-        
+
 
         $formResponse = new FormResponse();
 
@@ -24,6 +28,12 @@ class FormResponseController extends Controller
 
         $formResponse->save();
 
-        return Inertia::location('/thank-you');
+        Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
+
+        if (Mail::failures()) {
+            return response()->Fail('Sorry! Please try again latter');
+        } else {
+            return Inertia::location('/thank-you');
+        }
     }
 }
