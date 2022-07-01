@@ -9,7 +9,7 @@
             </div>
         </div>
   
-        <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
+        <div  class="h-auto 2xl:px-64 xl:px-56 lg:px-28">
             <div class="flex  flex-col h-auto">
                 <div class="w-full  h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:bg-transparent">            
                         <div class="w-full h-full grid grid-cols-1 place-content-center gap-y-4">  

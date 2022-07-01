@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <div  class="mx-auto sm:py-24 2xl:px-80 xl:px-56 lg:px-28 ">
+    <div  class="mx-auto sm:py-24 2xl:px-64 xl:px-56 lg:px-28 ">
             <div class="w-full flex lg:flex-row flex-col lg:space-x-8 space-x-0 lg:space-y-0 space-y-8" >
                 <div class="w-full px-8 space-y-6">
                     <template v-if="posts.data.length > 0">

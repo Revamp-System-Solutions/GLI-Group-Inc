@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 py-4 px-4">
+        <div class="h-auto 2xl:px-64 xl:px-56 lg:px-28 py-4 px-4">
             <form
                 class="grid grid-cols-6 gap-y-3 overflow-hidden bg-transparent 2xl:px-40 xl:px-16 lg:px-8"
                 method="post"
@@ -85,7 +85,7 @@
             </form>
         </div>
         <div
-            class="h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6"
+            class="h-auto 2xl:px-64 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6"
         >
             <div
                 class="lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"

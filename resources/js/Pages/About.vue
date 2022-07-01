@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-    <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28">
+    <div  class="h-auto 2xl:px-64 xl:px-56 lg:px-28">
         <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
             <div class="w-full h-3/4 lg:py-36 lg:pl-0 p-6 static" >
                 <div class="lg:py-36 lg:my-12 static">
