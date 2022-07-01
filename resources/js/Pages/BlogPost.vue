@@ -12,7 +12,7 @@
             <div class="w-full flex lg:flex-row flex-col lg:space-x-8 space-x-0 lg:space-y-0 space-y-8" >
                 <div class="w-full px-8 space-y-6">
                     <template v-if="posts.data.length > 0">
-                        
+
                                 <div class="flex 2xl:flex-row flex-col 2xl:space-y-6 space-y-3" v-for="post in posts.data" :key="post.id">
                                     <div v-if="post.image_url" class="h-52 2xl:w-52 w-full rounded-md bg-content-border bg-cover bg-center bg-local" :style="makeBG(post.image_url)"></div>
                                     <div class="lg:w-96 w-full lg:max-h-52 2xl:h-52 lg:px-6 xl:py-4 space-y-3 brand-text">
@@ -20,15 +20,15 @@
                                         <div class="space-x-2"><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="fas fa-at"></i> {{post.author}}</span><span class="lg:text-sm text-xs font-extralight text-gray-400"><i class="far fa-folder-open"></i> {{post.name}}</span></div>
                                         <div class="xl:overflow-ellipsis overflow-hidden lg:text-sm text-xs font-light">  {{ post.short_text }} </div>
                                     </div>
-                                </div>                        
+                                </div>
                         <!-- Pagination links-->
                         <nav class="w-20" aria-label="Page navigation" v-if="posts.total > posts.per_page" style="margin-top: 20px">
                             <ul class="pagination flex flex-row justify-between space-x-2">
-                                <!-- Previous link -->                                
+                                <!-- Previous link -->
                                 <li v-if="posts.links[1].active != true" :class="'page-item' + (posts.links[0].url == null ? ' disabled' : '')">
                                     <inertia-link :href="posts.links[0].url == null ? '#' : posts.links[0].url" class="page-link" v-html="posts.links[0].label"></inertia-link>
                                 </li>
-                                
+
                                 <!-- Numbers -->
                                 <li v-for="item in numberLinks"  :class="'page-item ' + (item.active ? 'rvmp-brand-color-main font-bold text-lg' : 'rvmp-brand-color-darker font-semibold text-base')" :key="item">
                                     <inertia-link :href="item.active ? '#' : item.url" class="page-link" v-html="item.label"></inertia-link>
@@ -46,21 +46,21 @@
                     </div>
                 </div>
                 <div class="w-full xl:px-7 px-4 lg:pb-0 pb-10">
-                    <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl">
+                    <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl" @submit.prevent="sendMessage()">
                         <div class="col-span-6">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">Free Quotation</span></h3>
                         </div>
                         <div class="col-span-6">
                           <label for="full-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
-                          <input type="text" name="full-name" id="full-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="text" name="full-name" id="full-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.fullName"/>
                         </div>
                         <div class="col-span-6">
                           <label for="email-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Email address</label>
-                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.email"/>
                         </div>
                         <div class="col-span-6">
                           <label for="contact-number" class="text-sm font-medium rvmp-footer-text capitalize hidden">Contact Number</label>
-                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.contact"/>
                         </div>
                         <div class="col-span-6 ">
                           <label for="project" class="text-sm font-medium rvmp-footer-text capitalize hidden">Type of Project</label>
@@ -121,11 +121,11 @@
                         </div>
                         <div class="col-span-6">
                           <label for="date_needed" class="text-sm font-medium rvmp-footer-text capitalize block">when</label>
-                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
-                        </div>                        
+                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
+                        </div>
                         <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
-                          <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" ></textarea>
+                          <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" v-model="form.details"></textarea>
                         </div>
                         <div class="col-span-6">
                           <button class="bg-green-600 text-white px-4 py-1.5  hover:bg-green-700 w-full rounded-md  transition ease-in-out duration-300">Book a Meeting</button>
@@ -133,12 +133,12 @@
                     </form>
                 </div>
             </div>
-            
-          
+
+
     </div>
-     
+
     </div>
-    <app-footer-contact-form/> 
+    <app-footer-contact-form/>
 </template>
 
 <script>
@@ -161,8 +161,8 @@ export default {
         AppHeader,
         AppFooterContactForm,
         Listbox,
-        ListboxButton, 
-        ListboxOptions, 
+        ListboxButton,
+        ListboxOptions,
         ListboxOption
     },
     props: {
@@ -174,8 +174,18 @@ export default {
         }
     },
     setup() {
+         const form = reactive({
+            fullName: null,
+            email: null,
+            contact: null,
+            projectType: null,
+            bookingDate: null,
+            details: null,
+            _token: usePage().props.value.csrf_token,
+        });
+
         const route = inject('$route');
-     
+
         const posts = computed(() => usePage().props.value.posts);
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
         const services = [
@@ -200,10 +210,27 @@ export default {
             { id: 18, name: 'Other', disabled: false },
             ]
               const selectedService = ref(services[0])
+              function sendMessage() {
+            const data = new FormData();
+
+            data.append("formTitle", 'Book a Meeting')
+            data.append("fullName", this.form.fullName);
+            data.append("email", this.form.email);
+            data.append("contact", this.form.contact);
+            data.append("projectType", this.selectedService);
+            data.append("bookingDate", this.form.bookingDate);
+            data.append("details", this.form.details);
+
+            Inertia.post(route("form.submission"), data, {
+                forceFormData: true,
+            });
+              }
         return {
+            form,
             posts,
             numberLinks,
             services,
+            sendMessage,
             selectedService,
         }
     }

@@ -328,6 +328,7 @@ export default {
         function sendMessage() {
             const data = new FormData();
 
+            data.append("formTitle", 'Get in Touch')
             data.append("fullName", this.form.fullName);
             data.append("email", this.form.email);
             data.append("message", this.form.message);
