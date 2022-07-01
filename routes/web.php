@@ -24,6 +24,7 @@ use App\Models\Post;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::redirect('/', 'home');
 
 Route::name('guest.')->group(function () {
@@ -47,8 +48,8 @@ Route::prefix('gli-admin')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [DashboardController::class, 'viewDashboard'])->name('viewDashboard');
-    
-    Route::prefix('posts')->group(function () {       
+
+    Route::prefix('posts')->group(function () {
         Route::name('blog.')->group(function () {
             Route::get('/blog', [PostsController::class, 'adminPost'])->name('admin');
             Route::get('/blog/create', [PostsController::class, 'create'])->name('create');
@@ -57,7 +58,7 @@ Route::prefix('gli-admin')->group(function () {
             Route::post('/blog/{slug}/edit', [PostsController::class, 'update'])->name('update');
             Route::delete('/blog/delete/{slug}', [PostsController::class, 'destroy'])->name('destroy');
         });
-        
+
         Route::name('testimonial.')->group(function () {
             Route::get('/testimonials', [PostsController::class, 'adminTestimonials'])->name('admin');
             Route::get('/testimonials/create', [PostsController::class, 'createTestimonials'])->name('create');
@@ -81,7 +82,7 @@ Route::prefix('gli-admin')->group(function () {
         Route::post('/media', [MediaController::class, 'store'])->name('store');
         Route::delete('/media/{media_name}', [MediaController::class, 'destroyMedia'])->name('destroy');
     });
-   
+
     Route::name('page.')->group(function () {
         Route::get('/pages', [PagesController::class, 'index'])->name('admin');
     });
@@ -94,23 +95,24 @@ Route::prefix('gli-admin')->group(function () {
         Route::post('/settings/color', [SiteSettingsController::class, 'updateSiteColor'])->name('settings.color.change');
 
         Route::post('/settings/general', [SiteSettingsController::class, 'updateGeneralSettings'])->name('settings.general.update');
-        
+
         Route::post('/settings/category', [SiteSettingsController::class, 'storeSubcat'])->name('settings.subcat.new');
         Route::post('/settings/category/{action}', [SiteSettingsController::class, 'updateSubcat'])->name('settings.subcat.update');
         Route::delete('/settings/category/{subcat}', [SiteSettingsController::class, 'destroySubcat'])->name('settings.subcat.destroy');
-        
+
         Route::get('/users', [UserController::class, 'index'])->name('admin.manager');
         Route::get('/users/create', [RegisterController::class, 'showRegisterForm'])->name('showRegisterForm');
         Route::post('/users/create', [RegisterController::class, 'register'])->name('user.register');
         Route::post('/users/edit', [UserController::class, 'update'])->name('user.update');
         Route::post('/users/disable', [UserController::class, 'disable'])->name('user.disable');
     });
-    
-    
 });
 
 
 
 
 Route::post('contact-us/submit-form', [FormResponseController::class, 'sendMessage'])->name('formResponse.sendMessage');
-Route::post('submit-form', [FormResponseController::class, 'sendMessage'])->name('submitForm.sendMessage');
+// Route::post('submit-form', [FormResponseController::class, 'sendMessage'])->name('submitForm.sendMessage');
+Route::prefix('external')->group(function () {
+    Route::post('form-submission', [FormResponseController::class, 'sendMessage'])->name('form.submission');
+});

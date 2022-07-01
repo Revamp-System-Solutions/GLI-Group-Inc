@@ -332,7 +332,7 @@ export default {
             data.append("email", this.form.email);
             data.append("message", this.form.message);
 
-            Inertia.post(route("submitForm.sendMessage"), data, {
+            Inertia.post(route("form.submission"), data, {
                 forceFormData: true,
             });
         }
