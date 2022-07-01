@@ -28,6 +28,6 @@ class NotifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.responseMail');
+        return $this->view('emails.responseMail');
     }
 }
