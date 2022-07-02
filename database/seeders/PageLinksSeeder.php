@@ -26,7 +26,7 @@ class PageLinksSeeder extends Seeder
             ],
             [
                 "title"      =>         'Pages',
-				"href"      =>         '',
+				"href"      =>         'page.admin',
 				"order"             =>         'order-2',
 				"icon"              =>        "fas fa-file-alt",
                 "is_parent"      =>         true,
