@@ -2,7 +2,7 @@
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
         <lead-banner/>
-        <services />
+        <services :url="$page.url"/>
         <testimonial :carousel-settings="settings" :carousel-breakpoints="breakpoints" :carousel-testimonials="posts"/>
     
     </div>
@@ -48,7 +48,6 @@ export default {
             }, 
    },
     setup() {
-
          const posts = computed(() => usePage().props.value.posts);
 		return {
             posts,
