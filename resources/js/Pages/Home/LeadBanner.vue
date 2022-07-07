@@ -13,7 +13,7 @@
                                 Our team of professionals will help you turn your dream house into reality fast.
                             </div>
                             <div class="space-x-5 flex lg:justify-start justify-center" id="rvmp-lead-cta">
-                                <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Get a FREE Consultation!</a>
+                                <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Book a FREE Consultation!</a>
                                 <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
                             </div>
                         </div>

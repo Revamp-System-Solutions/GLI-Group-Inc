@@ -14,14 +14,14 @@
                 <div class="lg:py-36 lg:my-12 static">
                     <div class="rvmp-bg-main bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full ">  
                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight my-2">
-                            <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold">MEET THE CEO OF</h2>
+                            <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold"></h2>
                             <h2 class="ml-5 brand-logo-text text-3xl font-semibold">GLI <span class="brand-logo-text font-thin rvmp-brand-color-highlight">GROUP INC.</span></h2> 
                         </blockquote>
-                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> 
+                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3">GLI Group Inc. is a Design & Build Firm with Architectural & Engineering Design Services, Construction Services, and Cabinetry Fabrication teams with 10 years experience in the industry.</p> 
                     </div>            
                 </div>               
             </div>
-            <div class="w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/ceo.jpg')" >
+            <div class="w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/workplace.jpg')" >
                         &nbsp;
             </div>
         </div>
