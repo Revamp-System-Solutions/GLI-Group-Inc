@@ -1,0 +1,142 @@
+<template>
+   <div id="rvmp-services-section-1">
+            <div class="uppercase text-center" id="rvmp-services-heading">
+                <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Here's what we offer</span>
+            </div>
+            <div class="tab-container mt-10" id="rvmp-services-content">
+                <TabGroup >
+                    <TabList class="flex w-full">
+                
+                        <Tab v-slot="{ selected }" id="builders"
+                            class="w-1/3 bg-cover bg-center"  style="background-image: url('/images/pages/BUILDERS-1.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96  transition ease-in duration-300"
+                                    :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                    <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                    :class="[selected?'rvmp-brand-bg-darker':'']">
+                                            <div class="text-4xl font-semibold">GLI</div>
+                                            <div class="font-thin">BUILDERS</div>
+                                    </div>
+                            </button>
+                        </Tab>
+                        <Tab v-slot="{ selected }" id="designstudio"
+                        class="w-1/3  bg-cover bg-center" style="background-image: url('/images/pages/STUDIO.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96 transition ease-in duration-300"
+                            :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                    :class="[selected?'rvmp-brand-bg-darker':'']">
+                                    <div class="text-4xl font-semibold">GLI</div>
+                                    <div class="font-thin">DESIGN STUDIO</div>
+                                </div>
+                            </button>
+                        </Tab>
+                        <Tab v-slot="{ selected }" id="modularcabinets"
+                            class="w-1/3  bg-cover bg-center" style="background-image: url('/images/pages/CABINETS.jpg')">
+                            <button class="w-full rvmp-brand-bg-main h-96  transition ease-in duration-300"
+                                    :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
+                                <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
+                                :class="[selected?'rvmp-brand-bg-darker':'']">
+                                    <div class="text-4xl font-semibold">GLI</div>
+                                    <div class="font-thin">MODULAR CABINETS</div>
+                                </div>
+                            </button>
+                        </Tab>
+                    </TabList>
+                    <TabPanels>
+                        <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/BUILDERS-1.jpg">
+                            </div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                        <li>Here at GLI Builders</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
+                                        <span class="">
+                                            Better
+                                        </span>
+                                        <span class="rvmp-brand-color-highlight">
+                                            Built
+                                        </span>
+                                    </div>
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                       The Construction Division, caters to new construction, renovation, addition, repair of vertical buildings mainly residential commercial & institutional and other related buildings.
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Get a FREE Consultation!</a>
+                                <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
+                                    </div>
+                            </div>
+                        </TabPanel>
+                        <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/STUDIO.jpg">
+                            </div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                        <li>Here at GLI Design Studio</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
+                                        <span class="">
+                                            Architectural & Engineering
+                                        </span>
+                                        <span class="rvmp-brand-color-highlight">
+                                            design
+                                        </span>
+                                    </div>
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                       The Design Division, caters to the Architectural & Engineering design requirements for clients
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Get a FREE Consultation!</a>
+                                <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
+                                    </div>
+                            </div>
+                        </TabPanel>
+                         <TabPanel class="flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10">
+                            <div class="lg:w-1/2 w-full lg:block hidden">
+                                <img src="/images/pages/CABINETS.jpg">
+                            </div>
+                            <div class="lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8">
+                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold">
+                                        <li>Here at GLI Modular Cabinets</li>
+                                        <li>We offer you</li>
+                                    </ul>
+                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
+                                        <span class="">
+                                            tailored
+                                        </span>
+                                        <span class="rvmp-brand-color-highlight">
+                                            structures design
+                                        </span>
+                                    </div>
+                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                        The Cabinetry Fabrication Division, caters spaces, furnitures, and tailored product structures design.
+                                    </p>
+                                    <div class="space-x-5 flex lg:justify-start justify-center">
+                                        <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Get a FREE Consultation!</a>
+                                <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
+                                    </div>
+                            </div>
+                        </TabPanel>
+                    </TabPanels>
+                </TabGroup>
+            </div>
+        </div>
+</template>
+<script>
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+export default {
+    name: "Services",
+    components: {
+        TabGroup,TabList, Tab, TabPanels, TabPanel
+    },
+    props: {
+       
+    },
+    setup() {
+
+	}
+}
+</script>

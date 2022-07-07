@@ -5,7 +5,7 @@
     <div class="flex flex-row">
         <div id="content-area" class="w-full  h-auto bg-gray-50">
             <div class="h-screen">
-                {{menuLinks}}
+               
                     DASHBOARD HERE
             </div>
         </div>

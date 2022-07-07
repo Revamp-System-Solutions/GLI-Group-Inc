@@ -53,7 +53,7 @@ class AppServiceProvider extends ServiceProvider
             ];
         });
         $cpage_links = collect(PageLinks::get()->all())->mapToGroups(function($item, $key){
-            return [boolval($item['is_admin']) ? 'admin_links':'guest_links' => $item];
+            return [boolval($item['is_admin'])&& boolval($item['is_active']) ? 'admin_links':'guest_links' => $item];
         });
         $admin_page_links = Cache::put('admin_page_links', $cpage_links->get('admin_links'));
         $guest_page_links = Cache::put('guest_page_links', $cpage_links->get('guest_links'));

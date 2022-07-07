@@ -21,9 +21,7 @@
                         Get in touch
                     </h2>
                     <p class="brand-text text-center text-lg px-10">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Curabitur purus magna, rutrum nec arcu nec, fringilla
-                        scelerisque nisl.
+                        Send us your inquiries, our Professionals will check on it and give a response!
                     </p>
                 </div>
                 <div class="col-span-6">
@@ -117,7 +115,7 @@
                     let's talk
                 </h3>
                 <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">Phone: 0905-000-0000</span>
+                    <span class="block">Phone: (+63) (035) 400 3610</span>
                 </p>
             </div>
             <div
@@ -144,40 +142,44 @@
                 <a
                     href="https://www.facebook.com/gligroupinc"
                     target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link"
+                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
                     ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
+                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text "
                         ><span class="font-semibold">GLI</span>
-                        <span class="font-thin">Group Inc.</span>
-                    </span></a
-                >
+                        <span class="font-thin"> Group Inc.</span>
+                    </span></a>
                 <a
                     href="https://www.facebook.com/GLidesignstudio"
                     target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link"
+                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
                     ><span
                         class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
                         ><span class="font-thin">Design Studio</span></span
-                    ></a
-                >
+                    ></a>
                 <a
                     href="https://www.facebook.com/GLI-Builders-102946945203186"
                     target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link"
+                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
                     ><span
                         class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
                         ><span class="font-thin">Builders</span></span
-                    ></a
-                >
+                    ></a>
                 <a
                     href="https://www.facebook.com/glimodularcabinets"
                     target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link"
+                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
                     ><span
                         class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
                         ><span class="font-thin">Modular Cabinets</span></span
-                    ></a
-                >
+                    ></a>
+                <a
+                    href="https://www.linkedin.com/company/gli-group-inc/"
+                    target="_blank"
+                    class="fab fa-linkedin text-blue-700 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
+                    ><span
+                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
+                        ><span class="font-thin">Modular Cabinets</span></span
+                ></a>
             </div>
         </div>
         <div class="w-full h-auto pt-4">

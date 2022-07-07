@@ -30,7 +30,7 @@ class UserController extends Controller
                         ->with('users', $users)
                         ->with('roles', $roles)
                         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-                            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+                            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
                         }))
                         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }

@@ -32,7 +32,7 @@ Route::name('guest.')->group(function () {
     Route::get('about', [GuestController::class, 'showAboutPage'])->name('about');
     Route::get('contact-us', [GuestController::class, 'showContactPage'])->name('contact');
     Route::get('portfolio', [GuestController::class, 'showPortfolioPage'])->name('portfolio');
-    Route::get('blog/posts', [PostsController::class, 'index'])->name('blog');
+    Route::get('consultation/free', [GuestController::class, 'bookFree'])->name('bookfree');
     Route::get('blog/view/{post}', [PostsController::class, 'show'])->name('blog.view');
     Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('privacy');
     Route::get('terms-conditions', [GuestController::class, 'toc'])->name('toc');

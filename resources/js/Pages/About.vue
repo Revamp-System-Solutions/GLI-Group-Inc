@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-   <div class="rvmp-container h-auto space-y-6 mb-8">
+   <div class="rvmp-container h-auto space-y-0 mb-8">
         <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
             <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
                 <div class="lg:w-full lg:self-start self-center">
@@ -28,8 +28,8 @@
     </div>
     <div class="h-auto w-full bg-transparent">
             <div class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local " style="background-image: url('/images/pages/house.jpg')" >
-                <div class="w-full py-20 h-auto rvmp-banner-bg bg-opacity-70" >
-                    <div class="py-4 h-72 text-center mt-auto w-full flex flex-col justify-center rvmp-banner-text-color bg-transparent">
+                <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70" >
+                    <div class="h-44 text-center mt-auto w-full flex flex-col justify-center rvmp-banner-text-color bg-transparent">
                         <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase"><span class="brand-logo-text" id="client-brand"><span class="font-semibold">GLI</span> <span class="font-thin">GROUP INC.</span></span></h2>   
                         <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">Building a better built environment together</h2>
                          
@@ -37,7 +37,7 @@
                 </div>
             </div>
     </div>
-    <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main">
+    <!-- <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main">
         <div class="flex lg:flex-row-reverse flex-col h-auto relative">
             <div class="w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80">            
                     <div class="w-full h-full lg:static grid grid-cols-1 place-content-center">  
@@ -91,7 +91,7 @@
                 </div>    
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="h-auto w-full bg-transparent">
         <div class="flex lg:flex-row flex-col bg-cover bg-center bg-local" style="background-image: url('/images/pages/groups.jpeg')" >
             <div class="w-full relative py-10 h-auto " >
