@@ -49,7 +49,7 @@ class PostsController extends Controller
             "posts" => Post::orderBy('id', 'DESC')->paginate(15)
         ])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -60,7 +60,7 @@ class PostsController extends Controller
         $categories = Subcategories::whereCategoryId(3)->where('name',"!=", "Comments")->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -113,7 +113,7 @@ class PostsController extends Controller
             'medias' => Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name')
         ])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -176,7 +176,7 @@ class PostsController extends Controller
             "posts" => Portfolio::orderBy('id', 'DESC')->paginate(15)
         ])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -187,7 +187,7 @@ class PostsController extends Controller
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -328,7 +328,7 @@ class PostsController extends Controller
             "posts" => Testimonials::orderBy('id', 'DESC')->paginate(15)
         ])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -338,7 +338,7 @@ class PostsController extends Controller
         $categories = Subcategories::whereCategoryId(4)->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }
@@ -394,7 +394,7 @@ class PostsController extends Controller
                         ->with('categories', $subcat)
                         ->with('medias',  $media)
                         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
-                            return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
+                            return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
                         }))
                         ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
     }

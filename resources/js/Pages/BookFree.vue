@@ -1,39 +1,30 @@
 <template>
-    <app-header></app-header>
-    <div class="rvmp-container h-auto space-y-6 mb-8">
-    <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/groups.jpeg')">
-        <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
-            <div class="lg:w-full lg:self-start self-center">
-                <span class="px-5 brand-text xl:text-xl text-lg font-bold rvmp-banner-text-color capitalize"><inertia-link :href="$route('guest.blog')" preserve-state class="nav-link hover:rvmp-brand-color-accent">Blog</inertia-link> /</span><h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">{{form.title}}</h1>
-            </div>
-        </div>
-    </div>
-    <div  class="mx-auto sm:py-24 2xl:px-64 xl:px-56 lg:px-28 ">
-            <div class="w-full flex lg:flex-row flex-col lg:space-x-8 space-x-0 lg:space-y-0 space-y-8" >
-                <div class="w-full px-8 space-y-6">
-                    <div class='w-full h-auto flex justify-center items-center '>
-                    <img :src="image_url" class="w-full"  v-if="image_url" />
-                    </div >
-                        
-                    <div id='post-content-container' v-html="form.content"></div >
-                    
+  
+    <div class="rvmp-container h-auto">
+    <div  class="">
+            <div class="w-full flex lg:flex-row flex-col space-x-0 space-y-0 h-full relative" >
+                <div class="w-full h-screen px-8 space-y-6 bg-origin-border bg-cover bg-no-repeat bg-center bg-local static" style="background-image: url('/images/pages/section-1.jpg')" >
+              
+                    <div class="text-center">
+                       &nbsp;
+                    </div>
                 </div>
-                <div class="w-full xl:px-7 px-4 lg:pb-0 pb-10">
-                    <form action="#" method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl">
+                <div class="w-full px-4 flex flex-wrap content-center lg:static absolute lg:bg-transparent bg-gray-100 lg:bg-opacity-100 bg-opacity-75 lg:h-auto h-full">
+                    <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl w-full bg-gray-50" @submit.prevent="sendMessage()">
                         <div class="col-span-6">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">FREE Consultation</span></h3>
                         </div>
                         <div class="col-span-6">
                           <label for="full-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
-                          <input type="text" name="full-name" id="full-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="text" name="full-name" id="full-name" placeholder="Full name" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full  rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.fullName"/>
                         </div>
                         <div class="col-span-6">
                           <label for="email-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Email address</label>
-                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.email"/>
                         </div>
                         <div class="col-span-6">
                           <label for="contact-number" class="text-sm font-medium rvmp-footer-text capitalize hidden">Contact Number</label>
-                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
+                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.contact"/>
                         </div>
                         <div class="col-span-6 ">
                           <label for="project" class="text-sm font-medium rvmp-footer-text capitalize hidden">Type of Project</label>
@@ -94,11 +85,11 @@
                         </div>
                         <div class="col-span-6">
                           <label for="date_needed" class="text-sm font-medium rvmp-footer-text capitalize block">when</label>
-                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" />
-                        </div>                        
+                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
+                        </div>
                         <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
-                          <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" ></textarea>
+                          <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" v-model="form.details"></textarea>
                         </div>
                         <div class="col-span-6">
                           <button class="bg-green-600 text-white px-4 py-1.5  hover:bg-green-700 w-full rounded-md  transition ease-in-out duration-300">Book a Meeting</button>
@@ -106,21 +97,20 @@
                     </form>
                 </div>
             </div>
-            
-          
+
+
     </div>
-     
+
     </div>
-    <app-footer-contact-form/> 
+
 </template>
 
 <script>
-import AppHeader from "../Partials/AppHeader";
-import AppFooterContactForm from "../Partials/AppFooterContactForm";
+
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
-import {inject, reactive,ref} from "vue";
-import {Inertia} from "@inertiajs/inertia";
 import {usePage} from "@inertiajs/inertia-vue3";
+import {Inertia} from "@inertiajs/inertia";
+import {computed, inject,ref, reactive} from "vue";
  import {
     Listbox,
     ListboxButton,
@@ -128,34 +118,39 @@ import {usePage} from "@inertiajs/inertia-vue3";
     ListboxOption,
   } from '@headlessui/vue'
 export default {
-    name: "ViewPost",
+    name: "Home",
     components: {
         ErrorsAndMessages,
-        AppHeader,
-        AppFooterContactForm,
+ 
+
         Listbox,
-        ListboxButton, 
-        ListboxOptions, 
-        ListboxOption,
+        ListboxButton,
+        ListboxOptions,
+        ListboxOption
     },
     props: {
         errors: Object
     },
+    methods:{
+        makeBG(url){
+            return `background-image: url('${url}')`
+        }
+    },
     setup() {
-        const form = reactive({
-            title: null,
-            content: null,
-            image: null,
+         const form = reactive({
+            fullName: null,
+            email: null,
+            contact: null,
+            projectType: null,
+            bookingDate: null,
+            details: null,
             _token: usePage().props.value.csrf_token,
-            _method: "PUT"
         });
 
-        // retrieve post prop
-        const {title, content, image_url, id } = usePage().props.value.post;
-        form.title = title;
-        form.content = content;
-       
         const route = inject('$route');
+
+       
+      
         const services = [
             { id: 0, name: 'Type of Project', disabled: true },
             { id: 1, name: 'Clean gutters', disabled: false },
@@ -178,29 +173,27 @@ export default {
             { id: 18, name: 'Other', disabled: false },
             ]
               const selectedService = ref(services[0])
-        function selectFile($event) {
-            form.image = $event.target.files[0];
-        }
+            function sendMessage() {
+                const data = new FormData();
 
-        function submit() {
-            Inertia.post(route('blog.update', {'id': id}), form, {
-                forceFormData: true
-            });
-        }
+                data.append("formTitle", 'Book a Meeting')
+                data.append("fullName", this.form.fullName);
+                data.append("email", this.form.email);
+                data.append("contact", this.form.contact);
+                data.append("projectType", this.selectedService);
+                data.append("bookingDate", this.form.bookingDate);
+                data.append("details", this.form.details);
 
+                Inertia.post(route("form.submission"), data, {
+                    forceFormData: true,
+                });
+              }
         return {
-            form, submit, selectFile, image_url,services,
+            form,
+            services,
+            sendMessage,
             selectedService,
         }
-    },
-    mounted(){
-        //  $($.parseHTML(this.form.content)).appendTo('#post-content-container')
     }
 }
 </script>
-
-<style scoped>
-    form {
-        margin-top: 20px;
-    }
-</style>

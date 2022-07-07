@@ -57,7 +57,7 @@
                                 <p
                                     class="brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
                                 >
-                                    The Design Arm, caters to the Architectural
+                                    The Design Division, caters to the Architectural
                                     & Engineering design requirements for
                                     clients.
                                 </p>
@@ -87,7 +87,7 @@
                                 <p
                                     class="brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
                                 >
-                                    The Construction Arm, caters to new
+                                    The Construction Division, caters to new
                                     construction, renovation, addition, repair
                                     of vertical buildings mainly residential
                                     commercial & institutional and other related
@@ -119,7 +119,7 @@
                                 <p
                                     class="brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
                                 >
-                                    The Cabinetry Fabrication Arm, caters
+                                    The Cabinetry Fabrication Division, caters
                                     spaces, furnitures, and tailored product
                                     structures design.
                                 </p>
@@ -171,11 +171,11 @@
                             <i
                                 class="fas fa-envelope pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left"
                             ></i>
-                            <span
-                                class="brand-text 2xl:text-sm text-xs text-left font-light"
+                            <a href="mailto:support@gligroupinc.com"
+                                class="brand-text rvmp-brand-color-main 2xl:text-sm text-xs text-left font-light"
                             >
-                                client.gli@gmail.com
-                            </span>
+                                support@gligroupinc.com
+                            </a>
                         </div>
                     </div>
                     <div

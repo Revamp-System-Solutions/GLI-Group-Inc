@@ -36,7 +36,7 @@
                                     </div>
                                   </div>
                                     
-                                    <input type="text" placeholder="Enter link" class="rounded-md" @keydown.enter.prevent="addLink(value,$event)"/>
+                                    <input type="text" placeholder="Paste Link and Press Enter to add link " class="rounded-md" @keydown.enter.prevent="addLink(value,$event)"/>
                                 </div>
                                  
                             
@@ -282,7 +282,8 @@ export default {
           '0_fb' : 'facebook',
           '0_ig' : 'instagram',
           '0_yt' : 'youtube',
-          '0_twttr' : 'twitter'
+          '0_twttr' : 'twitter',
+          '0_lnkdn' : 'LinkedIn'
         }
   	}),
     setup() {
@@ -335,8 +336,7 @@ export default {
        
       var full_address = (site_profile['0_site_name'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_1'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_2'].split(" ")).join('%20') + ',%20' + (site_profile['town'].split(" ")).join('%20') + ',%20' + (site_profile['postal_code'].split(" ")).join('%20')+ '%20' + (site_profile['state'].split(" ")).join('%20')
       const embed_url = `https://maps.google.it/maps?q=${full_address}&t=&z=19&ie=UTF8&iwloc=&output=embed`
-      console.log(embed_url)
-       
+
       function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
@@ -471,7 +471,7 @@ export default {
         arr[index]=value
       },
       formatLabel(lbl){
-        return ['0_fb','0_ig','0_yt','0_twttr'].includes(lbl) ? this.socialN[lbl] : (lbl.includes('_') ? (lbl.startsWith('0_')? (lbl.substring(2)).split('_').join(' '):lbl.split('_').join(' ')):lbl)
+        return ['0_fb','0_ig','0_yt','0_twttr','0_lnkdn'].includes(lbl) ? this.socialN[lbl] : (lbl.includes('_') ? (lbl.startsWith('0_')? (lbl.substring(2)).split('_').join(' '):lbl.split('_').join(' ')):lbl)
       },
       addLink(arr,ev){
         arr.push(ev.target.value)

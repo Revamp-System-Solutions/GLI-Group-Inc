@@ -223,7 +223,7 @@
                                 <li>Valencia, Negros Oriental 6215</li>
                                 <li>Philippines</li>
                                 <li>Phone:  (035) 400 3610</li>
-                                <li><a href="mailto:support@gligroupinc.com">support@gligroupinc.com</a></li>
+                                <li><a href="mailto:support@gligroupinc.com" class="rvmp-brand-color-main font-bold">support@gligroupinc.com</a></li>
                             </ul>
                         </p>
                     </div>                    

@@ -24,34 +24,61 @@
 				<li class="mx-6 " >
 					 <div class="relative inline-flex align-middle w-full" v-click-away="onClickAway" style="cursor:pointer">
 						<a class="nav-link hover:rvmp-brand-color-main" type="button" @click.prevent="toggleDropdown()"  id="btnDropdownRef" ref="btnDropdownRef" >
-						 	Services
+						 	Divisions
 						</a>
-						<div v-bind:class="{'hidden': !dropdownPopoverShow, 'block': dropdownPopoverShow}" class="rvmp-bg-main text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" ref="popoverDropdownRef">
-							<a v-if="!switchInertia" href="#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Modular Cabinets
-							</a>
-							<a v-if="!switchInertia" href="#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+						<div :class="!dropdownPopoverShow ? 'hidden': 'block',  !subdropdownPopoverShow ? 'rvmp-bg-main':'rvmp-bg-alt text-gray-300'" class=" text-base z-40 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" ref="popoverDropdownRef">
+							<a @mouseover="subtoggleDropdown('builder')" @mouseleave="subtoggleDropdown('builder')" id="builderbtnsubDropdownRef" ref="builderbtnsubDropdownRef" > 
+							<inertia-link href="/home#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
 								Builders
-							</a>
-							<a v-if="!switchInertia" href="#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+							</inertia-link></a>
+						
+							<!-- <a v-if="!switchInertia" href="#builders"  @mouseover="subtoggleDropdown('builder')" @mouseleave="subtoggleDropdown('builder')" id="builderbtnsubDropdownRef" ref="builderbtnsubDropdownRef" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+								Builders
+							</a> -->
+							<div :class="subdropdownPopoverShow && subH =='builder' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('builder')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="builderPopoverDropdownRef">
+									<ul>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Project Management</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Renovations</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Construction</li>
+									</ul>								
+							</div>
+							<!-- <a v-if="!switchInertia" href="#designstudio" @mouseover="subtoggleDropdown('design')" @mouseleave="subtoggleDropdown('design')" id="designbtnsubDropdownRef" ref="designbtnsubDropdownRef" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Design Studio
-							</a>
+							</a> -->
+								<a @mouseover="subtoggleDropdown('design')" @mouseleave="subtoggleDropdown('design')" id="designbtnsubDropdownRef" ref="designbtnsubDropdownRef">
+							<inertia-link href="/home#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
+								Design Studio
+							</inertia-link></a>
 							
-							<inertia-link v-if="switchInertia" href="/home#modularcabinets" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
+							<div :class="subdropdownPopoverShow && subH =='design' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('design')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="designPopoverDropdownRef">
+									<ul>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Planning and Design</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Drafting Services for US and AU clients</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Animation</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">3D Rendering</li>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Building Information Modeling (BIM)</li>
+									</ul>								
+							</div>
+							<!-- <a v-if="!switchInertia" href="#modularcabinets" @mouseover="subtoggleDropdown('cabinet')" @mouseleave="subtoggleDropdown('cabinet')" id="cabinetsbtnsubDropdownRef" ref="cabinetsbtnsubDropdownRef" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
 								Modular Cabinets
-							</inertia-link>
-							<inertia-link v-if="switchInertia" href="/home#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Builders
-							</inertia-link>
-							<inertia-link v-if="switchInertia" href="/home#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
-								Design Studio
-							</inertia-link>
+							</a> -->
+							<a @mouseover="subtoggleDropdown('cabinet')" @mouseleave="subtoggleDropdown('cabinet')" id="cabinetsbtnsubDropdownRef" ref="cabinetsbtnsubDropdownRef">
+								<inertia-link :href="$route('guest.index')+'#modularcabinets'"  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
+								Modular Cabinets
+							</inertia-link> </a>
+							<div :class="subdropdownPopoverShow && subH =='cabinet' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('cabinet')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="cabinetsPopoverDropdownRef">
+									<ul>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Modular Cabinets Installation</li>
+										
+									</ul>								
+							</div>
+						
+						
+					
 						</div>
 					</div>
 				</li>
-                <li class="mx-6">
-					 <inertia-link :href="$route('guest.blog')" class="nav-link hover:rvmp-brand-color-main">Blog</inertia-link>
-				</li>
+          
 				<li class="mx-6">
 					 <inertia-link :href="$route('guest.portfolio')" class="nav-link hover:rvmp-brand-color-main">Portfolio</inertia-link>
 				</li>
@@ -83,6 +110,8 @@ export default {
  	 },
 	 data: () => ({
     	dropdownPopoverShow: false,
+		subdropdownPopoverShow: false,
+		subH: '',
 		switchInertia: false,
 		menuOpen: false,
   	}),
@@ -101,6 +130,19 @@ export default {
 			this.dropdownPopoverShow = true;
 			createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
 			placement: "bottom-start"
+			});
+		}
+		},
+		subtoggleDropdown: function(div){
+			
+		if(this.subdropdownPopoverShow){
+			this.subdropdownPopoverShow = false;
+			this.subH = ''
+		} else {
+			this.subdropdownPopoverShow = true;
+			this.subH = div
+			createPopper(div === 'builder' ? this.$refs.builderbtnsubDropdownRef : (div === 'design' ? this.$refs.designbtnsubDropdownRef: ( div === 'cabinet' ? this.$refs.cabinetsbtnsubDropdownRef : '')), div === 'builder' ? this.$refs.builderPopoverDropdownRef : (div === 'design' ? this.$refs.designPopoverDropdownRef: ( div === 'cabinet' ? this.$refs.cabinetsPopoverDropdownRef : '')), {
+			placement: "right"
 			});
 		}
 		},

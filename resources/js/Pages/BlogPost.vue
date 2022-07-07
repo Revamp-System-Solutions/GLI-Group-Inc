@@ -48,7 +48,7 @@
                 <div class="w-full xl:px-7 px-4 lg:pb-0 pb-10">
                     <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl" @submit.prevent="sendMessage()">
                         <div class="col-span-6">
-                          <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">Free Quotation</span></h3>
+                          <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">FREE Consultation</span></h3>
                         </div>
                         <div class="col-span-6">
                           <label for="full-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>

@@ -75,7 +75,7 @@ If our store is acquired or merged with another company, your information may be
                             <div class="col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center">
                                 <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">QUESTIONS AND CONTACT INFORMATION</h2> 
                             </div>               
-                            <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text ">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href="mailto:support@gligroupinc.com">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website
+                            <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text ">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href="mailto:support@gligroupinc.com" class="rvmp-brand-color-main font-bold">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website
                             </p> 
                         </div>                       
                 </div>

@@ -45,7 +45,7 @@ class WebSettingsSeeder extends Seeder
             [
                 'id'                => 4,
                 'attribute'         => 'Social Media links',
-                'value'             => '{"0_fb":["https://www.facebook.com/gligroupinc","https://www.facebook.com/GLidesignstudio","https://www.facebook.com/GLidesignstudio", "https://www.facebook.com/glimodularcabinets"], "0_ig":[], "0_yt":[], "0_twttr":[]}',
+                'value'             => '{"0_fb":["https://www.facebook.com/gligroupinc","https://www.facebook.com/GLidesignstudio","https://www.facebook.com/GLidesignstudio", "https://www.facebook.com/glimodularcabinets"], "0_ig":[], "0_yt":[], "0_twttr":[], "0_lnkdn":["https://www.linkedin.com/company/gli-group-inc"]}',
                 'short_name'        => 'social_links',
                 'is_activated'      => true,
                 'settings_group'    => '00_client_inf'

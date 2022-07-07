@@ -22,17 +22,19 @@ class PageLinksSeeder extends Seeder
                 "is_parent"         =>       true,
 				"has_dropdown"      =>       false,
                 "parentLink"        =>       '',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Pages',
-				"href"      =>         '',
+				"href"      =>         'page.admin',
 				"order"             =>         'order-2',
 				"icon"              =>        "fas fa-file-alt",
                 "is_parent"      =>         true,
 				"has_dropdown"      =>         false,
                 "parentLink"        =>       '',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Posts',
@@ -42,7 +44,8 @@ class PageLinksSeeder extends Seeder
                 "is_parent"      =>         true,
 				"has_dropdown"      =>         true,
                 "parentLink"        =>       '',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
 
             ],
             [
@@ -53,7 +56,8 @@ class PageLinksSeeder extends Seeder
                 "is_parent"      =>         true,
 				"has_dropdown"      =>         true,
                 "parentLink"        =>       '',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
 
             ],
             [
@@ -64,7 +68,8 @@ class PageLinksSeeder extends Seeder
                 "is_parent"      =>         true,
 				"has_dropdown"      =>         true,
                 "parentLink"        =>       '',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Blog',
@@ -74,7 +79,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Posts',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       false
             ],
             [
                 "title"      =>         'Testimonials',
@@ -84,7 +90,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Posts',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Portfolio',
@@ -94,7 +101,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Posts',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
 
             ],
             [
@@ -105,7 +113,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Media',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
 
             ],
             [
@@ -116,7 +125,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Site',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Settings',
@@ -126,7 +136,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         'Site',
-                "is_admin"          =>       true
+                "is_admin"          =>       true,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Home',
@@ -136,17 +147,19 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
-                "title"      =>         'Services',
+                "title"      =>         'Divisions',
 				"href"      =>         '',
 				"icon"      =>         '',
 				"order"      =>         'order-2',
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         true,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Modular Cabinets',
@@ -156,7 +169,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         'Services',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Builders',
@@ -165,8 +179,9 @@ class PageLinksSeeder extends Seeder
 				"order"      =>         'order-2',
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         false,
-                "parentLink"      =>         'Services',
-                "is_admin"          =>       false
+                "parentLink"      =>         'Divisions',
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Design Studio',
@@ -175,8 +190,9 @@ class PageLinksSeeder extends Seeder
 				"order"      =>         'order-3',
 				"is_parent"      =>         false,
                 "has_dropdown"      =>         false,
-                "parentLink"      =>         'Services',
-                "is_admin"          =>       false
+                "parentLink"      =>         'Divisions',
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Blog',
@@ -186,7 +202,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Portfolio',
@@ -196,7 +213,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'About',
@@ -206,7 +224,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
             [
                 "title"      =>         'Contact Us',
@@ -216,7 +235,8 @@ class PageLinksSeeder extends Seeder
 				"is_parent"      =>         true,
                 "has_dropdown"      =>         false,
                 "parentLink"      =>         '',
-                "is_admin"          =>       false
+                "is_admin"          =>       false,
+                "is_active"         =>       true
             ],
         ];
 

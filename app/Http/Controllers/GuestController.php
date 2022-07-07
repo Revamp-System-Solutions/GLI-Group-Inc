@@ -17,7 +17,7 @@ class GuestController extends Controller
 
     public function index()
     {
-        return Inertia::render('Index',[
+        return Inertia::render('Home/Index',[
             "posts" => Testimonials::orderBy('created_at', 'DESC')->skip(0)->take(10)->get()
         ]);
     }
@@ -34,6 +34,10 @@ class GuestController extends Controller
     public function showContactPage()
     {
         return Inertia::render('Contact');
+    }
+    public function bookFree()
+    {
+        return Inertia::render('BookFree');
     }
     public function toc()
     {
