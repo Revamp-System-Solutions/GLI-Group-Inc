@@ -36,7 +36,6 @@ import {usePage} from "@inertiajs/inertia-vue3";
     setup() {
   
       let maps = JSON.parse(usePage().props.value.gli_guest_tools.maps[0].value)
-          console.log(maps)
         const apiKey = maps['0_api_key']
         const center ={lat:maps['pin_position_latitude'], lng:maps['pin_position_longitude']}
         const zoom = maps['zoom']

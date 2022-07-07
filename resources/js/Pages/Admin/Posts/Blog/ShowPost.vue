@@ -189,8 +189,6 @@ export default {
         const posts = computed(() => usePage().props.value.posts);
 
         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
-    console.log(menuLinks)
-
 
         return {
             posts,
