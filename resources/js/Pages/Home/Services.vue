@@ -154,7 +154,6 @@ export default {
     props: ['url'],
     setup(props, {}) {
         let uri = props.url
-        console.log(uri.includes('#builders'))
         let index = 0;
         if(uri.includes('#builders')){
             index = 0

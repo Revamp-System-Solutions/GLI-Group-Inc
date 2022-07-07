@@ -336,8 +336,7 @@ export default {
        
       var full_address = (site_profile['0_site_name'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_1'].split(" ")).join('%20')+ ',%20'+ (site_profile['address_line_2'].split(" ")).join('%20') + ',%20' + (site_profile['town'].split(" ")).join('%20') + ',%20' + (site_profile['postal_code'].split(" ")).join('%20')+ '%20' + (site_profile['state'].split(" ")).join('%20')
       const embed_url = `https://maps.google.it/maps?q=${full_address}&t=&z=19&ie=UTF8&iwloc=&output=embed`
-      console.log(embed_url)
-       
+
       function submitColor() {
             Inertia.post(route('settings.color.change'), newcolor, {
                 forceFormData: true,
