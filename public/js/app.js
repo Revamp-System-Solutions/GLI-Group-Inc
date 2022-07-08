@@ -29651,6 +29651,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "CalendlyPlugin",
+  components: {},
+  props: {},
+  setup: function setup() {
+    // `<div class="calendly-inline-widget" data-url="https://calendly.com/rvmpsystemssolution/test-events?hide_event_type_details=1&hide_gdpr_banner=1" style="height:320px"/>`
+    return {};
+  },
+  mounted: function mounted() {
+    window.Calendly.initInlineWidget({
+      url: 'https://calendly.com/rvmpsystemssolution/test-events ',
+      parentElement: document.getElementById('SAMPLEdivID'),
+      prefill: {
+        name: 'Alamein',
+        email: 'abc@gmaoil.com',
+        customAnswers: {
+          a1: 'yes'
+        }
+      },
+      utm: {}
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/GoogleMapPlugin.vue?vue&type=script&lang=js ***!
@@ -29670,7 +29707,6 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   setup: function setup() {
     var maps = JSON.parse((0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.gli_guest_tools.maps[0].value);
-    console.log(maps);
     var apiKey = maps['0_api_key'];
     var center = {
       lat: maps['pin_position_latitude'],
@@ -30498,7 +30534,6 @@ __webpack_require__.r(__webpack_exports__);
     var numberLinks = posts.value.links.filter(function (v, i) {
       return i > 0 && i < posts.value.links.length - 1;
     });
-    console.log(menuLinks);
     return {
       posts: posts,
       deletePost: deletePost,
@@ -31649,7 +31684,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         '0_fb': 'facebook',
         '0_ig': 'instagram',
         '0_yt': 'youtube',
-        '0_twttr': 'twitter'
+        '0_twttr': 'twitter',
+        '0_lnkdn': 'LinkedIn'
       }
     };
   },
@@ -31704,7 +31740,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var site_profile = settings.value['00_client_inf'][0]['value'];
     var full_address = site_profile['0_site_name'].split(" ").join('%20') + ',%20' + site_profile['address_line_1'].split(" ").join('%20') + ',%20' + site_profile['address_line_2'].split(" ").join('%20') + ',%20' + site_profile['town'].split(" ").join('%20') + ',%20' + site_profile['postal_code'].split(" ").join('%20') + '%20' + site_profile['state'].split(" ").join('%20');
     var embed_url = "https://maps.google.it/maps?q=".concat(full_address, "&t=&z=19&ie=UTF8&iwloc=&output=embed");
-    console.log(embed_url);
 
     function submitColor() {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.post(route('settings.color.change'), newcolor, {
@@ -31849,7 +31884,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       arr[index] = value;
     },
     formatLabel: function formatLabel(lbl) {
-      return ['0_fb', '0_ig', '0_yt', '0_twttr'].includes(lbl) ? this.socialN[lbl] : lbl.includes('_') ? lbl.startsWith('0_') ? lbl.substring(2).split('_').join(' ') : lbl.split('_').join(' ') : lbl;
+      return ['0_fb', '0_ig', '0_yt', '0_twttr', '0_lnkdn'].includes(lbl) ? this.socialN[lbl] : lbl.includes('_') ? lbl.startsWith('0_') ? lbl.substring(2).split('_').join(' ') : lbl.split('_').join(' ') : lbl;
     },
     addLink: function addLink(arr, ev) {
       arr.push(ev.target.value);
@@ -32281,6 +32316,176 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Partials/ErrorsAndMessages */ "./resources/js/Partials/ErrorsAndMessages.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/listbox/listbox.esm.js");
+/* harmony import */ var _Components_Plugins_CalendyPlugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Plugins/CalendyPlugin */ "./resources/js/Components/Plugins/CalendyPlugin.vue");
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "Home",
+  components: {
+    ErrorsAndMessages: _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Listbox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.Listbox,
+    ListboxButton: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ListboxButton,
+    ListboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ListboxOptions,
+    ListboxOption: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ListboxOption,
+    CalendyPlugin: _Components_Plugins_CalendyPlugin__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  props: {
+    errors: Object
+  },
+  methods: {
+    makeBG: function makeBG(url) {
+      return "background-image: url('".concat(url, "')");
+    },
+    openCalendly: function openCalendly() {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/rvmpsystemssolution/test-events?hide_event_type_details=1&hide_gdpr_banner=1',
+        parentElement: document.getElementById('calendly-popup'),
+        prefill: {
+          name: 'Alamein',
+          email: 'abc@gmaoil.com',
+          customAnswers: {
+            a1: 'yes'
+          }
+        },
+        utm: {}
+      });
+    }
+  },
+  setup: function setup() {
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_3__.reactive)({
+      fullName: null,
+      email: null,
+      contact: null,
+      projectType: null,
+      bookingDate: null,
+      details: null,
+      _token: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.csrf_token
+    });
+    var route = (0,vue__WEBPACK_IMPORTED_MODULE_3__.inject)('$route');
+    var services = [{
+      id: 0,
+      name: 'Type of Project',
+      disabled: true
+    }, {
+      id: 1,
+      name: 'Clean gutters',
+      disabled: false
+    }, {
+      id: 2,
+      name: 'Demolition',
+      disabled: false
+    }, {
+      id: 3,
+      name: 'Remodeling',
+      disabled: false
+    }, {
+      id: 4,
+      name: 'Install drywall',
+      disabled: false
+    }, {
+      id: 5,
+      name: 'Install fan',
+      disabled: false
+    }, {
+      id: 6,
+      name: 'Install flooring',
+      disabled: false
+    }, {
+      id: 7,
+      name: 'Install tile work',
+      disabled: false
+    }, {
+      id: 8,
+      name: 'Install water fixtures',
+      disabled: false
+    }, {
+      id: 9,
+      name: 'Mount TV',
+      disabled: false
+    }, {
+      id: 10,
+      name: 'Paint indoors',
+      disabled: false
+    }, {
+      id: 11,
+      name: 'Paint outdoors',
+      disabled: false
+    }, {
+      id: 12,
+      name: 'Refurbishment',
+      disabled: false
+    }, {
+      id: 13,
+      name: 'Repair Flooring',
+      disabled: false
+    }, {
+      id: 14,
+      name: 'Repair water fixtures',
+      disabled: false
+    }, {
+      id: 15,
+      name: 'Repair drywall',
+      disabled: false
+    }, {
+      id: 16,
+      name: 'Repair fan',
+      disabled: false
+    }, {
+      id: 17,
+      name: 'Repair tile work',
+      disabled: false
+    }, {
+      id: 18,
+      name: 'Other',
+      disabled: false
+    }];
+    var selectedService = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(services[0]);
+
+    function sendMessage() {
+      var data = new FormData();
+      data.append("formTitle", 'Book a Meeting');
+      data.append("fullName", this.form.fullName);
+      data.append("email", this.form.email);
+      data.append("contact", this.form.contact);
+      data.append("projectType", this.selectedService);
+      data.append("bookingDate", this.form.bookingDate);
+      data.append("details", this.form.details);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route("form.submission"), data, {
+        forceFormData: true
+      });
+    }
+
+    return {
+      form: form,
+      services: services,
+      sendMessage: sendMessage,
+      selectedService: selectedService
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Contact.vue?vue&type=script&lang=js":
 /*!********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Contact.vue?vue&type=script&lang=js ***!
@@ -32350,10 +32555,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=script&lang=js":
-/*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=script&lang=js ***!
-  \******************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -32361,13 +32566,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Partials/AppHeader */ "./resources/js/Partials/AppHeader.vue");
-/* harmony import */ var _Partials_AppFooterDefault__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Partials/AppFooterDefault */ "./resources/js/Partials/AppFooterDefault.vue");
-/* harmony import */ var _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Partials/ErrorsAndMessages */ "./resources/js/Partials/ErrorsAndMessages.vue");
+/* harmony import */ var _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Partials/AppHeader */ "./resources/js/Partials/AppHeader.vue");
+/* harmony import */ var _Partials_AppFooterDefault__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Partials/AppFooterDefault */ "./resources/js/Partials/AppFooterDefault.vue");
+/* harmony import */ var _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Partials/ErrorsAndMessages */ "./resources/js/Partials/ErrorsAndMessages.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Sections_LeadBanner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Sections/LeadBanner */ "./resources/js/Sections/LeadBanner.vue");
-/* harmony import */ var _Sections_Services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Sections/Services */ "./resources/js/Sections/Services.vue");
-/* harmony import */ var _Sections_Testimonial__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Sections/Testimonial */ "./resources/js/Sections/Testimonial.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _LeadBanner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LeadBanner */ "./resources/js/Pages/Home/LeadBanner.vue");
+/* harmony import */ var _Services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Services */ "./resources/js/Pages/Home/Services.vue");
+/* harmony import */ var _Testimonial__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Testimonial */ "./resources/js/Pages/Home/Testimonial.vue");
+
 
 
 
@@ -32382,9 +32589,9 @@ __webpack_require__.r(__webpack_exports__);
     ErrorsAndMessages: _Partials_ErrorsAndMessages__WEBPACK_IMPORTED_MODULE_2__["default"],
     AppHeader: _Partials_AppHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     AppFooterDefault: _Partials_AppFooterDefault__WEBPACK_IMPORTED_MODULE_1__["default"],
-    LeadBanner: _Sections_LeadBanner__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Services: _Sections_Services__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Testimonial: _Sections_Testimonial__WEBPACK_IMPORTED_MODULE_6__["default"]
+    LeadBanner: _LeadBanner__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Services: _Services__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Testimonial: _Testimonial__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: {
     errors: Object,
@@ -32402,7 +32609,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   setup: function setup() {
-    var posts = computed(function () {
+    var posts = (0,vue__WEBPACK_IMPORTED_MODULE_4__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.value.posts;
     });
     return {
@@ -32429,6 +32636,124 @@ __webpack_require__.r(__webpack_exports__);
           snapAlign: "center-odd"
         }
       }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "LeadBanner",
+  components: {},
+  props: {},
+  setup: function setup() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/tabs/tabs.esm.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "Services",
+  components: {
+    TabGroup: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.TabGroup,
+    TabList: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.TabList,
+    Tab: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.Tab,
+    TabPanels: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.TabPanels,
+    TabPanel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.TabPanel
+  },
+  props: ['url'],
+  setup: function setup(props, _ref) {
+    _objectDestructuringEmpty(_ref);
+
+    var uri = props.url;
+    var index = 0;
+
+    if (uri.includes('#builders')) {
+      index = 0;
+    } else if (uri.includes('#designstudio')) {
+      index = 1;
+    } else if (uri.includes('#modularcabinets')) {
+      index = 2;
+    }
+
+    var selectedTab = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(index);
+
+    function changeTab(index) {
+      selectedTab.value = index;
+    }
+
+    return {
+      selectedTab: selectedTab,
+      changeTab: changeTab
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue3_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue3-carousel */ "./node_modules/vue3-carousel/dist/carousel.es.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "Testimonial",
+  components: {
+    Carousel: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Carousel,
+    Slide: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Slide,
+    Pagination: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Pagination,
+    Navigation: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Navigation
+  },
+  props: ["carouselSettings", "carouselBreakpoints", "carouselTestimonials"],
+  setup: function setup(props, _ref) {
+    _objectDestructuringEmpty(_ref);
+
+    var settings = props.carouselSettings;
+    var breakpoints = props.carouselBreakpoints;
+    var posts = props.carouselTestimonials;
+    return {
+      settings: settings,
+      breakpoints: breakpoints,
+      posts: posts
     };
   }
 });
@@ -32890,6 +33215,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       dropdownPopoverShow: false,
+      subdropdownPopoverShow: false,
+      subH: '',
       switchInertia: false,
       menuOpen: false
     };
@@ -32907,6 +33234,18 @@ __webpack_require__.r(__webpack_exports__);
         this.dropdownPopoverShow = true;
         (0,_popperjs_core__WEBPACK_IMPORTED_MODULE_2__.createPopper)(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
           placement: "bottom-start"
+        });
+      }
+    },
+    subtoggleDropdown: function subtoggleDropdown(div) {
+      if (this.subdropdownPopoverShow) {
+        this.subdropdownPopoverShow = false;
+        this.subH = '';
+      } else {
+        this.subdropdownPopoverShow = true;
+        this.subH = div;
+        (0,_popperjs_core__WEBPACK_IMPORTED_MODULE_2__.createPopper)(div === 'builder' ? this.$refs.builderbtnsubDropdownRef : div === 'design' ? this.$refs.designbtnsubDropdownRef : div === 'cabinet' ? this.$refs.cabinetsbtnsubDropdownRef : '', div === 'builder' ? this.$refs.builderPopoverDropdownRef : div === 'design' ? this.$refs.designPopoverDropdownRef : div === 'cabinet' ? this.$refs.cabinetsPopoverDropdownRef : '', {
+          placement: "right"
         });
       }
     },
@@ -33033,94 +33372,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js":
-/*!**************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js ***!
-  \**************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "LeadBanner",
-  components: {},
-  props: {},
-  setup: function setup() {}
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=script&lang=js":
-/*!************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=script&lang=js ***!
-  \************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/tabs/tabs.esm.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Services",
-  components: {
-    TabGroup: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.TabGroup,
-    TabList: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.TabList,
-    Tab: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.Tab,
-    TabPanels: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.TabPanels,
-    TabPanel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_0__.TabPanel
-  },
-  props: {},
-  setup: function setup() {}
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js ***!
-  \***************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var vue3_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue3-carousel */ "./node_modules/vue3-carousel/dist/carousel.es.js");
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Testimonial",
-  components: {
-    Carousel: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Carousel,
-    Slide: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Slide,
-    Pagination: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Pagination,
-    Navigation: vue3_carousel__WEBPACK_IMPORTED_MODULE_0__.Navigation
-  },
-  props: ["carouselSettings", "carouselBreakpoints", "carouselTestimonials"],
-  setup: function setup(props, _ref) {
-    _objectDestructuringEmpty(_ref);
-
-    var settings = props.carouselSettings;
-    var breakpoints = props.carouselBreakpoints;
-    var posts = props.carouselTestimonials;
-    return {
-      settings: settings,
-      breakpoints: breakpoints,
-      posts: posts
-    };
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modals/WarningModal.vue?vue&type=template&id=5871199f":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modals/WarningModal.vue?vue&type=template&id=5871199f ***!
@@ -33236,6 +33487,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95 ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  id: "SAMPLEdivID",
+  "class": "absolute w-full h-screen"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/GoogleMapPlugin.vue?vue&type=template&id=07e90e28":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/GoogleMapPlugin.vue?vue&type=template&id=07e90e28 ***!
@@ -33320,7 +33594,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "rvmp-container h-auto space-y-6 mb-8"
+  "class": "rvmp-container h-auto space-y-0 mb-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-full bg-origin-border bg-cover bg-center bg-local",
   style: {
@@ -33346,16 +33620,16 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   className: "self-start border-l-8 rvmp-brand-border-highlight my-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "ml-5 brand-text lg:text-3xl text-xl font-semibold"
-}, "MEET THE CEO OF"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "ml-5 brand-logo-text text-3xl font-semibold"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("GLI "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "brand-logo-text font-thin rvmp-brand-color-highlight"
 }, "GROUP INC.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3"
-}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "GLI Group Inc. is a Design & Build Firm with Architectural & Engineering Design Services, Construction Services, and Cabinetry Fabrication teams with 10 years experience in the industry.")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
   style: {
-    "background-image": "url('/images/pages/ceo.jpg')"
+    "background-image": "url('/images/pages/workplace.jpg')"
   }
 }, "   ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "h-auto w-full bg-transparent"
@@ -33365,9 +33639,9 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
     "background-image": "url('/images/pages/house.jpg')"
   }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full py-20 h-auto rvmp-banner-bg bg-opacity-70"
+  "class": "w-full py-14 h-auto rvmp-banner-bg bg-opacity-70"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "py-4 h-72 text-center mt-auto w-full flex flex-col justify-center rvmp-banner-text-color bg-transparent"
+  "class": "h-44 text-center mt-auto w-full flex flex-col justify-center rvmp-banner-text-color bg-transparent"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "brand-logo-text lg:text-3xl text-xl py-2 uppercase"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
@@ -33379,76 +33653,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "font-thin"
 }, "GROUP INC.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "brand-text lg:text-5xl text-xl font-light capitalize"
-}, "Building a better built environment together")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex lg:flex-row-reverse flex-col h-auto relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full h-full lg:static grid grid-cols-1 place-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-1 mb-4 text-3xl uppercase lg:text-left text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-light lg:block inline-block lg:mr-0 mr-2"
-}, "OUR COMPANY'S"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block"
-}, "MISSION")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text"
-}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-auto lg:py-10 lg:pr-10"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
-  style: {
-    "background-image": "url('/images/pages/mission.jpg')"
-  }
-}, "   ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-alt"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex lg:flex-row flex-col h-auto relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full h-full lg:static grid grid-cols-1 place-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-1 mb-4 text-3xl uppercase lg:text-left text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-light lg:block inline-block mr-2"
-}, "OUR COMPANY'S"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block"
-}, "Vision")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text"
-}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-auto lg:py-10 lg:pl-10"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
-  style: {
-    "background-image": "url('/images/pages/vision.jpg')"
-  }
-}, "   ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex lg:flex-row-reverse flex-col h-auto relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full h-full lg:static grid grid-cols-1 place-content-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-span-1 mb-4 text-3xl uppercase lg:text-left text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-light lg:block inline-block mr-2"
-}, "OUR COMPANY'S"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block"
-}, "Values")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text"
-}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-auto lg:py-10 lg:pr-10"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
-  style: {
-    "background-image": "url('/images/pages/value.jpg')"
-  }
-}, "   ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "Building a better built environment together")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div  class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main\">\r\n        <div class=\"flex lg:flex-row-reverse flex-col h-auto relative\">\r\n            <div class=\"w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80\">            \r\n                    <div class=\"w-full h-full lg:static grid grid-cols-1 place-content-center\">  \r\n                        <div class=\"col-span-1 mb-4 text-3xl uppercase lg:text-left text-center\">\r\n                            <h2 class=\"brand-text font-light lg:block inline-block lg:mr-0 mr-2\">OUR COMPANY'S</h2>\r\n                            <h2 class=\"brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block\">MISSION</h2>  \r\n                        </div>               \r\n                        <p class=\"col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text \">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> \r\n                    </div>                       \r\n            </div>\r\n            <div class=\"w-full lg:h-auto lg:py-10 lg:pr-10\">\r\n                <div class=\"w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local\" style=\"background-image: url('/images/pages/mission.jpg')\">\r\n                        &nbsp;\r\n                </div>    \r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-alt\">\r\n         <div class=\"flex lg:flex-row flex-col h-auto relative\">\r\n            <div class=\"w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\">            \r\n                    <div class=\"w-full h-full lg:static grid grid-cols-1 place-content-center\"> \r\n                        <div class=\"col-span-1 mb-4 text-3xl uppercase lg:text-left text-center\">\r\n                            <h2 class=\"brand-text font-light  lg:block inline-block mr-2\">OUR COMPANY'S</h2>\r\n                            <h2 class=\"brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block\">Vision</h2>  \r\n                        </div>               \r\n                        <p class=\"col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text \">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> \r\n                    </div>                       \r\n            </div>\r\n            <div class=\"w-full lg:h-auto lg:py-10 lg:pl-10\">\r\n                <div class=\"w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local\" style=\"background-image: url('/images/pages/vision.jpg')\">\r\n                        &nbsp;\r\n                </div>    \r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n   <div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main\">\r\n         <div class=\"flex lg:flex-row-reverse flex-col h-auto relative\">\r\n            <div class=\"w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80\">            \r\n                    <div class=\"w-full h-full lg:static grid grid-cols-1 place-content-center\"> \r\n                        <div class=\"col-span-1 mb-4 text-3xl uppercase lg:text-left text-center\">\r\n                            <h2 class=\"brand-text font-light  lg:block inline-block mr-2\">OUR COMPANY'S</h2>\r\n                            <h2 class=\"brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block\">Values</h2>  \r\n                        </div>               \r\n                        <p class=\"col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text \">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p> \r\n                    </div>                       \r\n            </div>\r\n            <div class=\"w-full lg:h-auto lg:py-10 lg:pr-10\">\r\n                <div class=\"w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local\" style=\"background-image: url('/images/pages/value.jpg')\">\r\n                        &nbsp;\r\n                </div>    \r\n            </div>\r\n        </div>\r\n    </div> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "h-auto w-full bg-transparent"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex lg:flex-row flex-col bg-cover bg-center bg-local",
@@ -33570,16 +33775,18 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "flex"
 };
-var _hoisted_2 = {
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row"
-};
-var _hoisted_3 = {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "content-area",
   "class": "w-full h-auto bg-gray-50"
-};
-var _hoisted_4 = {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "h-screen"
-};
+}, " DASHBOARD HERE ")])], -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_errors_and_messages = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("errors-and-messages");
 
@@ -33595,9 +33802,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "menu-sub-links": $setup.menuSubLinks
   }, null, 8
   /* PROPS */
-  , ["user", "menu-links", "menu-sub-links"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.menuLinks) + " DASHBOARD HERE ", 1
-  /* TEXT */
-  )])])])], 64
+  , ["user", "menu-links", "menu-sub-links"]), _hoisted_2])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -38320,7 +38525,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 /* KEYED_FRAGMENT */
                 ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
                   type: "text",
-                  placeholder: "Enter link",
+                  placeholder: "Paste Link and Press Enter to add link ",
                   "class": "rounded-md",
                   onKeydown: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)((0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
                     return $options.addLink(value, $event);
@@ -39523,7 +39728,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Get started with a "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "block rvmp-brand-color-highlight"
-}, "Free Quotation")])], -1
+}, "FREE Consultation")])], -1
 /* HOISTED */
 );
 
@@ -39870,6 +40075,330 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e":
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "rvmp-container h-auto"
+};
+var _hoisted_2 = {
+  "class": ""
+};
+var _hoisted_3 = {
+  "class": "w-full flex lg:flex-row flex-col space-x-0 space-y-0 h-full relative"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-full h-screen px-8 space-y-6 bg-origin-border bg-cover bg-no-repeat bg-center bg-local static",
+  style: {
+    "background-image": "url('/images/pages/section-1.jpg')"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-center"
+}, "   ")], -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
+  "class": "w-full px-4 flex flex-wrap content-center lg:static absolute lg:bg-transparent bg-gray-100 lg:bg-opacity-100 bg-opacity-75 lg:h-auto h-full"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Get started with a "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "block rvmp-brand-color-highlight"
+}, "FREE Consultation")])], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "full-name",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Full name", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Email address", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "contact-number",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Contact Number", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "project",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Type of Project", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
+  "class": "relative mt-1"
+};
+var _hoisted_16 = {
+  "class": "block truncate"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-chevron-down w-5 h-5 text-gray-400",
+  "aria-hidden": "true"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  key: 0,
+  "class": "absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-check w-5 h-5",
+  "aria-hidden": "true"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_20 = [_hoisted_19];
+var _hoisted_21 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "date_needed",
+  "class": "text-sm font-medium rvmp-footer-text capitalize block"
+}, "when", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "calendly-popup",
+  "class": ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  "class": "col-span-6"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "message",
+  "class": "text-sm font-medium rvmp-footer-text capitalize hidden"
+}, "Message", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-span-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "bg-green-600 text-white px-4 py-1.5 hover:bg-green-700 w-full rounded-md transition ease-in-out duration-300"
+}, "Book a Meeting")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_ListboxButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ListboxButton");
+
+  var _component_ListboxOption = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ListboxOption");
+
+  var _component_ListboxOptions = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ListboxOptions");
+
+  var _component_Listbox = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Listbox");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    method: "POST",
+    "class": "grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl w-full bg-gray-50",
+    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $setup.sendMessage();
+    }, ["prevent"]))
+  }, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    name: "full-name",
+    id: "full-name",
+    placeholder: "Full name",
+    autocomplete: "off",
+    "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.fullName = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.fullName]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "email",
+    name: "email-address",
+    id: "email-address",
+    placeholder: "Email Address",
+    autocomplete: "off",
+    "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.form.email = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "tel",
+    pattern: "[0-99999999999]{11}",
+    max: "11",
+    name: "contact-number",
+    id: "contact-number",
+    placeholder: "Contact Number",
+    autocomplete: "off",
+    "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.form.contact = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.contact]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
+    modelValue: $setup.selectedService,
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $setup.selectedService = $event;
+    })
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ListboxButton, {
+        "class": "relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-md shadow-sm cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm border border-gray-300"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.selectedService.name), 1
+          /* TEXT */
+          ), _hoisted_17];
+        }),
+        _: 1
+        /* STABLE */
+
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+        "leave-active-class": "transition duration-100 ease-in",
+        "leave-from-class": "opacity-100",
+        "leave-to-class": "opacity-0"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ListboxOptions, {
+            "class": "absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.services, function (service) {
+                return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ListboxOption, {
+                  key: service.name,
+                  value: service,
+                  disabled: service.disabled,
+                  as: "template"
+                }, {
+                  "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
+                    var active = _ref.active,
+                        selected = _ref.selected;
+                    return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+                      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? service.id === 0 ? 'text-gray-400 bg-gray-600' : 'rvmp-brand-color-darker rvmp-brand-bg-highlight bg-opacity-50' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-10 pr-4'])
+                    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+                      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([selected ? 'font-medium' : 'font-normal', 'block truncate'])
+                    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(service.name), 3
+                    /* TEXT, CLASS */
+                    ), selected && service.id !== 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_18, _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
+                    /* CLASS */
+                    )];
+                  }),
+                  _: 2
+                  /* DYNAMIC */
+
+                }, 1032
+                /* PROPS, DYNAMIC_SLOTS */
+                , ["value", "disabled"]);
+              }), 128
+              /* KEYED_FRAGMENT */
+              ))];
+            }),
+            _: 1
+            /* STABLE */
+
+          })];
+        }),
+        _: 1
+        /* STABLE */
+
+      })])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "date",
+    name: "date_needed",
+    id: "date_needed",
+    autocomplete: "off",
+    "class": "focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $setup.form.bookingDate = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.bookingDate]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "",
+    onClick: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.openCalendly && $options.openCalendly.apply($options, arguments);
+    }, ["prevent"])),
+    "class": "text-sm font-medium rvmp-footer-text capitalize block"
+  }, " Click to Schedule time with our Professionals "), _hoisted_24]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    type: "text",
+    name: "message",
+    id: "message",
+    placeholder: "Project Details",
+    autocomplete: "off",
+    "class": "focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md shadow-sm sm:text-sm border-gray-300 resize-none",
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+      return $setup.form.details = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.details]])]), _hoisted_27], 32
+  /* HYDRATE_EVENTS */
+  )])])])]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Contact.vue?vue&type=template&id=2c2b26f2":
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Contact.vue?vue&type=template&id=2c2b26f2 ***!
@@ -39912,7 +40441,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "text-3xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text capitalize text-center"
 }, " Get in touch "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "brand-text text-center text-lg px-10"
-}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur purus magna, rutrum nec arcu nec, fringilla scelerisque nisl. ")], -1
+}, " Send us your inquiries, our Professionals will check on it and give a response! ")], -1
 /* HOISTED */
 );
 
@@ -39958,7 +40487,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6\"><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> our location </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Unit 3, Uypitching Building</span><span class=\"block\">Km. 8, Jose Romero Road</span><span class=\"block\">6215 Valencia, Negros Oriental</span><span class=\"block\">Philippines</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> let&#39;s talk </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Phone: 0905-000-0000</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> email us </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">support@gligroupinc.com</span></p></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4\"><div class=\"w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-left social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 2);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6\"><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> our location </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Unit 3, Uypitching Building</span><span class=\"block\">Km. 8, Jose Romero Road</span><span class=\"block\">6215 Valencia, Negros Oriental</span><span class=\"block\">Philippines</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> let&#39;s talk </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">Phone: (+63) (035) 400 3610</span></p></div><div class=\"lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6\"><i class=\"fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl\"></i><h3 class=\"text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase\"> email us </h3><p class=\"brand-text italic 2xl:text-base text-xs text-center\"><span class=\"block\">support@gligroupinc.com</span></p></div></div><div class=\"h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4\"><div class=\"w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\"> Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a><a href=\"https://www.linkedin.com/company/gli-group-inc/\" target=\"_blank\" class=\"fab fa-linkedin text-blue-700 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link\"><span class=\"px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 2);
 
 var _hoisted_14 = {
   "class": "w-full h-auto pt-4"
@@ -40021,10 +40550,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9":
-/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9 ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a":
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40048,7 +40577,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_app_footer_default = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-footer-default");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_lead_banner), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_services), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_testimonial, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_lead_banner), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_services, {
+    url: _ctx.$page.url
+  }, null, 8
+  /* PROPS */
+  , ["url"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_testimonial, {
     "carousel-settings": $setup.settings,
     "carousel-breakpoints": $setup.breakpoints,
     "carousel-testimonials": $setup.posts
@@ -40057,6 +40590,673 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["carousel-settings", "carousel-breakpoints", "carousel-testimonials"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_footer_default)], 64
   /* STABLE_FRAGMENT */
   );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "h-auto 2xl:px-40 xl:px-16 lg:px-8",
+  id: "rvmp-lead-section-1"
+};
+var _hoisted_2 = {
+  "class": "flex lg:flex-row flex-col-reverse h-auto z-0 relative"
+};
+var _hoisted_3 = {
+  "class": "lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80"
+};
+var _hoisted_4 = {
+  "class": "lg:py-36 lg:my-12 lg:static"
+};
+var _hoisted_5 = {
+  "class": "lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
+  className: "self-start border-l-8 rvmp-brand-border-highlight lg:my-2",
+  id: "rvmp-lead-heading"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold"
+}, " Building A Better Built Environment Together ")], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-light italic lg:mt-20 lg:mb-10",
+  id: "rvmp-lead-text"
+}, " Our team of professionals will help you turn your dream house into reality fast. ", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "space-x-5 flex lg:justify-start justify-center",
+  id: "rvmp-lead-cta"
+};
+var _hoisted_9 = ["href"];
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Our Portfolio");
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
+  id: "rvmp-lead-image",
+  style: {
+    "background-image": "url('/images/pages/section-1.jpg')"
+  }
+}, " ", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: _ctx.$route('guest.bookfree'),
+    target: "_blank",
+    "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
+  }, "Book a FREE Consultation!", 8
+  /* PROPS */
+  , _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/portfolio",
+    "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_10];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])]), _hoisted_11])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456 ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  id: "rvmp-services-section-1"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "uppercase text-center",
+  id: "rvmp-services-heading"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5"
+}, "Here's what we offer")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "tab-container mt-10",
+  id: "rvmp-services-content"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-4xl font-semibold"
+}, "GLI", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-thin"
+}, "BUILDERS", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = [_hoisted_4, _hoisted_5];
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-4xl font-semibold"
+}, "GLI", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-thin"
+}, "DESIGN STUDIO", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = [_hoisted_7, _hoisted_8];
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-4xl font-semibold"
+}, "GLI", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-thin"
+}, "MODULAR CABINETS", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = [_hoisted_10, _hoisted_11];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:w-1/2 w-full lg:block hidden"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/pages/BUILDERS-1.jpg"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Builders"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")], -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": ""
+}, " Better "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "rvmp-brand-color-highlight"
+}, " Built ")], -1
+/* HOISTED */
+);
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
+}, " The Construction Division, caters to new construction, renovation, addition, repair of vertical buildings mainly residential commercial & institutional and other related buildings. ", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "text-left grid grid-cols-2 gap-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/project.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Project Management")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/renovation.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Renovations")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/hook.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Construction")])], -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "space-x-5 flex lg:justify-start justify-center"
+};
+var _hoisted_20 = ["href"];
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Our Portfolio");
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:w-1/2 w-full lg:block hidden"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/pages/STUDIO.jpg"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
+};
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Design Studio"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": ""
+}, " Architectural & Engineering "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "rvmp-brand-color-highlight"
+}, " design ")], -1
+/* HOISTED */
+);
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
+}, " The Design Division, caters to the Architectural & Engineering design requirements for clients ", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "text-left grid grid-cols-2 gap-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/interior-design.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Planning and Design")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/blueprint.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Drafting Services for US and AU clients")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/animation.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Animation")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/3d-display.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "3D Rendering")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/bim.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Building Information Modeling (BIM)")])], -1
+/* HOISTED */
+);
+
+var _hoisted_28 = {
+  "class": "space-x-5 flex lg:justify-start justify-center"
+};
+var _hoisted_29 = ["href"];
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Our Portfolio");
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:w-1/2 w-full lg:block hidden"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/pages/CABINETS.jpg"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_32 = {
+  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
+};
+
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Modular Cabinets"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")], -1
+/* HOISTED */
+);
+
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": ""
+}, " tailored "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "rvmp-brand-color-highlight"
+}, " structures design ")], -1
+/* HOISTED */
+);
+
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
+}, " The Cabinetry Fabrication Division, caters spaces, furnitures, and tailored product structures design. ", -1
+/* HOISTED */
+);
+
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "text-left grid grid-cols-2 gap-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-10 h-10 bg-cover bg-center",
+  src: "/rvmp-content/rvmp-static/kitchen.png"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "self-center"
+}, "Modular Cabinets Installation")])], -1
+/* HOISTED */
+);
+
+var _hoisted_37 = {
+  "class": "space-x-5 flex lg:justify-start justify-center"
+};
+var _hoisted_38 = ["href"];
+
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Our Portfolio");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Tab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Tab");
+
+  var _component_TabList = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabList");
+
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
+
+  var _component_TabPanel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabPanel");
+
+  var _component_TabPanels = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabPanels");
+
+  var _component_TabGroup = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabGroup");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabGroup, {
+    onChange: $setup.changeTab,
+    defaultIndex: $setup.selectedTab
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabList, {
+        selectedIndex: $setup.selectedTab,
+        "class": "flex w-full"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+            id: "builders",
+            "class": "w-1/3 bg-cover bg-center",
+            style: {
+              "background-image": "url('/images/pages/BUILDERS-1.jpg')"
+            }
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
+              var selected = _ref.selected;
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-52 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
+              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
+              }, _hoisted_6, 2
+              /* CLASS */
+              )], 2
+              /* CLASS */
+              )];
+            }),
+            _: 1
+            /* STABLE */
+
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+            id: "designstudio",
+            "class": "w-1/3 bg-cover bg-center",
+            style: {
+              "background-image": "url('/images/pages/STUDIO.jpg')"
+            }
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
+              var selected = _ref2.selected;
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-52 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
+              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
+              }, _hoisted_9, 2
+              /* CLASS */
+              )], 2
+              /* CLASS */
+              )];
+            }),
+            _: 1
+            /* STABLE */
+
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
+            id: "modularcabinets",
+            "class": "w-1/3 bg-cover bg-center",
+            style: {
+              "background-image": "url('/images/pages/CABINETS.jpg')"
+            }
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref3) {
+              var selected = _ref3.selected;
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-52 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
+              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
+              }, _hoisted_12, 2
+              /* CLASS */
+              )], 2
+              /* CLASS */
+              )];
+            }),
+            _: 1
+            /* STABLE */
+
+          })];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["selectedIndex"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanels, null, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
+            "class": "flex lg:flex-row flex-col items-center text-center lg:m-12 lg:space-x-10"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, _hoisted_16, _hoisted_17, _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                href: _ctx.$route('guest.bookfree'),
+                target: "_blank",
+                "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
+              }, "Book a FREE Consultation!", 8
+              /* PROPS */
+              , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                href: "/portfolio",
+                "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
+              }, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [_hoisted_21];
+                }),
+                _: 1
+                /* STABLE */
+
+              })])])];
+            }),
+            _: 1
+            /* STABLE */
+
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
+            "class": "flex lg:flex-row flex-col items-center text-center lg:m-12 lg:space-x-10"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, _hoisted_25, _hoisted_26, _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                href: _ctx.$route('guest.bookfree'),
+                target: "_blank",
+                "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
+              }, "Book a FREE Consultation!", 8
+              /* PROPS */
+              , _hoisted_29), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                href: "/portfolio",
+                "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
+              }, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [_hoisted_30];
+                }),
+                _: 1
+                /* STABLE */
+
+              })])])];
+            }),
+            _: 1
+            /* STABLE */
+
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
+            "class": "flex lg:flex-row flex-col items-center text-center lg:m-12 lg:space-x-10"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [_hoisted_33, _hoisted_34, _hoisted_35, _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                href: _ctx.$route('guest.bookfree'),
+                target: "_blank",
+                "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
+              }, "Book a FREE Consultation!", 8
+              /* PROPS */
+              , _hoisted_38), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+                href: "/portfolio",
+                "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
+              }, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [_hoisted_39];
+                }),
+                _: 1
+                /* STABLE */
+
+              })])])];
+            }),
+            _: 1
+            /* STABLE */
+
+          })];
+        }),
+        _: 1
+        /* STABLE */
+
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["onChange", "defaultIndex"])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 0,
+  id: "rvmp-testimonials-section-1"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "uppercase text-center",
+  id: "rvmp-testimonial-heading"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5"
+}, "Our Client's Testimonial")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "overflow-x-hidden 2xl:px-40 xl:px-20 lg:px-10 px-5",
+  id: "rvmp-testimonial-content"
+};
+var _hoisted_4 = {
+  "class": "carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3"
+};
+var _hoisted_5 = ["src"];
+var _hoisted_6 = {
+  "class": "p-4 testimonial-content space-y-3"
+};
+var _hoisted_7 = ["innerHTML"];
+var _hoisted_8 = ["innerHTML"];
+var _hoisted_9 = {
+  "class": "text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block"
+};
+var _hoisted_10 = {
+  "class": "text-xs font-light leading-3 brand-text rvmp-footer-text capitalize"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
+
+  var _component_Pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Pagination");
+
+  var _component_Navigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navigation");
+
+  var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
+
+  return $setup.posts.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
+    settings: $setup.settings,
+    breakpoints: $setup.breakpoints,
+    wrapAround: true,
+    mouseDrag: true
+  }, {
+    addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation)];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.posts, function (post, index) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Slide, {
+          key: post,
+          index: index
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              src: post.image_url,
+              "class": "rounded-t-md"
+            }, null, 8
+            /* PROPS */
+            , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+              "class": "w-full text-center ratings text-yellow-400 space-x-2 mb-0",
+              innerHTML: post.stars
+            }, null, 8
+            /* PROPS */
+            , _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+              "class": "brand-text italic text-xs text-center mb-0 font-light",
+              innerHTML: post.content
+            }, null, 8
+            /* PROPS */
+            , _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.client_name), 1
+            /* TEXT */
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.client_org), 1
+            /* TEXT */
+            )])])])];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["index"]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["settings", "breakpoints"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
 
 /***/ }),
@@ -40416,7 +41616,7 @@ var _hoisted_16 = {
   "class": "grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-6\" data-v-2ddb838e><h3 class=\"text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center\" data-v-2ddb838e>Get started with a <span class=\"block rvmp-brand-color-highlight\" data-v-2ddb838e>Free Quotation</span></h3></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"full-name\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Full name</label><input type=\"text\" name=\"full-name\" id=\"full-name\" placeholder=\"Full name\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"email-address\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Email address</label><input type=\"email\" name=\"email-address\" id=\"email-address\" placeholder=\"Email Address\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"contact-number\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Contact Number</label><input type=\"tel\" pattern=\"[0-99999999999]{11}\" max=\"11\" name=\"contact-number\" id=\"contact-number\" placeholder=\"Contact Number\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div>", 4);
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-span-6\" data-v-2ddb838e><h3 class=\"text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center\" data-v-2ddb838e>Get started with a <span class=\"block rvmp-brand-color-highlight\" data-v-2ddb838e>FREE Consultation</span></h3></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"full-name\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Full name</label><input type=\"text\" name=\"full-name\" id=\"full-name\" placeholder=\"Full name\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"email-address\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Email address</label><input type=\"email\" name=\"email-address\" id=\"email-address\" placeholder=\"Email Address\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div><div class=\"col-span-6\" data-v-2ddb838e><label for=\"contact-number\" class=\"text-sm font-medium rvmp-footer-text capitalize hidden\" data-v-2ddb838e>Contact Number</label><input type=\"tel\" pattern=\"[0-99999999999]{11}\" max=\"11\" name=\"contact-number\" id=\"contact-number\" placeholder=\"Contact Number\" autocomplete=\"off\" class=\"focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300\" data-v-2ddb838e></div>", 4);
 
 var _hoisted_21 = {
   "class": "col-span-6"
@@ -40602,7 +41802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Privacy Policy</h1></div></div></div><div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-auto lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, when you participate in activities on the Website or otherwise when you contact us.</span><span class=\"block\"> The personal information that we collect depends on the contect of your interactions with us and the Website, the choices you make and the products and features you use. The personal information we collect may include the following:</span><span class=\"block\"><span class=\"font-semibold\">Personal Information Provided by You.</span> We collect names; email addresses; contact or authentication data; company names; and other similar information.</span><span class=\"block\"> All personal information that you provide to us must be true, complete and accuratem and you must notify us of any changes to such personal information.</span></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – HOW DO WE USE YOUR INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">We use personal information collected via our Website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.</span><span class=\"block\">We use the information we collect or receive:</span><ul class=\"block list-disc font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>To deliver and facilitate delivery of services to the user. We may use your information to provide you with the requested service.</li><li> To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.</li><li> To send you marketing and promotional communications. We and/or our third-party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. For example, when expressing an interest in obtaining information about us or our Website, subscribing to marketing or otherwise contacting us, we will collect personal information from you. You can opt-out of our marketing emails at any time.</li><li>For other business purposes. We may use your information for other business purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Website, products, marketing and your experience. We may use and store this information in aggregated and anonymized form so that it is not associated with individual end users and does not include personal info</li></ul></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – DISCLOSURE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – SECURITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security, and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Website is at your own risk. You should only access the Website within a secure environment. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – AGE OF CONSENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – CHANGES TO THIS PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it. If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">QUESTIONS AND CONTACT INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website </p></div></div></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Privacy Policy</h1></div></div></div><div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-auto lg:py-20 lg:pl-10 lg:pr-0 p-6\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, when you participate in activities on the Website or otherwise when you contact us.</span><span class=\"block\"> The personal information that we collect depends on the contect of your interactions with us and the Website, the choices you make and the products and features you use. The personal information we collect may include the following:</span><span class=\"block\"><span class=\"font-semibold\">Personal Information Provided by You.</span> We collect names; email addresses; contact or authentication data; company names; and other similar information.</span><span class=\"block\"> All personal information that you provide to us must be true, complete and accuratem and you must notify us of any changes to such personal information.</span></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – HOW DO WE USE YOUR INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">We use personal information collected via our Website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.</span><span class=\"block\">We use the information we collect or receive:</span><ul class=\"block list-disc font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>To deliver and facilitate delivery of services to the user. We may use your information to provide you with the requested service.</li><li> To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.</li><li> To send you marketing and promotional communications. We and/or our third-party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. For example, when expressing an interest in obtaining information about us or our Website, subscribing to marketing or otherwise contacting us, we will collect personal information from you. You can opt-out of our marketing emails at any time.</li><li>For other business purposes. We may use your information for other business purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Website, products, marketing and your experience. We may use and store this information in aggregated and anonymized form so that it is not associated with individual end users and does not include personal info</li></ul></p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – DISCLOSURE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – SECURITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security, and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Website is at your own risk. You should only access the Website within a secure environment. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – AGE OF CONSENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – CHANGES TO THIS PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it. If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you. </p><div class=\"col-span-1 lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">QUESTIONS AND CONTACT INFORMATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at <a href=\"mailto:support@gligroupinc.com\" class=\"rvmp-brand-color-main font-bold\">support@gligroupinc.com</a> or by contact us at GLI Group Inc. Website </p></div></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
@@ -40630,7 +41830,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto space-y-6 mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Terms and Conditions</h1></div></div></div><div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:bg-transparent\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – AGREEMENT TO TERMS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and GLI Group Inc. (&quot;Company,&quot; “we,&quot; “us,&quot; or “our”), concerning your access to and use of the <a href=\"www.gligroupinc.com\">GLI Group Inc.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span><span class=\"block\"> Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.</span><span class=\"block\">The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</span><span class=\"block\">All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – INTELLECTUAL PROPERTY RIGHTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</span><span class=\"block\">Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – USER REPRESENTATIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"> By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use; (2) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.<br> If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof). </p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – PROHIBITED ACTIVITIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</span><span class=\"block\">As a user of the Site, you agree not to:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li><li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li><li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li><li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li><li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li><li>Make improper use of our support services or submit false reports of abuse or misconduct.</li><li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li><li>Engage in unauthorized framing of or linking to the Site.</li><li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li><li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li><li>Delete the copyright or other proprietary rights notice from any Content.</li><li>Attempt to impersonate another user or person or use the username of another user.</li><li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li><li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li><li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li><li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li><li>Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li><li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li><li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.</li><li>Use a buying agent or purchasing agent to make purchases on the Site.</li><li>Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li><li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li><li>Use the Site to advertise or offer to sell goods and services.</li><li>Sell or otherwise transfer your profile.</li></ul></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – USER GENERATED CONTRIBUTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">The Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li><li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>Your Contributions are not false, inaccurate, or misleading.</li><li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li><li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li><li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li><li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li><li>Your Contributions do not violate any applicable law, regulation, or rule.</li><li>Your Contributions do not violate the privacy or publicity rights of any third party.</li><li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li><li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li><li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li></ul><span class=\"block text-gray-500 text-justify lg:text-sm text-xs brand-text\">Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – CONTRIBUTION LICENSE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">By posting your Contributions to any part of the Site, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.</span><span class=\"block\">This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.</span><span class=\"block\">We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.</span><span class=\"block\">We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – GUIDELINES FOR REVIEWS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.</span><span class=\"block\">We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 8 – SUBMISSIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site (&quot;Submissions&quot;) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 9 – SITE MANAGEMENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 10 – PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We care about data privacy and security. Please review our <a href=\"www.gligroupinc.com\">Privacy Policy</a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use. Please be advised the Site is hosted in the Philippines. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the Philippines, then through your continued use of the Site, you are transferring your data to the Philippines, and you agree to have your data transferred to and processed in the Philippines.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 11 – COPYRIGHT INFRINGEMENTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes your copyright, you should consider first contacting an attorney.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 12 – TERM AND TERMINATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.</span><span class=\"block\">If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 13 – MODIFICATIONS AND INTERRUPTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.</span><span class=\"block\">We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 14 – GOVERNING LAW </h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms shall be governed by and defined following the laws of the Philippines. GLI Group Inc. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 15 – DISPUTE RESOLUTION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. GLI Group Inc. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 16 – CORRECTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">There may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 17 – DISCLAIMER</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 18 – LIMITATIONS OF LIABILITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 19 – INDEMNIFICATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 20 – USER DATA</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 21 – ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 22 – MISCELLANEOUS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 23 – CONTACT US</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</span><ul class=\"block list-none text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>GLI Group Inc</li><li>Unit 3, Uypitching Building</li><li>Km. 8 Jose Romero Road</li><li>Valencia, Negros Oriental 6215</li><li>Philippines</li><li>Phone: (035) 400 3610</li><li><a href=\"mailto:support@gligroupinc.com\">support@gligroupinc.com</a></li></ul></p></div></div></div></div></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"rvmp-container h-auto space-y-6 mb-8 rvmp-bg-main lg:bg-opacity-0 bg-opacity-80\"><div class=\"w-full bg-origin-border bg-cover bg-center bg-local\" style=\"background-image:url(&#39;/images/pages/house.jpg&#39;);\"><div class=\"h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80\"><div class=\"lg:w-full lg:self-start self-center\"><h1 class=\"px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize\">Terms and Conditions</h1></div></div></div><div class=\"h-auto 2xl:px-64 xl:px-56 lg:px-28\"><div class=\"flex flex-col h-auto\"><div class=\"w-full h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:bg-transparent\"><div class=\"w-full h-full grid grid-cols-1 place-content-center gap-y-4\"><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 1 – AGREEMENT TO TERMS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2\"><span class=\"block\">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and GLI Group Inc. (&quot;Company,&quot; “we,&quot; “us,&quot; or “our”), concerning your access to and use of the <a href=\"www.gligroupinc.com\">GLI Group Inc.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span><span class=\"block\"> Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.</span><span class=\"block\">The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</span><span class=\"block\">All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 2 – INTELLECTUAL PROPERTY RIGHTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text sapce-y-2\"><span class=\"block\">Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the Site “AS IS” for your information and personal use only. Except as expressly provided in these Terms of Use, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</span><span class=\"block\">Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content and the Marks.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 3 – USER REPRESENTATIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"> By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Use; (2) you are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; (3) you will not access the Site through automated or non-human means, whether through a bot, script, or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.<br> If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Site (or any portion thereof). </p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 4 – PROHIBITED ACTIVITIES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</span><span class=\"block\">As a user of the Site, you agree not to:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li><li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li><li>Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.</li><li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li><li>Use any information obtained from the Site in order to harass, abuse, or harm another person.</li><li>Make improper use of our support services or submit false reports of abuse or misconduct.</li><li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li><li>Engage in unauthorized framing of or linking to the Site.</li><li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.</li><li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li><li>Delete the copyright or other proprietary rights notice from any Content.</li><li>Attempt to impersonate another user or person or use the username of another user.</li><li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).</li><li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.</li><li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li><li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li><li>Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li><li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.</li><li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.</li><li>Use a buying agent or purchasing agent to make purchases on the Site.</li><li>Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li><li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li><li>Use the Site to advertise or offer to sell goods and services.</li><li>Sell or otherwise transfer your profile.</li></ul></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 5 – USER GENERATED CONTRIBUTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">The Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:</span><ul class=\"block list-disc text-gray-500 text-justify lg:text-sm text-xs brand-text font-light pl-8\"><li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li><li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li><li>Your Contributions are not false, inaccurate, or misleading.</li><li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li><li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li><li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li><li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li><li>Your Contributions do not violate any applicable law, regulation, or rule.</li><li>Your Contributions do not violate the privacy or publicity rights of any third party.</li><li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li><li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li><li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li></ul><span class=\"block text-gray-500 text-justify lg:text-sm text-xs brand-text\">Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other things, termination or suspension of your rights to use the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 6 – CONTRIBUTION LICENSE</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">By posting your Contributions to any part of the Site, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.</span><span class=\"block\">This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.</span><span class=\"block\">We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.</span><span class=\"block\">We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 7 – GUIDELINES FOR REVIEWS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria: (1) you should have firsthand experience with the person/entity being reviewed; (2) your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; (3) your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; (4) your reviews should not contain references to illegal activity; (5) you should not be affiliated with competitors if posting negative reviews; (6) you should not make any conclusions as to the legality of conduct; (7) you may not post any false or misleading statements; and (8) you may not organize a campaign encouraging others to post reviews, whether positive or negative.</span><span class=\"block\">We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully-paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 8 – SUBMISSIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site (&quot;Submissions&quot;) provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 9 – SITE MANAGEMENT</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right, but not the obligation, to: (1) monitor the Site for violations of these Terms of Use; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 10 – PRIVACY POLICY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We care about data privacy and security. Please review our <a href=\"www.gligroupinc.com\">Privacy Policy</a>. By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms of Use. Please be advised the Site is hosted in the Philippines. If you access the Site from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the Philippines, then through your continued use of the Site, you are transferring your data to the Philippines, and you agree to have your data transferred to and processed in the Philippines.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 11 – COPYRIGHT INFRINGEMENTS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We respect the intellectual property rights of others. If you believe that any material available on or through the Site infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a “Notification”). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Site infringes your copyright, you should consider first contacting an attorney.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 12 – TERM AND TERMINATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use shall remain in full force and effect while you use the Site. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE OR DELETE ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.</span><span class=\"block\">If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 13 – MODIFICATIONS AND INTERRUPTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We reserve the right to change, modify, or remove the contents of the Site at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Site. We also reserve the right to modify or discontinue all or part of the Site without notice at any time. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Site.</span><span class=\"block\">We cannot guarantee the Site will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Site, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Site at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Site during any downtime or discontinuance of the Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to supply any corrections, updates, or releases in connection therewith.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 14 – GOVERNING LAW </h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms shall be governed by and defined following the laws of the Philippines. GLI Group Inc. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 15 – DISPUTE RESOLUTION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. GLI Group Inc. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 16 – CORRECTIONS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">There may be information on the Site that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 17 – DISCLAIMER</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SITE AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 18 – LIMITATIONS OF LIABILITY</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 19 – INDEMNIFICATION</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Site; (3) breach of these Terms of Use; (4) any breach of your representations and warranties set forth in these Terms of Use; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 20 – USER DATA</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 21 – ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 22 – MISCELLANEOUS</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of Use will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use.</span></p><div class=\"col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center\"><h2 class=\"brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2\">SECTION 23 – CONTACT US</h2></div><p class=\"col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text\"><span class=\"block\">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</span><ul class=\"block list-none text-gray-500 text-justify lg:text-sm text-xs brand-text\"><li>GLI Group Inc</li><li>Unit 3, Uypitching Building</li><li>Km. 8 Jose Romero Road</li><li>Valencia, Negros Oriental 6215</li><li>Philippines</li><li>Phone: (035) 400 3610</li><li><a href=\"mailto:support@gligroupinc.com\" class=\"rvmp-brand-color-main font-bold\">support@gligroupinc.com</a></li></ul></p></div></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-header");
@@ -40656,18 +41856,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _public_images_brand_logo_small_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../public/images/brand-logo-small.png */ "./public/images/brand-logo-small.png");
+/* harmony import */ var _public_images_smiley_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/images/smiley.png */ "./public/images/smiley.png");
+
+
 
 var _hoisted_1 = {
-  "class": "rvmp-container h-full bg-gray-100"
+  "class": "text-center"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-auto 2xl:px-64 xl:px-56 lg:px-28 py-4 px-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-4xl text-center mb-4"
-}, " Thank you for reaching out to us! We will get in touch with you as soon as we can. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-center"
-}, " You will automatically be redirected to the home page. ")], -1
+  "class": "p-5 min-w-300 text-black antialiased"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "max-w-xs",
+  src: _public_images_brand_logo_small_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+  alt: "Revamp Logo",
+  style: {
+    "margin-left": "42rem",
+    "max-width": "150px"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "font-bold text-8xl"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "THANK YOU!")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "m-auto max-w-3xl text-l"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _public_images_smiley_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+  alt: "Smiley face",
+  "class": "m-2",
+  style: {
+    "margin-left": "270px"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "m-1"
+}, " Thanks a bunch for filling that out. It means a lot to us, just like you do! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "You will automatically be redirected to the homepage.")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "m-auto p-0 max-w-3xl"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-base font-light",
+  style: {
+    "margin-top": "20px"
+  }
+}, " Copyright ©2014 | All Rights Reserved ")])], -1
 /* HOISTED */
 );
 
@@ -40725,7 +41953,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
-}, " The Design Arm, caters to the Architectural & Engineering design requirements for clients. ", -1
+}, " The Design Division, caters to the Architectural & Engineering design requirements for clients. ", -1
 /* HOISTED */
 );
 
@@ -40737,7 +41965,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
-}, " The Construction Arm, caters to new construction, renovation, addition, repair of vertical buildings mainly residential commercial & institutional and other related buildings. ", -1
+}, " The Construction Division, caters to new construction, renovation, addition, repair of vertical buildings mainly residential commercial & institutional and other related buildings. ", -1
 /* HOISTED */
 );
 
@@ -40749,11 +41977,11 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "brand-service-description-footer text-xs text-justify font-light brand-text mb-0 normal-case"
-}, " The Cabinetry Fabrication Arm, caters spaces, furnitures, and tailored product structures design. ", -1
+}, " The Cabinetry Fabrication Division, caters spaces, furnitures, and tailored product structures design. ", -1
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"lg:col-span-2 col-span-1 lg:px-6 px-3 grid grid-cols-2 gap-y-3\" id=\"contact-us-footer\"><div class=\"col-span-2 lg:text-left text-center\" id=\"contact-us-footer-head\"><h3 class=\"text-lg font-semibold leading-6 mb-0 brand-text rvmp-footer-text capitalize\"> Contact Us </h3></div><div class=\"lg:col-span-2 col-span-1 space-y-3\" id=\"contact-info\"><div class=\"w-full flex flex-row\" id=\"address\"><i class=\"fas fa-map-marker-alt pr-4 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-2xl text-xl text-left\"></i><span class=\"brand-text 2xl:text-sm text-xs text-left font-light\"> Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines </span></div><div class=\"w-full flex flex-row\" id=\"contact-number\"><i class=\"fas fa-phone-alt pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></i><span class=\"brand-text 2xl:text-sm text-xs text-left font-light\"> 0905-000-0000 </span></div><div class=\"w-full flex flex-row\" id=\"contact-email\"><i class=\"fas fa-envelope pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></i><span class=\"brand-text 2xl:text-sm text-xs text-left font-light\"> client.gli@gmail.com </span></div></div><div class=\"lg:col-span-2 col-span-1 w-full grid lg:grid-cols-2 grid-cols-1 lg:gap-y-1 gap-y-0 lg:gap-x-1 gap-x-0 space-y-0\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 1);
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"lg:col-span-2 col-span-1 lg:px-6 px-3 grid grid-cols-2 gap-y-3\" id=\"contact-us-footer\"><div class=\"col-span-2 lg:text-left text-center\" id=\"contact-us-footer-head\"><h3 class=\"text-lg font-semibold leading-6 mb-0 brand-text rvmp-footer-text capitalize\"> Contact Us </h3></div><div class=\"lg:col-span-2 col-span-1 space-y-3\" id=\"contact-info\"><div class=\"w-full flex flex-row\" id=\"address\"><i class=\"fas fa-map-marker-alt pr-4 rvmp-brand-color-main self-center 2xl:text-3xl xl:text-2xl text-xl text-left\"></i><span class=\"brand-text 2xl:text-sm text-xs text-left font-light\"> Unit 3, Uypitching Building<br>Km. 8, Jose Romero Road<br>6215 Valencia, Negros Oriental<br>Philippines </span></div><div class=\"w-full flex flex-row\" id=\"contact-number\"><i class=\"fas fa-phone-alt pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></i><span class=\"brand-text 2xl:text-sm text-xs text-left font-light\"> 0905-000-0000 </span></div><div class=\"w-full flex flex-row\" id=\"contact-email\"><i class=\"fas fa-envelope pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left\"></i><a href=\"mailto:support@gligroupinc.com\" class=\"brand-text rvmp-brand-color-main 2xl:text-sm text-xs text-left font-light\"> support@gligroupinc.com </a></div></div><div class=\"lg:col-span-2 col-span-1 w-full grid lg:grid-cols-2 grid-cols-1 lg:gap-y-1 gap-y-0 lg:gap-x-1 gap-x-0 space-y-0\" id=\"social-links\"><a href=\"https://www.facebook.com/gligroupinc\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-semibold\">GLI</span><span class=\"font-thin\">Group Inc.</span></span></a><a href=\"https://www.facebook.com/GLidesignstudio\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Design Studio</span></span></a><a href=\"https://www.facebook.com/GLI-Builders-102946945203186\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Builders</span></span></a><a href=\"https://www.facebook.com/glimodularcabinets\" target=\"_blank\" class=\"fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link\"><span class=\"px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text\"><span class=\"font-thin\">Modular Cabinets</span></span></a></div></div>", 1);
 
 var _hoisted_15 = {
   "class": "lg:col-span-2 col-span-1 lg:mx-2 px-3"
@@ -41117,51 +42345,53 @@ var _hoisted_8 = {
     "cursor": "pointer"
   }
 };
-var _hoisted_9 = {
-  key: 0,
-  href: "#modularcabinets",
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Builders ");
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
-};
-var _hoisted_10 = {
-  key: 1,
-  href: "#builders",
+}, "Project Management"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
-};
-var _hoisted_11 = {
-  key: 2,
-  href: "#designstudio",
+}, "Renovations"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
-};
+}, "Construction")], -1
+/* HOISTED */
+);
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Modular Cabinets ");
+var _hoisted_11 = [_hoisted_10];
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Builders ");
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Design Studio ");
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Design Studio ");
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul><li class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">Planning and Design</li><li class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">Drafting Services for US and AU clients</li><li class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">Animation</li><li class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">3D Rendering</li><li class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">Building Information Modeling (BIM)</li></ul>", 1);
 
-var _hoisted_15 = {
+var _hoisted_14 = [_hoisted_13];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Modular Cabinets ");
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
+}, "Modular Cabinets Installation")], -1
+/* HOISTED */
+);
+
+var _hoisted_17 = [_hoisted_16];
+var _hoisted_18 = {
   "class": "mx-6"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Blog");
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Portfolio");
 
-var _hoisted_17 = {
+var _hoisted_20 = {
   "class": "mx-6"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Portfolio");
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("About");
 
-var _hoisted_19 = {
+var _hoisted_22 = {
   "class": "mx-6"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("About");
-
-var _hoisted_21 = {
-  "class": "mx-6"
-};
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Contact Us");
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Contact Us");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -41208,21 +42438,60 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"])),
     id: "btnDropdownRef",
     ref: "btnDropdownRef"
-  }, " Services ", 512
+  }, " Divisions ", 512
   /* NEED_PATCH */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([{
-      'hidden': !_ctx.dropdownPopoverShow,
-      'block': _ctx.dropdownPopoverShow
-    }, "rvmp-bg-main text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1"]),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([!_ctx.dropdownPopoverShow ? 'hidden' : 'block', !_ctx.subdropdownPopoverShow ? 'rvmp-bg-main' : 'rvmp-bg-alt text-gray-300', "text-base z-40 float-left py-2 list-none text-left rounded shadow-lg mt-1"]),
     style: {
       "min-width": "12rem"
     },
     ref: "popoverDropdownRef"
-  }, [!_ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_9, " Modular Cabinets ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_10, " Builders ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_11, " Design Studio ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-    key: 3,
-    href: "/home#modularcabinets",
-    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onMouseover: _cache[2] || (_cache[2] = function ($event) {
+      return $options.subtoggleDropdown('builder');
+    }),
+    onMouseleave: _cache[3] || (_cache[3] = function ($event) {
+      return $options.subtoggleDropdown('builder');
+    }),
+    id: "builderbtnsubDropdownRef",
+    ref: "builderbtnsubDropdownRef"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/home#builders",
+    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white",
+    replace: ""
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_9];
+    }),
+    _: 1
+    /* STABLE */
+
+  })], 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a v-if=\"!switchInertia\" href=\"#builders\"  @mouseover=\"subtoggleDropdown('builder')\" @mouseleave=\"subtoggleDropdown('builder')\" id=\"builderbtnsubDropdownRef\" ref=\"builderbtnsubDropdownRef\" class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">\r\n\t\t\t\t\t\t\t\tBuilders\r\n\t\t\t\t\t\t\t</a> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.subdropdownPopoverShow && _ctx.subH == 'builder' ? 'block rvmp-bg-main rvmp-text-main' : 'hidden', "text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5"]),
+    onMouseleave: _cache[4] || (_cache[4] = function ($event) {
+      return $options.subtoggleDropdown('builder');
+    }),
+    style: {
+      "min-width": "12rem"
+    },
+    ref: "builderPopoverDropdownRef"
+  }, _hoisted_11, 34
+  /* CLASS, HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a v-if=\"!switchInertia\" href=\"#designstudio\" @mouseover=\"subtoggleDropdown('design')\" @mouseleave=\"subtoggleDropdown('design')\" id=\"designbtnsubDropdownRef\" ref=\"designbtnsubDropdownRef\" class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">\r\n\t\t\t\t\t\t\t\tDesign Studio\r\n\t\t\t\t\t\t\t</a> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onMouseover: _cache[5] || (_cache[5] = function ($event) {
+      return $options.subtoggleDropdown('design');
+    }),
+    onMouseleave: _cache[6] || (_cache[6] = function ($event) {
+      return $options.subtoggleDropdown('design');
+    }),
+    id: "designbtnsubDropdownRef",
+    ref: "designbtnsubDropdownRef"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: "/home#designstudio",
+    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white",
+    replace: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_12];
@@ -41230,74 +42499,88 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-    key: 4,
-    href: "/home#builders",
-    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_13];
+  })], 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.subdropdownPopoverShow && _ctx.subH == 'design' ? 'block rvmp-bg-main rvmp-text-main' : 'hidden', "text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5"]),
+    onMouseleave: _cache[7] || (_cache[7] = function ($event) {
+      return $options.subtoggleDropdown('design');
     }),
-    _: 1
-    /* STABLE */
-
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.switchInertia ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
-    key: 5,
-    href: "/home#designstudio",
-    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_14];
+    style: {
+      "min-width": "12rem"
+    },
+    ref: "designPopoverDropdownRef"
+  }, _hoisted_14, 34
+  /* CLASS, HYDRATE_EVENTS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a v-if=\"!switchInertia\" href=\"#modularcabinets\" @mouseover=\"subtoggleDropdown('cabinet')\" @mouseleave=\"subtoggleDropdown('cabinet')\" id=\"cabinetsbtnsubDropdownRef\" ref=\"cabinetsbtnsubDropdownRef\" class=\"text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white\">\r\n\t\t\t\t\t\t\t\tModular Cabinets\r\n\t\t\t\t\t\t\t</a> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onMouseover: _cache[8] || (_cache[8] = function ($event) {
+      return $options.subtoggleDropdown('cabinet');
     }),
-    _: 1
-    /* STABLE */
-
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 2
-  /* CLASS */
-  )], 512
-  /* NEED_PATCH */
-  ), [[_directive_click_away, $options.onClickAway]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: _ctx.$route('guest.blog'),
-    "class": "nav-link hover:rvmp-brand-color-main"
+    onMouseleave: _cache[9] || (_cache[9] = function ($event) {
+      return $options.subtoggleDropdown('cabinet');
+    }),
+    id: "cabinetsbtnsubDropdownRef",
+    ref: "cabinetsbtnsubDropdownRef"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+    href: _ctx.$route('guest.index') + '#modularcabinets',
+    "class": "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white",
+    replace: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_16];
+      return [_hoisted_15];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  , ["href"])], 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.subdropdownPopoverShow && _ctx.subH == 'cabinet' ? 'block rvmp-bg-main rvmp-text-main' : 'hidden', "text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5"]),
+    onMouseleave: _cache[10] || (_cache[10] = function ($event) {
+      return $options.subtoggleDropdown('cabinet');
+    }),
+    style: {
+      "min-width": "12rem"
+    },
+    ref: "cabinetsPopoverDropdownRef"
+  }, _hoisted_17, 34
+  /* CLASS, HYDRATE_EVENTS */
+  )], 2
+  /* CLASS */
+  )], 512
+  /* NEED_PATCH */
+  ), [[_directive_click_away, $options.onClickAway]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.portfolio'),
     "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18];
+      return [_hoisted_19];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.about'),
     "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_20];
+      return [_hoisted_21];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+  , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
     href: _ctx.$route('guest.contact'),
     "class": "nav-link hover:rvmp-brand-color-main"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_22];
+      return [_hoisted_23];
     }),
     _: 1
     /* STABLE */
@@ -41619,471 +42902,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["show"])], 64
   /* STABLE_FRAGMENT */
   );
-}
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b":
-/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-var _hoisted_1 = {
-  "class": "h-auto 2xl:px-40 xl:px-16 lg:px-8",
-  id: "rvmp-lead-section-1"
-};
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex lg:flex-row flex-col-reverse h-auto z-0 relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-2/6 w-full lg:h-3/4 h-full lg:py-32 lg:pl-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:py-36 lg:my-12 lg:static"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("blockquote", {
-  className: "self-start border-l-8 rvmp-brand-border-highlight lg:my-2",
-  id: "rvmp-lead-heading"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold"
-}, " Building A Better Built Environment Together ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "font-light italic lg:mt-20 lg:mb-10",
-  id: "rvmp-lead-text"
-}, " Our team of professionals will help you turn your dream house into reality fast. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "space-x-5 flex lg:justify-start justify-center",
-  id: "rvmp-lead-cta"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
-}, "Give us a Call!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
-}, "Our Portfolio")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local",
-  id: "rvmp-lead-image",
-  style: {
-    "background-image": "url('/images/pages/section-1.jpg')"
-  }
-}, " ")], -1
-/* HOISTED */
-);
-
-var _hoisted_3 = [_hoisted_2];
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
-}
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde":
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-var _hoisted_1 = {
-  id: "rvmp-services-section-1"
-};
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "uppercase text-center",
-  id: "rvmp-services-heading"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5"
-}, "Here's what we offer")], -1
-/* HOISTED */
-);
-
-var _hoisted_3 = {
-  "class": "tab-container mt-10",
-  id: "rvmp-services-content"
-};
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-4xl font-semibold"
-}, "GLI", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "font-thin"
-}, "MODULAR CABINETS", -1
-/* HOISTED */
-);
-
-var _hoisted_6 = [_hoisted_4, _hoisted_5];
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-4xl font-semibold"
-}, "GLI", -1
-/* HOISTED */
-);
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "font-thin"
-}, "BUILDERS", -1
-/* HOISTED */
-);
-
-var _hoisted_9 = [_hoisted_7, _hoisted_8];
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-4xl font-semibold"
-}, "GLI", -1
-/* HOISTED */
-);
-
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "font-thin"
-}, "DESIGN STUDIO", -1
-/* HOISTED */
-);
-
-var _hoisted_12 = [_hoisted_10, _hoisted_11];
-
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:block hidden"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/images/pages/CABINETS.jpg"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
-  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Modular Cabinets"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": ""
-}, " firm building "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "rvmp-brand-color-highlight"
-}, " Structures ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
-}, " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "space-x-5 flex lg:justify-start justify-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
-}, " Give us a Call! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
-}, " Our Portfolio ")])], -1
-/* HOISTED */
-);
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:block hidden"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/images/pages/BUILDERS-1.jpg"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
-  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Builders"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": ""
-}, " firm building "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "rvmp-brand-color-highlight"
-}, " Structures ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
-}, " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "space-x-5 flex lg:justify-start justify-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
-}, " Give us a Call! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
-}, " Our Portfolio ")])], -1
-/* HOISTED */
-);
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:block hidden"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/images/pages/STUDIO.jpg"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:w-1/2 w-full lg:space-y-10 space-y-5 lg:px-0 px-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
-  "class": "border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8 font-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Here at GLI Design Studio"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "We offer you")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "lg:text-3xl text-xl uppercase font-bold text-left"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": ""
-}, " firm building "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "rvmp-brand-color-highlight"
-}, " Structures ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-left 2xl:pl-32 xl:pl-16 lg:pl-8"
-}, " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "space-x-5 flex lg:justify-start justify-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"
-}, " Give us a Call! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300"
-}, " Our Portfolio ")])], -1
-/* HOISTED */
-);
-
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Tab = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Tab");
-
-  var _component_TabList = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabList");
-
-  var _component_TabPanel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabPanel");
-
-  var _component_TabPanels = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabPanels");
-
-  var _component_TabGroup = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TabGroup");
-
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabGroup, null, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabList, {
-        "class": "flex w-full"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
-            id: "modularcabinets",
-            "class": "w-1/3 bg-cover bg-center",
-            style: {
-              "background-image": "url('/images/pages/CABINETS.jpg')"
-            }
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
-              var selected = _ref.selected;
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-96 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
-              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
-              }, _hoisted_6, 2
-              /* CLASS */
-              )], 2
-              /* CLASS */
-              )];
-            }),
-            _: 1
-            /* STABLE */
-
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
-            id: "builders",
-            "class": "w-1/3 bg-cover bg-center",
-            style: {
-              "background-image": "url('/images/pages/BUILDERS-1.jpg')"
-            }
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref2) {
-              var selected = _ref2.selected;
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-96 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
-              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
-              }, _hoisted_9, 2
-              /* CLASS */
-              )], 2
-              /* CLASS */
-              )];
-            }),
-            _: 1
-            /* STABLE */
-
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Tab, {
-            id: "designstudio",
-            "class": "w-1/3 bg-cover bg-center",
-            style: {
-              "background-image": "url('/images/pages/STUDIO.jpg')"
-            }
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref3) {
-              var selected = _ref3.selected;
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full rvmp-brand-bg-main h-96 transition ease-in duration-300", [selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']])
-              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-full transition ease-in duration-300 py-2.5 brand-logo-text", [selected ? 'rvmp-brand-bg-darker' : '']])
-              }, _hoisted_12, 2
-              /* CLASS */
-              )], 2
-              /* CLASS */
-              )];
-            }),
-            _: 1
-            /* STABLE */
-
-          })];
-        }),
-        _: 1
-        /* STABLE */
-
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanels, null, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
-            "class": "flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10"
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_13, _hoisted_14];
-            }),
-            _: 1
-            /* STABLE */
-
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
-            "class": "flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10"
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_15, _hoisted_16];
-            }),
-            _: 1
-            /* STABLE */
-
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TabPanel, {
-            "class": "flex lg:flex-row flex-col items-center text-center lg:m-20 lg:space-x-10"
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [_hoisted_17, _hoisted_18];
-            }),
-            _: 1
-            /* STABLE */
-
-          })];
-        }),
-        _: 1
-        /* STABLE */
-
-      })];
-    }),
-    _: 1
-    /* STABLE */
-
-  })])]);
-}
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-var _hoisted_1 = {
-  key: 0,
-  id: "rvmp-testimonials-section-1"
-};
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "uppercase text-center",
-  id: "rvmp-testimonial-heading"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5"
-}, "Our Client's Testimonial")], -1
-/* HOISTED */
-);
-
-var _hoisted_3 = {
-  "class": "overflow-x-hidden 2xl:px-40 xl:px-20 lg:px-10 px-5",
-  id: "rvmp-testimonial-content"
-};
-var _hoisted_4 = {
-  "class": "carousel__item m-4 w-full h-auto shadow-md rounded-md bg-gray-50 text-center flex flex-col space-y-3"
-};
-var _hoisted_5 = ["src"];
-var _hoisted_6 = {
-  "class": "p-4 testimonial-content space-y-3"
-};
-var _hoisted_7 = ["innerHTML"];
-var _hoisted_8 = ["innerHTML"];
-var _hoisted_9 = {
-  "class": "text-base font-semibold leading-3 mb-0 brand-text rvmp-footer-text capitalize block"
-};
-var _hoisted_10 = {
-  "class": "text-xs font-light leading-3 brand-text rvmp-footer-text capitalize"
-};
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Slide");
-
-  var _component_Pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Pagination");
-
-  var _component_Navigation = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navigation");
-
-  var _component_Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Carousel");
-
-  return $setup.posts.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Carousel, {
-    settings: $setup.settings,
-    breakpoints: $setup.breakpoints,
-    wrapAround: true,
-    mouseDrag: true
-  }, {
-    addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation)];
-    }),
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.posts, function (post, index) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Slide, {
-          key: post,
-          index: index
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-              src: post.image_url,
-              "class": "rounded-t-md"
-            }, null, 8
-            /* PROPS */
-            , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-              "class": "w-full text-center ratings text-yellow-400 space-x-2 mb-0",
-              innerHTML: post.stars
-            }, null, 8
-            /* PROPS */
-            , _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-              "class": "brand-text italic text-xs text-center mb-0 font-light",
-              innerHTML: post.content
-            }, null, 8
-            /* PROPS */
-            , _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.client_name), 1
-            /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.client_org), 1
-            /* TEXT */
-            )])])])];
-          }),
-          _: 2
-          /* DYNAMIC */
-
-        }, 1032
-        /* PROPS, DYNAMIC_SLOTS */
-        , ["index"]);
-      }), 128
-      /* KEYED_FRAGMENT */
-      ))];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["settings", "breakpoints"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
 
 /***/ }),
@@ -44397,6 +45215,36 @@ var deepmerge_1 = deepmerge;
 
 module.exports = deepmerge_1;
 
+
+/***/ }),
+
+/***/ "./public/images/brand-logo-small.png":
+/*!********************************************!*\
+  !*** ./public/images/brand-logo-small.png ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/brand-logo-small.png?5ad6b7cf5c1e7de8cc86c27b52c86eb3");
+
+/***/ }),
+
+/***/ "./public/images/smiley.png":
+/*!**********************************!*\
+  !*** ./public/images/smiley.png ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/smiley.png?76b94e3689a45e17ab71927b01b39c0b");
 
 /***/ }),
 
@@ -74034,6 +74882,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Components/Plugins/CalendyPlugin.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/Components/Plugins/CalendyPlugin.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CalendyPlugin_vue_vue_type_template_id_48f5ec95__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendyPlugin.vue?vue&type=template&id=48f5ec95 */ "./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95");
+/* harmony import */ var _CalendyPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendyPlugin.vue?vue&type=script&lang=js */ "./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js");
+/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CalendyPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CalendyPlugin_vue_vue_type_template_id_48f5ec95__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Components/Plugins/CalendyPlugin.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Components/Plugins/GoogleMapPlugin.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/Components/Plugins/GoogleMapPlugin.vue ***!
@@ -74712,6 +75588,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/BookFree.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/BookFree.vue ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BookFree_vue_vue_type_template_id_179e6d1e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookFree.vue?vue&type=template&id=179e6d1e */ "./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e");
+/* harmony import */ var _BookFree_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BookFree.vue?vue&type=script&lang=js */ "./resources/js/Pages/BookFree.vue?vue&type=script&lang=js");
+/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_BookFree_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_BookFree_vue_vue_type_template_id_179e6d1e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/BookFree.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Contact.vue":
 /*!****************************************!*\
   !*** ./resources/js/Pages/Contact.vue ***!
@@ -74740,10 +75644,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Index.vue":
-/*!**************************************!*\
-  !*** ./resources/js/Pages/Index.vue ***!
-  \**************************************/
+/***/ "./resources/js/Pages/Home/Index.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/Pages/Home/Index.vue ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -74751,15 +75655,99 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Index_vue_vue_type_template_id_3655eff9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=3655eff9 */ "./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9");
-/* harmony import */ var _Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js */ "./resources/js/Pages/Index.vue?vue&type=script&lang=js");
+/* harmony import */ var _Index_vue_vue_type_template_id_f311f62a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=f311f62a */ "./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js */ "./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js");
 /* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_3655eff9__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Index.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_f311f62a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Home/Index.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/LeadBanner.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Home/LeadBanner.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LeadBanner_vue_vue_type_template_id_3e7f3a5f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeadBanner.vue?vue&type=template&id=3e7f3a5f */ "./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f");
+/* harmony import */ var _LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeadBanner.vue?vue&type=script&lang=js */ "./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js");
+/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LeadBanner_vue_vue_type_template_id_3e7f3a5f__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Home/LeadBanner.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Services.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Home/Services.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Services_vue_vue_type_template_id_4bc43456__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Services.vue?vue&type=template&id=4bc43456 */ "./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456");
+/* harmony import */ var _Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Services.vue?vue&type=script&lang=js */ "./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js");
+/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Services_vue_vue_type_template_id_4bc43456__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Home/Services.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Testimonial.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/Home/Testimonial.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Testimonial_vue_vue_type_template_id_1100ad78__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Testimonial.vue?vue&type=template&id=1100ad78 */ "./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78");
+/* harmony import */ var _Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Testimonial.vue?vue&type=script&lang=js */ "./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js");
+/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Testimonial_vue_vue_type_template_id_1100ad78__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Home/Testimonial.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -75079,90 +76067,6 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Sections/LeadBanner.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/Sections/LeadBanner.vue ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _LeadBanner_vue_vue_type_template_id_78b3c69b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeadBanner.vue?vue&type=template&id=78b3c69b */ "./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b");
-/* harmony import */ var _LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeadBanner.vue?vue&type=script&lang=js */ "./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js");
-/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LeadBanner_vue_vue_type_template_id_78b3c69b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Sections/LeadBanner.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Services.vue":
-/*!********************************************!*\
-  !*** ./resources/js/Sections/Services.vue ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Services_vue_vue_type_template_id_597f5dde__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Services.vue?vue&type=template&id=597f5dde */ "./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde");
-/* harmony import */ var _Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Services.vue?vue&type=script&lang=js */ "./resources/js/Sections/Services.vue?vue&type=script&lang=js");
-/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Services_vue_vue_type_template_id_597f5dde__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Sections/Services.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Testimonial.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/Sections/Testimonial.vue ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Testimonial_vue_vue_type_template_id_1d5da8bc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Testimonial.vue?vue&type=template&id=1d5da8bc */ "./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc");
-/* harmony import */ var _Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Testimonial.vue?vue&type=script&lang=js */ "./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js");
-/* harmony import */ var D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,D_repo_GLI_Group_Inc_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Testimonial_vue_vue_type_template_id_1d5da8bc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Sections/Testimonial.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
 /***/ "./resources/js/Components/Modals/WarningModal.vue?vue&type=script&lang=js":
 /*!*********************************************************************************!*\
   !*** ./resources/js/Components/Modals/WarningModal.vue?vue&type=script&lang=js ***!
@@ -75175,6 +76079,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WarningModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WarningModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./WarningModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modals/WarningModal.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendyPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendyPlugin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CalendyPlugin.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -75563,6 +76483,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/BookFree.vue?vue&type=script&lang=js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/BookFree.vue?vue&type=script&lang=js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookFree_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookFree_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BookFree.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Contact.vue?vue&type=script&lang=js":
 /*!****************************************************************!*\
   !*** ./resources/js/Pages/Contact.vue?vue&type=script&lang=js ***!
@@ -75579,10 +76515,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Index.vue?vue&type=script&lang=js":
-/*!**************************************************************!*\
-  !*** ./resources/js/Pages/Index.vue?vue&type=script&lang=js ***!
-  \**************************************************************/
+/***/ "./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -75590,7 +76526,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LeadBanner.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Services.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Testimonial.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -75771,54 +76755,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js":
-/*!**********************************************************************!*\
-  !*** ./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LeadBanner.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Services.vue?vue&type=script&lang=js":
-/*!********************************************************************!*\
-  !*** ./resources/js/Sections/Services.vue?vue&type=script&lang=js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Services.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Testimonial.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
 /***/ "./resources/js/Components/Modals/WarningModal.vue?vue&type=template&id=5871199f":
 /*!***************************************************************************************!*\
   !*** ./resources/js/Components/Modals/WarningModal.vue?vue&type=template&id=5871199f ***!
@@ -75831,6 +76767,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WarningModal_vue_vue_type_template_id_5871199f__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_WarningModal_vue_vue_type_template_id_5871199f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./WarningModal.vue?vue&type=template&id=5871199f */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Modals/WarningModal.vue?vue&type=template&id=5871199f");
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95 ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendyPlugin_vue_vue_type_template_id_48f5ec95__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CalendyPlugin_vue_vue_type_template_id_48f5ec95__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CalendyPlugin.vue?vue&type=template&id=48f5ec95 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Components/Plugins/CalendyPlugin.vue?vue&type=template&id=48f5ec95");
 
 
 /***/ }),
@@ -76219,6 +77171,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookFree_vue_vue_type_template_id_179e6d1e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BookFree_vue_vue_type_template_id_179e6d1e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BookFree.vue?vue&type=template&id=179e6d1e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/BookFree.vue?vue&type=template&id=179e6d1e");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Contact.vue?vue&type=template&id=2c2b26f2":
 /*!**********************************************************************!*\
   !*** ./resources/js/Pages/Contact.vue?vue&type=template&id=2c2b26f2 ***!
@@ -76235,18 +77203,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9":
-/*!********************************************************************!*\
-  !*** ./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9 ***!
-  \********************************************************************/
+/***/ "./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a ***!
+  \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_3655eff9__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_f311f62a__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_3655eff9__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=template&id=3655eff9 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Index.vue?vue&type=template&id=3655eff9");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_f311f62a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=template&id=f311f62a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Index.vue?vue&type=template&id=f311f62a");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_template_id_3e7f3a5f__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_template_id_3e7f3a5f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LeadBanner.vue?vue&type=template&id=3e7f3a5f */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/LeadBanner.vue?vue&type=template&id=3e7f3a5f");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456 ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_template_id_4bc43456__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_template_id_4bc43456__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Services.vue?vue&type=template&id=4bc43456 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Services.vue?vue&type=template&id=4bc43456");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78 ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_template_id_1100ad78__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_template_id_1100ad78__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Testimonial.vue?vue&type=template&id=1100ad78 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Home/Testimonial.vue?vue&type=template&id=1100ad78");
 
 
 /***/ }),
@@ -76423,54 +77439,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ErrorsAndMessages_vue_vue_type_template_id_36e13d99__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ErrorsAndMessages_vue_vue_type_template_id_36e13d99__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ErrorsAndMessages.vue?vue&type=template&id=36e13d99 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Partials/ErrorsAndMessages.vue?vue&type=template&id=36e13d99");
-
-
-/***/ }),
-
-/***/ "./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b":
-/*!****************************************************************************!*\
-  !*** ./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_template_id_78b3c69b__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LeadBanner_vue_vue_type_template_id_78b3c69b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LeadBanner.vue?vue&type=template&id=78b3c69b */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/LeadBanner.vue?vue&type=template&id=78b3c69b");
-
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde":
-/*!**************************************************************************!*\
-  !*** ./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_template_id_597f5dde__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Services_vue_vue_type_template_id_597f5dde__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Services.vue?vue&type=template&id=597f5dde */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Services.vue?vue&type=template&id=597f5dde");
-
-
-/***/ }),
-
-/***/ "./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_template_id_1d5da8bc__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Testimonial_vue_vue_type_template_id_1d5da8bc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Testimonial.vue?vue&type=template&id=1d5da8bc */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Sections/Testimonial.vue?vue&type=template&id=1d5da8bc");
 
 
 /***/ }),
@@ -77861,10 +78829,18 @@ var map = {
 	"./Auth/Register.vue": "./resources/js/Pages/Auth/Register.vue",
 	"./BlogPost": "./resources/js/Pages/BlogPost.vue",
 	"./BlogPost.vue": "./resources/js/Pages/BlogPost.vue",
+	"./BookFree": "./resources/js/Pages/BookFree.vue",
+	"./BookFree.vue": "./resources/js/Pages/BookFree.vue",
 	"./Contact": "./resources/js/Pages/Contact.vue",
 	"./Contact.vue": "./resources/js/Pages/Contact.vue",
-	"./Index": "./resources/js/Pages/Index.vue",
-	"./Index.vue": "./resources/js/Pages/Index.vue",
+	"./Home/Index": "./resources/js/Pages/Home/Index.vue",
+	"./Home/Index.vue": "./resources/js/Pages/Home/Index.vue",
+	"./Home/LeadBanner": "./resources/js/Pages/Home/LeadBanner.vue",
+	"./Home/LeadBanner.vue": "./resources/js/Pages/Home/LeadBanner.vue",
+	"./Home/Services": "./resources/js/Pages/Home/Services.vue",
+	"./Home/Services.vue": "./resources/js/Pages/Home/Services.vue",
+	"./Home/Testimonial": "./resources/js/Pages/Home/Testimonial.vue",
+	"./Home/Testimonial.vue": "./resources/js/Pages/Home/Testimonial.vue",
 	"./Portfolio": "./resources/js/Pages/Portfolio.vue",
 	"./Portfolio.vue": "./resources/js/Pages/Portfolio.vue",
 	"./PostView": "./resources/js/Pages/PostView.vue",

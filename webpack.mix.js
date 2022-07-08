@@ -16,6 +16,7 @@ const path = require('path');
     },
     resolve: {
         alias:{
+        '@widget' : path.resolve('resources/js/widget.js'),
         '@helpers' : path.resolve('resources/js/helpers.js'),
         '@': path.resolve('resources/js'),
         }

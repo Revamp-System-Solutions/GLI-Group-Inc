@@ -88,6 +88,11 @@
                           <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
                         </div>
                         <div class="col-span-6">
+                         
+                       <a href="" @click.prevent="openCalendly"  class="text-sm font-medium rvmp-footer-text capitalize block"> Click to Schedule time with our Professionals </a>
+                            <div id="calendly-popup" class=""></div>
+                        </div>
+                        <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
                           <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" v-model="form.details"></textarea>
                         </div>
@@ -117,23 +122,38 @@ import {computed, inject,ref, reactive} from "vue";
     ListboxOptions,
     ListboxOption,
   } from '@headlessui/vue'
+import CalendyPlugin from "../Components/Plugins/CalendyPlugin"
 export default {
     name: "Home",
     components: {
-        ErrorsAndMessages,
- 
-
-        Listbox,
-        ListboxButton,
-        ListboxOptions,
-        ListboxOption
-    },
+    ErrorsAndMessages,
+    Listbox,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption,
+    CalendyPlugin
+},
     props: {
         errors: Object
     },
     methods:{
         makeBG(url){
             return `background-image: url('${url}')`
+        },
+        openCalendly: ()=>{
+            window.Calendly.initPopupWidget({
+            url: 'https://calendly.com/rvmpsystemssolution/test-events?hide_event_type_details=1&hide_gdpr_banner=1',
+            parentElement: document.getElementById('calendly-popup'),
+            prefill: {
+                name: 'Alamein',
+                email: 'abc@gmaoil.com',
+                customAnswers: {
+                    a1:'yes'
+                } 
+            },
+            utm: {}
+            });
+        
         }
     },
     setup() {
