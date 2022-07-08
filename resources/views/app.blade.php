@@ -10,12 +10,16 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ asset('/js/jquery-3.3.1.slim.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/625ea5a249.js" crossorigin="anonymous"></script>
+   <!-- Calendly link widget begin -->
+<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<!-- Calendly link widget end -->
     @routes
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+   
     @inertiaHead
 </head>
+
     <body id="body flex flex-col min-h-full" onscroll="detectScroll(this.event)">
-       
             @inertia
         
             <script src="{{ mix('js/app.js') }}" defer></script>

@@ -1,10 +1,10 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
+
         <lead-banner/>
         <services :url="$page.url"/>
         <testimonial :carousel-settings="settings" :carousel-breakpoints="breakpoints" :carousel-testimonials="posts"/>
-    
     </div>
     <app-footer-default/>
 </template>
@@ -17,10 +17,12 @@ import ErrorsAndMessages from "../../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {computed} from "vue";
 
+
 //sections import
 import LeadBanner from "./LeadBanner";
 import Services from './Services';
 import Testimonial from './Testimonial';
+
 
 export default {
     name: "Home",

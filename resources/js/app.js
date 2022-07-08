@@ -8,9 +8,10 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 import  VueGoogleMaps from '@fawmi/vue-google-maps'
 
 
-InertiaProgress.init();
 
+InertiaProgress.init();
 require('@helpers');
+
 
 createInertiaApp({
   resolve:  name => {
@@ -34,8 +35,10 @@ createInertiaApp({
     })
   
     app.use(CKEditor)
+
     app.use(VueClickAway)
     app.use(plugin)
+
     .component('InertiaHead', Head)
     .component('InertiaLink', Link)
     .mixin({ methods: { route } })
