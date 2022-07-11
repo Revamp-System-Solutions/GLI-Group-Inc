@@ -1,6 +1,6 @@
 <template>
     <app-header></app-header>
-   <div class="rvmp-container h-auto space-y-0 mb-8">
+   <div class="rvmp-container h-auto space-y-0">
         <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
             <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
                 <div class="lg:w-full lg:self-start self-center">
@@ -8,11 +8,11 @@
                 </div>
             </div>
         </div>
-    <div  class="h-auto 2xl:px-64 xl:px-56 lg:px-28">
+    <div  class="h-auto 2xl:px-64 xl:px-56 lg:px-24">
         <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
-            <div class="w-full h-3/4 lg:py-36 lg:pl-0 p-6 static" >
+            <div class="w-full h-2/3 lg:py-12 lg:pl-0 p-6 static" >
                 <div class="lg:py-36 lg:my-12 static">
-                    <div class="rvmp-bg-main bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full ">  
+                    <div class="rvmp-bg-alt bg-opacity-75 lg:absolute lg:top-0 xl:px-16 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full -left-24 xl:ml-0 lg:ml-12">  
                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight my-2">
                             <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold"></h2>
                             <h2 class="ml-5 brand-logo-text text-3xl font-semibold">GLI <span class="brand-logo-text font-thin rvmp-brand-color-highlight">GROUP INC.</span></h2> 
@@ -21,8 +21,8 @@
                     </div>            
                 </div>               
             </div>
-            <div class="w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/workplace.jpg')" >
-                        &nbsp;
+            <div class="w-full z-30 lg:h-auto  static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
+                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fgligroupinc%2Fvideos%2F729918478044185%2F&show_text=false&width=560&t=0&autoplay=1" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
         </div>
     </div>

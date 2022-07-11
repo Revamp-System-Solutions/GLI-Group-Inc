@@ -19,7 +19,7 @@
                         <span class="brand-logo-text font-semibold"
                             >GLI <span class="font-thin">Group Inc.</span>
                         </span>
-                        is A Design & Build Firm with Architectural &
+                        is a Design & Build Firm with Architectural &
                         Engineering Design Services, Construction Services, and
                         Cabinetry Fabrication teams.
                     </p>
@@ -164,7 +164,7 @@
                             <span
                                 class="brand-text 2xl:text-sm text-xs text-left font-light"
                             >
-                                0905-000-0000
+                                (+63) 917 516 7201
                             </span>
                         </div>
                         <div class="w-full flex flex-row" id="contact-email">
@@ -183,19 +183,29 @@
                         id="social-links"
                     >
                         <a
-                            href="https://www.facebook.com/gligroupinc"
+                             href="https://www.linkedin.com/company/gli-group-inc/"
                             target="_blank"
-                            class="fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
+                            class="fab fa-linkedin text-blue-700 col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
                             ><span
                                 class="px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text"
                                 ><span class="font-semibold">GLI</span>
-                                <span class="font-thin">Group Inc.</span>
+                                <span class="font-thin"> Group Inc.</span></span
+                            ></a
+                        >
+                        <a
+                            href="https://www.facebook.com/gligroupinc"
+                            target="_blank"
+                            class="fab fa-facebook text-blue-600 col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
+                            ><span
+                                class="px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text"
+                                ><span class="font-semibold">GLI</span>
+                                <span class="font-thin"> Group Inc.</span>
                             </span></a
                         >
                         <a
                             href="https://www.facebook.com/GLidesignstudio"
                             target="_blank"
-                            class="fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
+                            class="fab fa-facebook text-blue-600 col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
                             ><span
                                 class="px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text"
                                 ><span class="font-thin"
@@ -206,7 +216,7 @@
                         <a
                             href="https://www.facebook.com/GLI-Builders-102946945203186"
                             target="_blank"
-                            class="fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
+                            class="fab fa-facebook text-blue-600 col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
                             ><span
                                 class="px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text"
                                 ><span class="font-thin">Builders</span></span
@@ -215,7 +225,7 @@
                         <a
                             href="https://www.facebook.com/glimodularcabinets"
                             target="_blank"
-                            class="fab fa-facebook col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
+                            class="fab fa-facebook text-blue-600 col-span-1 rvmp-brand-color-main 2xl:text-xl xl:text-lg text-sm text-left social-link"
                             ><span
                                 class="px-2 text-sm brand-logo-text hover:rvmp-brand-color-main rvmp-footer-text"
                                 ><span class="font-thin"
