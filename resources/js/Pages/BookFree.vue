@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="w-full px-4 flex flex-wrap content-center lg:static absolute lg:bg-transparent bg-gray-100 lg:bg-opacity-100 bg-opacity-75 lg:h-auto h-full">
-                    <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl w-full bg-gray-50" @submit.prevent="sendMessage()">
+                    <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl w-full bg-gray-50" @submit.prevent="openCalendly()">
                         <div class="col-span-6">
                           <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">FREE Consultation</span></h3>
                         </div>
@@ -85,13 +85,13 @@
                         </div>
                         <div class="col-span-6">
                           <label for="date_needed" class="text-sm font-medium rvmp-footer-text capitalize block">when</label>
-                          <input type="date" name="date_needed" id="date_needed" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
+                          <input type="date" name="date_needed" id="date_needed" disabled autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
                         </div>
-                        <div class="col-span-6">
+                        <!-- <div class="col-span-6">
                          
                        <a href="" @click.prevent="openCalendly"  class="text-sm font-medium rvmp-footer-text capitalize block"> Click to Schedule time with our Professionals </a>
                             <div id="calendly-popup" class=""></div>
-                        </div>
+                        </div> -->
                         <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
                           <textarea type="text" name="message" id="message" placeholder="Project Details" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md  shadow-sm sm:text-sm border-gray-300 resize-none" v-model="form.details"></textarea>
@@ -136,11 +136,24 @@ export default {
     props: {
         errors: Object
     },
+    mounted(){
+        function isCalendlyEvent(e) {
+  return e.origin === "https://calendly.com" && e.data.event && e.data.event.indexOf("calendly.") === 0;
+};
+ 
+window.addEventListener("message", function(e) {
+  if(isCalendlyEvent(e)) {
+    /* Example to get the payload of the event */
+    console.log("Event details:", e.data.payload);
+  }
+});
+    },
     methods:{
         makeBG(url){
             return `background-image: url('${url}')`
         },
         openCalendly: ()=>{
+            // this.sendMessage()
             window.Calendly.initPopupWidget({
             url: 'https://calendly.com/rvmpsystemssolution/test-events?hide_event_type_details=1&hide_gdpr_banner=1',
             parentElement: document.getElementById('calendly-popup'),

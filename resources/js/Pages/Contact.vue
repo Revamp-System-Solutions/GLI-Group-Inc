@@ -115,7 +115,7 @@
                     let's talk
                 </h3>
                 <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">Phone: (+63) (035) 400 3610</span>
+                    <span class="block">Phone: (+63) 917 516 7201</span>
                 </p>
             </div>
             <div
@@ -139,6 +139,14 @@
                 class="w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16"
                 id="social-links"
             >
+                <a
+                    href="https://www.linkedin.com/company/gli-group-inc/"
+                    target="_blank"
+                    class="fab fa-linkedin text-blue-700 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
+                    ><span
+                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
+                        ><span class="font-thin">GLI Group Inc.</span></span
+                ></a>
                 <a
                     href="https://www.facebook.com/gligroupinc"
                     target="_blank"
@@ -172,14 +180,7 @@
                         class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
                         ><span class="font-thin">Modular Cabinets</span></span
                     ></a>
-                <a
-                    href="https://www.linkedin.com/company/gli-group-inc/"
-                    target="_blank"
-                    class="fab fa-linkedin text-blue-700 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
-                        ><span class="font-thin">Modular Cabinets</span></span
-                ></a>
+                
             </div>
         </div>
         <div class="w-full h-auto pt-4">
