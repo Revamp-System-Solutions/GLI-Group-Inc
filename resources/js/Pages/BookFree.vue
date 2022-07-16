@@ -20,11 +20,11 @@
                         </div>
                         <div class="col-span-6">
                           <label for="email-address" class="text-sm font-medium rvmp-footer-text capitalize hidden">Email address</label>
-                          <input type="email" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.email"/>
+                          <input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email-address" id="email-address" placeholder="Email Address" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.email"/>
                         </div>
                         <div class="col-span-6">
                           <label for="contact-number" class="text-sm font-medium rvmp-footer-text capitalize hidden">Contact Number</label>
-                          <input type="tel" pattern="[0-99999999999]{11}" max="11" name="contact-number" id="contact-number" placeholder="Contact Number" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.contact"/>
+                          <input type="tel" pattern="[9000000000-9999999999]{10}" min="10" max="10" name="contact-number" id="contact-number" placeholder="Contact Number e.g. 9123456789" autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.contact"/>
                         </div>
                         <div class="col-span-6 ">
                           <label for="project" class="text-sm font-medium rvmp-footer-text capitalize hidden">Type of Project</label>
@@ -152,22 +152,9 @@ window.addEventListener("message", function(e) {
         makeBG(url){
             return `background-image: url('${url}')`
         },
-        openCalendly: ()=>{
-            // this.sendMessage()
-            window.Calendly.initPopupWidget({
-            url: 'https://calendly.com/rvmpsystemssolution/test-events?hide_event_type_details=1&hide_gdpr_banner=1',
-            parentElement: document.getElementById('calendly-popup'),
-            prefill: {
-                name: 'Alamein',
-                email: 'abc@gmaoil.com',
-                customAnswers: {
-                    a1:'yes'
-                } 
-            },
-            utm: {}
-            });
-        
-        }
+        // openCalendly: ()=>{
+          
+        // }
     },
     setup() {
          const form = reactive({
@@ -213,7 +200,7 @@ window.addEventListener("message", function(e) {
                 data.append("fullName", this.form.fullName);
                 data.append("email", this.form.email);
                 data.append("contact", this.form.contact);
-                data.append("projectType", this.selectedService);
+                data.append("projectType", this.selectedService.name);
                 data.append("bookingDate", this.form.bookingDate);
                 data.append("details", this.form.details);
 
@@ -221,10 +208,30 @@ window.addEventListener("message", function(e) {
                     forceFormData: true,
                 });
               }
+                function openCalendly() {
+
+                        // this.sendMessage()
+                        window.Calendly.initPopupWidget({
+                        url: 'https://calendly.com/rvmpsystemssolution/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1',
+                        parentElement: document.getElementById('calendly-popup'),
+                        prefill: {
+                            name: this.form.fullName,
+                            email: this.form.email,
+                            customAnswers: {
+                                a1:'+63'+this.form.contact,
+                                a2: this.selectedService.name,
+                                a3: this.form.details
+                            } 
+                        },
+                        utm: {}
+                        });
+                    
+                }
         return {
             form,
             services,
             sendMessage,
+            openCalendly,
             selectedService,
         }
     }
