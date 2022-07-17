@@ -35,7 +35,7 @@ class FormResponseController extends Controller
         } else {
             $request->session()->flash('success','Email sent to '.$request->email.'|>><<|Email successfully sent!');
             // return response()->json(['success'=>'Email sent to '.$request->email.'|>><<|Email successfully sent!']);
-            return redirect()->route('guest.index')
+            return redirect()->route($request->formTitle==='get-in-touch'?'guest.thankYou':'guest.index')
             ->with('success', 'Email sent to '.$request->email.'|>><<|Email successfully sent!');
         }
     }

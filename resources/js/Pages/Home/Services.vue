@@ -121,7 +121,7 @@
                                             tailored
                                         </span>
                                         <span class="rvmp-brand-color-highlight">
-                                            structures design
+                                            structure design
                                         </span>
                                     </div>
                                     <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">

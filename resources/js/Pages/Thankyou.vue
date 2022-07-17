@@ -96,6 +96,8 @@ export default {
             this.form.bookingDate = `${ev_s.getFullYear()}-${ev_s.getMonth() < 10 ? "0" + ev_s.getMonth() : ev_s.getMonth()}-${ev_s.getDate() < 10 ? "0" + ev_s.getDate() : ev_s.getDate()}`;
             this.form.bookingTime = `${ev_s.getHours() < 10 ? "0" + ev_s.getHours() : ev_s.getHours()}:${ev_s.getMinutes() < 10 ? "0" + ev_s.getMinutes() : ev_s.getMinutes()} - ${ev_e.getHours() < 10 ? "0" + ev_e.getHours() : ev_e.getHours()}:${ev_e.getMinutes() < 10 ? "0" + ev_e.getMinutes() : ev_e.getMinutes()}`;
             setTimeout(() => this.sendMessage(), 5000);
+        }else{
+          setTimeout(() => Inertia.visit("/"), 5000);
         }
     },
     components: { AppFooterSmall }
