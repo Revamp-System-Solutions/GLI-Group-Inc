@@ -2,6 +2,7 @@
   
     <div class="rvmp-container h-auto">
     <div  class="">
+      <div id="calendly-popup" class=""></div>
             <div class="w-full flex lg:flex-row flex-col space-x-0 space-y-0 h-full relative" >
                 <div class="w-full h-screen px-8 space-y-6 bg-origin-border bg-cover bg-no-repeat bg-center bg-local static" style="background-image: url('/images/pages/section-1.jpg')" >
               
@@ -83,14 +84,14 @@
                                 </div>
                                 </Listbox>
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-6 hidden">
                           <label for="date_needed" class="text-sm font-medium rvmp-footer-text capitalize block">when</label>
                           <input type="date" name="date_needed" id="date_needed" disabled autocomplete="off" class="focus:ring-indigo-500 focus:border-indigo-500 w-full rounded-md shadow-sm sm:text-sm border-gray-300" v-model="form.bookingDate"/>
                         </div>
                         <!-- <div class="col-span-6">
                          
                        <a href="" @click.prevent="openCalendly"  class="text-sm font-medium rvmp-footer-text capitalize block"> Click to Schedule time with our Professionals </a>
-                            <div id="calendly-popup" class=""></div>
+                            
                         </div> -->
                         <div class="col-span-6">
                           <label for="message" class="text-sm font-medium rvmp-footer-text capitalize hidden">Message</label>
@@ -212,7 +213,7 @@ window.addEventListener("message", function(e) {
 
                         // this.sendMessage()
                         window.Calendly.initPopupWidget({
-                        url: 'https://calendly.com/rvmpsystemssolution/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1',
+                        url: 'https://calendly.com/gli-group-inc/free-consultation?hide_event_type_details=1&hide_gdpr_banner=1',
                         parentElement: document.getElementById('calendly-popup'),
                         prefill: {
                             name: this.form.fullName,
