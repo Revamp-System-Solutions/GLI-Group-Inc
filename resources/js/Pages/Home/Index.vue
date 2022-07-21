@@ -1,4 +1,5 @@
 <template>
+    <errors-and-messages :errors="errors"></errors-and-messages>
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
 

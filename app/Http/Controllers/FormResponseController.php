@@ -27,13 +27,16 @@ class FormResponseController extends Controller
         $formResponse->response = json_encode($request->all());
 
         $formResponse->save();
-
-        Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
+        Mail::to($request->email)->send(new NotifyMail());
+        // Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
         if (Mail::failures()) {            
             return response()->json(['errors' => 'Failed to Sumbit Response! Try Again!']);
             // return response()->Fail('Sorry! Please try again latter');
         } else {
-            return Inertia::location('/thank-you');
+            $request->session()->flash('success','Email sent to '.$request->email.'|>><<|Email successfully sent!');
+            // return response()->json(['success'=>'Email sent to '.$request->email.'|>><<|Email successfully sent!']);
+            return redirect()->route($request->formTitle==='get-in-touch'?'guest.thankYou':'guest.index')
+            ->with('success', 'Email sent to '.$request->email.'|>><<|Email successfully sent!');
         }
     }
 }

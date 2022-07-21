@@ -20,8 +20,8 @@
                     >
                         Get in touch
                     </h2>
-                    <p class="brand-text text-center text-lg px-10">
-                        Send us your inquiries, our Professionals will check on it and give a response!
+                    <p class="brand-text text-center hiddentext-lg px-10">
+                        Send us your inquiries, Our team of Professionals shall provide you a response
                     </p>
                 </div>
                 <div class="col-span-6">
@@ -50,6 +50,8 @@
                         type="email"
                         name="email-address"
                         id="email-address"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        required
                         placeholder="Email Address"
                         autocomplete="off"
                         class="rounded-md focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300"
@@ -228,7 +230,7 @@ export default {
         function sendMessage() {
             const data = new FormData();
 
-            data.append("formTitle", 'Get in Touch')
+            data.append("formTitle", 'get-in-touch')
             data.append("fullName", this.form.fullName);
             data.append("email", this.form.email);
             data.append("message", this.form.message);
