@@ -168,8 +168,8 @@
                                     <div class="relative">
                                         
                                             <span class="absolute -top-4 -right-2 space-x-2">
-                                                <i class="fas fa-link text-2xl text-blue-400 cursor-pointer hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget(tab.service_id);targetChangeUrl=true"></i>
-                                                <i class="fas fa-pen text-2xl text-blue-400  cursor-pointer hover:text-blue-700" id="lead_btn1_btn" @click="editTarget(tab.service_id);targetChangeUrl=false"></i> 
+                                                <i class="fas fa-link text-2xl bg-gray-100 border border-blue-400 rounded-full p-2 text-blue-400 cursor-pointer hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget(tab.service_id);targetChangeUrl=true"></i>
+                                                <i class="fas fa-pen text-2xl bg-gray-100 border border-blue-400 rounded-full p-2  text-blue-400  cursor-pointer hover:text-blue-700" id="lead_btn1_btn" @click="editTarget(tab.service_id);targetChangeUrl=false"></i> 
                                             </span>
 
                                             <div class="text-4xl font-semibold">{{tab.title.top}}</div>
