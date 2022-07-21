@@ -14,7 +14,12 @@ class GuestController extends Controller
     {
         $this->middleware("web");
     }
-
+    public function guestRouter($slug)
+    {
+        // return Inertia::render('Home/Index',[
+        //     "posts" => Testimonials::orderBy('created_at', 'DESC')->skip(0)->take(10)->get()
+        // ]);
+    }
     public function index()
     {
         return Inertia::render('Home/Index',[
