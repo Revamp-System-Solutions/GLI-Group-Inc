@@ -27,7 +27,8 @@
     <div class="flex flex-col items-center justify-center">
         <div class="w-2/5 border-2">
             <div class="bg-white shadow-2xl flex items-center justify-center" style="margin-bottom:50px;">
-                <img src="https://1000logos.net/wp-content/uploads/2021/05/Jollibee-logo.png" class="w-96 m-1"></img>
+                <img src="http://st.gligroupinc.com/images/brand-logo-no-text.png" width="50px" height="50px"
+                    class="w-96 m-1"></img>
             </div>
             <div class="bg-gray-100">
                 <h1 class="text-black m-6 text-2xl font-bold antialiased ">Thank you for getting in touch with us!</h1>
@@ -52,6 +53,8 @@
         </div>
     </div>
 </body>
+
+
 
 
 
