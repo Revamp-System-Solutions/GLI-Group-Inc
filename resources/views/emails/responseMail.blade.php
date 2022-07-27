@@ -22,6 +22,10 @@
     }
     </style>
 </head>
+<template>
+
+
+</template>
 
 <body>
     <div class="flex flex-col items-center justify-center">
@@ -53,6 +57,7 @@
         </div>
     </div>
 </body>
+
 
 
 
