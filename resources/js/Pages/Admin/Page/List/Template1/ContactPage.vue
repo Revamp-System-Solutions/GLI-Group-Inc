@@ -2,8 +2,14 @@
   <errors-and-messages :errors="errors"></errors-and-messages>
   <app-admin-header :current-user="user" />
 
-  <app-header></app-header>
-  <div class="rvmp-container h-full bg-gray-100">
+  <div class="rvmp-container h-full bg-gray-100 relative">
+    <div class="py-8 px-8 w-full ">
+	
+	</div>
+    
+    <div class="w-full static">
+	<app-header /><!-- CHANGE/MAKE ADMIN VIEW -->
+	</div>
     <div
       class="w-full bg-origin-border bg-cover bg-center bg-local"
       style="background-image: url('/images/pages/house.jpg')"
@@ -711,6 +717,7 @@
 
 <script>
 import AppHeader from "./../../../../../Partials/AppHeader";
+import AppAdminHeader from "./../../../../../Partials/AppAdminHeader";
 import AppFooterSmall from "../../../../../Partials/AppFooterSmall";
 import ErrorsAndMessages from "./../../../../../Partials/ErrorsAndMessages";
 import GoogleMapPlugin from "../../../../../Components/Plugins/GoogleMapPlugin";
@@ -723,6 +730,7 @@ export default {
   components: {
     ErrorsAndMessages,
     AppHeader,
+    AppAdminHeader,
     AppFooterSmall,
     GoogleMapPlugin,
   },
