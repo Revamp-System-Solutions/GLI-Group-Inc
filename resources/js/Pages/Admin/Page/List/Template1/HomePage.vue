@@ -26,7 +26,7 @@
                                         <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="rvmp-lead-text-btn" @click="target=null"></i>   
                                     </span>
                                         
-                                    <textarea v-model="pageSection.lead_banner.lead_text" class="static h-32 resize-none border-gray-400 border-2 px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold bg-transparent"></textarea>
+                                    <textarea v-model="pageSection.lead_banner.lead_text" class="static h-32 resize-none border-dashed border-gray-400 border-2 px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold bg-transparent"></textarea>
                 
                                     </div>
                             </template>
@@ -34,7 +34,7 @@
                             <div class="relative">
                                 <i class="fas fa-pen text-2xl text-blue-400 absolute -top-2 -right-2 cursor-pointer  group-hover:text-blue-700" id="rvmp-lead-text-btn" @click="editTarget('lead_text')"></i>
                                 
-                                <h1 class="static border-gray-400 border-2 px-5 brand-text uppercase cursor-pointer lg:mt-0 mt-8 xl:text-3xl text-xl font-bold group-hover:bg-gray-200" id="rvmp-lead-text" @click="editTarget('lead_text')">
+                                <h1 class="static border-dashed border-gray-400 border-2 px-5 brand-text uppercase cursor-pointer lg:mt-0 mt-8 xl:text-3xl text-xl font-bold group-hover:bg-gray-200" id="rvmp-lead-text" @click="editTarget('lead_text')">
                                     {{pageSection.lead_banner.lead_text}}                                    
                                 </h1>
                             </div>
@@ -51,7 +51,7 @@
                                         <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="rvmp-lead-sub-btn" @click="target=null"></i>   
                                     </span>
                                         
-                                    <textarea v-model="pageSection.lead_banner.lead_sub_text" class="static h-24 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                    <textarea v-model="pageSection.lead_banner.lead_sub_text" class="static h-24 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                 
                                     </div>
                             </template>
@@ -60,7 +60,7 @@
                                 <i class="fas fa-pen text-2xl text-blue-400 absolute -top-2 -right-2 cursor-pointer  group-hover:text-blue-700" id="rvmp-lead-sub-btn" @click="editTarget('lead_sub_text')"></i>
                                 
                                 
-                                <div class="static border-gray-400 border cursor-pointer font-light italic lg:mb-10 group-hover:bg-gray-200" id="rvmp-lead-sub-text" @click="editTarget('lead_sub_text')">
+                                <div class="static border-dashed border-gray-400 border cursor-pointer font-light italic lg:mb-10 group-hover:bg-gray-200" id="rvmp-lead-sub-text" @click="editTarget('lead_sub_text')">
                                     {{pageSection.lead_banner.lead_sub_text}} 
                                     
                                 </div>
@@ -74,8 +74,8 @@
                                         <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
                                         <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
                                     </span>
-                                    <textarea v-if="!targetChangeUrl" v-model="pageSection.lead_banner.lead_btn1_text" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                    <textarea v-else v-model="pageSection.lead_banner.lead_btn1_slug" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                    <textarea v-if="!targetChangeUrl" v-model="pageSection.lead_banner.lead_btn1_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                    <textarea v-else v-model="pageSection.lead_banner.lead_btn1_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                     </div>
                                     
                                 </template>
@@ -87,7 +87,7 @@
                                                     <i class="fas fa-pen text-2xl text-blue-400  cursor-pointer  hover:text-blue-700" id="lead_btn1_btn" @click="editTarget('lead_btn1');targetChangeUrl=false"></i> 
                                             </span>
 
-                                        <p class="static border-gray-400 border-2 cursor-pointer rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"  @click="editTarget('lead_btn1')">{{pageSection.lead_banner.lead_btn1_text}}</p>
+                                        <p class="static border-dashed border-gray-400 border-2 cursor-pointer rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"  @click="editTarget('lead_btn1')">{{pageSection.lead_banner.lead_btn1_text}}</p>
                                     </div>
                                 </template>
                                 <template  v-if="target ==='lead_btn2'">
@@ -96,8 +96,8 @@
                                             <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null"></i>
                                             <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null"></i>   
                                         </span>
-                                        <textarea v-if="!targetChangeUrl" v-model="pageSection.lead_banner.lead_btn2_text" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                        <textarea v-else v-model="pageSection.lead_banner.lead_btn2_slug" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                        <textarea v-if="!targetChangeUrl" v-model="pageSection.lead_banner.lead_btn2_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                        <textarea v-else v-model="pageSection.lead_banner.lead_btn2_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                     </div>
                                     
                                 </template>
@@ -157,10 +157,10 @@
                                     
                                       
                                     <template v-if="!targetChangeUrl">
-                                       <span><input type="text" v-model="tab.title.top" class="text-center border-gray-400 border-2 text-4xl font-semibold bg-transparent"></span> 
-                                       <span><input type="text" v-model="tab.title.bottom" class="text-center border-gray-400 border-2 border-t-0 font-thin bg-transparent"></span> 
+                                       <span><input type="text" v-model="tab.title.top" class="text-center border-dashed border-gray-400 border-2 text-4xl font-semibold bg-transparent"></span> 
+                                       <span><input type="text" v-model="tab.title.bottom" class="text-center border-dashed border-gray-400 border-2 border-t-0 font-thin bg-transparent"></span> 
                                     </template>
-                                    <textarea  v-else v-model="tab.tab_service_id" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                    <textarea  v-else v-model="tab.tab_service_id" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                    </div>
                                     
                                 </template>
@@ -206,20 +206,20 @@
                                     </span>
                                     <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
                                             
-                                            <li><input type="text" v-model="panel.title.top" class="border-gray-400 border-2 font-bold bg-transparent"></li>
+                                            <li><input type="text" v-model="panel.title.top" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
                                             
-                                            <li><input type="text" v-model="panel.title.bottom" class="border-gray-400 border-2 font-bold bg-transparent"></li>
+                                            <li><input type="text" v-model="panel.title.bottom" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
                                         </ul>
                                         <div class="lg:text-3xl text-xl uppercase font-bold text-left">
                                             <span class="">
-                                                <input type="text" v-model="panel.tag_line.top" class="lg:text-3xl text-xl uppercase border-gray-400 border-2 font-bold bg-transparent">
+                                                <input type="text" v-model="panel.tag_line.top" class="lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
                                             </span>
                                             <span class="rvmp-brand-color-highlight">
-                                                <input type="text" v-model="panel.tag_line.bottom" class="rvmp-brand-color-highlight lg:text-3xl text-xl uppercase border-gray-400 border-2 font-bold bg-transparent">
+                                                <input type="text" v-model="panel.tag_line.bottom" class="rvmp-brand-color-highlight lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
                                             </span>
                                         </div>
                                         <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
-                                                <textarea v-model="panel.desc" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                <textarea v-model="panel.desc" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                         </p>
                                         <ul class="text-left grid grid-cols-2 gap-4">                                       
                                             <template v-for="(hl, i) in panel.service_highlights">
@@ -228,18 +228,18 @@
                                 <span><i class="fas fa-pen text-lg text-blue-400 cursor-pointer group-hover:text-blue-700 "></i></span>
                                     <input :id="`service-feature-icon-${index}-${i}`" :name="`service-feature-icon-${index}-${i}`" type="file" class="sr-only" @change="selectFile"/>
                                         </label>
-                                                <img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center"><input type="text" v-model="hl.title" class="border-gray-400 border-2 font-normal bg-transparent"></span></li>
+                                                <img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center"><input type="text" v-model="hl.title" class="border-dashed border-gray-400 border-2 font-normal bg-transparent"></span></li>
                                             </template>
                                         </ul>
                                         <div class="space-x-5 flex lg:justify-start justify-center">
                                                 <div class="">
-                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn1_text" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                                <textarea v-else v-model="panel.lead_btn1_slug" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn1_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                <textarea v-else v-model="panel.lead_btn1_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                             </div>
                                             <div class="">
                                             
-                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn2_text" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                                <textarea v-else v-model="panel.lead_btn2_slug" class="static h-14 resize-none border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn2_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                <textarea v-else v-model="panel.lead_btn2_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                             </div>
                                             
                                         </div>
