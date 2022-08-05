@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Collection;
+use App\Models\WebSetting;
 
 use Auth;
 
@@ -30,6 +31,7 @@ class PagesController extends Controller
     }
     public function updatePage($slug)
     {
+
         $page = Page::where('slug', $slug)->firstOrFail();
         if ($slug === 'home') {
             return Inertia::render('Admin/Page/List/Template1/HomePage')
@@ -37,6 +39,10 @@ class PagesController extends Controller
         } else if ($slug === 'about') {
             return Inertia::render('Admin/Page/List/Template1/AboutPage')
                 ->with("auth.user", Auth::user()->only('name', 'email', 'roles'));
+        } else if ($slug === 'contact-us') {
+            return Inertia::render('Admin/Page/List/Template1/ContactPage')
+                ->with("auth.user", Auth::user()->only('name', 'email', 'roles'))
+                ->with("site_profile", WebSetting::where('attribute', '=', 'Site Profile')->get()->toArray());
         }
     }
 }
