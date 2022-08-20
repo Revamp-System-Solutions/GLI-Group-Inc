@@ -1,6 +1,6 @@
 <template>
     <errors-and-messages :errors="errors"></errors-and-messages>
-    <app-admin-header :current-user="user"/>
+    <app-admin-header :current-user="user" @updatePage="onUpdatePage"/>
     
     
     <div class="w-full h-auto relative">
@@ -116,9 +116,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border h-full bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url(${pageSection.lead_banner.lead_display_image})`"  id="rvmp-lead-image">
+                <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border h-full bg-cover bg-no-repeat bg-center bg-local relative overflow-hidden" :style="bgString"  id="rvmp-lead-image">
+             
+                <!-- <img :src="pageSection.lead_banner.lead_display_image" class="absolute w-full h-full"> -->
                 <div class="w-full h-full bg-gray-400 bg-opacity-40 flex justify-center group hover:bg-opacity-75 items-center">
-                    
+
                     <label for="image" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                 <span><i class="fas fa-pen text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i>   </span>
                     <input id="image" name="image" type="file" class="sr-only" @change="selectFile"/>
@@ -184,103 +186,103 @@
                     </TabList>
                     <TabPanels>
                         <template v-for="(panel, index) in pageSection.services.tabPanels">
-                        <TabPanel class="flex lg:flex-row flex-col h-auto text-center lg:m-12 lg:space-x-10">
-                            <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url(${panel.feature_image_url})`"  id="service-feat-image">
-                                <div class="w-full h-full bg-gray-400 bg-opacity-40 flex justify-center group hover:bg-opacity-75 items-center">
-                                    
-                                    <label :for="`panel-feat-image-${index}`" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                <span><i class="fas fa-pen text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i></span>
-                                    <input :id="`panel-feat-image-${index}`" :name="`panel-feat-image-${index}`" type="file" class="sr-only" @change="selectFile"/>
-                                        </label>
+                            <TabPanel class="flex lg:flex-row flex-col h-auto text-center lg:m-12 lg:space-x-10">
+                                <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url(${panel.feature_image_url})`"  id="service-feat-image">
+                                    <div class="w-full h-full bg-gray-400 bg-opacity-40 flex justify-center group hover:bg-opacity-75 items-center">
+                                        
+                                        <label :for="`panel-feat-image-${index}`" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                    <span><i class="fas fa-pen text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i></span>
+                                        <input :id="`panel-feat-image-${index}`" :name="`panel-feat-image-${index}`" type="file" class="sr-only" @change="selectFile"/>
+                                            </label>
 
-                                </div>
-             
-                               
+                                    </div>
+                
                                 
-                            </div>
-                            <div class="lg:w-1/2 w-full h-auto lg:space-y-10 space-y-5 lg:px-0 px-8 relative border-gray-200 border-2">
-                                <template v-if="target === panel.panel_id">
-                                    <span class="absolute -top-6 -right-2 space-x-2">
-                                        <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
-                                        <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
-                                    </span>
-                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                    
+                                </div>
+                                <div class="lg:w-1/2 w-full h-auto lg:space-y-10 space-y-5 lg:px-0 px-8 relative border-gray-200 border-2">
+                                    <template v-if="target === panel.panel_id">
+                                        <span class="absolute -top-6 -right-2 space-x-2">
+                                            <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
+                                            <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
+                                        </span>
+                                        <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
+                                                
+                                                <li><input type="text" v-model="panel.title.top" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
+                                                
+                                                <li><input type="text" v-model="panel.title.bottom" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
+                                            </ul>
+                                            <div class="lg:text-3xl text-xl uppercase font-bold text-left">
+                                                <span class="">
+                                                    <input type="text" v-model="panel.tag_line.top" class="lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
+                                                </span>
+                                                <span class="rvmp-brand-color-highlight">
+                                                    <input type="text" v-model="panel.tag_line.bottom" class="rvmp-brand-color-highlight lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
+                                                </span>
+                                            </div>
+                                            <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
+                                                    <textarea v-model="panel.desc" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                            </p>
+                                            <ul class="text-left grid grid-cols-2 gap-4">                                       
+                                                <template v-for="(hl, i) in panel.service_highlights">
+                                                <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4">
+                                                    <label :for="`service-feature-icon-${index}-${i}`" class="p-4 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                    <span><i class="fas fa-pen text-lg text-blue-400 cursor-pointer group-hover:text-blue-700 "></i></span>
+                                        <input :id="`service-feature-icon-${index}-${i}`" :name="`service-feature-icon-${index}-${i}`" type="file" class="sr-only" @change="selectFile"/>
+                                            </label>
+                                                    <img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center"><input type="text" v-model="hl.title" class="border-dashed border-gray-400 border-2 font-normal bg-transparent"></span></li>
+                                                </template>
+                                            </ul>
+                                            <div class="space-x-5 flex lg:justify-start justify-center">
+                                                    <div class="">
+                                                    <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn1_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                    <textarea v-else v-model="panel.lead_btn1_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                </div>
+                                                <div class="">
+                                                
+                                                    <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn2_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                    <textarea v-else v-model="panel.lead_btn2_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                                </div>
+                                                
+                                            </div>
+                                    </template>
+                                    <template v-else>
+                                        
+                                                <span class="absolute -top-4 -right-2 space-x-2">
+                                                    <!-- <i class="fas fa-link text-2xl bg-gray-100 border border-blue-400 rounded-full p-2 text-blue-400 cursor-pointer hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget(panel.panel_id);targetChangeUrl=true"></i> -->
+                                                    <i class="fas fa-pen text-2xl bg-gray-100 border border-blue-400 rounded-full p-2  text-blue-400  cursor-pointer hover:text-blue-700" id="lead_btn1_btn" @click="editTarget(panel.panel_id);targetChangeUrl=false"></i> 
+                                                </span>
+                                    
+                                        <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
                                             
-                                            <li><input type="text" v-model="panel.title.top" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
-                                            
-                                            <li><input type="text" v-model="panel.title.bottom" class="border-dashed border-gray-400 border-2 font-bold bg-transparent"></li>
+                                            <li>{{panel.title.top}}</li>
+                                            <li>{{panel.title.bottom}}</li>
                                         </ul>
                                         <div class="lg:text-3xl text-xl uppercase font-bold text-left">
                                             <span class="">
-                                                <input type="text" v-model="panel.tag_line.top" class="lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
+                                                {{panel.tag_line.top}}
                                             </span>
                                             <span class="rvmp-brand-color-highlight">
-                                                <input type="text" v-model="panel.tag_line.bottom" class="rvmp-brand-color-highlight lg:text-3xl text-xl uppercase border-dashed border-gray-400 border-2 font-bold bg-transparent">
+                                                &nbsp;{{panel.tag_line.bottom}}
                                             </span>
                                         </div>
                                         <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
-                                                <textarea v-model="panel.desc" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
+                                            {{panel.desc}}
                                         </p>
                                         <ul class="text-left grid grid-cols-2 gap-4">                                       
-                                            <template v-for="(hl, i) in panel.service_highlights">
-                                            <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4">
-                                                <label :for="`service-feature-icon-${index}-${i}`" class="p-4 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                <span><i class="fas fa-pen text-lg text-blue-400 cursor-pointer group-hover:text-blue-700 "></i></span>
-                                    <input :id="`service-feature-icon-${index}-${i}`" :name="`service-feature-icon-${index}-${i}`" type="file" class="sr-only" @change="selectFile"/>
-                                        </label>
-                                                <img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center"><input type="text" v-model="hl.title" class="border-dashed border-gray-400 border-2 font-normal bg-transparent"></span></li>
+                                            <template v-for="hl in panel.service_highlights">
+                                            <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"><img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center">{{hl.title}}</span></li>
                                             </template>
                                         </ul>
                                         <div class="space-x-5 flex lg:justify-start justify-center">
-                                                <div class="">
-                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn1_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                                <textarea v-else v-model="panel.lead_btn1_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                            </div>
-                                            <div class="">
-                                            
-                                                <textarea v-if="!targetChangeUrl" v-model="panel.lead_btn2_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                                <textarea v-else v-model="panel.lead_btn2_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
-                                            </div>
-                                            
+                                            <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Book a FREE Consultation!</a>
+                                            <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
                                         </div>
-                                </template>
-                                <template v-else>
-                                     
-                                            <span class="absolute -top-4 -right-2 space-x-2">
-                                                <!-- <i class="fas fa-link text-2xl bg-gray-100 border border-blue-400 rounded-full p-2 text-blue-400 cursor-pointer hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget(panel.panel_id);targetChangeUrl=true"></i> -->
-                                                <i class="fas fa-pen text-2xl bg-gray-100 border border-blue-400 rounded-full p-2  text-blue-400  cursor-pointer hover:text-blue-700" id="lead_btn1_btn" @click="editTarget(panel.panel_id);targetChangeUrl=false"></i> 
-                                            </span>
-                                   
-                                    <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
                                         
-                                        <li>{{panel.title.top}}</li>
-                                        <li>{{panel.title.bottom}}</li>
-                                    </ul>
-                                    <div class="lg:text-3xl text-xl uppercase font-bold text-left">
-                                        <span class="">
-                                            {{panel.tag_line.top}}
-                                        </span>
-                                        <span class="rvmp-brand-color-highlight">
-                                            &nbsp;{{panel.tag_line.bottom}}
-                                        </span>
-                                    </div>
-                                    <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
-                                        {{panel.desc}}
-                                    </p>
-                                    <ul class="text-left grid grid-cols-2 gap-4">                                       
-                                        <template v-for="hl in panel.service_highlights">
-                                        <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"><img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center">{{hl.title}}</span></li>
-                                        </template>
-                                    </ul>
-                                    <div class="space-x-5 flex lg:justify-start justify-center">
-                                        <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Book a FREE Consultation!</a>
-                                        <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
-                                    </div>
-                                    
-                                </template>
-                            </div>
-                        </TabPanel>
-                   </template>
+                                    </template>
+                                </div>
+                            </TabPanel>
+                        </template>
                     </TabPanels>
                 </TabGroup>
             </div>
@@ -344,124 +346,22 @@ export default {
             }, 
    },
     setup() {
-
-        const pageSection = reactive({
-            lead_banner: {
-                lead_text: "Building A Better Built Environment Together",
-                lead_sub_text:"Our team of professionals will help you turn your dream house into reality fast.",
-                lead_btn1_text: "Book a FREE Consultation!",
-                lead_btn1_slug: "/consultation/free",
-                lead_btn1_active: true,
-                lead_btn2_text: "Our Portfolio",
-                lead_btn2_slug: "/portfolio",
-                lead_btn2_active: true,
-                lead_image: null,
-                lead_display_image: '/images/pages/section-1.jpg'
-            },
-            services: {
-                tabList:[ 
-                    { 
-                        title: { top:'GLI', bottom: 'BUILDERS'}, 
-                        image_url: '/images/pages/BUILDERS-1.jpg',
-                        tab_service_id:'builders',
-                        tab_image: null, 
-                    },
-                    { 
-                        title: { top:'GLI', bottom: 'DESIGN STUDIO'}, 
-                        image_url: '/images/pages/STUDIO.jpg',
-                        tab_service_id:'designstudio',
-                        tab_image: null, 
-                    },
-                    { 
-                        title: { top:'GLI', bottom: 'MODULAR CABINETS'}, 
-                        image_url: '/images/pages/CABINETS.jpg',
-                        tab_service_id:'modularcabinets',
-                        tab_image: null, 
-                    },
-                    { 
-                        title: { top:'GLI', bottom: 'Concrete Grinding & Polishing'}, 
-                        image_url: '/images/pages/POLISHING.jpg',
-                        tab_service_id:'grindandpolish',
-                        tab_image: null, 
-                    },
-                ],
-                tabPanels:[
-                    { 
-                        panel_id:'panel-builders',
-                        title: { top:'Here at GLI Builders', bottom: 'We offer you'}, 
-                        tag_line: { top:'Better', bottom: 'Built'}, 
-                        desc:'The Construction Division, caters to new construction, renovation, addition, repair of vertical buildings mainly residential commercial & institutional and other related buildings.',
-                        feature_image_url: '/images/pages/BUILDERS-1.jpg',
-                        service_highlights: [
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/project.png' , title:'Project Management'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/renovation.png' , title:'Renovations'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/hook.png' , title:'Construction'}
-                        ],
-                        lead_btn1_text: "Book a FREE Consultation!",
-                        lead_btn1_slug: "/consultation/free",
-                        lead_btn1_active: true,
-                        lead_btn2_text: "Our Portfolio",
-                        lead_btn2_slug: "/portfolio",
-                        lead_btn2_active: true,
-                    },
-                    { 
-                        panel_id:'panel-designstudio',
-                        title: { top:'Here at GLI Design Studio', bottom: 'We offer you'}, 
-                        tag_line: { top:'Architectural & Engineering', bottom: 'design'}, 
-                        desc:'The Design Division, caters to the Architectural & Engineering design requirements for clients',
-                        feature_image_url: '/images/pages/Studio.jpg',
-                        service_highlights: [
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/interior-design.png' , title:'Planning and Design'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/blueprint.png' , title:'Drafting Services for US and AU clients'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/animation.png' , title:'Animation'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/3d-display.png' , title:'3D Rendering'},
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/bim.png' , title:'Building Information Modeling (BIM)'}
-                        ],
-                        lead_btn1_text: "Book a FREE Consultation!",
-                        lead_btn1_slug: "/consultation/free",
-                        lead_btn1_active: true,
-                        lead_btn2_text: "Our Portfolio",
-                        lead_btn2_slug: "/portfolio",
-                        lead_btn2_active: true,
-                    },
-                    { 
-                        panel_id:'panel-modularcabinets',
-                        title: { top:'Here at GLI Modular Cabinet', bottom: 'We offer you'}, 
-                        tag_line: { top:'tailored', bottom: 'structure design'}, 
-                        desc:'The Cabinetry Fabrication Division, caters spaces, furnitures, and tailored product structures design.',
-                        feature_image_url: '/images/pages/STUDIO.jpg',
-                        service_highlights: [
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/kitchen.png' , title:'Modular Cabinets Installation'},
-                        ],
-                        lead_btn1_text: "Book a FREE Consultation!",
-                        lead_btn1_slug: "/consultation/free",
-                        lead_btn1_active: true,
-                        lead_btn2_text: "Our Portfolio",
-                        lead_btn2_slug: "/portfolio",
-                        lead_btn2_active: true, 
-                    },
-                     { 
-                        panel_id:'panel-grindandpolish',
-                        title: { top:'Here at GLI Concrete Grinding & Polishing', bottom: 'We offer you'}, 
-                        tag_line: { top:'tailored', bottom: 'structure design'}, 
-                        desc:'The Cabinetry Fabrication Division, caters spaces, furnitures, and tailored product structures design.',
-                        feature_image_url: '/images/pages/POLISHING.jpg',
-                        service_highlights: [
-                            { icon_image: null, icon_url:'/rvmp-content/rvmp-static/kitchen.png' , title:'Modular Cabinets Installation'},
-                        ],
-                        lead_btn1_text: "Book a FREE Consultation!",
-                        lead_btn1_slug: "/consultation/free",
-                        lead_btn1_active: true,
-                        lead_btn2_text: "Our Portfolio",
-                        lead_btn2_slug: "/portfolio",
-                        lead_btn2_active: true,
-                    },
-                ]
-
-            },
-            _token: usePage().props.value.csrf_token
+        const page_data = computed(() => usePage().props.value.page.data);
+        const data = JSON.parse(page_data.value.page_content)
+      
+        const pageSection = reactive(data);
+         pageSection.lead_banner['lead_image'] = null
+        //  for()
+        $.each(pageSection.services.tabList, function(key, value) {
+            pageSection.services.tabList[key]['tab_image'] = null
         });
-        
+        $.each(pageSection.services.tabPanels, function(key, value) {
+            
+            $.each(pageSection.services.tabPanels[key]['service_highlights'], function(key1, value1) {
+                pageSection.services.tabPanels[key]['service_highlights'][key1]['icon_image'] = null
+            });
+        });
+        console.log(pageSection)
         const user = computed(() => usePage().props.value.auth.user);
         //  console.log(user.value) 
         const target = ref(null);
@@ -494,11 +394,17 @@ export default {
                                 else{
                                     pageSection.lead_banner.lead_display_image = event.target.result
                                 }
-                            
+                                console.log(pageSection.services)
                             };
                         })(file, 0,$event.target.files.length, evt_src).bind(this);
                         reader.readAsDataURL($event.target.files[0]);
                   
+        }
+
+        function postUpdatePage(){
+             Inertia.post(route('page.change.save', {'slug':'home'}), pageSection, {
+                forceFormData: true,
+            });
         }
 		return {
             user,
@@ -511,7 +417,7 @@ export default {
                 // console.log('new '+target.value)
             },
             selectFile,
-     
+            postUpdatePage,
 			settings: {
 				itemsToShow: 1,
 				snapAlign: "center",
@@ -537,6 +443,16 @@ export default {
 				}
 			}
 		};
-	}
+	},
+    methods:{
+         onUpdatePage() {
+            this.postUpdatePage()
+        },
+    },
+    computed:{
+        bgString(){
+           return `background-image: url('${this.pageSection.lead_banner.lead_display_image}')`
+        }
+    }
 }
 </script>

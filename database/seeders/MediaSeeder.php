@@ -19,35 +19,45 @@ class MediaSeeder extends Seeder
                 'media_name'   => 'revamp_logo',
                 'image'          => 'revamp-system-solutions.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'RVMP_FILE'
+                'type'           => 'RVMP_FILE',
+                'classification' => 'LOGOS',
+                'package_name'  => ''
             ],
             [
                 'id'             => 2,
                 'media_name'     => 'revamp_logo_alt',
                 'image'          => 'revamp-system-solutions-alt.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'RVMP_FILE'
+                'type'           => 'RVMP_FILE',
+                'classification' => 'LOGOS',
+                'package_name'  => ''
             ],
             [
                 'id'             => 3,
                 'media_name'     => 'Brand Logo',
                 'image'          => 'brand-logo.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'RVMP_CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE',
+                'classification' => 'LOGOS',
+                'package_name'  => ''
             ],
             [
                 'id'             => 4,
                 'media_name'     => 'Brand Logo No Text',
                 'image'          => 'brand-logo-no-text.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'RVMP_CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE',
+                'classification' => 'LOGOS',
+                'package_name'  => ''
             ],
             [
                 'id'             => 5,
                 'media_name'     => 'Favicon',
                 'image'          => 'brand-logo-small.png',
                 'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac lorem eu velit pretium sagittis. Integer et interdum velit, vitae laoreet nisi. Phasellus ac nulla dui. Mauris eu dapibus tortor,',
-                'type'           => 'RVMP_CLIENT_FILE'
+                'type'           => 'RVMP_CLIENT_FILE',
+                'classification' => 'LOGOS',
+                'package_name'  => ''
             ],
            
         ];

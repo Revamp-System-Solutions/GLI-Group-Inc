@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Testimonials;
 use App\Models\Portfolio;
+use App\Models\Page;
 
 class GuestController extends Controller
 {
@@ -14,17 +15,14 @@ class GuestController extends Controller
     {
         $this->middleware("web");
     }
-    public function guestRouter($slug)
-    {
-        // return Inertia::render('Home/Index',[
-        //     "posts" => Testimonials::orderBy('created_at', 'DESC')->skip(0)->take(10)->get()
-        // ]);
-    }
+   
     public function index()
     {
+        $page = Page::where('slug','=', 'home')->firstOrFail();
         return Inertia::render('Home/Index',[
             "posts" => Testimonials::orderBy('created_at', 'DESC')->skip(0)->take(10)->get()
-        ]);
+        ])
+        ->with("page.data", $page);
     }
     public function showAboutPage()
     {
@@ -38,6 +36,7 @@ class GuestController extends Controller
     }
     public function showContactPage()
     {
+        
         return Inertia::render('Contact');
     }
     public function bookFree()

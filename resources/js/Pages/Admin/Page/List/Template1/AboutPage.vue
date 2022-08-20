@@ -1,6 +1,6 @@
 <template>
   <errors-and-messages :errors="errors"></errors-and-messages>
-  <app-admin-header :current-user="user" />
+  <app-admin-header :current-user="user" @updatePage="onUpdatePage"/>
 
 
   <div class="rvmp-container h-auto space-y-0  relative">
@@ -788,10 +788,20 @@ export default {
         mid_subtext: "Building a better built environment together",
       },
     });
-
+    function postUpdatePage(){
+        Inertia.post(route('page.change.save', {'slug':'about'}), pageSection, {
+            forceFormData: true,
+        });
+    }
     return {
       pageSection,
+      postUpdatePage
     };
+  },
+  methods: {
+     onUpdatePage() {
+            this.postUpdatePage()
+        },
   },
 };
 </script>

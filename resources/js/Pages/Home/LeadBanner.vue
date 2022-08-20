@@ -5,16 +5,16 @@
                     <div class="lg:py-36 lg:my-12 lg:static">
                         <div class="lg:rvmp-bg-main lg:bg-opacity-70 lg:absolute lg:top-0 xl:pr-32 lg:pr-28 lg:py-16 lg:my-20 xl:w-2/5 lg:w-1/2 w-full lg:space-y-10 space-y-5">
                         <blockquote className="self-start border-l-8 rvmp-brand-border-highlight lg:my-2" id="rvmp-lead-heading">
-                                <h1 class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold">
-                                    Building A Better Built Environment Together
+                                <h1 class="px-5 brand-text uppercase lg:mt-0 mt-8 xl:text-3xl text-xl font-bold" v-html="page_data.lead_text">
+                                   
                                 </h1>
                             </blockquote>
-                            <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text">
-                                Our team of professionals will help you turn your dream house into reality fast.
+                            <div class="font-light italic lg:mt-20 lg:mb-10" id="rvmp-lead-text" >
+                                {{page_data.lead_sub_text}}
                             </div>
                             <div class="space-x-5 flex lg:justify-start justify-center" id="rvmp-lead-cta">
-                                <a :href="$route('guest.bookfree')" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">Book a FREE Consultation!</a>
-                                <inertia-link href="/portfolio" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">Our Portfolio</inertia-link>
+                                <a :href="page_data.lead_btn1_slug" target="_blank" class="rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">{{page_data.lead_btn1_text}}!</a>
+                                <inertia-link :href="page_data.lead_btn2_slug" class="px-4 py-1.5 text-gray-500 border-2 border-gray-500 hover:border-gray-700 transition ease-in-out duration-300">{{page_data.lead_btn2_text}}</inertia-link>
                             </div>
                         </div>
                     </div>
@@ -30,11 +30,18 @@ export default {
     components: {
 
     },
-    props: {
-       
-    },
-    setup() {
+    props: ['leadBannerData'],
+    setup(props, {}) {
+        const page_data = props.leadBannerData
 
-	}
+        return{
+            page_data
+        }
+	},
+    computed:{
+        bgString(){
+           return `background-image: url('${this.page_data.lead_display_image}')`
+        }
+    }
 }
 </script>

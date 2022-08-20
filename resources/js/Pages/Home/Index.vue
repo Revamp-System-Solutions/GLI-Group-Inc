@@ -3,8 +3,8 @@
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
 
-        <lead-banner/>
-        <services :url="$page.url"/>
+        <lead-banner :lead-banner-data="page_content.lead_banner"/>
+        <services :url="$page.url" :services-data="page_content.services"/>
         <testimonial :carousel-settings="settings" :carousel-breakpoints="breakpoints" :carousel-testimonials="posts"/>
     </div>
     <app-footer-default/>
@@ -48,11 +48,23 @@ export default {
         carouselTestimonials: {
                 Type: Object,
                 default: null
-            }, 
+            },
+        leadBannerData: {
+            Type: Object,
+            default: null
+        },
+        servicesData: {
+            Type: Object,
+            default: null
+        },
    },
     setup() {
+        const pdata = computed(() => usePage().props.value.page.data);
+        const page_content = JSON.parse(pdata.value.page_content)
+        // console.log(page_content)
          const posts = computed(() => usePage().props.value.posts);
 		return {
+            page_content,
             posts,
 			// carousel settings
 			settings: {

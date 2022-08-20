@@ -37,7 +37,7 @@ Route::name('guest.')->group(function () {
     Route::get('privacy-policy', [GuestController::class, 'privacy'])->name('privacy');
     Route::get('terms-conditions', [GuestController::class, 'toc'])->name('toc');
     Route::get('thank-you', [GuestController::class, 'thankYou'])->name('thankYou');
-    // Route::get('{slug}', [GuestController::class, 'guestRouter'])->name('route');
+   
 });
 // Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -88,6 +88,7 @@ Route::prefix('gli-admin')->group(function () {
     Route::name('page.')->group(function () {
         Route::get('/pages', [PagesController::class, 'index'])->name('admin');
         Route::get('/pages/edit/{slug}', [PagesController::class, 'updatePage'])->name('change');
+        Route::post('/pages/edit/{slug}', [PagesController::class, 'saveUpdatePage'])->name('change.save');
     });
 
     Route::prefix('site')->group(function () {

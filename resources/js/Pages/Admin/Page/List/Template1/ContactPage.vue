@@ -1,6 +1,6 @@
 <template>
   <errors-and-messages :errors="errors"></errors-and-messages>
-  <app-admin-header :current-user="user" />
+  <app-admin-header :current-user="user" @updatePage="onUpdatePage"/>
 
   <div class="rvmp-container h-full bg-gray-100 relative">
     <div class="py-8 px-8 w-full ">
@@ -771,12 +771,22 @@ export default {
         forceFormData: true,
       });
     }
+      function postUpdatePage(){
+             Inertia.post(route('page.change.save', {'slug':'contact-us'}), pageSection, {
+                forceFormData: true,
+            });
+        }
     return {
       pageSection,
       form,
+      postUpdatePage,
       sendMessage,
     };
   },
-  methods: {},
+  methods: {
+     onUpdatePage() {
+            this.postUpdatePage()
+        },
+  },
 };
 </script>

@@ -147,13 +147,13 @@
                   v-if="user"
                   ><i class="fas fa-edit"></i> Edit page</inertia-link
                 >
-                <a
+                <!-- <a
                   href="javascript:void(0);"
                   class="text-sm text-white bg-red-400 px-3 py-1 rounded-sm"
                   @click.prevent="openModal(page.slug)"
                   v-if="user"
                   ><i class="fas fa-trash-alt"></i> Delete page</a
-                >
+                > -->
                 
               </td>
             </tr>
