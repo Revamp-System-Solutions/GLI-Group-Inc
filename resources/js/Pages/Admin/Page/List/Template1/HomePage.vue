@@ -451,7 +451,7 @@ export default {
     },
     computed:{
         bgString(){
-           return `background-image: url('${this.pageSection.lead_banner.lead_display_image}')`
+           return `background-image: url(${this.pageSection.lead_banner.lead_display_image})`
         }
     }
 }
