@@ -44,7 +44,7 @@
                 <TabList :selectedIndex="0" class="flex w-full">
                         <template v-for="(tab, index) in page_data.tabList">
                             <Tab v-slot="{ selected }" :id="tab.tab_service_id" :tabindex="index"
-                                class="w-1/3 bg-cover bg-center"  :style="`background-image: url(${tab.image_url})`">
+                                class="w-1/3 bg-cover bg-center"  :style="`background-image: url('${tab.image_url}')`">
                                 <button class="w-full rvmp-brand-bg-main h-52 border-l-2 border-r-2 rvmp-brand-border-accent transition ease-in duration-300"
                                         :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
                                         <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
@@ -158,7 +158,7 @@
                     </TabPanel> -->
                      <template v-for="(panel, index) in page_data.tabPanels">
                             <TabPanel class="flex lg:flex-row flex-col h-auto text-center lg:m-12 lg:space-x-10">
-                                <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url(${panel.feature_image_url})`"  id="service-feat-image">
+                                <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url('${panel.feature_image_url}')`"  id="service-feat-image">
                                                  
                                 </div>
                                 <div class="lg:w-1/2 w-full h-auto lg:space-y-10 space-y-5 lg:px-0 px-8 relative">
