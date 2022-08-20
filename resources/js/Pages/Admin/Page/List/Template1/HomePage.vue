@@ -361,7 +361,7 @@ export default {
                 pageSection.services.tabPanels[key]['service_highlights'][key1]['icon_image'] = null
             });
         });
-        console.log(pageSection)
+
         const user = computed(() => usePage().props.value.auth.user);
         //  console.log(user.value) 
         const target = ref(null);
@@ -394,7 +394,7 @@ export default {
                                 else{
                                     pageSection.lead_banner.lead_display_image = event.target.result
                                 }
-                                console.log(pageSection.services)
+                        
                             };
                         })(file, 0,$event.target.files.length, evt_src).bind(this);
                         reader.readAsDataURL($event.target.files[0]);
@@ -451,7 +451,7 @@ export default {
     },
     computed:{
         bgString(){
-           return `background-image: url(${this.pageSection.lead_banner.lead_display_image})`
+           return `background-image: url('${this.pageSection.lead_banner.lead_display_image}')`
         }
     }
 }

@@ -13,7 +13,7 @@
 	</div>
     <div
       class="w-full bg-origin-border bg-cover bg-center bg-local"
-      style="background-image: url('/images/pages/house.jpg')"
+      :style="`background-image: url('${pageSection.about.head_banner.img_url}')`"
     >
       <div
         class="
@@ -27,10 +27,18 @@
           justify-center
           rvmp-banner-bg
           bg-opacity-80
+          relative
         "
       >
+      <span class="absolute  bottom-0 right-0 ">
+             <label for="image-hb" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+            <span><i class="fas fa-file-image text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i>   </span>
+            <input id="image-hb" name="image-hb" type="file" class="sr-only" @change="selectFile"/>
+      </label>
+      </span>
+ 
         <div class="lg:w-full lg:self-start self-center">
-          <template v-if="target === 'lead_text'">
+          <template v-if="target === 'head_banner'">
             <div class="relative flex flex-wrap box-border bg-gray-300">
               <span class="absolute -top-6 -right-2 space-x-2">
                 <i
@@ -57,10 +65,11 @@
                 ></i>
               </span>
               <textarea
-                v-model="pageSection.about.lead_text"
+                v-model="pageSection.about.head_banner.text"
                 class="
                   static
-                  h-32
+                  h-14
+                  w-full
                   resize-none
                   border-gray-400 border-2
                   px-5
@@ -90,7 +99,7 @@
                   group-hover:text-blue-700
                 "
                 id="about-lead-text-btn"
-                @click="editTarget('lead_text')"
+                @click="editTarget('head_banner')"
               ></i>
 
               <h1
@@ -110,9 +119,9 @@
                   rvmp-banner-text-color
                 "
                 id="about-lead-text"
-                @click="editTarget('lead_text')"
+                @click="editTarget('head_banner')"
               >
-                {{ pageSection.about.lead_text }}
+                {{ pageSection.about.head_banner.text }}
               </h1>
             </div>
           </template>
@@ -136,10 +145,11 @@
                 lg:ml-12
               "
             >
+            
               <blockquote
                 className="self-start border-l-8 rvmp-brand-border-highlight my-2"
               >
-                <template v-if="target === 'company_name_text1'">
+                <template v-if="target === 'about_title'">
                   <div class="relative flex flex-row box-border bg-gray-300">
                     <span class="absolute -top-6 -right-2 space-x-2">
                       <i
@@ -167,20 +177,40 @@
                     </span>
 
                     <textarea
-                      v-model="pageSection.about.company_name_text1"
+                      v-model="pageSection.about.about_title.top"
                       class="
                         static
-                        h-32
+                        h-14
                         resize-none
                         border-gray-400 border-2
                         px-5
-                        brand-text
+                        uppercase
+                        lg:mt-0
+                        mt-8
+                        xl:text-3xl
+                         brand-logo-text
+                        text-3xl
+                        font-semibold
+                        bg-transparent
+                      "
+                    ></textarea>
+                    <textarea
+                      v-model="pageSection.about.about_title.bottom"
+                      class="
+                        static
+                        h-14
+                        resize-none
+                        border-gray-400 border-2
+                        px-5
+                       
                         uppercase
                         lg:mt-0
                         mt-8
                         xl:text-3xl
                         text-xl
-                        font-bold
+                         brand-logo-text
+                              font-thin
+                              rvmp-brand-color-highlight
                         bg-transparent
                       "
                     ></textarea>
@@ -200,7 +230,7 @@
                         group-hover:text-blue-700
                       "
                       id="company-name-text1-btn"
-                      @click="editTarget('company_name_text1')"
+                      @click="editTarget('about_title')"
                     ></i>
 
                     <h2
@@ -212,95 +242,28 @@
                         cursor-pointer
                       "
                       id="company-name-text1"
-                      @click="editTarget('company_name_text1')"
+                    
                     >
-                      {{ pageSection.about.company_name_text1 }}
+                      {{ pageSection.about.about_title.top }}
 
-                      <template v-if="target === 'company_name_text2'">
-                        <div
-                          class="relative flex flex-row box-border bg-gray-300"
-                        >
-                          <span class="absolute -top-6 -right-2 space-x-2">
-                            <i
-                              class="
-                                fas
-                                fa-check
-                                text-2xl text-blue-400
-                                cursor-pointer
-                                hover:text-blue-700
-                              "
-                              id="company-name-text2-btn"
-                              @click="target = null"
-                            ></i>
-                            <i
-                              class="
-                                fas
-                                fa-times
-                                text-2xl text-red-400
-                                cursor-pointer
-                                hover:text-red-700
-                              "
-                              id="company-name-text2-btn"
-                              @click="target = null"
-                            ></i>
-                          </span>
-
-                          <textarea
-                            v-model="pageSection.about.company_name_text2"
-                            class="
-                              static
-                              h-32
-                              resize-none
-                              border-gray-400 border-2
-                              px-5
-                              brand-text
-                              uppercase
-                              lg:mt-0
-                              mt-8
-                              xl:text-3xl
-                              text-xl
-                              font-bold
-                              bg-transparent
-                            "
-                          ></textarea>
-                        </div>
-                      </template>
-                      <template v-else>
-                        <div class="relative">
-                          <i
-                            class="
-                              fas
-                              fa-pen
-                              text-2xl text-blue-400
-                              absolute
-                              -top-2
-                              -right-2
-                              cursor-pointer
-                              group-hover:text-blue-700
-                            "
-                            id="company-name-text2-btn"
-                            @click="editTarget('company_name_text2')"
-                          ></i>
-
-                          <span
+                       <span
                             class="
                               brand-logo-text
                               font-thin
                               rvmp-brand-color-highlight
-                              cursor-pointer
+                            
                             "
                             id="company-name-text2"
-                            @click="editTarget('company_name_text2')"
-                            >{{ pageSection.about.company_name_text2 }}</span
+                           
+                            >{{ pageSection.about.about_title.bottom }}</span
                           >
-                        </div>
-                      </template>
+                  
                     </h2>
                   </div>
                 </template>
               </blockquote>
 
-              <template v-if="target === 'lead_subtext'">
+              <template v-if="target === 'about_caption'">
                 <div class="relative flex flex-wrap box-border bg-gray-300">
                   <span class="absolute -top-6 -right-2 space-x-2">
                     <i
@@ -327,7 +290,7 @@
                     ></i>
                   </span>
                   <textarea
-                    v-model="pageSection.about.lead_subtext"
+                    v-model="pageSection.about.about_caption"
                     class="
                       static
                       h-32
@@ -335,12 +298,13 @@
                       border-gray-400 border-2
                       px-5
                       brand-text
-                      uppercase
+                      w-full
                       lg:mt-0
                       mt-8
-                      xl:text-3xl
-                      text-xl
-                      font-bold
+                    text-justify
+                      2xl:text-lg
+                      text-sm
+                      font-light
                       bg-transparent
                     "
                   ></textarea>
@@ -360,7 +324,7 @@
                       group-hover:text-blue-700
                     "
                     id="lead-subtext-btn"
-                    @click="editTarget('lead_subtext')"
+                    @click="editTarget('about_caption')"
                   ></i>
 
                   <p
@@ -373,10 +337,10 @@
                       lg:pr-3
                       cursor-pointer
                     "
-                    id="lead-subtext"
-                    @click="editTarget('lead_subtext')"
+                 
+                   
                   >
-                    {{ pageSection.about.lead_subtext }}
+                    {{ pageSection.about.about_caption }}
                   </p>
                 </div>
               </template>
@@ -396,25 +360,65 @@
             lg:-mr-12
           "
         >
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fgligroupinc%2Fvideos%2F729918478044185%2F&show_text=false&width=560&t=0&autoplay=1"
-            width="560"
-            height="314"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
+      
+      
+        <div class="relative">
+            <div class="absolute w-full h-full bg-gray-300 z-30 bg-opacity-75  flex justify-center items-center" >
+   
+                <input type="text" v-model="pageSection.about.video_url" class="text-black text-sm border-dashed border-blue-400 border-2 font-normal w-full bg-transparent" :disabled="!(target==='video_url')">
+                 <i class="fas fa-link text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget('video_url');" v-if="!(target==='video_url')"></i>
+                 <span v-else>
+                  <i
+                      class="
+                        fas
+                        fa-check
+                        text-2xl text-blue-400
+                        cursor-pointer
+                        hover:text-blue-700
+                      "
+                      id="lead-subtext-btn"
+                      @click="target = null"
+                    ></i>
+                    <i
+                      class="
+                        fas
+                        fa-times
+                        text-2xl text-red-400
+                        cursor-pointer
+                        hover:text-red-700
+                      "
+                      id="lead-subtext-btn"
+                      @click="target = null"
+                    ></i>
+                 </span>
+            </div>
+            <div class="z-20">
+              <YouTube 
+                :src="pageSection.about.video_url" 
+                @ready="onReady"
+                width="560"
+                    height="314"
+                ref="youtube" />
+            </div>
+
+        </div>
+         
+         
         </div>
       </div>
     </div>
     <div class="h-auto w-full bg-transparent">
       <div
         class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local"
-        style="background-image: url('/images/pages/house.jpg')"
+        :style="`background-image: url('${pageSection.about.banner.img_url}')`"
       >
-        <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70">
+        <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70 relative">
+           <span class="absolute  top-0 right-0 ">
+             <label for="image-cta" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+            <span><i class="fas fa-file-image text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i>   </span>
+            <input id="image-cta" name="image-cta" type="file" class="sr-only" @change="selectFile"/>
+      </label>
+      </span>
           <div
             class="
               h-44
@@ -423,60 +427,77 @@
               w-full
               flex flex-col
               justify-center
+              items-center
               rvmp-banner-text-color
               bg-transparent
             "
           >
-            <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase">
-              <span class="brand-logo-text" id="client-brand">
-                <template v-if="target === 'mid_text1'">
-                  <div class="relative flex flex-wrap box-border bg-gray-300">
-                    <span class="absolute -top-6 -right-2 space-x-2">
-                      <i
+          <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase">
+            <span class="brand-logo-text" id="client-brand">
+              <template v-if="target==='banner_title'">
+                <div class="relative px-4 max-w-max">
+                  <span class="absolute -top-6 -right-2 space-x-2">
+                        <i
+                          class="
+                            fas
+                            fa-check
+                            text-2xl text-blue-400
+                            cursor-pointer
+                            hover:text-blue-700
+                          "
+                          id="mid-text1-btn"
+                          @click="target = null"
+                        ></i>
+                        <i
+                          class="
+                            fas
+                            fa-times
+                            text-2xl text-red-400
+                            cursor-pointer
+                            hover:text-red-700
+                          "
+                          id="mid-text1-btn"
+                          @click="target = null"
+                        ></i>
+                      </span>
+                      <textarea
+                        v-model="pageSection.about.banner.top"
                         class="
-                          fas
-                          fa-check
-                          text-2xl text-blue-400
-                          cursor-pointer
-                          hover:text-blue-700
+                          static
+                          h-14
+                          resize-none
+                          border-gray-400 border-2
+                          px-5
+                          uppercase
+                          lg:mt-0
+                          mt-8
+                      font-thin
+                      brand-logo-text lg:text-3xl text-xl
+                          bg-transparent
                         "
-                        id="mid-text1-btn"
-                        @click="target = null"
-                      ></i>
-                      <i
+                      ></textarea>
+                      <textarea
+                        v-model="pageSection.about.banner.bottom"
                         class="
-                          fas
-                          fa-times
-                          text-2xl text-red-400
-                          cursor-pointer
-                          hover:text-red-700
+                          static
+                          h-14
+                          resize-none
+                          border-gray-400 border-2
+                          px-5
+                          uppercase
+                          lg:mt-0
+                          mt-8
+                      font-semibold
+                      brand-logo-text lg:text-3xl text-xl
+                          bg-transparent
                         "
-                        id="mid-text1-btn"
-                        @click="target = null"
-                      ></i>
-                    </span>
-                    <textarea
-                      v-model="pageSection.about.mid_text1"
-                      class="
-                        static
-                        h-32
-                        resize-none
-                        border-gray-400 border-2
-                        px-5
-                        brand-text
-                        uppercase
-                        lg:mt-0
-                        mt-8
-                        xl:text-3xl
-                        text-xl
-                        font-bold
-                        bg-transparent
-                      "
-                    ></textarea>
-                  </div>
-                </template>
-                <template v-else>
-                  <div class="relative">
+                      ></textarea>
+                <!-- <span class="font-semibold">{{pageSection.about.banner.top}}</span> -->
+                <!-- <span class="font-thin">&nbsp;{{pageSection.about.banner.bottom}}</span> -->
+                </div>
+              </template>
+              <template v-else>
+                <div class="relative px-4 max-w-max" >
                     <i
                       class="
                         fas
@@ -487,233 +508,110 @@
                         -right-2
                         cursor-pointer
                         group-hover:text-blue-700
+                      "
+                      id="lead-subtext-btn"
+                      @click="editTarget('banner_title')"
+                    ></i>
+                <span class="font-semibold">{{pageSection.about.banner.top}}</span>
+                <span class="font-thin">&nbsp;{{pageSection.about.banner.bottom}}</span>
+                </div>
+              </template>
+            </span>
+          </h2>  
+          <template v-if="target==='banner_caption'">
+            <div class="relative px-4 ">
+              <span class="absolute -top-6 -right-2 space-x-2">
+                    <i
+                      class="
+                        fas
+                        fa-check
+                        text-2xl text-blue-400
+                        cursor-pointer
+                        hover:text-blue-700
                       "
                       id="mid-text1-btn"
-                      @click="editTarget('mid_text1')"
+                      @click="target = null"
                     ></i>
-
-                    <span
-                      class="font-semibold cursor-pointer"
-                      id="mid-text1"
-                      @click="editTarget('mid_text1')"
-                      >{{ pageSection.about.mid_text1 }}</span
-                    >
-                  </div>
-                </template>
-
-                <template v-if="target === 'mid_text2'">
-                  <div class="relative flex flex-wrap box-border bg-gray-300">
-                    <span class="absolute -top-6 -right-2 space-x-2">
-                      <i
-                        class="
-                          fas
-                          fa-check
-                          text-2xl text-blue-400
-                          cursor-pointer
-                          hover:text-blue-700
-                        "
-                        id="mid-text2-btn"
-                        @click="target = null"
-                      ></i>
-                      <i
-                        class="
-                          fas
-                          fa-times
-                          text-2xl text-red-400
-                          cursor-pointer
-                          hover:text-red-700
-                        "
-                        id="mid-text2-btn"
-                        @click="target = null"
-                      ></i>
-                    </span>
-                    <textarea
-                      v-model="pageSection.about.mid_text2"
-                      class="
-                        static
-                        h-32
-                        resize-none
-                        border-gray-400 border-2
-                        px-5
-                        brand-text
-                        uppercase
-                        lg:mt-0
-                        mt-8
-                        xl:text-3xl
-                        text-xl
-                        font-bold
-                        bg-transparent
-                      "
-                    ></textarea>
-                  </div>
-                </template>
-                <template v-else>
-                  <div class="relative">
                     <i
                       class="
                         fas
-                        fa-pen
-                        text-2xl text-blue-400
-                        absolute
-                        -top-2
-                        -right-2
+                        fa-times
+                        text-2xl text-red-400
                         cursor-pointer
-                        group-hover:text-blue-700
+                        hover:text-red-700
                       "
-                      id="mid-text2-btn"
-                      @click="editTarget('mid_text2')"
+                      id="mid-text1-btn"
+                      @click="target = null"
                     ></i>
-
-                    <span
-                      class="font-thin cursor-pointer"
-                      id="mid-text2"
-                      @click="editTarget('mid_text2')"
-                      >{{ pageSection.about.mid_text2 }}</span
-                    >
-                  </div>
-                </template>
-              </span>
-            </h2>
-
-            <template v-if="target === 'mid_subtext'">
-              <div class="relative flex flex-wrap box-border bg-gray-300">
-                <span class="absolute -top-6 -right-2 space-x-2">
+                  </span>
+                
+                  <textarea
+                    v-model="pageSection.about.banner.caption"
+                    class="
+                      static
+                      h-24
+                      resize-none
+                      border-gray-400 border-2
+                      px-5 w-full
+                      uppercase
+                      lg:mt-0
+                      mt-8
+                brand-text lg:text-5xl text-xl font-light capitalize
+                      bg-transparent
+                    "
+                  ></textarea>
+                  
+           
+            </div>
+          </template>
+          <template v-else>
+              <div class="relative px-4 max-w-max" >
                   <i
                     class="
                       fas
-                      fa-check
+                      fa-pen
                       text-2xl text-blue-400
+                      absolute
+                      -top-2
+                      -right-2
                       cursor-pointer
-                      hover:text-blue-700
+                      group-hover:text-blue-700
                     "
-                    id="mid-subtext-btn"
-                    @click="target = null"
+                    id="lead-subtext-btn"
+                    @click="editTarget('banner_caption')"
                   ></i>
-                  <i
-                    class="
-                      fas
-                      fa-times
-                      text-2xl text-red-400
-                      cursor-pointer
-                      hover:text-red-700
-                    "
-                    id="mid-subtext-btn"
-                    @click="target = null"
-                  ></i>
+                <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">{{pageSection.about.banner.caption}}</h2>
+              </div>
+          </template>
+          <template  v-if="target ==='lead_btn1'">
+                <div class="relative group mt-5 ">
+                    <span class="absolute -top-4 -right-2 space-x-2">
+                    <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
+                    <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
                 </span>
-                <textarea
-                  v-model="pageSection.about.mid_subtext"
-                  class="
-                    static
-                    h-32
-                    resize-none
-                    border-gray-400 border-2
-                    px-5
-                    brand-text
-                    uppercase
-                    lg:mt-0
-                    mt-8
-                    xl:text-3xl
-                    text-xl
-                    font-bold
-                    bg-transparent
-                  "
-                ></textarea>
-              </div>
+                <textarea v-if="!targetChangeUrl" v-model="pageSection.about.banner.btn.text" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
+                <textarea v-else v-model="pageSection.about.banner.btn.slug" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
+                </div>
+                
             </template>
-            <template v-else>
-              <div class="relative">
-                <i
-                  class="
-                    fas
-                    fa-pen
-                    text-2xl text-blue-400
-                    absolute
-                    -top-2
-                    -right-2
-                    cursor-pointer
-                    group-hover:text-blue-700
-                  "
-                  id="mid-subtext-btn"
-                  @click="editTarget('mid_subtext')"
-                ></i>
+            <template  v-else>
+                <div class="relative group mt-5">
+                    
+                        <span class="absolute -top-3 -right-2 space-x-2">
+                            <i class="fas fa-link text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget('lead_btn1');targetChangeUrl=true"></i>
+                                <i class="fas fa-pen text-2xl text-blue-400  cursor-pointer  hover:text-blue-700" id="lead_btn1_btn" @click="editTarget('lead_btn1');targetChangeUrl=false"></i> 
+                        </span>
 
-                <h2
-                  class="
-                    brand-text
-                    lg:text-5xl
-                    text-xl
-                    font-light
-                    cursor-pointer
-                    capitalize
-                  "
-                  id="mid-subtext"
-                  @click="editTarget('mid_subtext')"
-                >
-                  {{ pageSection.about.mid_subtext }}
-                </h2>
-              </div>
+                    <p class="static border-gray-400 border-2 cursor-pointer rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"  @click="editTarget('lead_btn1')">{{pageSection.about.banner.btn.text}}</p>
+                </div>
             </template>
-          </div>
+          
+        </div>
         </div>
       </div>
     </div>
-    <!-- <div  class="h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main">
-        <div class="flex lg:flex-row-reverse flex-col h-auto relative">
-            <div class="w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80">
-                    <div class="w-full h-full lg:static grid grid-cols-1 place-content-center">
-                        <div class="col-span-1 mb-4 text-3xl uppercase lg:text-left text-center">
-                            <h2 class="brand-text font-light lg:block inline-block lg:mr-0 mr-2">OUR COMPANY'S</h2>
-                            <h2 class="brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block">MISSION</h2>
-                        </div>
-                        <p class="col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                    </div>
-            </div>
-            <div class="w-full lg:h-auto lg:py-10 lg:pr-10">
-                <div class="w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/mission.jpg')">
-                        &nbsp;
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-alt">
-         <div class="flex lg:flex-row flex-col h-auto relative">
-            <div class="w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-main lg:bg-opacity-0 bg-opacity-80">
-                    <div class="w-full h-full lg:static grid grid-cols-1 place-content-center">
-                        <div class="col-span-1 mb-4 text-3xl uppercase lg:text-left text-center">
-                            <h2 class="brand-text font-light  lg:block inline-block mr-2">OUR COMPANY'S</h2>
-                            <h2 class="brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block">Vision</h2>
-                        </div>
-                        <p class="col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                    </div>
-            </div>
-            <div class="w-full lg:h-auto lg:py-10 lg:pl-10">
-                <div class="w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/vision.jpg')">
-                        &nbsp;
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 rvmp-bg-main">
-         <div class="flex lg:flex-row-reverse flex-col h-auto relative">
-            <div class="w-full lg:h-2/3 h-full lg:py-20 lg:pl-10 lg:pr-0 p-6 lg:static absolute lg:bg-transparent rvmp-bg-alt lg:bg-opacity-0 bg-opacity-80">
-                    <div class="w-full h-full lg:static grid grid-cols-1 place-content-center">
-                        <div class="col-span-1 mb-4 text-3xl uppercase lg:text-left text-center">
-                            <h2 class="brand-text font-light  lg:block inline-block mr-2">OUR COMPANY'S</h2>
-                            <h2 class="brand-text font-semibold rvmp-brand-color-highlight lg:block inline-block">Values</h2>
-                        </div>
-                        <p class="col-span-1 font-light text-justify 2xl:text-lg lg:text-sm text-xs brand-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas nec ipsum ac mollis. Duis at lorem sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur felis lacus, venenatis non maximus vitae, laoreet sit amet risus. Vivamus id ex magna. Vestibulum nibh elit, vestibulum ac mauris a, ornare sodales lorem. Aenean turpis velit, hendrerit eget dui sed, accumsan molestie libero. Donec sapien magna, egestas vel congue vel, accumsan et erat. Etiam nisi odio, pretium sit amet nunc at, dapibus vehicula augue.</p>
-                    </div>
-            </div>
-            <div class="w-full lg:h-auto lg:py-10 lg:pr-10">
-                <div class="w-full lg:h-full h-96 bg-origin-border bg-cover bg-no-repeat bg-center bg-local" style="background-image: url('/images/pages/value.jpg')">
-                        &nbsp;
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="h-auto w-full bg-transparent">
+   
+    <!-- <div class="h-auto w-full bg-transparent">
       <div
         class="flex lg:flex-row flex-col bg-cover bg-center bg-local"
         style="background-image: url('/images/pages/groups.jpeg')"
@@ -734,7 +632,7 @@
           ></div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <app-footer-contact-form />
 </template>
@@ -746,7 +644,8 @@ import AppFooterContactForm from "./../../../../../Partials/AppFooterContactForm
 import ErrorsAndMessages from "./../../../../../Partials/ErrorsAndMessages";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
-import { computed, inject, reactive } from "vue";
+import { computed, inject, reactive,ref } from "vue";
+import { bottom } from "@popperjs/core";
 
 export default {
   name: "AboutAdmin",
@@ -776,32 +675,75 @@ export default {
     },
   },
   setup() {
+    const user = computed(() => usePage().props.value.auth.user);
     const pageSection = reactive({
       about: {
-        lead_text: "About GLI Group Inc.",
-        company_name_text1: "GLI",
-        company_name_text2: "GROUP INC.",
-        lead_subtext:
+        head_banner: {text:"About GLI Group Inc.", img_url: '/images/pages/house.jpg', image: null},
+        about_title: {top:"GLI", bottom: "GROUP INC."},
+        about_caption:
           "GLI Group Inc. is a Design & Build Firm with Architectural & Engineering Design Services, Construction Services, and Cabinetry Fabrication teams with 10 years experience in the industry.",
-        mid_text1: "GLI",
-        mid_text2: "GROUP INC.",
-        mid_subtext: "Building a better built environment together",
+        video_url: 'https://www.youtube.com/watch?v=_A7_tfvt0UY&ab_channel=EnggOnline',
+       banner: {top: "GLI", bottom: "GROUP INC.", caption: "Building a better built environment together", btn:{text:'Book a FREE Consultation!', slug: '/consultation/free'},img_url: '/images/pages/house.jpg', image: null}
       },
+      
     });
+        const target = ref(null);
+        const targetChangeUrl = ref(false);
+
+        function selectFile($event) {
+                        var evt_src = $event.target.id
+                      
+                        if(evt_src === "image-hb"){
+                           pageSection.about.head_banner.image = $event.target.files[0];
+                        }else
+                            pageSection.about.banner.image = $event.target.files[0];
+          
+                       
+                        var file = $event.target.files[0];
+                               
+                        var reader = new FileReader();
+                        reader.onload = (function(currFile, x, total, evtsrc) {
+                     
+                            return function(event){
+                                
+                                if(evt_src === "image-hb"){
+                                    pageSection.about.head_banner.img_url = event.target.result
+                            
+                                }else{
+                                    pageSection.about.banner.img_url = event.target.result
+                                }
+       
+                            };
+                        })(file, 0,$event.target.files.length, evt_src).bind(this);
+                        reader.readAsDataURL($event.target.files[0]);
+                  
+        }
     function postUpdatePage(){
         Inertia.post(route('page.change.save', {'slug':'about'}), pageSection, {
             forceFormData: true,
         });
     }
     return {
+      user,
       pageSection,
-      postUpdatePage
+      target,
+      targetChangeUrl,
+      selectFile,
+      postUpdatePage,
+      editTarget(data){
+              // console.log(target.value)
+              target.value = data
+              // console.log('new '+target.value)
+          },
     };
   },
   methods: {
      onUpdatePage() {
             this.postUpdatePage()
-        },
+      },
+      onReady() {
+          this.$refs.youtube.playVideo()
+      },
   },
 };
 </script>

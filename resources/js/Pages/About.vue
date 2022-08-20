@@ -29,10 +29,10 @@
     <div class="h-auto w-full bg-transparent">
             <div class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local " style="background-image: url('/images/pages/house.jpg')" >
                 <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70" >
-                    <div class="h-44 text-center mt-auto w-full flex flex-col justify-center rvmp-banner-text-color bg-transparent">
+                    <div class="h-44 text-center mt-auto w-full flex flex-col justify-center items-center rvmp-banner-text-color bg-transparent">
                         <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase"><span class="brand-logo-text" id="client-brand"><span class="font-semibold">GLI</span> <span class="font-thin">GROUP INC.</span></span></h2>   
                         <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">Building a better built environment together</h2>
-                         
+                         <a href="" target="_blank" class="rvmp-brand-bg-main mt-5 text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">book</a>
                     </div> 
                 </div>
             </div>

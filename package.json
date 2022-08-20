@@ -43,6 +43,7 @@
         "vue-loader": "^16.2.0",
         "vue3-carousel": "^0.1.35",
         "vue3-click-away": "^1.2.1",
+        "vue3-youtube": "^0.1.9",
         "ziggy-js": "^1.4.4"
     }
 }

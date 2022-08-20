@@ -6,7 +6,7 @@ import { InertiaProgress } from '@inertiajs/progress'
 import VueClickAway from "vue3-click-away";
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import  VueGoogleMaps from '@fawmi/vue-google-maps'
-
+import YouTube from 'vue3-youtube'
 
 
 InertiaProgress.init();
@@ -41,6 +41,7 @@ createInertiaApp({
 
     .component('InertiaHead', Head)
     .component('InertiaLink', Link)
+    .component('YouTube', YouTube)
     .mixin({ methods: { route } })
     app.mount(el)
   },
