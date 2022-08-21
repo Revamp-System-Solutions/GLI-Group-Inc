@@ -133,19 +133,32 @@ class PagesController extends Controller
                 $data =  $contact;
               break;
             case "book-free":
-            case "portfolio":
                 $this->validate($request, [
                     'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:1024',
                 ]);
                
                 $bf = $request->all();
               
-                $bf_img = $request->image !== NULL ? $this->saveImage(array("data"=>$request->image, "name"=>"subpage-Header Banner Image")): $request->img_url;
+                $bf_img = $request->image !== NULL ? $this->saveImage(array("data"=>$request->image, "name"=>"Book free-Header Banner Image")): $request->img_url;
                 $bf['img_url'] = $bf_img;
 
       
               
                 $data = Arr::except($bf,['image']);
+                break;
+            case "portfolio":
+                $this->validate($request, [
+                    '*.image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:1024',
+                ]);
+               
+                $bf = $request->all();
+              
+                $bf_img = $request->head_banner['image'] !== NULL ? $this->saveImage(array("data"=>$request->head_banner['image'], "name"=>"subpage-Header Banner Image")): $request->head_banner['img_url'];
+                $bf->head_banner['img_url'] = $bf_img;
+
+      
+              
+                $data = Arr::except($bf->head_banner,['image']);
                 break;
             case "thank-you":
                 $data = $request->all();
