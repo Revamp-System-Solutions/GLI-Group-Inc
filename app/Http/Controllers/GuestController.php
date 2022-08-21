@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Testimonials;
 use App\Models\Portfolio;
 use App\Models\Page;
+use App\Models\WebSetting;
 
 class GuestController extends Controller
 {
@@ -26,7 +27,9 @@ class GuestController extends Controller
     }
     public function showAboutPage()
     {
-        return Inertia::render('About');
+        $page = Page::where('slug','=', 'about')->firstOrFail();
+        return Inertia::render('About')
+        ->with("page.data", $page);
     }
     public function showPortfolioPage()
     {
@@ -36,12 +39,17 @@ class GuestController extends Controller
     }
     public function showContactPage()
     {
-        
-        return Inertia::render('Contact');
+        $page = Page::where('slug','=', 'contact-us')->firstOrFail();
+        return Inertia::render('Contact')
+        ->with("page.data", $page)
+        ->with("site_profile", WebSetting::where('attribute', '=', 'Site Profile')->get()->toArray())
+        ->with("socials", WebSetting::where('attribute', '=', 'Social Media links')->get());
     }
     public function bookFree()
     {
-        return Inertia::render('BookFree');
+        $page = Page::where('slug','=', 'book-free')->firstOrFail();
+        return Inertia::render('BookFree')
+        ->with("page.data", $page);
     }
     public function toc()
     {

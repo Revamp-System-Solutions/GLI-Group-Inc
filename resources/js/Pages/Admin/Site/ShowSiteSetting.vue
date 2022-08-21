@@ -30,13 +30,17 @@
 
                                 <div v-else-if="s.short_name==='social_links'" class="w-full flex flex-col space-y-2">
                                   <div class="flex flex-wrap space-x-2 gap-y-2">
-                                    <div v-for="(tag, index) in value"  :key="tag" class="flex bg-gray-700 bg-opacity-30 font-normal text-xs max-w-max rounded-md text-blue-700">
+                                    <div v-for="(tag, index) in value"  :key="tag" class="flex bg-gray-700 bg-opacity-30 font-normal text-xs max-w-max rounded-md text-blue-700 group">
                                       <div class="p-2 cursor-pointer text-white  bg-black bg-opacity-70 hover:bg-red-700 text-center rounded-l-md border-r-2 rvmp-brand-border-highlight" @click="removeLink(value,index)">x</div>
-                                      <div class="p-2">{{ tag }}</div>
+                                      <div class="p-2 group cursor-pointer" @click="editLink(value, index, i2)"> <span class="group-hover:hidden block">{{ tag.alias }}</span> <span class="group-hover:block hidden">{{ tag.link }}</span> </div>
                                     </div>
                                   </div>
+                                    <div class="flex space-x-2">
+                                        <input type="hidden" :id="`${i2}-lnk-ind`"/>
+                                        <input type="text" :id="`${i2}-lnk-nm`" class="w-1/3 rounded-md" placeholder="Input Link alias " @keydown.enter.prevent=""/>
+                                        <input type="text" :id="`${i2}-lnk`" class="w-2/3 rounded-md" placeholder="Paste Link and Press Enter to add link " @keydown.enter.prevent="addLink(value,$event)"/>
+                                    </div>
                                     
-                                    <input type="text" placeholder="Paste Link and Press Enter to add link " class="rounded-md" @keydown.enter.prevent="addLink(value,$event)"/>
                                 </div>
                                  
                             
@@ -274,6 +278,7 @@ export default {
         },
     },
     data: () => ({
+      linkEditMode: false,
         stageColor: [],
         stageImg: [],
         iType:'UlZNUF9DTElFTlRfRklMRQ==',
@@ -474,12 +479,34 @@ export default {
         return ['0_fb','0_ig','0_yt','0_twttr','0_lnkdn'].includes(lbl) ? this.socialN[lbl] : (lbl.includes('_') ? (lbl.startsWith('0_')? (lbl.substring(2)).split('_').join(' '):lbl.split('_').join(' ')):lbl)
       },
       addLink(arr,ev){
-        arr.push(ev.target.value)
-        console.log(ev)
-        ev.currentTarget.value = ""
+       
+        var ln_id = $(`#${ev.target.id}`).prev().attr('id')
+      var ln_nm = $(`#${ln_id}`).val()
+          if(ln_nm !== ''){
+            
+      
+          var ln_dt = {alias: ln_nm, link: ev.target.value}
+          this.linkEditMode ? this.setEdit(arr, ln_dt, ln_id): arr.push(ln_dt)
+        $(`#${ln_id}`).val('')
+          ev.currentTarget.value = ""
+        }
+        
+      },
+      setEdit(arr, ln_dt, ln_id){
+        var ind_id = $(`#${ln_id}`).prev().attr('id')
+        var index = $(`#${ind_id}`).val()
+        arr[parseInt(index)]['alias'] = ln_dt.alias
+        arr[parseInt(index)]['link'] = ln_dt.link
+         this.linkEditMode = false
       },
       removeLink(arr,index){
         arr.splice(index,1)
+      },
+       editLink(arr,index,cat){
+        this.linkEditMode = true
+         $(`#${cat}-lnk-ind`).val(index)
+        $(`#${cat}-lnk-nm`).val(arr[index]['alias'])
+        $(`#${cat}-lnk`).val(arr[index]['link'])
       },
 
     }

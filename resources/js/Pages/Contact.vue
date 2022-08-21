@@ -1,10 +1,10 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container h-full bg-gray-100">
-        <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
+        <div class="w-full bg-origin-border bg-cover bg-center bg-local" :style="`background-image: url('${page_content.head_banner.img_url}')`">
             <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
                 <div class="lg:w-full lg:self-start self-center">
-                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">Contact us</h1>
+                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">{{page_content.head_banner.text}}</h1>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
                     <h2
                         class="text-3xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text capitalize text-center"
                     >
-                        Get in touch
+                        {{page_content.contact_form.title}}
                     </h2>
-                    <p class="brand-text text-center hiddentext-lg px-10">
-                        Send us your inquiries, Our team of Professionals shall provide you a response
+                    <p class="brand-text text-center hiddentext-lg px-10" v-html="page_content.contact_form.caption">
+                       
                     </p>
                 </div>
                 <div class="col-span-6">
@@ -84,107 +84,221 @@
                 </div>
             </form>
         </div>
-        <div
-            class="h-auto 2xl:px-64 xl:px-56 lg:px-28 px-4 py-4 flex lg:flex-row flex-col lg:space-x-6 space-x-0 lg:space-y-0 space-y-6"
+        
+           <div
+      class="
+        h-auto
+        2xl:px-64
+        xl:px-56
+        lg:px-28
+        px-4
+        py-4
+        flex
+        lg:flex-row
+        flex-col
+        lg:space-x-6
+        space-x-0
+        lg:space-y-0
+        space-y-6
+      "
+    >
+      <div
+        class="
+          lg:w-1/3
+          w-full
+          lg:h-56
+          h-44
+          shadow-md
+          rounded-md
+          bg-white
+          text-center
+          flex flex-col
+          space-y-3
+          lg:p-10
+          p-6
+        "
+      >
+        <i
+          class="
+            fas
+            fa-map-marker-alt
+            rvmp-brand-color-main
+            2xl:text-3xl
+            text-2xl
+          "
+        ></i>
+        <h3
+          class="
+            text-xl
+            font-semibold
+            leading-6
+            mb-2
+            brand-text
+            rvmp-footer-text
+            uppercase
+          "
         >
-            <div
-                class="lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-            >
-                <i
-                    class="fas fa-map-marker-alt rvmp-brand-color-main 2xl:text-3xl text-2xl"
-                ></i>
-                <h3
-                    class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-                >
-                    our location
-                </h3>
-                <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">Unit 3, Uypitching Building</span
-                    ><span class="block">Km. 8, Jose Romero Road</span>
-                    <span class="block">6215 Valencia, Negros Oriental</span>
-                    <span class="block">Philippines</span>
-                </p>
-            </div>
-            <div
-                class="lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-            >
-                <i
-                    class="fas fa-phone-volume transform -rotate-45 rvmp-brand-color-main 2xl:text-3xl text-2xl"
-                ></i>
-                <h3
-                    class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-                >
-                    let's talk
-                </h3>
-                <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">Phone: (+63) 917 516 7201</span>
-                </p>
-            </div>
-            <div
-                class="lg:w-1/3 w-full lg:h-56 h-44 shadow-md rounded-md bg-white text-center flex flex-col space-y-3 lg:p-10 p-6"
-            >
-                <i
-                    class="fas fa-envelope-open rvmp-brand-color-main 2xl:text-3xl text-2xl"
-                ></i>
-                <h3
-                    class="text-xl font-semibold leading-6 mb-2 brand-text rvmp-footer-text uppercase"
-                >
-                    email us
-                </h3>
-                <p class="brand-text italic 2xl:text-base text-xs text-center">
-                    <span class="block">support@gligroupinc.com</span>
-                </p>
-            </div>
-        </div>
-        <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4">
-            <div
-                class="w-full flex md:flex-row flex-col lg:space-x-6 justify-center overflow-hidden bg-transparent 2xl:px-40 xl:px-16 px-16"
-                id="social-links"
-            >
-                <a
-                    href="https://www.linkedin.com/company/gli-group-inc/"
-                    target="_blank"
-                    class="fab fa-linkedin text-blue-700 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
-                        ><span class="font-thin">GLI Group Inc.</span></span
-                ></a>
-                <a
-                    href="https://www.facebook.com/gligroupinc"
-                    target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text "
-                        ><span class="font-semibold">GLI</span>
-                        <span class="font-thin"> Group Inc.</span>
-                    </span></a>
-                <a
-                    href="https://www.facebook.com/GLidesignstudio"
-                    target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
-                        ><span class="font-thin">Design Studio</span></span
-                    ></a>
-                <a
-                    href="https://www.facebook.com/GLI-Builders-102946945203186"
-                    target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
-                        ><span class="font-thin">Builders</span></span
-                    ></a>
-                <a
-                    href="https://www.facebook.com/glimodularcabinets"
-                    target="_blank"
-                    class="fab fa-facebook text-blue-600 group hover:rvmp-brand-color-main 2xl:text-2xl xl:text-xl text-base text-center social-link"
-                    ><span
-                        class="px-2 text-sm brand-logo-text group-hover:rvmp-brand-color-main rvmp-footer-text"
-                        ><span class="font-thin">Modular Cabinets</span></span
-                    ></a>
-                
-            </div>
-        </div>
+          our location
+        </h3>
+        <p class="brand-text italic 2xl:text-base text-xs text-center">
+          <span class="block">{{
+            page_content.contact_details.address_line_1
+          }}</span>
+          <span class="block">{{
+            page_content.contact_details.address_line_2
+          }}</span>
+          <span class="block"
+            >{{ page_content.contact_details.postal_code }}
+            {{ page_content.contact_details.town }},
+            {{ page_content.contact_details.state }}</span
+          >
+          <span class="block">{{ page_content.contact_details.country }}</span>
+        </p>
+      </div>
+      <div
+        class="
+          lg:w-1/3
+          w-full
+          lg:h-56
+          h-44
+          shadow-md
+          rounded-md
+          bg-white
+          text-center
+          flex flex-col
+          space-y-3
+          lg:p-10
+          p-6
+        "
+      >
+        <i
+          class="
+            fas
+            fa-phone-volume
+            transform
+            -rotate-45
+            rvmp-brand-color-main
+            2xl:text-3xl
+            text-2xl
+          "
+        ></i>
+        <h3
+          class="
+            text-xl
+            font-semibold
+            leading-6
+            mb-2
+            brand-text
+            rvmp-footer-text
+            uppercase
+          "
+        >
+          let's talk
+        </h3>
+        <p class="brand-text italic 2xl:text-base text-xs text-center flex flex-col">
+          <span class="block"
+            >Phone: {{ page_content.contact_details.phone }}</span
+          >
+          <span class="block"
+            >Tele: {{ page_content.contact_details.telephone }}</span
+          >
+        </p>
+      </div>
+      <div
+        class="
+          lg:w-1/3
+          w-full
+          lg:h-56
+          h-44
+          shadow-md
+          rounded-md
+          bg-white
+          text-center
+          flex flex-col
+          space-y-3
+          lg:p-10
+          p-6
+        "
+      >
+        <i
+          class="
+            fas
+            fa-envelope-open
+            rvmp-brand-color-main
+            2xl:text-3xl
+            text-2xl
+          "
+        ></i>
+        <h3
+          class="
+            text-xl
+            font-semibold
+            leading-6
+            mb-2
+            brand-text
+            rvmp-footer-text
+            uppercase
+          "
+        >
+          email us
+        </h3>
+        <p class="brand-text italic 2xl:text-base text-xs text-center">
+          <span class="block">{{ page_content.contact_details.email }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="h-auto 2xl:px-80 xl:px-56 lg:px-28 px-4 py-4">
+      <div
+        class="
+          w-full
+          flex
+          md:flex-row
+          flex-col
+          lg:space-x-6
+          justify-center
+          overflow-hidden
+          bg-transparent
+          2xl:px-40
+          xl:px-16
+          px-16
+        "
+        id="social-links"
+      >
+      <template v-for="(links, index) in sc_lnk">
+        <a v-for="link in links"
+          :href="link.link"
+          target="_blank"
+          :class="`fab ${social_icons[index]}`"
+          class="
+            text-blue-700
+            group
+            hover:rvmp-brand-color-main
+            2xl:text-2xl
+            xl:text-xl
+            text-base text-center
+            social-link
+          "
+          >
+          <div class="flex
+            flex-col">
+            <i
+            class="
+              px-2
+              text-sm
+              brand-logo-text
+              group-hover:rvmp-brand-color-main
+              rvmp-footer-text
+            "
+            ></i><span class="px-2
+              text-sm
+              brand-logo-text
+              group-hover:rvmp-brand-color-main
+              rvmp-footer-text font-thin">{{link.alias}}</span>
+          </div></a>
+      </template>
+      
+      </div>
+    </div>
         <div class="w-full h-auto pt-4">
             <!-- <div
                 class="w-full h-96 bg-cover bg-top bg-local"
@@ -218,7 +332,15 @@ export default {
     props: {
         errors: Object,
     },
-    data: () => ({}),
+    data: () => ({
+        social_icons:{
+          '0_fb' : 'fa-facebook',
+          '0_ig' : 'fa-instagram',
+          '0_yt' : 'fa-youtube',
+          '0_twttr' : 'fa-twitter',
+          '0_lnkdn' : 'fa-linkedin'
+        }
+    }),
     setup() {
         const form = reactive({
             fullName: null,
@@ -239,7 +361,16 @@ export default {
                 forceFormData: true,
             });
         }
-        return {
+       const site_profile = usePage().props.value.site_profile;
+        const sp_val = JSON.parse(site_profile[0].value);
+        const socials = usePage().props.value.socials;
+        const sc_lnk = JSON.parse(socials[0].value);
+        const pdata = computed(() => usePage().props.value.page.data);
+        const page_content = JSON.parse(pdata.value.page_content)
+        page_content['contact_details'] = sp_val
+        return{
+            page_content,
+            sc_lnk,
             form,
             sendMessage,
         };

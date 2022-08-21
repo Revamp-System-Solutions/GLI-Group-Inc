@@ -1,5 +1,5 @@
 <template>
-    <nav id="appadminheader" class="fixed top-0 flex items-center justify-between flex-wrap py-4 px-8 w-full z-50 pin-t transition-height duration-500 ease-in-out rvmp-bg-alt border-b-2 border-gray-900">
+    <nav id="appadminheader" class="fixed top-0 flex items-center justify-between flex-wrap py-4 px-8 w-full z-40 pin-t transition-height duration-500 ease-in-out rvmp-bg-alt border-b-2 border-gray-900">
 	            <span class="flex flex-row justify-center items-center space-x-4">
                     <span class="bg-black rounded-full w-10 h-10 flex justify-center items-center">
                         <img src="/rvmp-content/rvmp-static/rvmp-delta.png" class="w-7 "/>

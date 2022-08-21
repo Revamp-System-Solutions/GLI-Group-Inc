@@ -10,5 +10,5 @@ class Page extends Model
     use HasFactory;
     
     protected $fillable = ["page_title", "page_content", "is_home"];
-    protected $hidden = ["id"];
+    protected $hidden = ["id", "render"];
 }

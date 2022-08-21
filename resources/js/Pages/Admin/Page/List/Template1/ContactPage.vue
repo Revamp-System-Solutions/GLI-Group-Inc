@@ -12,7 +12,7 @@
 	</div>
     <div
       class="w-full bg-origin-border bg-cover bg-center bg-local"
-      style="background-image: url('/images/pages/house.jpg')"
+     :style="`background-image: url('${pageSection.head_banner.img_url}')`"
     >
       <div
         class="
@@ -26,10 +26,17 @@
           justify-center
           rvmp-banner-bg
           bg-opacity-80
+          relative
         "
       >
+        <span class="absolute  bottom-0 right-0 ">
+             <label for="image-hbc" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+            <span><i class="fas fa-file-image text-2xl text-blue-400 cursor-pointer group-hover:text-blue-700 "></i>   </span>
+            <input id="image-hbc" name="image-hbc" type="file" class="sr-only" @change="selectFile"/>
+      </label>
+      </span>
         <div class="lg:w-full lg:self-start self-center">
-          <template v-if="target === 'lead_text'">
+          <template v-if="target === 'banner_text'">
             <div class="relative flex flex-wrap box-border bg-gray-300">
               <span class="absolute -top-6 -right-2 space-x-2">
                 <i
@@ -56,15 +63,16 @@
                 ></i>
               </span>
               <textarea
-                v-model="pageSection.contact_form.lead_text"
+                v-model="pageSection.head_banner.text"
                 class="
                   static
-                  h-32
+                  h-14
+                  w-full
                   resize-none
                   border-gray-400 border-2
                   px-5
                   brand-text
-                  uppercase
+                  capitalize
                   lg:mt-0
                   mt-8
                   xl:text-3xl
@@ -89,7 +97,7 @@
                   group-hover:text-blue-700
                 "
                 id="contact-lead-text-btn"
-                @click="editTarget('lead_text')"
+                @click="editTarget('banner_text')"
               ></i>
 
               <h1
@@ -109,9 +117,9 @@
                   group-hover:bg-gray-200
                 "
                 id="contact-lead-text"
-                @click="editTarget('lead_text')"
+                @click="editTarget('banner_text')"
               >
-                {{ pageSection.contact_form.lead_text }}
+                {{ pageSection.head_banner.text }}
               </h1>
             </div>
           </template>
@@ -130,12 +138,12 @@
           lg:px-8
         "
         method="post"
-        @submit.prevent="sendMessage()"
+        @submit.prevent=""
       >
-        <div class="col-span-6">
-          <template v-if="target === 'follow_text'">
-            <div class="relative flex flex-wrap box-border bg-gray-300">
-              <span class="absolute -top-6 -right-2 space-x-2">
+        <div class="col-span-6 pt-5">
+          <template v-if="target === 'form_title'">
+            <div class="relative flex flex-wrap box-border bg-gray-300  mt-5">
+              <span class="absolute -top-4 -right-2 space-x-2">
                 <i
                   class="
                     fas
@@ -160,20 +168,25 @@
                 ></i>
               </span>
               <textarea
-                v-model="pageSection.contact_form.follow_text"
+                v-model="pageSection.contact_form.title"
                 class="
                   static
-                  h-32
+                  h-12
+                  w-full
+                  text-center
                   resize-none
                   border-gray-400 border-2
                   px-5
-                  brand-text
-                  uppercase
+                 
                   lg:mt-0
                   mt-8
-                  xl:text-3xl
-                  text-xl
-                  font-bold
+                 text-3xl
+                  font-semibold
+                  leading-6
+                  mb-2
+                  brand-text
+                  rvmp-footer-text
+                  capitalize
                   bg-transparent
                 "
               ></textarea>
@@ -193,7 +206,7 @@
                   group-hover:text-blue-700
                 "
                 id="contact-follow-text-btn"
-                @click="editTarget('follow_text')"
+                @click="editTarget('form_title')"
               ></i>
 
               <h2
@@ -214,14 +227,14 @@
                   group-hover:bg-gray-200
                 "
                 id="contact-follow-text"
-                @click="editTarget('follow_text')"
+                @click="editTarget('form_title')"
               >
-                {{ pageSection.contact_form.follow_text }}
+                {{ pageSection.contact_form.title }}
               </h2>
             </div>
           </template>
-          <template v-if="target === 'follow_subtext'">
-            <div class="relative flex flex-wrap box-border bg-gray-300">
+          <template v-if="target === 'form_caption'">
+            <div class="relative flex flex-wrap box-border bg-gray-300 mt-5">
               <span class="absolute -top-6 -right-2 space-x-2">
                 <i
                   class="
@@ -247,20 +260,19 @@
                 ></i>
               </span>
               <textarea
-                v-model="pageSection.contact_form.subfollow_text"
+                v-model="pageSection.contact_form.caption"
                 class="
                   static
-                  h-32
+                  h-24
+                  w-full
+                  text-center
                   resize-none
                   border-gray-400 border-2
                   px-5
                   brand-text
-                  uppercase
                   lg:mt-0
                   mt-8
-                  xl:text-3xl
-                  text-xl
-                  font-bold
+            text-lg
                   bg-transparent
                 "
               ></textarea>
@@ -280,14 +292,14 @@
                   group-hover:text-blue-700
                 "
                 id="contact-follow-subtext-btn"
-                @click="editTarget('follow_subtext')"
+                @click="editTarget('form_caption')"
               ></i>
 
               <p
                 class="
                   brand-text
                   text-center
-                  hiddentext-lg
+                  text-lg
                   px-10
                   lg:mt-0
                   mt-8
@@ -297,9 +309,9 @@
                   group-hover:bg-gray-200
                 "
                 id="contact-follow-subtext"
-                @click="editTarget('follow_subtext')"
+                @click="editTarget('form_caption')"
               >
-                {{ pageSection.contact_form.follow_subtext }}
+                {{ pageSection.contact_form.caption }}
               </p>
             </div>
           </template>
@@ -314,6 +326,7 @@
             type="text"
             name="first-name"
             id="first-name"
+            disabled
             placeholder="Full name"
             autocomplete="off"
             class="
@@ -335,6 +348,7 @@
           >
           <input
             type="email"
+            disabled
             name="email-address"
             id="email-address"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -360,6 +374,7 @@
           >
           <textarea
             type="text"
+            disabled
             name="street-address"
             id="street-address"
             placeholder="Message"
@@ -508,9 +523,12 @@
         >
           let's talk
         </h3>
-        <p class="brand-text italic 2xl:text-base text-xs text-center">
+        <p class="brand-text italic 2xl:text-base text-xs text-center flex flex-col">
           <span class="block"
             >Phone: {{ pageSection.contact_details.phone }}</span
+          >
+          <span class="block"
+            >Tele: {{ pageSection.contact_details.telephone }}</span
           >
         </p>
       </div>
@@ -574,7 +592,39 @@
         "
         id="social-links"
       >
-        <a
+      <template v-for="(links, index) in sc_lnk">
+        <a v-for="link in links"
+          :href="link.link"
+          target="_blank"
+          :class="`fab ${social_icons[index]}`"
+          class="
+            text-blue-700
+            group
+            hover:rvmp-brand-color-main
+            2xl:text-2xl
+            xl:text-xl
+            text-base text-center
+            social-link
+          "
+          >
+          <div class="flex
+            flex-col">
+            <i
+            class="
+              px-2
+              text-sm
+              brand-logo-text
+              group-hover:rvmp-brand-color-main
+              rvmp-footer-text
+            "
+            ></i><span class="px-2
+              text-sm
+              brand-logo-text
+              group-hover:rvmp-brand-color-main
+              rvmp-footer-text font-thin">{{link.alias}}</span>
+          </div></a>
+      </template>
+        <!-- <a
           href="https://www.linkedin.com/company/gli-group-inc/"
           target="_blank"
           class="
@@ -597,8 +647,8 @@
               rvmp-footer-text
             "
             ><span class="font-thin">GLI Group Inc.</span></span
-          ></a
-        >
+          ></a>
+
         <a
           href="https://www.facebook.com/gligroupinc"
           target="_blank"
@@ -699,7 +749,7 @@
             "
             ><span class="font-thin">Modular Cabinets</span></span
           ></a
-        >
+        > -->
       </div>
     </div>
     <div class="w-full h-auto pt-4">
@@ -726,7 +776,7 @@ import { Inertia } from "@inertiajs/inertia";
 import { computed, inject, reactive, ref } from "vue";
 
 export default {
-  name: "Home",
+  name: "ContactPage",
   components: {
     ErrorsAndMessages,
     AppHeader,
@@ -737,28 +787,52 @@ export default {
   props: {
     errors: Object,
   },
-  data: () => ({}),
+  data: () => ({
+    social_icons:{
+          '0_fb' : 'fa-facebook',
+          '0_ig' : 'fa-instagram',
+          '0_yt' : 'fa-youtube',
+          '0_twttr' : 'fa-twitter',
+          '0_lnkdn' : 'fa-linkedin'
+        }
+        }),
   setup() {
-    const site_profile = usePage().props.value.site_profile;
-    // console.log(sp_val);
-    const sp_val = JSON.parse(site_profile[0].value);
-    console.log(sp_val);
-    const pageSection = reactive({
-      contact_form: {
-        lead_text: "Contact Us",
-        follow_text: "Get In Touch",
-        follow_subtext:
-          "Send us your inquiries, Our team of Professionals shall provide you a response",
-      },
-      contact_details: sp_val,
-    });
+      const site_profile = usePage().props.value.site_profile;
+      const sp_val = JSON.parse(site_profile[0].value);
+      const socials = usePage().props.value.socials;
+      const sc_lnk = JSON.parse(socials[0].value);
+      const page_data = computed(() => usePage().props.value.page.data);
+      const data = JSON.parse(page_data.value.page_content)
+      const pageSection = reactive(data);
+      pageSection.head_banner['image'] = null
+      pageSection['contact_details'] = sp_val
+      console.log(sc_lnk)
+
+    const target = ref(null);
+
     const form = reactive({
       fullName: null,
       email: null,
       message: null,
       _token: usePage().props.value.csrf_token,
     });
+    
+    const user = computed(() => usePage().props.value.auth.user);
+
+    function selectFile($event) {
+          var file = $event.target.files[0];
+          pageSection.head_banner.image = file
+          var reader = new FileReader();
+          reader.onload = (function(currFile, x, total) {
+        
+              return function(event){
+                pageSection.head_banner.img_url = event.target.result
+              };
+          })(file, 0,$event.target.files.length).bind(this);
+          reader.readAsDataURL($event.target.files[0]);      
+    }
     const route = inject("$route");
+
     function sendMessage() {
       const data = new FormData();
 
@@ -771,15 +845,25 @@ export default {
         forceFormData: true,
       });
     }
-      function postUpdatePage(){
-             Inertia.post(route('page.change.save', {'slug':'contact-us'}), pageSection, {
-                forceFormData: true,
-            });
-        }
+
+    function postUpdatePage(){
+      Inertia.post(route('page.change.save', {'slug':'contact-us'}), pageSection, {
+          forceFormData: true,
+      });
+    }
     return {
+      user,
+      sc_lnk,
       pageSection,
       form,
+      target,
+      selectFile,
       postUpdatePage,
+      editTarget(data){
+              // console.log(target.value)
+              target.value = data
+              // console.log('new '+target.value)
+          },
       sendMessage,
     };
   },

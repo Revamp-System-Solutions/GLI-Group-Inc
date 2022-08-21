@@ -13,7 +13,7 @@
 	</div>
     <div
       class="w-full bg-origin-border bg-cover bg-center bg-local"
-      :style="`background-image: url('${pageSection.about.head_banner.img_url}')`"
+      :style="`background-image: url('${pageSection.head_banner.img_url}')`"
     >
       <div
         class="
@@ -65,7 +65,7 @@
                 ></i>
               </span>
               <textarea
-                v-model="pageSection.about.head_banner.text"
+                v-model="pageSection.head_banner.text"
                 class="
                   static
                   h-14
@@ -121,7 +121,7 @@
                 id="about-lead-text"
                 @click="editTarget('head_banner')"
               >
-                {{ pageSection.about.head_banner.text }}
+                {{ pageSection.head_banner.text }}
               </h1>
             </div>
           </template>
@@ -177,7 +177,7 @@
                     </span>
 
                     <textarea
-                      v-model="pageSection.about.about_title.top"
+                      v-model="pageSection.about_title.top"
                       class="
                         static
                         h-14
@@ -195,7 +195,7 @@
                       "
                     ></textarea>
                     <textarea
-                      v-model="pageSection.about.about_title.bottom"
+                      v-model="pageSection.about_title.bottom"
                       class="
                         static
                         h-14
@@ -244,7 +244,7 @@
                       id="company-name-text1"
                     
                     >
-                      {{ pageSection.about.about_title.top }}
+                      {{ pageSection.about_title.top }}
 
                        <span
                             class="
@@ -255,7 +255,7 @@
                             "
                             id="company-name-text2"
                            
-                            >{{ pageSection.about.about_title.bottom }}</span
+                            >{{ pageSection.about_title.bottom }}</span
                           >
                   
                     </h2>
@@ -290,7 +290,7 @@
                     ></i>
                   </span>
                   <textarea
-                    v-model="pageSection.about.about_caption"
+                    v-model="pageSection.about_caption"
                     class="
                       static
                       h-32
@@ -340,7 +340,7 @@
                  
                    
                   >
-                    {{ pageSection.about.about_caption }}
+                    {{ pageSection.about_caption }}
                   </p>
                 </div>
               </template>
@@ -365,7 +365,7 @@
         <div class="relative">
             <div class="absolute w-full h-full bg-gray-300 z-30 bg-opacity-75  flex justify-center items-center" >
    
-                <input type="text" v-model="pageSection.about.video_url" class="text-black text-sm border-dashed border-blue-400 border-2 font-normal w-full bg-transparent" :disabled="!(target==='video_url')">
+                <input type="text" v-model="pageSection.video_url" class="text-black text-sm border-dashed border-blue-400 border-2 font-normal w-full bg-transparent" :disabled="!(target==='video_url')">
                  <i class="fas fa-link text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_slug_btn" @click="editTarget('video_url');" v-if="!(target==='video_url')"></i>
                  <span v-else>
                   <i
@@ -394,8 +394,8 @@
             </div>
             <div class="z-20">
               <YouTube 
-                :src="pageSection.about.video_url" 
-                @ready="onReady"
+                :src="pageSection.video_url" 
+                
                 width="560"
                     height="314"
                 ref="youtube" />
@@ -410,7 +410,7 @@
     <div class="h-auto w-full bg-transparent">
       <div
         class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local"
-        :style="`background-image: url('${pageSection.about.banner.img_url}')`"
+        :style="`background-image: url('${pageSection.banner.img_url}')`"
       >
         <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70 relative">
            <span class="absolute  top-0 right-0 ">
@@ -461,7 +461,7 @@
                         ></i>
                       </span>
                       <textarea
-                        v-model="pageSection.about.banner.top"
+                        v-model="pageSection.banner.top"
                         class="
                           static
                           h-14
@@ -477,7 +477,7 @@
                         "
                       ></textarea>
                       <textarea
-                        v-model="pageSection.about.banner.bottom"
+                        v-model="pageSection.banner.bottom"
                         class="
                           static
                           h-14
@@ -492,8 +492,8 @@
                           bg-transparent
                         "
                       ></textarea>
-                <!-- <span class="font-semibold">{{pageSection.about.banner.top}}</span> -->
-                <!-- <span class="font-thin">&nbsp;{{pageSection.about.banner.bottom}}</span> -->
+                <!-- <span class="font-semibold">{{pageSection.banner.top}}</span> -->
+                <!-- <span class="font-thin">&nbsp;{{pageSection.banner.bottom}}</span> -->
                 </div>
               </template>
               <template v-else>
@@ -512,8 +512,8 @@
                       id="lead-subtext-btn"
                       @click="editTarget('banner_title')"
                     ></i>
-                <span class="font-semibold">{{pageSection.about.banner.top}}</span>
-                <span class="font-thin">&nbsp;{{pageSection.about.banner.bottom}}</span>
+                <span class="font-semibold">{{pageSection.banner.top}}</span>
+                <span class="font-thin">&nbsp;{{pageSection.banner.bottom}}</span>
                 </div>
               </template>
             </span>
@@ -546,7 +546,7 @@
                   </span>
                 
                   <textarea
-                    v-model="pageSection.about.banner.caption"
+                    v-model="pageSection.banner.caption"
                     class="
                       static
                       h-24
@@ -580,7 +580,7 @@
                     id="lead-subtext-btn"
                     @click="editTarget('banner_caption')"
                   ></i>
-                <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">{{pageSection.about.banner.caption}}</h2>
+                <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">{{pageSection.banner.caption}}</h2>
               </div>
           </template>
           <template  v-if="target ==='lead_btn1'">
@@ -589,8 +589,8 @@
                     <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
                     <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
                 </span>
-                <textarea v-if="!targetChangeUrl" v-model="pageSection.about.banner.btn.text" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
-                <textarea v-else v-model="pageSection.about.banner.btn.slug" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
+                <textarea v-if="!targetChangeUrl" v-model="pageSection.banner.btn.text" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
+                <textarea v-else v-model="pageSection.banner.btn.slug" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
                 </div>
                 
             </template>
@@ -602,7 +602,7 @@
                                 <i class="fas fa-pen text-2xl text-blue-400  cursor-pointer  hover:text-blue-700" id="lead_btn1_btn" @click="editTarget('lead_btn1');targetChangeUrl=false"></i> 
                         </span>
 
-                    <p class="static border-gray-400 border-2 cursor-pointer rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"  @click="editTarget('lead_btn1')">{{pageSection.about.banner.btn.text}}</p>
+                    <p class="static border-gray-400 border-2 cursor-pointer rvmp-brand-bg-main text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300"  @click="editTarget('lead_btn1')">{{pageSection.banner.btn.text}}</p>
                 </div>
             </template>
           
@@ -675,49 +675,43 @@ export default {
     },
   },
   setup() {
-    const user = computed(() => usePage().props.value.auth.user);
-    const pageSection = reactive({
-      about: {
-        head_banner: {text:"About GLI Group Inc.", img_url: '/images/pages/house.jpg', image: null},
-        about_title: {top:"GLI", bottom: "GROUP INC."},
-        about_caption:
-          "GLI Group Inc. is a Design & Build Firm with Architectural & Engineering Design Services, Construction Services, and Cabinetry Fabrication teams with 10 years experience in the industry.",
-        video_url: 'https://www.youtube.com/watch?v=_A7_tfvt0UY&ab_channel=EnggOnline',
-       banner: {top: "GLI", bottom: "GROUP INC.", caption: "Building a better built environment together", btn:{text:'Book a FREE Consultation!', slug: '/consultation/free'},img_url: '/images/pages/house.jpg', image: null}
-      },
-      
-    });
-        const target = ref(null);
-        const targetChangeUrl = ref(false);
+    const page_data = computed(() => usePage().props.value.page.data);
+    const data = JSON.parse(page_data.value.page_content)
+    const pageSection = reactive(data);
 
-        function selectFile($event) {
-                        var evt_src = $event.target.id
-                      
-                        if(evt_src === "image-hb"){
-                           pageSection.about.head_banner.image = $event.target.files[0];
-                        }else
-                            pageSection.about.banner.image = $event.target.files[0];
-          
-                       
-                        var file = $event.target.files[0];
-                               
-                        var reader = new FileReader();
-                        reader.onload = (function(currFile, x, total, evtsrc) {
-                     
-                            return function(event){
-                                
-                                if(evt_src === "image-hb"){
-                                    pageSection.about.head_banner.img_url = event.target.result
-                            
-                                }else{
-                                    pageSection.about.banner.img_url = event.target.result
-                                }
-       
-                            };
-                        })(file, 0,$event.target.files.length, evt_src).bind(this);
-                        reader.readAsDataURL($event.target.files[0]);
+    pageSection.head_banner['image'] = null
+    pageSection.banner['image'] = null
+    const target = ref(null);
+    const targetChangeUrl = ref(false);
+    const user = computed(() => usePage().props.value.auth.user);
+    function selectFile($event) {
+                    var evt_src = $event.target.id
                   
-        }
+                    if(evt_src === "image-hb"){
+                        pageSection.head_banner.image = $event.target.files[0];
+                    }else
+                        pageSection.banner.image = $event.target.files[0];
+      
+                    
+                    var file = $event.target.files[0];
+                            
+                    var reader = new FileReader();
+                    reader.onload = (function(currFile, x, total, evtsrc) {
+                  
+                        return function(event){
+                            
+                            if(evt_src === "image-hb"){
+                                pageSection.head_banner.img_url = event.target.result
+                        
+                            }else{
+                                pageSection.banner.img_url = event.target.result
+                            }
+    
+                        };
+                    })(file, 0,$event.target.files.length, evt_src).bind(this);
+                    reader.readAsDataURL($event.target.files[0]);
+              
+    }
     function postUpdatePage(){
         Inertia.post(route('page.change.save', {'slug':'about'}), pageSection, {
             forceFormData: true,

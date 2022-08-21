@@ -4,7 +4,7 @@
     <div  class="">
       <div id="calendly-popup" class=""></div>
             <div class="w-full flex lg:flex-row flex-col space-x-0 space-y-0 h-full relative" >
-                <div class="w-full h-screen px-8 space-y-6 bg-origin-border bg-cover bg-no-repeat bg-center bg-local static" style="background-image: url('/images/pages/section-1.jpg')" >
+                <div class="w-full h-screen px-8 space-y-6 bg-origin-border bg-cover bg-no-repeat bg-center bg-local static"  :style="`background-image: url('${page_content.img_url}')`" >
               
                     <div class="text-center">
                        &nbsp;
@@ -13,7 +13,7 @@
                 <div class="w-full px-4 flex flex-wrap content-center lg:static absolute lg:bg-transparent bg-gray-100 lg:bg-opacity-100 bg-opacity-75 lg:h-auto h-full">
                     <form method="POST" class="grid grid-cols-6 gap-y-3 p-6 rounded-md shadow-2xl w-full bg-gray-50" @submit.prevent="openCalendly()">
                         <div class="col-span-6">
-                          <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">Get started with a <span class="block rvmp-brand-color-highlight">FREE Consultation</span></h3>
+                          <h3 class="text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center">{{page_content.contact_form.title.top}}<span class="block rvmp-brand-color-highlight">{{page_content.contact_form.title.bottom}}</span></h3>
                         </div>
                         <div class="col-span-6">
                           <label for="full-name" class="text-sm font-medium rvmp-footer-text capitalize hidden">Full name</label>
@@ -125,7 +125,7 @@ import {computed, inject,ref, reactive} from "vue";
   } from '@headlessui/vue'
 import CalendyPlugin from "../Components/Plugins/CalendyPlugin"
 export default {
-    name: "Home",
+    name: "BookFree",
     components: {
     ErrorsAndMessages,
     Listbox,
@@ -158,6 +158,8 @@ window.addEventListener("message", function(e) {
         // }
     },
     setup() {
+       const pdata = computed(() => usePage().props.value.page.data);
+        const page_content = JSON.parse(pdata.value.page_content)
          const form = reactive({
             fullName: null,
             email: null,
@@ -234,6 +236,7 @@ window.addEventListener("message", function(e) {
             sendMessage,
             openCalendly,
             selectedService,
+            page_content
         }
     }
 }

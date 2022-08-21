@@ -1,10 +1,10 @@
 <template>
     <app-header></app-header>
    <div class="rvmp-container h-auto space-y-0">
-        <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
+        <div class="w-full bg-origin-border bg-cover bg-center bg-local" :style="`background-image: url('${page_content.head_banner.img_url}')`">
             <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
                 <div class="lg:w-full lg:self-start self-center">
-                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">About GLI Group Inc.</h1>
+                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">{{page_content.head_banner.text}}.</h1>
                 </div>
             </div>
         </div>
@@ -15,24 +15,29 @@
                     <div class="rvmp-bg-alt bg-opacity-75 lg:absolute lg:top-0 xl:px-16 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full -left-24 xl:ml-0 lg:ml-12">  
                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight my-2">
                             <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold"></h2>
-                            <h2 class="ml-5 brand-logo-text text-3xl font-semibold">GLI <span class="brand-logo-text font-thin rvmp-brand-color-highlight">GROUP INC.</span></h2> 
+                            <h2 class="ml-5 brand-logo-text text-3xl font-semibold">{{page_content.about_title.top}} <span class="brand-logo-text font-thin rvmp-brand-color-highlight">{{page_content.about_title.bottom}}</span></h2> 
                         </blockquote>
-                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3">GLI Group Inc. is a Design & Build Firm with Architectural & Engineering Design Services, Construction Services, and Cabinetry Fabrication teams with 10 years experience in the industry.</p> 
+                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3" v-html="page_content.about_caption"></p> 
                     </div>            
                 </div>               
             </div>
             <div class="w-full z-30 lg:h-auto  static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
-                      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fgligroupinc%2Fvideos%2F729918478044185%2F&show_text=false&width=560&t=0&autoplay=1" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                <YouTube 
+                    :src="page_content.video_url" 
+                    @ready="onReady"
+                    width="560"
+                        height="314"
+                    ref="youtube" />
             </div>
         </div>
     </div>
     <div class="h-auto w-full bg-transparent">
-            <div class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local " style="background-image: url('/images/pages/house.jpg')" >
+            <div class="flex lg:flex-row flex-col bg-cover bg-no-repeat bg-top bg-local " :style="`background-image: url('${page_content.banner.img_url}')`">
                 <div class="w-full py-14 h-auto rvmp-banner-bg bg-opacity-70" >
                     <div class="h-44 text-center mt-auto w-full flex flex-col justify-center items-center rvmp-banner-text-color bg-transparent">
-                        <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase"><span class="brand-logo-text" id="client-brand"><span class="font-semibold">GLI</span> <span class="font-thin">GROUP INC.</span></span></h2>   
-                        <h2 class="brand-text lg:text-5xl text-xl font-light capitalize">Building a better built environment together</h2>
-                         <a href="" target="_blank" class="rvmp-brand-bg-main mt-5 text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">book</a>
+                        <h2 class="brand-logo-text lg:text-3xl text-xl py-2 uppercase"><span class="brand-logo-text" id="client-brand"><span class="font-semibold">{{page_content.banner.top}}</span> <span class="font-thin">{{page_content.banner.bottom}}</span></span></h2>   
+                        <h2 class="brand-text lg:text-5xl text-xl font-light capitalize" v-html="page_content.banner.caption"></h2>
+                         <a :href="page_content.banner.btn.slug" target="_blank" class="rvmp-brand-bg-main mt-5 text-white px-4 py-1.5 hover:rvmp-brand-bg-darker transition ease-in-out duration-300">{{page_content.banner.btn.text}}</a>
                     </div> 
                 </div>
             </div>
@@ -92,14 +97,14 @@
             </div>
         </div>
     </div> -->
-    <div class="h-auto w-full bg-transparent">
+    <!-- <div class="h-auto w-full bg-transparent">
         <div class="flex lg:flex-row flex-col bg-cover bg-center bg-local" style="background-image: url('/images/pages/groups.jpeg')" >
             <div class="w-full relative py-10 h-auto " >
                 <div class="py-4 h-56 text-center mt-auto w-full flex flex-col justify-center rvmp-text-alt bg-transparent">
                 </div> 
             </div>
         </div>
-    </div>
+    </div> -->
     </div>
     <app-footer-contact-form/>
 </template>
@@ -122,6 +127,14 @@ export default {
     props: {
         errors: Object
     },
+    setup(){
+        
+        const pdata = computed(() => usePage().props.value.page.data);
+        const page_content = JSON.parse(pdata.value.page_content)
+        return{
+            page_content
+        }
+    }
    
 }
 </script>
