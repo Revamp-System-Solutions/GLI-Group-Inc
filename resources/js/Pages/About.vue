@@ -12,7 +12,7 @@
         <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">
             <div class="w-full h-2/3 lg:py-12 lg:pl-0 p-6 static" >
                 <div class="lg:py-36 lg:my-12 static">
-                    <div class="rvmp-bg-alt bg-opacity-75 lg:absolute lg:top-0 xl:px-16 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full -left-24 xl:ml-0 lg:ml-12">  
+                    <div class="rvmp-bg-alt bg-opacity-75 box-border lg:absolute lg:top-0 xl:px-16 lg:pr-28 lg:py-16 lg:my-20  lg:w-7/12  w-full -left-24 xl:ml-0 lg:ml-12">  
                        <blockquote className="self-start border-l-8 rvmp-brand-border-highlight my-2">
                             <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold"></h2>
                             <h2 class="ml-5 brand-logo-text text-3xl font-semibold">{{page_content.about_title.top}} <span class="brand-logo-text font-thin rvmp-brand-color-highlight">{{page_content.about_title.bottom}}</span></h2> 
@@ -24,7 +24,7 @@
             <div class="w-full z-30 lg:h-auto  static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
                 <YouTube 
                     :src="page_content.video_url" 
-                    @ready="onReady"
+                    
                     width="560"
                         height="314"
                     ref="youtube" />
