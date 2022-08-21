@@ -29,7 +29,7 @@
 						<div :class="!dropdownPopoverShow ? 'hidden': 'block',  !subdropdownPopoverShow ? 'rvmp-bg-main':'rvmp-bg-alt text-gray-300'" class=" text-base z-40 float-left py-2 list-none text-left rounded shadow-lg mt-1" style="min-width:12rem" ref="popoverDropdownRef">
 							<a @mouseover="subtoggleDropdown('builder')" @mouseleave="subtoggleDropdown('builder')" id="builderbtnsubDropdownRef" ref="builderbtnsubDropdownRef" > 
 							<inertia-link href="/home#builders" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
-								Builders
+								GLI Builders
 							</inertia-link></a>
 						
 							<!-- <a v-if="!switchInertia" href="#builders"  @mouseover="subtoggleDropdown('builder')" @mouseleave="subtoggleDropdown('builder')" id="builderbtnsubDropdownRef" ref="builderbtnsubDropdownRef" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">
@@ -47,7 +47,7 @@
 							</a> -->
 								<a @mouseover="subtoggleDropdown('design')" @mouseleave="subtoggleDropdown('design')" id="designbtnsubDropdownRef" ref="designbtnsubDropdownRef">
 							<inertia-link href="/home#designstudio" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
-								Design Studio
+								GLI Architects
 							</inertia-link></a>
 							
 							<div :class="subdropdownPopoverShow && subH =='design' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('design')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="designPopoverDropdownRef">
@@ -64,7 +64,7 @@
 							</a> -->
 							<a @mouseover="subtoggleDropdown('cabinet')" @mouseleave="subtoggleDropdown('cabinet')" id="cabinetsbtnsubDropdownRef" ref="cabinetsbtnsubDropdownRef">
 								<inertia-link :href="$route('guest.index')+'#modularcabinets'"  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
-								Modular Cabinets
+								GLI Modular Cabinets
 							</inertia-link> </a>
 							<div :class="subdropdownPopoverShow && subH =='cabinet' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('cabinet')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="cabinetsPopoverDropdownRef">
 									<ul>
@@ -73,7 +73,16 @@
 									</ul>								
 							</div>
 						
-						
+						<a @mouseover="subtoggleDropdown('concrete')" @mouseleave="subtoggleDropdown('concrete')" id="concretesbtnsubDropdownRef" ref="concretesbtnsubDropdownRef">
+								<inertia-link :href="$route('guest.index')+'#grindandpolish'"  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white" replace>
+								GLI Concrete Grinding and Polishing
+							</inertia-link> </a>
+							<!-- <div :class="subdropdownPopoverShow && subH =='concrete' ? 'block rvmp-bg-main rvmp-text-main':'hidden'" @mouseleave="subtoggleDropdown('concrete')" class=" text-base z-50 float-left py-2 mr-14 list-none text-left rounded shadow-lg mt-1 absolute -right-1.5" style="min-width:12rem" ref="concretesPopoverDropdownRef">
+									<ul>
+										<li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-green-600 hover:text-white">Modular Cabinets Installation</li>
+										
+									</ul>								
+							</div> -->
 					
 						</div>
 					</div>

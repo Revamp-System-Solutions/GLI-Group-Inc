@@ -256,7 +256,7 @@ export default {
             
             editorConfig: {
            
-                toolbar: ['heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
+                // toolbar: ['html','|', 'heading', '|', 'bold',  'italic', 'bulletedList', 'numberedList', 'blockQuote', 'link', 'insertTable', 'tableColumn', 'tableRow','|' , 'undo', 'redo'],
                 language: 'en',
                 height: '30%',
                 table: {

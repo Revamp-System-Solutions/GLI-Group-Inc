@@ -1,10 +1,10 @@
 <template>
     <app-header></app-header>
     <div class="rvmp-container h-full space-y-6 mb-8">
-        <div class="w-full bg-origin-border bg-cover bg-center bg-local" style="background-image: url('/images/pages/house.jpg')">
+        <div class="w-full bg-origin-border bg-cover bg-center bg-local" :style="`background-image: url('${page_content.head_banner.img_url}')`">
             <div class="h-40 mx-auto 2xl:px-40 xl:px-16 px-8 flex lg:flex-wrap lg:content-center justify-center rvmp-banner-bg bg-opacity-80">
                 <div class="lg:w-full lg:self-start self-center">
-                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">Built Better</h1>
+                    <h1 class="px-5 brand-text xl:text-3xl text-xl font-bold rvmp-banner-text-color capitalize">{{page_content.head_banner.text}}</h1>
                 </div>
             </div>
         </div>
@@ -144,11 +144,12 @@ export default {
 
     },
      setup() {
-       const isOpen = ref(false)
-
-        const posts = computed(() => usePage().props.value.posts);
-         const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
-         const selectedPost = ref(null)
+          const pdata = computed(() => usePage().props.value.page.data);
+          const page_content = JSON.parse(pdata.value.page_content)
+          const isOpen = ref(false)
+          const posts = computed(() => usePage().props.value.posts.portfolio);
+          const numberLinks = posts.value.links.filter((v, i) => i > 0 && i < posts.value.links.length - 1);
+          const selectedPost = ref(null)
 
 
     return {
@@ -157,12 +158,12 @@ export default {
         isOpen.value = false             
       },
       openModal() {
-        isOpen.value = true
-  
+        isOpen.value = true  
       },
       posts,
       numberLinks,
-      selectedPost
+      selectedPost,
+      page_content
       
     }
   },

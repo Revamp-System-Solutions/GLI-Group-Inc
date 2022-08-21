@@ -160,7 +160,8 @@
         </DisclosurePanel>
          </div>
       </Disclosure>
-       <Disclosure v-slot="{ open }" >  <!-- SERVICES SECTION -->
+       <!-- SERVICES SECTION -->
+       <!-- <Disclosure v-slot="{ open }" > 
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
             <span class="text-xl"><i class="fas fa-hand-holding-heart mx-2"></i> Services</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
@@ -171,8 +172,9 @@
           
             </DisclosurePanel>
           </div>
-      </Disclosure>
-      <Disclosure v-slot="{ open }" >  <!-- MENU LINKS SECTION -->
+      </Disclosure> -->
+      <!-- MENU LINKS SECTION -->
+      <!-- <Disclosure v-slot="{ open }" >  
           <DisclosureButton class="my-2 flex justify-between w-full py-4 px-6 font-medium text-left text-white bg-gray-700 rounded-lg">
             <span class="text-xl"><i class="fas fa-link mx-2"></i> Menu Links</span>
             <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-white ']" aria-hidden="true"></span>
@@ -183,7 +185,7 @@
           
             </DisclosurePanel>
           </div>
-      </Disclosure>
+      </Disclosure> -->
      
 
     </div>

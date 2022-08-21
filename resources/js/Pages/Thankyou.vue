@@ -25,13 +25,12 @@
 
   <span class="h-full w-full">       
       <p class="m-1 text-center">
-        Thanks a bunch for filling that out. It means a lot to us, just like
-        you do!
+        {{page_content.thank_u_msg}}
       </p>
       <p class="m-1 text-center">You will be automatically redirected to the homepage.</p>
   </span>
        
-       <AppFooterSmall />
+       <app-footer-small />
     </div>
 
 </template>
@@ -45,8 +44,10 @@ import {usePage} from "@inertiajs/inertia-vue3";
 import {computed, inject,ref, reactive} from "vue";
 import AppFooterSmall from "../Partials/AppFooterSmall";
 export default {
-    name: "Thank you",
+    name: "ThankYou",
     setup() {
+        const pdata = computed(() => usePage().props.value.page.data);
+        const page_content = JSON.parse(pdata.value.page_content)
         const form = reactive({
             title: null,
             fullName: null,
@@ -77,7 +78,8 @@ export default {
         }
         return {
             form,
-            sendMessage
+            sendMessage,
+            page_content
         };
     },
     created() {

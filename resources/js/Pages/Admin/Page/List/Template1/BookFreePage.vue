@@ -1,10 +1,10 @@
 <template>
-  
-    <div class="rvmp-container h-auto relative">
-        <div class="sticky top-0 z-30">
-             <div class="relative"><app-admin-header :current-user="user" @updatePage="onUpdatePage"/></div>
+     <errors-and-messages :errors="errors"></errors-and-messages>
+    <app-admin-header :current-user="user" @updatePage="onUpdatePage"/>
             
-        </div>
+      
+    <div class="rvmp-container h-auto relative">
+    
           
     <div  class="">
       <div id="calendly-popup" class=""></div>

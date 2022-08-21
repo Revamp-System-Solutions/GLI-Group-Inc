@@ -33,9 +33,11 @@ class GuestController extends Controller
     }
     public function showPortfolioPage()
     {
+        $page = Page::where('slug','=', 'portfolio')->firstOrFail();
         return Inertia::render('Portfolio',[
-            "posts" => Portfolio::orderBy('title', 'ASC')->paginate(6)
-        ]);
+            "posts.portfolio" => Portfolio::orderBy('title', 'ASC')->paginate(6)
+        ])
+        ->with("page.data", $page);
     }
     public function showContactPage()
     {
@@ -61,6 +63,8 @@ class GuestController extends Controller
     }
     public function thankYou()
     {
-        return Inertia::render('Thankyou');
+        $page = Page::where('slug','=', 'thank-you')->firstOrFail();
+        return Inertia::render('Thankyou')
+        ->with("page.data", $page);
     }
 }

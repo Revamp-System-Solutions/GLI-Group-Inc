@@ -13,6 +13,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use App\Models\WebSetting;
 use App\Models\Media;
+use App\Models\Portfolio;
 use Auth;
 
 
@@ -42,7 +43,8 @@ class PagesController extends Controller
             ->with("auth.user", Auth::user()->only('name', 'email', 'roles'))
             ->with("page.data", $page)
             ->with("site_profile", WebSetting::where('attribute', '=', 'Site Profile')->get()->toArray())
-            ->with("socials", WebSetting::where('attribute', '=', 'Social Media links')->get());
+            ->with("socials", WebSetting::where('attribute', '=', 'Social Media links')->get())
+            ->with("posts.portfolio", Portfolio::orderBy('title', 'ASC')->paginate(6));
     }
     public function saveUpdatePage(Request $request, $slug)
     {
@@ -131,24 +133,28 @@ class PagesController extends Controller
                 $data =  $contact;
               break;
             case "book-free":
+            case "portfolio":
                 $this->validate($request, [
                     'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:1024',
                 ]);
                
                 $bf = $request->all();
               
-                $bf_img = $request->image !== NULL ? $this->saveImage(array("data"=>$request->image, "name"=>"Book free-Header Banner Image")): $request->img_url;
+                $bf_img = $request->image !== NULL ? $this->saveImage(array("data"=>$request->image, "name"=>"subpage-Header Banner Image")): $request->img_url;
                 $bf['img_url'] = $bf_img;
 
       
               
                 $data = Arr::except($bf,['image']);
                 break;
+            case "thank-you":
+                $data = $request->all();
+                break;
             default:
               echo "Your favorite color is neither red, blue, nor green!";
           }
   
-      
+    //   dd($data);
         $page->page_content = json_encode($data, JSON_FORCE_OBJECT);
         $page->update();
         $request->session()->flash('success', 'Page has been Updated|>><<|Page updated successfully!');
