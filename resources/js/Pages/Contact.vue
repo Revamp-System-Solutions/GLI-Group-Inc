@@ -88,8 +88,8 @@
            <div
       class="
         h-auto
-        2xl:px-64
-        xl:px-56
+        2xl:px-56
+        xl:px-48
         lg:px-28
         px-4
         py-4
