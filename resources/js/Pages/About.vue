@@ -17,7 +17,7 @@
                             <h2 class="ml-5 brand-text lg:text-3xl text-xl font-semibold"></h2>
                             <h2 class="ml-5 brand-logo-text text-3xl font-semibold">{{page_content.about_title.top}} <span class="brand-logo-text font-thin rvmp-brand-color-highlight">{{page_content.about_title.bottom}}</span></h2> 
                         </blockquote>
-                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3" v-html="page_content.about_caption"></p> 
+                        <p class="text-justify 2xl:text-lg text-sm brand-text font-light lg:pr-3" >{{page_content.about_caption}}</p> 
                     </div>            
                 </div>               
             </div>
