@@ -23,11 +23,20 @@
             </div>
             <div class="w-full z-30 lg:h-auto lg:overflow-auto overflow-hidden static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
                 <YouTube 
+                    
                     :src="page_content.video_url" 
                     
                     width="560"
                         height="314"
                     ref="youtube" />
+
+                 <!-- <YouTube 
+                   
+                    :src="page_content.video_url" 
+                    
+                    width="375"
+                    height="210"
+                    ref="youtube" /> -->
             </div>
         </div>
     </div>
@@ -115,7 +124,10 @@ import AppFooterContactForm from "../Partials/AppFooterContactForm";
 import ErrorsAndMessages from "../Partials/ErrorsAndMessages";
 import {usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import {computed, inject} from "vue";
+import {computed, inject, reactive, onMounted} from "vue";
+
+
+
 
 export default {
     name: "About",
@@ -134,6 +146,9 @@ export default {
         return{
             page_content
         }
+    },
+    mounted(){
+        
     }
    
 }
