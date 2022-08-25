@@ -21,7 +21,7 @@
                     </div>            
                 </div>               
             </div>
-            <div class="w-full z-30 lg:h-auto  static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
+            <div class="w-full z-30 lg:h-auto lg:overflow-auto overflow-hidden static flex flex-wrap content-center justify-center xl:mr-0 lg:-mr-12"  >
                 <YouTube 
                     :src="page_content.video_url" 
                     
