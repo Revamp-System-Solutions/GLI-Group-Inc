@@ -27,7 +27,7 @@
                                     <label for="categories" class="block text-sm font-medium text-gray-700">Category</label>
                                     <Listbox v-model="form.category" >
                                         <div class="relative">
-                                            <ListboxButton v-slot="{open}" class="flex items-center justify-between relative w-full mt-1 p-3  text-left  border border-gray-300 bg-white rounded-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-green-500 sm:text-sm">
+                                            <ListboxButton v-slot="{open}" class="flex items-center z-30 justify-between relative w-full mt-1 p-3  text-left  border border-gray-300 bg-white rounded-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-green-500 sm:text-sm">
                                                 <span class="block truncate">{{ categories[form.category] }}</span>
                                                 <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-gray-500 ', 'h-5 w-5 justify-self-end']" aria-hidden="true"></span>   
                                             </ListboxButton>

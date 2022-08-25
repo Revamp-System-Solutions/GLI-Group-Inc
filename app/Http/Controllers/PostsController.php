@@ -185,6 +185,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         $categories = Subcategories::whereCategoryId(5)->get()->pluck('name', 'id');
+        // dd($categories);
         return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
