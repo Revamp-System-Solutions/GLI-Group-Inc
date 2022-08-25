@@ -45,7 +45,7 @@
                         <template v-for="(tab, index) in page_data.tabList">
                             <Tab v-slot="{ selected }" :id="tab.tab_service_id" :tabindex="index"
                                 class="w-1/3 bg-cover bg-center"  :style="`background-image: url('${tab.image_url}')`">
-                                <button class="w-full rvmp-brand-bg-main h-52 border-l-2 border-r-2 rvmp-brand-border-accent transition ease-in duration-300"
+                                <button class="w-full rvmp-brand-bg-main h-52 border-l border-r rvmp-brand-border-accent transition ease-in duration-300"
                                         :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
                                         <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
                                         :class="[selected?'rvmp-brand-bg-darker':'']">
@@ -182,9 +182,9 @@
                                         <p class="text-left 2xl:pl-32 xl:pl-16 lg:pl-8">
                                             {{panel.desc}}
                                         </p>
-                                        <ul class="text-left grid grid-cols-2 gap-4">                                       
+                                        <ul class="text-left grid md:grid-cols-2 grid-cols-1 gap-4">                                       
                                             <template v-for="hl in panel.service_highlights">
-                                            <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex flex-row justify-start content-center space-x-4"><img class="w-10 h-10 bg-cover bg-center"  :src="hl.icon_url" /> <span class="self-center">{{hl.title}}</span></li>
+                                            <li class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent flex md:flex-row flex-col md:justify-start justify-center content-center md:space-x-4"><img class="w-10 h-10 bg-cover bg-center self-center"  :src="hl.icon_url" /><span class="self-center">{{hl.title}}</span></li>
                                             </template>
                                         </ul>
                                         <div class="space-x-5 flex lg:justify-start justify-center">
