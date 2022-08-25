@@ -2,11 +2,11 @@
 <errors-and-messages :errors="errors"></errors-and-messages>
 <div class="flex">
     <app-header-small :user="user" :menu-links="menuLinks" :menu-sub-links="menuSubLinks" />
-    <div class="flex flex-row">
+    <div class="flex flex-row w-full justify-center items-center">
         <div id="content-area" class="w-full  h-auto bg-gray-50">
-            <div class="h-screen">
+            <div class="h-screen flex flex-row w-full justify-center items-center">
                
-                    DASHBOARD HERE
+                    <h2 class="text-3xl font-bold">THIS PAGE IS UNDER CONSTRUCTION</h2>
             </div>
         </div>
     </div>
