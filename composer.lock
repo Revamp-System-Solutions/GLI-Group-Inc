@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e746d20c7d1756faf99edb716fc1b593",
+    "content-hash": "955867cca911fa39c199b4c39596b0b5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6042,6 +6042,113 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "webreinvent/laravel-cpanel",
+            "version": "1.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webreinvent/laravel-cpanel.git",
+                "reference": "4dc1c9e9ed64bbabaa2888f99472eb2ce4e7a075"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webreinvent/laravel-cpanel/zipball/4dc1c9e9ed64bbabaa2888f99472eb2ce4e7a075",
+                "reference": "4dc1c9e9ed64bbabaa2888f99472eb2ce4e7a075",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "WebReinvent\\CPanel\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WebReinvent",
+                    "email": "we@webreinvent.com"
+                }
+            ],
+            "description": "Laravel Package of CPanel API 2.0",
+            "homepage": "https://www.webreinvent.com",
+            "keywords": [
+                "CPanel API",
+                "cpanel",
+                "cpanel uapi",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/webreinvent/laravel-cpanel/issues",
+                "source": "https://github.com/webreinvent/laravel-cpanel/tree/v1.3.7"
+            },
+            "time": "2022-07-05T08:53:27+00:00"
+        },
+        {
+            "name": "zanysoft/cpanel-api",
+            "version": "v3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zanysoft/cpanel-api.git",
+                "reference": "dbca95abe9e1931c1f0ad8dfa07192082a76ca8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zanysoft/cpanel-api/zipball/dbca95abe9e1931c1f0ad8dfa07192082a76ca8d",
+                "reference": "dbca95abe9e1931c1f0ad8dfa07192082a76ca8d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0 |^7.0|^8.0|^9.0",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ZanySoft\\Cpanel\\CpanelServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cpanel": "ZanySoft\\Cpanel\\Facades\\Cpanel"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ZanySoft\\Cpanel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zany Soft",
+                    "email": "info@zanysoft.net"
+                }
+            ],
+            "description": "Cpanel's API",
+            "keywords": [
+                "CPanel API",
+                "cpanel",
+                "laravel",
+                "laravel9",
+                "whm"
+            ],
+            "support": {
+                "issues": "https://github.com/zanysoft/cpanel-api/issues",
+                "source": "https://github.com/zanysoft/cpanel-api/tree/v3.0"
+            },
+            "time": "2022-05-25T14:58:07+00:00"
         }
     ],
     "packages-dev": [

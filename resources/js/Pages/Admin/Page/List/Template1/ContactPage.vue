@@ -50,7 +50,7 @@
                   id="contact-lead-text-btn"
                   @click="target = null"
                 ></i>
-                <i
+                <!-- <i
                   class="
                     fas
                     fa-times
@@ -60,7 +60,7 @@
                   "
                   id="contact-lead-text-btn"
                   @click="target = null"
-                ></i>
+                ></i> -->
               </span>
               <textarea
                 v-model="pageSection.head_banner.text"
@@ -155,7 +155,7 @@
                   id="contact-follow-text-btn"
                   @click="target = null"
                 ></i>
-                <i
+                <!-- <i
                   class="
                     fas
                     fa-times
@@ -165,7 +165,7 @@
                   "
                   id="contact-follow-text-btn"
                   @click="target = null"
-                ></i>
+                ></i> -->
               </span>
               <textarea
                 v-model="pageSection.contact_form.title"
@@ -247,7 +247,7 @@
                   id="contact-follow-subtext-btn"
                   @click="target = null"
                 ></i>
-                <i
+                <!-- <i
                   class="
                     fas
                     fa-times
@@ -257,7 +257,7 @@
                   "
                   id="contact-follow-subtext-btn"
                   @click="target = null"
-                ></i>
+                ></i> -->
               </span>
               <textarea
                 v-model="pageSection.contact_form.caption"

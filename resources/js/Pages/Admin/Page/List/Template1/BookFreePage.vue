@@ -38,7 +38,7 @@
                   id="contact-follow-text-btn"
                   @click="target = null"
                 ></i>
-                <i
+                <!-- <i
                   class="
                     fas
                     fa-times
@@ -48,7 +48,7 @@
                   "
                   id="contact-follow-text-btn"
                   @click="target = null"
-                ></i>
+                ></i> -->
               </span>
                 
               <input type="text" class=" text-lg leading-6 mb-0 brand-text rvmp-footer-text capitalize font-semibold text-center" v-model="pageSection.contact_form.title.top" @keydown.enter.prevent="">

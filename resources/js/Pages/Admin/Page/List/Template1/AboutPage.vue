@@ -52,7 +52,7 @@
                   id="about-lead-text-btn"
                   @click="target = null"
                 ></i>
-                <i
+                <!-- <i
                   class="
                     fas
                     fa-times
@@ -62,7 +62,7 @@
                   "
                   id="about-lead-text-btn"
                   @click="target = null"
-                ></i>
+                ></i> -->
               </span>
               <textarea
                 v-model="pageSection.head_banner.text"
@@ -163,7 +163,7 @@
                         id="company-name-text1-btn"
                         @click="target = null"
                       ></i>
-                      <i
+                      <!-- <i
                         class="
                           fas
                           fa-times
@@ -173,7 +173,7 @@
                         "
                         id="company-name-text1-btn"
                         @click="target = null"
-                      ></i>
+                      ></i> -->
                     </span>
 
                     <textarea
@@ -277,7 +277,7 @@
                       id="lead-subtext-btn"
                       @click="target = null"
                     ></i>
-                    <i
+                    <!-- <i
                       class="
                         fas
                         fa-times
@@ -287,7 +287,7 @@
                       "
                       id="lead-subtext-btn"
                       @click="target = null"
-                    ></i>
+                    ></i> -->
                   </span>
                   <textarea
                     v-model="pageSection.about_caption"
@@ -379,7 +379,7 @@
                       id="lead-subtext-btn"
                       @click="target = null"
                     ></i>
-                    <i
+                    <!-- <i
                       class="
                         fas
                         fa-times
@@ -389,7 +389,7 @@
                       "
                       id="lead-subtext-btn"
                       @click="target = null"
-                    ></i>
+                    ></i> -->
                  </span>
             </div>
             <div class="z-20">
@@ -448,7 +448,7 @@
                           id="mid-text1-btn"
                           @click="target = null"
                         ></i>
-                        <i
+                        <!-- <i
                           class="
                             fas
                             fa-times
@@ -458,7 +458,7 @@
                           "
                           id="mid-text1-btn"
                           @click="target = null"
-                        ></i>
+                        ></i> -->
                       </span>
                       <textarea
                         v-model="pageSection.banner.top"
@@ -532,7 +532,7 @@
                       id="mid-text1-btn"
                       @click="target = null"
                     ></i>
-                    <i
+                    <!-- <i
                       class="
                         fas
                         fa-times
@@ -542,7 +542,7 @@
                       "
                       id="mid-text1-btn"
                       @click="target = null"
-                    ></i>
+                    ></i> -->
                   </span>
                 
                   <textarea
@@ -587,7 +587,7 @@
                 <div class="relative group mt-5 ">
                     <span class="absolute -top-4 -right-2 space-x-2">
                     <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
-                    <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
+                    <!-- <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>    -->
                 </span>
                 <textarea v-if="!targetChangeUrl" v-model="pageSection.banner.btn.text" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>
                 <textarea v-else v-model="pageSection.banner.btn.slug" class="static h-14 resize-none  border-gray-400 border-2 w-full font-light italic bg-gray-50"></textarea>

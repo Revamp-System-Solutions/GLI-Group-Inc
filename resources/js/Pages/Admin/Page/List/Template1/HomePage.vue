@@ -72,7 +72,7 @@
                                     <div class="relative group  ">
                                         <span class="absolute -top-6 -right-2 space-x-2">
                                         <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
-                                        <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
+                                        <!-- <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>    -->
                                     </span>
                                     <textarea v-if="!targetChangeUrl" v-model="pageSection.lead_banner.lead_btn1_text" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
                                     <textarea v-else v-model="pageSection.lead_banner.lead_btn1_slug" class="static h-14 resize-none border-dashed border-gray-400 border-2 w-full font-light italic bg-transparent"></textarea>
@@ -154,7 +154,7 @@
                                     <div class="relative box-border">
                                         <span class="absolute -top-6 -right-2 space-x-2">
                                             <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
-                                            <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
+                                            <!-- <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>    -->
                                         </span>
                                     
                                       
@@ -204,7 +204,7 @@
                                     <template v-if="target === panel.panel_id">
                                         <span class="absolute -top-6 -right-2 space-x-2">
                                             <i class="fas fa-check text-2xl text-blue-400 cursor-pointer  hover:text-blue-700" id="lead_btn1_save_btn" @click="target=null;targetChangeUrl=false"></i>
-                                            <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>   
+                                            <!-- <i class="fas fa-times text-2xl text-red-400 cursor-pointer  hover:text-red-700" id="lead_btn1_discard_btn" @click="target=null;targetChangeUrl=false"></i>    -->
                                         </span>
                                         <ul class="border-l-4 rvmp-brand-border-highlight text-left pl-2.5 lg:mt-0 mt-8  font-bold">
                                                 

@@ -35,7 +35,7 @@
                         id="about-lead-text-btn"
                         @click="target = null"
                         ></i>
-                        <i
+                        <!-- <i
                         class="
                             fas
                             fa-times
@@ -45,7 +45,7 @@
                         "
                         id="about-lead-text-btn"
                         @click="target = null"
-                        ></i>
+                        ></i> -->
                     </span>
                     <textarea
                         v-model="pageSection.head_banner.text"

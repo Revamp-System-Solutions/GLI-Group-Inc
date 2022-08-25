@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Collection;
+
 use Auth;
+use WebReinvent\CPanel\CPanel;
 
 class DashboardController extends Controller
 {   
@@ -24,6 +26,17 @@ class DashboardController extends Controller
 
     public function viewDashboard()
     {
+        $cpanel = new CPanel();
+        $response = $cpanel->callUAPI(
+            'StatsBar',
+            'get_stats',
+            array (
+                'display' => 'bandwidthusage|diskusage',
+            )
+        );
+      
+        // dd(json_encode($response["data"], JSON_PRETTY_PRINT));
+        dd($response["data"]->data);
         return Inertia::render('Admin/Dashboard')
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
