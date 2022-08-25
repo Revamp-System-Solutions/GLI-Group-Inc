@@ -145,7 +145,7 @@
                     <TabList :selectedIndex="0" class="flex w-full">
                         <template v-for="(tab, index) in pageSection.services.tabList">
                             <Tab v-slot="{ selected }" :id="tab.tab_service_id" :tabindex="index"
-                                class="w-1/3 bg-cover bg-center"  :style="`background-image: url(${tab.image_url})`">
+                                class="w-1/3 bg-cover bg-center"  :style="`background-image: url('${tab.image_url}')`">
                                 <button class="w-full rvmp-brand-bg-main h-52 border-l-2 border-r-2 rvmp-brand-border-accent transition ease-in duration-300"
                                         :class="[selected ? 'text-white bg-opacity-0' : 'text-black bg-opacity-40']">
                                         <div class="w-full transition ease-in duration-300 py-2.5 brand-logo-text"
@@ -187,7 +187,7 @@
                     <TabPanels>
                         <template v-for="(panel, index) in pageSection.services.tabPanels">
                             <TabPanel class="flex lg:flex-row flex-col h-auto text-center lg:m-12 lg:space-x-10">
-                                <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url(${panel.feature_image_url})`"  id="service-feat-image">
+                                <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url('${panel.feature_image_url}')`"  id="service-feat-image">
                                     <div class="w-full h-full bg-gray-400 bg-opacity-40 flex justify-center group hover:bg-opacity-75 items-center">
                                         
                                         <label :for="`panel-feat-image-${index}`" class="p-5 relative cursor-pointer bg-gray-100 rounded-full font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
