@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import {createApp, h} from 'vue';
+import {createApp, h, onMounted, reactive} from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress'
 import VueClickAway from "vue3-click-away";
@@ -11,6 +11,8 @@ import YouTube from 'vue3-youtube'
 
 InertiaProgress.init();
 require('@helpers');
+
+
 
 
 createInertiaApp({
