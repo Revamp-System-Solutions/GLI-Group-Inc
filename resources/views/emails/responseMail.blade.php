@@ -31,7 +31,7 @@
     <div class="flex flex-col items-center justify-center">
         <div class="w-2/5 border-2">
             <div class="bg-white shadow-2xl flex items-center justify-center" style="margin-bottom:50px;">
-                <img src="http://st.gligroupinc.com/images/brand-logo.png" width="50px" height="50px"
+                <img src="http://gligroupinc.com/images/brand-logo.png" width="50px" height="50px"
                     class="w-96 m-1"></img>
             </div>
             <div class="bg-gray-100">
@@ -49,9 +49,9 @@
 
                 <div class="m-auto flex" style="padding-left: 190px;">
                     <a href="https://www.linkedin.com/company/gli-group-inc" class="block h-auto w-10 m-1"><img
-                            src="http://st.gligroupinc.com/rvmp-content/rvmp-static/linkedin-brands.svg" />
+                            src="http://gligroupinc.com/rvmp-content/rvmp-static/linkedin-brands.svg" />
                         <a href="https://www.facebook.com/gligroupinc" class="block h-auto w-10 m-1"><img
-                                src="http://st.gligroupinc.com/rvmp-content/rvmp-static/square-facebook-brands.svg" />
+                                src="http://gligroupinc.com/rvmp-content/rvmp-static/square-facebook-brands.svg" />
                 </div>
             </div>
         </div>

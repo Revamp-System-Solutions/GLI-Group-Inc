@@ -27,3 +27,4 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/yvhur55dxu41/public_html/index.php on line 24
+[25-Aug-2022 06:04:05 UTC] PHP Fatal error:  Trait "Illuminate\Database\Eloquent\Factories\HasFactory" not found in /home/fdbtkp9v39d7/public_html/app/Models/WebSetting.php on line 7
