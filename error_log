@@ -27,3 +27,41 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/yvhur55dxu41/public_html/index.php on line 24
+[13-Jun-2022 10:35:28 UTC] PHP Fatal error:  Declaration of App\Exceptions\Handler::report(Exception $exception) must be compatible with Illuminate\Foundation\Exceptions\Handler::report(Throwable $e) in /home/fdbtkp9v39d7/public_html/app/Exceptions/Handler.php on line 37
+[13-Jun-2022 10:35:28 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "App\Exceptions\Handler" does not exist in /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:836
+Stack trace:
+#0 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(836): ReflectionClass->__construct()
+#1 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(717): Illuminate\Container\Container->build()
+#2 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve()
+#3 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(287): Illuminate\Foundation\Application->resolve()
+#4 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\Container\Container->Illuminate\Container\{closure}()
+#5 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(717): Illuminate\Container\Container->build()
+#6 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve()
+#7 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(655): Illuminate\Foundation\Application->resolve()
+#8 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make()
+#9 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(164): Illuminate\Foundation\Application->make()
+#10 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(108): Illuminate\Foundation\Bootstrap\HandleExceptions->getExceptionHandler()
+#11 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(94): Illuminate\Foundation\Bootstrap\HandleExceptions->renderForConsole()
+#12 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(130): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#13 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#14 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [App\Exceptions\Handler] does not exist. in /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:838
+Stack trace:
+#0 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(717): Illuminate\Container\Container->build()
+#1 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve()
+#2 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(287): Illuminate\Foundation\Application->resolve()
+#3 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(832): Illuminate\Container\Container->Illuminate\Container\{closure}()
+#4 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(717): Illuminate\Container\Container->build()
+#5 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve()
+#6 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(655): Illuminate\Foundation\Application->resolve()
+#7 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make()
+#8 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(164): Illuminate\Foundation\Application->make()
+#9 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(108): Illuminate\Foundation\Bootstrap\HandleExceptions->getExceptionHandler()
+#10 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(94): Illuminate\Foundation\Bootstrap\HandleExceptions->renderForConsole()
+#11 /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(130): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#12 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#13 {main}
+  thrown in /home/fdbtkp9v39d7/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 838
+[13-Jun-2022 10:35:38 UTC] PHP Fatal error:  Declaration of App\Exceptions\Handler::report(Exception $exception) must be compatible with Illuminate\Foundation\Exceptions\Handler::report(Throwable $e) in /home/fdbtkp9v39d7/public_html/app/Exceptions/Handler.php on line 37
+[13-Jun-2022 10:35:39 UTC] PHP Fatal error:  Declaration of App\Exceptions\Handler::report(Exception $exception) must be compatible with Illuminate\Foundation\Exceptions\Handler::report(Throwable $e) in /home/fdbtkp9v39d7/public_html/app/Exceptions/Handler.php on line 37
