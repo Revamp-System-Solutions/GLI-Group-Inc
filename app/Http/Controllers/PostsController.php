@@ -57,7 +57,7 @@ class PostsController extends Controller
     public function create()
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
-        $categories = Subcategories::where([['category_id','=',3],['name','=','Uncategorized']])->where('name',"!=", "Comments")->pluck('name', 'id');
+        $categories = Subcategories::where([['category_id','=',3],['name','!=','Uncategorized']])->where('name',"!=", "Comments")->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Blog/CreatePost', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
@@ -185,7 +185,7 @@ class PostsController extends Controller
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         
-        $categories = Subcategories::where([['category_id','=',5],['name','=','Uncategorized']])->get()->except('name','Uncategorized')->pluck('name', 'id');
+        $categories = Subcategories::where([['category_id','=',5],['name','!=','Uncategorized']])->get()->except('name','Uncategorized')->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Portfolio/CreatePortfolio', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
@@ -248,7 +248,7 @@ class PostsController extends Controller
     public function editPortfolio($slug)
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
-        $categories = Subcategories::where([['category_id','=',5],['name','=','Uncategorized']])->get()->pluck('name', 'id');
+        $categories = Subcategories::where([['category_id','=',5],['name','!=','Uncategorized']])->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Portfolio/EditPortfolio', [ 'post' => Portfolio::where('slug', $slug)->firstOrFail(),'categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) ? 'parentLinks':'subLinks' => $item];
@@ -336,7 +336,7 @@ class PostsController extends Controller
     public function createTestimonials()
     {
         $medias = Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
-        $categories = Subcategories::where([['category_id','=',4],['name','=','Uncategorized']])->get()->pluck('name', 'id');
+        $categories = Subcategories::where([['category_id','=',4],['name','!=','Uncategorized']])->get()->pluck('name', 'id');
         return Inertia::render('Admin/Posts/Testimonials/CreateTestimonials', ['categories' => $categories, "medias" => $medias])
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
@@ -388,7 +388,7 @@ class PostsController extends Controller
     public function editTestimonials($id)
     {
         $post = Testimonials::where('id', $id)->firstOrFail();
-        $subcat = Subcategories::where([['category_id','=',4],['name','=','Uncategorized']])->pluck('name', 'id');
+        $subcat = Subcategories::where([['category_id','=',4],['name','!=','Uncategorized']])->pluck('name', 'id');
         $media =  Media::where('type','=','CLIENT_FILE')->get()->pluck('image_url', 'media_name');
         return Inertia::render('Admin/Posts/Testimonials/EditTestimonials')
                         ->with('post', $post)
