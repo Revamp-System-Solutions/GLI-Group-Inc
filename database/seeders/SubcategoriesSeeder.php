@@ -37,7 +37,7 @@ class SubcategoriesSeeder extends Seeder
             ],
             [
                 'id'                => 4,
-                'name'              => 'Default',
+                'name'              => 'Uncategorized',
                 'description'       => 'DO NOT CHANGE OR DELETE',
                 'category_id'       => 5,
                 'permission'       => '-r'

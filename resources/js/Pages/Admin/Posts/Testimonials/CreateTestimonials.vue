@@ -23,7 +23,7 @@
                                                 <span class="fas " :class="[open ? 'fa-chevron-up rvmp-brand-color-main' : 'fa-chevron-down text-gray-500 ', 'h-5 w-5 justify-self-end']" aria-hidden="true"></span>   
                                             </ListboxButton>
                                             <transition leave-active-class="transition duration-100 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
-                                                <ListboxOptions class="absolute w-full py-2 mt-1 overflow-auto text-base bg-white rounded-md shadow-sm max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                <ListboxOptions class="absolute w-full z-30  py-2 mt-1 overflow-auto text-base bg-white rounded-md shadow-sm max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                     <ListboxOption v-for="(category, index) in categories" :key="category" :value="index">
                                                         <li :class="[index==form.category ? 'text-green-900 bg-green-100' : 'text-gray-900','cursor-default select-none relative py-2 pl-10 pr-4 flex flex-row',]">
                                                             <span :class="[index==form.category ? 'font-medium' : 'font-normal','block truncate',]">{{ category }}</span>              

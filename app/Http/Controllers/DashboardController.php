@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\FormResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -38,11 +39,11 @@ class DashboardController extends Controller
             unset($statistics[$item->id]->id);
         }
        
-      
         return Inertia::render('Admin/Dashboard')
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
+        ->with('frm_response', FormResponse::where('title','=','get-in-touch')->orderBy('created_at', 'ASC')->paginate(5))
         ->with('statistics', $statistics)
         ->with('auth.user', Auth::user()->only('name', 'email', 'roles'));
     }
