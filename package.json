@@ -36,6 +36,7 @@
         "@vue/compiler-sfc": "^3.0.11",
         "laravel-echo": "^1.11.3",
         "lightvue": "^1.4.9",
+        "moment": "^2.29.4",
         "pretty-bytes": "^6.0.0",
         "primevue": "^3.11.1",
         "pusher-js": "^7.0.4",

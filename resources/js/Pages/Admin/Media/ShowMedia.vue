@@ -35,7 +35,7 @@
                       <div class="flex flex-wrap -mx-4 -mb-8">
                         <div v-for="media in medias.data" :key="media.id" class="flex flex-col justify-center lg:w-1/4 m-w-1/4 px-4 mb-8">
                             <div class="bg-white rounded-sm shadow-md p-2">
-                                <div class="mb-2 text-center">{{media.media_name }}</div>
+                                <div class="mb-2 text-center"><p class="truncate">{{media.media_name }}</p></div>
                                 <img v-if="media.image_url" class="rounded object-contain h-48 w-full" :src="media.image_url" :alt="media.media_name">
                             </div>
                                 <!-- <inertia-link :href="$route('blog.edit', {id: media.id})" class="btn btn-primary pull-right action-btn" v-if="user" ><i class="fas fa-edit"></i> Edit Image</inertia-link> -->

@@ -32,21 +32,23 @@ class MediaController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $this->getValidate($request);
       if($request->type === "CLIENT_FILE"){
-            $media = new Media();
-
-            $media->media_name = $request->input('media_name');
-
+           
             if($request->file('image')) {
-                $media->image = $this->upload($request);
+                foreach($request->file('image') as $key => $file){
+                    $media = new Media();
+                    $media->media_name = $file->getClientOriginalName();
+                    $media->image = $this->upload($file);
+                
+                    $media->type = $request->type;
+                    // dd($media);
+                    $media->save();
+                }
             }
-            $media->type = $request->type;
-            $media->save();
             $request->session()->flash('success', 'Media upload successful!|>><<|Media has been stored in server');
         }
-
-     
 
         return redirect()->route('media.admin');
     }
@@ -67,8 +69,9 @@ class MediaController extends Controller
     private function getValidate(Request $request, $id = null): void
     {
         $data = [
-            'media_name' => 'required',
-            'image' => 'required',
+            // 'media_name' => 'required',
+            'image' => 'required|array',
+            'image.*' => 'image|mimes:jpeg,png,jpg,svg|max:1024'
         ];
 
         $this->validate($request, $data);
@@ -76,7 +79,7 @@ class MediaController extends Controller
 
     private function upload($request)
     {
-        $image = $request->file('image');
+        $image = $request;
 
         $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
         $image_path = 'rvmp-content/rvmp-uploads';

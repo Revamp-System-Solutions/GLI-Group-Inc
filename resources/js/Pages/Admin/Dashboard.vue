@@ -72,10 +72,11 @@
                     </span>
                </div>
                 <div class="w-full h-auto px-8"> 
-                    <template v-if="frm_response.data.length > 0">
+                  
                     <div class="w-full h-auto mx-auto flex flex-col justify-center items-center"> 
                         <div class="w-2/3"><span class="text-left"><h2 class="text-xl font-semibold uppercase my-2">Contact Form Responses</h2></span></div>
-                    <table class="w-2/3 divide-y divide-gray-200 shadow-lg rounded-md">
+                   <template v-if="frm_response.data.length > 0">
+                 <table class="w-2/3 divide-y divide-gray-200 shadow-lg rounded-md">
                     <thead class="bg-gray-400 ">
                         
                         <tr class="">
@@ -181,6 +182,7 @@
                         </tr>
                     </tbody> -->
                     </table>
+                    
                      <nav aria-label="Page navigation" v-if="frm_response.total > frm_response.per_page" style="margin-top: 20px" class="w-1/5 mx-auto">
                         <ul class="pagination  flex flex-row justify-between">
                             <!-- Previous link -->
@@ -199,11 +201,13 @@
                             </li>
                         </ul>
                     </nav>
-                    </div>
                     </template>
                      <div class="text-center mt-4" v-else>
-                        No Responses found! <span  class="ml-4 inline-block border py-1 px-3 rounded border-green-700 text-green-700 text-base font-normal hover:bg-green-700 hover:text-white" @click="upload()"><i class="fas fa-upload"></i> Add New</span>
+                        No Responses Yet!
                     </div>
+                    </div>
+                    
+                    
                 </div>  
                 <!-- <div class="w-full h-96 bg-gray-300">3</div> -->
             </div>
