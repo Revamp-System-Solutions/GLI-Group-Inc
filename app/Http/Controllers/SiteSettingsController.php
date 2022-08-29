@@ -130,10 +130,10 @@ class SiteSettingsController extends Controller
                 
             $media = Media::where('media_name',$request->media_name)->firstOrFail();
             if($request->file('image')) {
-                $media->image = $this->upload($request);
+                $media->image = $this->upload($request, $media->image);
             }
 
-            $media->save();
+            // $media->save();
         
 
             $request->session()->flash('success', $media->media_name.' Update successful!|>><<|Refresh the site to view the changes');
@@ -172,15 +172,19 @@ class SiteSettingsController extends Controller
         $this->validate($request, $data);
     }
 
-    private function upload($request)
+    private function upload($request, $name)
     {
+        // dd($name);
         $image = $request->file('image');
 
-        $imageName = md5(uniqid()) . "." . $image->getClientOriginalExtension();
+        $imageName = $name;
         $image_path = public_path( $request->type == 'RVMP_CLIENT_FILE' ? 'rvmp-content/rvmp-static': 'rvmp-content/rvmp-uploads');
         if($request->type == 'RVMP_CLIENT_FILE'){
             $tmp = Media::where('media_name', $request->media_name)->firstOrFail();
-            unlink($image_path.'/'. $tmp->image);
+            if (file_exists($image_path.'/'. $tmp->image)) {
+                unlink($image_path.'/'. $tmp->image);
+            }     
+           
         }
         $image->move($image_path, $imageName);
        return $imageName;
