@@ -355,6 +355,7 @@ export default {
             });
         }
         function submitBrandImg() {
+          
             Inertia.post(route('settings.branding.change'), newBrandImage, {
                   forceFormData: true,
                   preserveState:true,
@@ -454,7 +455,7 @@ export default {
             },
             setNewBrandImage(value){
               newBrandImage.media_name = value.media_name;
-              newBrandImage.image = value.image;
+              newBrandImage.image = value.image[0];
               newBrandImage.type = value.type;
               submitBrandImg()
             },

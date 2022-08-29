@@ -122,13 +122,13 @@ class SiteSettingsController extends Controller
         $request->session()->flash('success', $request->alias.' has been updated!|>><<|Refresh the site to view the changes');
         return back();
     }
-    public function updateBrandImg(Request $request, $mn)
+    public function updateBrandImg(Request $request)
     {
-  
+        // dd($request);
         $this->getValidate($request);
         if($request->type === "RVMP_CLIENT_FILE"){
                 
-            $media = Media::where('media_name',$mn)->firstOrFail();
+            $media = Media::where('media_name',$request->media_name)->firstOrFail();
             if($request->file('image')) {
                 $media->image = $this->upload($request);
             }
@@ -138,7 +138,7 @@ class SiteSettingsController extends Controller
 
             $request->session()->flash('success', $media->media_name.' Update successful!|>><<|Refresh the site to view the changes');
         }
-        return redirect()->route('settings.branding');
+        return redirect()->route('settings.admin');
     }
     public function updateGeneralSettings(Request $request)
     {
