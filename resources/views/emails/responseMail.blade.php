@@ -31,7 +31,7 @@
     <div class="flex flex-col items-center justify-center">
         <div class="w-2/5 border-2">
             <div class="bg-white shadow-2xl flex items-center justify-center" style="margin-bottom:50px;">
-                <img src="http://gligroupinc.com/images/brand-logo.png" width="50px" height="50px"
+                <img src="http://gligroupinc.com/rvmp-content/rvmp-static/brand-logo.png" width="50px" height="50px"
                     class="w-96 m-1"></img>
             </div>
             <div class="bg-gray-100">

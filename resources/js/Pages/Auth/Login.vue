@@ -6,7 +6,7 @@
         </div>
         <div class="xl:col-span-2 col-span-1 w-full grid grid-cols-1 gap-0 place-content-center mx-auto">
             <div class="flex flex-col my-16 pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-               <img class="mx-auto h-44 w-auto" src="/images/brand-logo.png" alt="Workflow" />
+               <img class="mx-auto h-44 w-auto" src="/rvmp-content/rvmp-static/brand-logo.png" alt="Workflow" />
                 <form class="mt-8 space-y-6" action="#" method="POST" @submit.prevent="submit"> 
                         <input type="hidden" name="remember" value="true" />
                         <div class="rounded-md shadow-sm -space-y-px">

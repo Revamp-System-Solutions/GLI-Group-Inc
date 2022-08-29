@@ -2,7 +2,7 @@
     <nav id="appheader" class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t transition-height duration-500 ease-in-out rvmp-bg-main  shadow-lg">
 		<div id="logo-container" class="flex items-center flex-no-shrink transition duration-500 ease-in-out text-black lg:ml-6">
 			<a id="logo-link" class="lg:flex lg:items-center text-black no-underline hover:no-underline transition duration-500 ease-in-out" href="#">
-				<img src="/images/brand-logo-no-text.png" class="mx-auto w-12 lg:inline block transition duration-500 ease-in-out">
+				<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="mx-auto w-12 lg:inline block transition duration-500 ease-in-out">
 				<span class="mx-3 w-full text-center lg:text-2xl text-base uppercase">
 					<span class="font-semibold brand-logo-text">GLI </span><span class="rvmp-brand-color-main font-light brand-logo-text">Group Inc.</span>
 				</span>

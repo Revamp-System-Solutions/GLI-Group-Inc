@@ -10,7 +10,7 @@
                 <div class="lg:col-span-2 col-span-1 flex flex-col">
                     <span class="text-center mb-3"
                         ><img
-                            src="/images/brand-logo-no-text.png"
+                            src="/rvmp-content/rvmp-static/brand-logo-no-text.png"
                             class="mx-auto lg:w-24 w-16"
                     /></span>
                     <p

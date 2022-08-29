@@ -2,7 +2,7 @@
     <div class="h-screen flex flex-row  sticky top-0">
         <div class="flex flex-col w-56 bg-white overflow-hidden sticky shadow-md">
             <div class="flex items-center justify-center h-20 shadow-md py-2">
-                <img class="h-16 w-16" src="/images/brand-logo.png">
+                <img class="h-16 w-16" src="/rvmp-content/rvmp-static/brand-logo.png">
             </div>
             <ul class="flex flex-col py-4 bg-gray-300 h-full">
             <li v-for="link in menuLinks" :key="link.title">
