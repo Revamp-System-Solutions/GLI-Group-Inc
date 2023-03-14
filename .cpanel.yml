@@ -1,0 +1,5 @@
+---
+deployment:
+tasks:
+- export DEPLOYPATH=/home/z1fr6p2yda6v/public_html/
+- /bin/cp -R GLI-Group-Inc $DEPLOYPATH
