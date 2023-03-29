@@ -646,7 +646,7 @@
               group-hover:rvmp-brand-color-main
               rvmp-footer-text
             "
-            ><span class="font-thin">GLI Group Inc.</span></span
+            ><span class="font-thin">Revamp System Solutions.</span></span
           ></a>
 
         <a

@@ -28,7 +28,7 @@ class FormResponseController extends Controller
 
         $formResponse->save();
         Mail::to($request->email)->send(new NotifyMail());
-        // Mail::to('forms_response@gligroupinc.com')->send(new NotifyMail());
+        // Mail::to('forms_response@rvmpsolutions.net')->send(new NotifyMail());
         if (Mail::failures()) {            
             return response()->json(['errors' => 'Failed to Sumbit Response! Try Again!']);
             // return response()->Fail('Sorry! Please try again latter');

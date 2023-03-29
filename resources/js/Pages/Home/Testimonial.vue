@@ -1,5 +1,5 @@
 <template>
-  <div id="rvmp-testimonials-section-1" v-if="posts.length>0">
+  <div id="rvmp-testimonials-section-1" class="bg-red-900" v-if="posts.length>0">
             <div class="uppercase text-center" id="rvmp-testimonial-heading">
                 <span class="border-b-4 rvmp-brand-border-highlight text-xl font-bold pb-2.5">Our Client's Testimonial</span>
             </div>

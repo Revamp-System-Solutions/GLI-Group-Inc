@@ -24,7 +24,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
          
-            return redirect()->intended('/gli-admin/dashboard');
+            return redirect()->intended('/rvmp-admin/dashboard');
         }
 
         return back()->withErrors([

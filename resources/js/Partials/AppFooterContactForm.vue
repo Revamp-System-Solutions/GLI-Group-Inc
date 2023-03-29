@@ -171,10 +171,10 @@
                             <i
                                 class="fas fa-envelope pr-4 rvmp-brand-color-main self-center 2xl:text-2xl xl:text-xl text-lg text-left"
                             ></i>
-                            <a href="mailto:support@gligroupinc.com"
+                            <a href="mailto:support@rvmpsolutions.net"
                                 class="brand-text rvmp-brand-color-main 2xl:text-sm text-xs text-left font-light"
                             >
-                                support@gligroupinc.com
+                                support@rvmpsolutions.net
                             </a>
                         </div>
                     </div>

@@ -36,7 +36,7 @@
             </div>
             <div class="bg-gray-100">
                 <h1 class="text-black m-6 text-2xl font-bold antialiased ">Thank you for getting in touch with us!</h1>
-                <p class="m-6">We appreciate you contacting GLI Group Inc. One of our Professionals will get back in
+                <p class="m-6">We appreciate you contacting Revamp System Solutions. One of our Professionals will get back in
                     touch with you soon! Have a great day!</p>
                 <a href="" class="m-6 text-green-800 font-semibold underline">Click here to Subscribe</a>
                 <br><br><br><br><br>

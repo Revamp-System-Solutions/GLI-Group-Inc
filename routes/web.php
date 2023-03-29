@@ -42,9 +42,9 @@ Route::name('guest.')->group(function () {
 // Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::redirect('gli-admin', 'gli-admin/dashboard');
+Route::redirect('rvmp-admin', 'rvmp-admin/dashboard');
 
-Route::prefix('gli-admin')->group(function () {
+Route::prefix('rvmp-admin')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm')->middleware('guest');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

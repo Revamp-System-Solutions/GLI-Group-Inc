@@ -76,6 +76,14 @@
             --tw-border-opacity: 1;
             border-color: rgba(var(--rvmp-brand-color-four), var(--tw-border-opacity));
         }
+        .rvmp-header-bg{
+            --tw-bg-opacity: 1;
+            background-color: rgba(var(--rvmp-header-bg), var(--tw-bg-opacity));
+        }
+        .rvmp-header-text{
+            --tw-text-opacity: 1;
+            color: rgba(var(--rvmp-header-text), var(--tw-text-opacity));
+        }
         .rvmp-footer-bg{
             --tw-bg-opacity: 1;
             background-color: rgba(var(--rvmp-footer-bg), var(--tw-bg-opacity));

@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" id="rvmp-lead-image" style="background-image: url('/images/pages/section-1.jpg')" >&nbsp;</div>
+                <div class="lg:w-4/6 w-full lg:h-auto h-96 static bg-origin-border bg-cover bg-no-repeat bg-center bg-local" id="rvmp-lead-image" :style="bgString" >&nbsp;</div>
             </div>
         </div>
 </template>
@@ -33,7 +33,7 @@ export default {
     props: ['leadBannerData'],
     setup(props, {}) {
         const page_data = props.leadBannerData
-
+        console.log(page_data)
         return{
             page_data
         }

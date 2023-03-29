@@ -3,7 +3,7 @@
     <app-admin-header :current-user="user" @updatePage="onUpdatePage"/>
     
     
-    <div class="w-full h-auto relative">
+    <div class="w-full h-auto relative rvmp-bg-alt rvmp-text-main">
      <div class="py-8 px-8 w-full ">
 	
 	</div>
@@ -11,7 +11,7 @@
     <div class="w-full static">
 	<app-header /><!-- CHANGE/MAKE ADMIN VIEW -->
 	</div>
-    <div class="rvmp-container h-full space-y-6 mb-8 ">
+    <div class="rvmp-container h-full space-y-6 mb-8 rvmp-bg-alt">
         <!-- rvmp-lead-section -->
         <div class="h-auto 2xl:px-40 xl:px-16 lg:px-8" id="rvmp-lead-section-1">
             <div class="flex lg:flex-row flex-col-reverse h-auto z-0 relative">

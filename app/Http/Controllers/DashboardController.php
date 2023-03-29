@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
 use Auth;
-use WebReinvent\CPanel\CPanel;
+
 
 class DashboardController extends Controller
 {   
@@ -27,24 +27,13 @@ class DashboardController extends Controller
 
     public function viewDashboard()
     {
-        $cpanel = new CPanel();
-        $response = $cpanel->callUAPI(
-            'ResourceUsage',
-            'get_usages'
-        );
-        $statistics =array();
-        foreach($response["data"]->data as $key => $item){
-          
-            $statistics[$item->id] = $item;
-            unset($statistics[$item->id]->id);
-        }
+      
        
         return Inertia::render('Admin/Dashboard')
         ->with('page_links', collect(Cache::get('admin_page_links'))->mapToGroups(function($item, $key){
             return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
         }))
-        ->with('frm_response', FormResponse::where('title','=','get-in-touch')->orderBy('created_at', 'ASC')->paginate(5))
-        ->with('statistics', $statistics)
+       
         ->with('auth.user', Auth::user()->only('name', 'email', 'roles'));
     }
 

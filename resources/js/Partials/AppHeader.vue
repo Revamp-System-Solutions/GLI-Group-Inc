@@ -1,10 +1,10 @@
 <template>
-    <nav id="appheader" class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t transition-height duration-500 ease-in-out rvmp-bg-main  shadow-lg">
-		<div id="logo-container" class="flex items-center flex-no-shrink transition duration-500 ease-in-out text-black lg:ml-6">
-			<a id="logo-link" class="lg:flex lg:items-center text-black no-underline hover:no-underline transition duration-500 ease-in-out" href="#">
+    <nav id="appheader" class="sticky top-0 flex items-center justify-between flex-wrap py-6 px-8 w-full z-20 pin-t transition-height duration-500 ease-in-out rvmp-header-bg  shadow-lg">
+		<div id="logo-container" class="flex items-center flex-no-shrink transition duration-500 ease-in-out rvmp-header-text lg:ml-6">
+			<a id="logo-link" class="lg:flex lg:items-center rvmp-header-text no-underline hover:no-underline transition duration-500 ease-in-out" href="#">
 				<img src="/rvmp-content/rvmp-static/brand-logo-no-text.png" class="mx-auto w-12 lg:inline block transition duration-500 ease-in-out">
 				<span class="mx-3 w-full text-center lg:text-2xl text-base uppercase">
-					<span class="font-semibold brand-logo-text">GLI </span><span class="rvmp-brand-color-main font-light brand-logo-text">Group Inc.</span>
+					<span class="rvmp-brand-color-main font-semibold brand-logo-text">Revamp</span> <span class="font-semibold brand-logo-text"> System Solutions</span>
 				</span>
 			</a>
 		</div>
@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto  pt-6 lg:pt-0" :class="{'hidden': !menuOpen, 'block': menuOpen}"  id="nav-content" >
-			<ul class="brand-text font-bold list-reset lg:flex justify-end flex-1 items-center uppercase">
+			<ul class="brand-text font-bold list-reset lg:flex justify-end flex-1 items-center uppercase rvmp-header-text">
 				<li class="lg:mx-6 mx-0">
 					 <inertia-link :href="$route('guest.index') " class="nav-link hover:rvmp-brand-color-main">Home</inertia-link>
 				</li>

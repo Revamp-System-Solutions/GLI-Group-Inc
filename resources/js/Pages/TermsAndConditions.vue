@@ -17,7 +17,7 @@
                                 <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">SECTION 1 – AGREEMENT TO TERMS</h2> 
                             </div>               
                             <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text space-y-2">
-                            <span class="block">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and GLI Group Inc. ("Company," “we," “us," or “our”), concerning your access to and use of the <a href="www.gligroupinc.com">GLI Group Inc.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span>
+                            <span class="block">These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Revamp System Solutions. ("Company," “we," “us," or “our”), concerning your access to and use of the <a href="www.gligroupinc.com">Revamp System Solutions.</a> website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). We are registered in the Philippines and have our registered office at Unit 3, Uypitching Building, Km. 8 Jose Romero Road, Valencia, Negros Oriental 6215. You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Use. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.</span>
                             <span class="block"> Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Use at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms of Use, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your continued use of the Site after the date such revised Terms of Use are posted.</span>
                             <span class="block">The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</span>
                             <span class="block">All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.</span>
@@ -161,13 +161,13 @@
                             <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">SECTION 14 – GOVERNING LAW </h2> 
                         </div>               
                         <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text ">
-                            <span class="block">These Terms shall be governed by and defined following the laws of the Philippines. GLI Group Inc. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span> 
+                            <span class="block">These Terms shall be governed by and defined following the laws of the Philippines. Revamp System Solutions. and yourself irrevocably consent that the courts of the Philippines shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</span> 
                         </p>
                         <div class="col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center">
                             <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">SECTION 15 – DISPUTE RESOLUTION</h2> 
                         </div>               
                         <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text ">
-                            <span class="block">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. GLI Group Inc. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span> 
+                            <span class="block">You agree to irrevocably submit all disputes related to Terms or the relationship established by this Agreement to the jurisdiction of the __________ courts. Revamp System Solutions. shall also maintain the right to bring proceedings as to the substance of the matter in the courts of the country where you reside or, if these Terms are entered into in the course of your trade or profession, the state of your principal place of business.</span> 
                         </p>
                         <div class="col-span-1 h-full lg:text-3xl text-lg uppercase lg:text-left text-center">
                             <h2 class="brand-text text-gray-600 font-semibold lg:block inline-block lg:mr-0 mr-2">SECTION 16 – CORRECTIONS</h2> 
@@ -217,13 +217,13 @@
                         <p class="col-span-1 font-light text-gray-500 text-justify lg:text-sm text-xs brand-text ">
                             <span class="block">In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</span> 
                              <ul class="block list-none text-gray-500 text-justify lg:text-sm text-xs brand-text ">
-                                <li>GLI Group Inc</li>
+                                <li>Revamp System Solutions</li>
                                 <li>Unit 3, Uypitching Building</li>
                                 <li>Km. 8 Jose Romero Road</li>
                                 <li>Valencia, Negros Oriental 6215</li>
                                 <li>Philippines</li>
                                 <li>Phone:  (035) 400 3610</li>
-                                <li><a href="mailto:support@gligroupinc.com" class="rvmp-brand-color-main font-bold">support@gligroupinc.com</a></li>
+                                <li><a href="mailto:support@rvmpsolutions.net" class="rvmp-brand-color-main font-bold">support@rvmpsolutions.net</a></li>
                             </ul>
                         </p>
                     </div>                    

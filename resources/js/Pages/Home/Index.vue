@@ -1,13 +1,15 @@
 <template>
+    <div class="rvmp-bg-alt">
     <errors-and-messages :errors="errors"></errors-and-messages>
     <app-header></app-header>
-    <div class="rvmp-container h-full space-y-6 mb-8">
+    <div class="rvmp-container h-full space-y-6 mb-8 rvmp-bg-alt rvmp-text-main">
 
         <lead-banner :lead-banner-data="page_content.lead_banner"/>
         <services :url="$page.url" :services-data="page_content.services"/>
         <testimonial :carousel-settings="settings" :carousel-breakpoints="breakpoints" :carousel-testimonials="posts"/>
     </div>
     <app-footer-default/>
+    </div>
 </template>
 
 <script>

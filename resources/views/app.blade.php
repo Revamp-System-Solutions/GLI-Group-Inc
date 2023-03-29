@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GLI Group Inc.</title>
+    <title>Revamp System Solutions.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="s8xPBmMBBFf4mTFGFKnd_xsoiJ1LGEsn4fpSsRqZrVw" />
