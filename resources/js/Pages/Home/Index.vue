@@ -59,13 +59,19 @@ export default {
             Type: Object,
             default: null
         },
+  
    },
     setup() {
+      
+		
         const pdata = computed(() => usePage().props.value.page.data);
         const page_content = JSON.parse(pdata.value.page_content)
-        // console.log(page_content)
+        
+        
+       
          const posts = computed(() => usePage().props.value.posts);
 		return {
+            
             page_content,
             posts,
 			// carousel settings

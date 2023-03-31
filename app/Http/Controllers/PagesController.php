@@ -40,6 +40,9 @@ class PagesController extends Controller
         $page = Page::where('slug', $slug)->firstOrFail();
         $render_dir = 'Admin/Page/List/Template1/'.$page->render;
         return Inertia::render($render_dir)
+            ->with('page_links', collect(Cache::get('guest_page_links'))->mapToGroups(function($item, $key){
+                return [boolval($item['is_parent']) && boolval($item['is_active']) ? 'parentLinks':'subLinks' => $item];
+            }))
             ->with("auth.user", Auth::user()->only('name', 'email', 'roles'))
             ->with("page.data", $page)
             ->with("site_profile", WebSetting::where('attribute', '=', 'Site Profile')->get()->toArray())

@@ -161,7 +161,7 @@
                                 <div class="lg:w-1/2 w-full h-96 lg:block hidden bg-cover bg-no-repeat bg-center bg-local" :style="`background-image: url('${panel.feature_image_url}')`"  id="service-feat-image">
                                                  
                                 </div>
-                                <div class="lg:w-1/2 w-full h-auto lg:space-y-10 space-y-5 lg:px-0 px-8 relative">
+                                <div class="lg:w-1/2 w-full h-auto lg:space-y-10 space-y-5 lg:px-4 lg:py-4 px-8 relative bg-gray-300 bg-opacity-60">
                                    
                               
                                                 

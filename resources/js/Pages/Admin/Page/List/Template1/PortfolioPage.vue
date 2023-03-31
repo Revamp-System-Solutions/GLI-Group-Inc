@@ -208,7 +208,7 @@
     </Dialog>
   </TransitionRoot>
 
-    <app-footer-default/>
+  <app-footer-contact-form />
     </div>
 </template>
 
@@ -216,7 +216,7 @@
 
 import AppHeader from "./../../../../../Partials/AppHeader";
 import AppAdminHeader from "./../../../../../Partials/AppAdminHeader";
-import AppFooterDefault from "./../../../../../Partials/AppFooterDefault";
+import AppFooterContactForm from "./../../../../../Partials/AppFooterContactForm";
 import ErrorsAndMessages from "./../../../../../Partials/ErrorsAndMessages";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
@@ -235,7 +235,7 @@ export default {
     ErrorsAndMessages,
     AppHeader,
     AppAdminHeader,
-    AppFooterDefault,
+    AppFooterContactForm,
       TransitionRoot,
         TransitionChild,
         Dialog,
