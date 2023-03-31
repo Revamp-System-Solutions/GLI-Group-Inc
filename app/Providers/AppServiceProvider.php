@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
                 'name' => config('app.name'),
             ],
             'gli_guest_tools' => [
-                // 'maps' => \App\Models\WebSetting::where('short_name','gmap_api')->get(['short_name', 'value']),
+                'maps' => \App\Models\WebSetting::where('short_name','gmap_api')->get(['short_name', 'value']),
                 'meta' => \App\Models\WebSetting::where('short_name','meta_pltf')->get(['short_name', 'value'])
             ],
 
